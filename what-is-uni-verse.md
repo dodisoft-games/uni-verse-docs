@@ -1,3 +1,9 @@
+---
+layout: page
+title: What is Uni-verse?
+nav_order: 1
+---
+
 # What is Uni-verse?
 
 Uni-verse is your online platform and game creation system, giving you the tools to design and create your own games, or play the ones that are crafted by others. With a variety of features, Uni-verse lets you develop your games using a scripting programming language very similar to C#.
