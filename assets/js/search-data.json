@@ -84,152 +84,166 @@
     "relUrl": "/working-in-universe-studio/"
   },"12": {
     "doc": "Inspector",
+    "title": "The Inspector component",
+    "content": "The Inspector component is a context aware tool that provides information about the currently selected component in the Project or the Scene component. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html#the-inspector-component",
+    
+    "relUrl": "/working-in-universe-studio/uni-verse-interface/inspector.html#the-inspector-component"
+  },"13": {
+    "doc": "Inspector",
     "title": "Inspector",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/inspector.html"
-  },"13": {
+  },"14": {
     "doc": "Installing Uni-verse Studio",
     "title": "Installing Uni-verse Studio",
     "content": "Uni-verse Studio is the application to create the games of your dreams in Uni-verse. ",
     "url": "/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html",
     
     "relUrl": "/working-in-universe-studio/installing-uni-verse-studio.html"
-  },"14": {
+  },"15": {
     "doc": "Installing Uni-verse Studio",
     "title": "System Requirements",
     "content": "For Uni-verse Studio to function smoothly, make sure your system meets these specifications: . | Windows (64-bit) – Windows 7, 8, 8.1, 10, or 11. | Mac – macOS 10.13 (High Sierra) and above. | Processor – Processor with a clock speed of 1.6 GHz or better. | RAM – 4 GB of system memory. | Hard Disk – At least 10 GB of available hard disk space after installation. | Graphics Card – A computer less than 5 years old with a dedicated video card or a laptop less than 3 years old with an integrated video card. | Internet Access – At least 4-8 MB/s to keep Studio up-to-date and save projects to your Roblox account. | . To install Uni-verse Studio: . | Go to create.universe.com. | Click the MAKE GAMES button to download the installer. | Find the Uni-verse Studio installer in your browser’s download history and double-click the file (it’s UniverseStudio.exe for Windows and UniverseStudio.dmg for Mac) . | After installing see Uni-verse Interface to start creating your games. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html#system-requirements",
     
     "relUrl": "/working-in-universe-studio/installing-uni-verse-studio.html#system-requirements"
-  },"15": {
+  },"16": {
+    "doc": "Project",
+    "title": "The Project component",
+    "content": "The Project component displays a list of all files, folders, and game assets that are available to you to make your game. Different types of files are represented by different icons to give you a visual hint. If you have a very ambitious project and it becomes really hard to find what you are looking for, you can always use the search bar on the bottom right corner to quickly access your files. You can also toggle the “Search Bundles” option to search for the file in your downloaded bundles from the Asset Store . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html#the-project-component",
+    
+    "relUrl": "/working-in-universe-studio/uni-verse-interface/project.html#the-project-component"
+  },"17": {
     "doc": "Project",
     "title": "Project",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/project.html"
-  },"16": {
+  },"18": {
     "doc": "Publishing",
     "title": "Publishing",
     "content": " ",
     "url": "/uni-verse-docs/publishing.html",
     
     "relUrl": "/publishing.html"
-  },"17": {
+  },"19": {
     "doc": "Quickstart Guide",
     "title": "Quickstart Guide",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html",
     
     "relUrl": "/working-in-universe-studio/quickstart-guide.html"
-  },"18": {
+  },"20": {
     "doc": "Scene",
     "title": "The Scene component",
     "content": "The Scene component is a visual reprentation of your hierarchy, a window to your game where you modify and re-arrange your objects. In order to move, rotate or resize your objects, either select them in your Hierarchy component or simply click on them in the Scene component, and click and drag the handles that appear on your object. Alternatively you can modify the position, rotation and scale values within the Inspector component when your object is selected. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html#the-scene-component",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/scene.html#the-scene-component"
-  },"19": {
+  },"21": {
     "doc": "Scene",
     "title": "Scene",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/scene.html"
-  },"20": {
+  },"22": {
     "doc": "Settings",
     "title": "Settings",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/settings.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/settings.html"
-  },"21": {
+  },"23": {
     "doc": "Terrain",
     "title": "Terrain",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/terrain.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/terrain.html"
-  },"22": {
+  },"24": {
     "doc": "Toolbar",
     "title": "The Toolbar",
     "content": "The toolbar is the first thing you see at the top of your window when you start your editor. It contains the controls to start/stop/pause playing your game and a few menus to interact with your project. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#the-toolbar",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#the-toolbar"
-  },"23": {
+  },"25": {
     "doc": "Toolbar",
     "title": "Play/Stop/Pause buttons",
     "content": "Press the play button to start playing your game within the editor, and press the stop button to stop playing. If you would like to inspect a frame or your code when something specific happens, press the pause button to temporarily pause your game. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#playstoppause-buttons",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#playstoppause-buttons"
-  },"24": {
+  },"26": {
     "doc": "Toolbar",
     "title": "Project menu",
     "content": "This menu includes controls for the following actions: . | Open: Opens another project. | Add new: Creates a new folder or a script file | Save file: Saves the current script file or the scene. | Save all: Saves all modified files and scenes. | Close: Closes the current projects. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#project-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#project-menu"
-  },"25": {
+  },"27": {
     "doc": "Toolbar",
     "title": "Edit menu",
     "content": "This menu includes controls for the following actions: . | Auto save: Saves all modified files when a change is detected. | Zoom: Increases/decreases the size of the UI elements in the editor. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#edit-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#edit-menu"
-  },"26": {
+  },"28": {
     "doc": "Toolbar",
     "title": "Build menu",
     "content": "This menu includes controls for the following actions: . | Build: Compiles all script files into machine code to play your game. Uni-verse Editor does that automatically for you but if you want to force a compile yourself, you can use this button. | Play: Starts playing your game. | Stop: Stops playing your game. | Pause/stop: Pauses your game. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#build-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#build-menu"
-  },"27": {
+  },"29": {
     "doc": "Toolbar",
     "title": "Tests menu",
     "content": ". | Bundle creation: | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#tests-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#tests-menu"
-  },"28": {
+  },"30": {
     "doc": "Toolbar",
     "title": "Toolbar",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html"
-  },"29": {
+  },"31": {
     "doc": "Tools",
     "title": "Tools",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/tools.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/tools.html"
-  },"30": {
+  },"32": {
     "doc": "Uni UI",
     "title": "Uni UI",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/uniui.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/uniui.html"
-  },"31": {
+  },"33": {
     "doc": "Voxel",
     "title": "Voxel",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/voxel.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/voxel.html"
-  },"32": {
+  },"34": {
     "doc": "What is Uni-verse?",
     "title": "What is Uni-verse?",
     "content": "Uni-verse is your online platform and game creation system, giving you the tools to design and create your own games, or play the ones that are crafted by others. With a variety of features, Uni-verse lets you develop your games using a scripting programming language very similar to C#. In Uni-verse, you can explore a vast virtual universe filled with a range of games and experiences, from simple obstacle courses to complex simulations and role-playing adventures. You can customize your avatars and purchase virtual items using the in-game currency called UniCron. Moveroever, you can easily publish your games or assets you have created on Uni-verse Asset Store, reaching out to other players while earning money. To learn more about the publishing aspect of Uni-verse, see Publishing. ",
     "url": "/uni-verse-docs/what-is-uni-verse.html",
     
     "relUrl": "/what-is-uni-verse.html"
-  },"33": {
+  },"35": {
     "doc": "What is Uni-verse?",
     "title": "What is Uni-verse Studio?",
     "content": "Uni-verse Studio is a cross-platform game development engine that allows you to develop your own games to play in Uni-verse. Key features of Uni-verse Studio include: . | Cross-platform development: Uni-verse supports the development of games for various platforms, including Windows, macOS, Linux, Android and iOS. This allows you to create games that can run on multiple devices without significant modifications. | Asset store: Uni-verse has an extensive Asset Store where you can find and sell assets, including 3D models, textures, audio, and pre-built scripts. This makes it easier for you to access resources and accelerate the game development process. | Scripting with C#: Uni-verse uses the C# programming language for scripting, providing a user-friendly and versatile coding environment. C# is widely used in the game development industry and offers a good balance between performance and ease of use. | Publishing within Uni-verse: Uni-verse Studio allows you to deploy your games to Uni-verse eco-system with one click. | Community and support: Uni-verse Studio has a large and active community of developers who share knowledge, resources, and support through forums and online communities. Uni-verse offers a variety of sample games, making it exceptionally user-friendly for beginners who find it easy to initiate development with these provided examples. | . ",
