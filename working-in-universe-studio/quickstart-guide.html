@@ -1,1 +1,344 @@
-<!DOCTYPE html> <html lang="en-US"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <link rel="stylesheet" href="/uni-verse-docs/assets/css/just-the-docs-default.css"> <link rel="stylesheet" href="/uni-verse-docs/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet"> <style id="jtd-nav-activation"> .site-nav > ul.nav-list:first-child > li > a, .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(5)) > a, .site-nav > ul.nav-list:first-child > li > ul > li > ul > li > a { background-image: none; } .site-nav > ul.nav-list:not(:first-child) a, .site-nav li.external a { background-image: none; } .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(5) > a { font-weight: 600; text-decoration: none; }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg, .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(5) > button svg { transform: rotate(-90deg); }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list, .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(5) > ul.nav-list { display: block; } </style> <script src="/uni-verse-docs/assets/js/vendor/lunr.min.js"></script> <script src="/uni-verse-docs/assets/js/just-the-docs.js"></script> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Quickstart Guide | Uni-verse Docs</title> <meta name="generator" content="Jekyll v4.2.2" /> <meta property="og:title" content="Quickstart Guide" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="Documentation for the most developer friendly game engine" /> <meta property="og:description" content="Documentation for the most developer friendly game engine" /> <link rel="canonical" href="https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" /> <meta property="og:url" content="https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" /> <meta property="og:site_name" content="Uni-verse Docs" /> <meta property="og:type" content="website" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Quickstart Guide" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"Documentation for the most developer friendly game engine","headline":"Quickstart Guide","url":"https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html"}</script> <!-- End Jekyll SEO tag --> </head> <body> <a class="skip-to-main" href="#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" class="d-none"> <symbol id="svg-link" viewBox="0 0 24 24"> <title>Link</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"> <title>Menu</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"> <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"> <title>Expand</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"> <polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE --> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"> <title id="svg-external-link-title">(external link)</title> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"> <title>Document</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"> <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"> <title>Search</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md --> <symbol id="svg-copy" viewBox="0 0 16 16"> <title>Copy</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/> <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/> </svg> </symbol> <symbol id="svg-copied" viewBox="0 0 16 16"> <title>Copied</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16"> <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/> </svg> </symbol> </svg> <div class="side-bar"> <div class="site-header" role="banner"> <a href="/uni-verse-docs/" class="site-title lh-tight"> Uni-verse Docs </a> <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false"> <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg> </button> </div> <nav aria-label="Main" id="site-nav" class="site-nav"> <ul class="nav-list"><li class="nav-list-item"><a href="/uni-verse-docs/what-is-uni-verse.html" class="nav-list-link">What is Uni-verse?</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in Working in Uni-verse Studio category" aria-pressed="false"> <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg> </button><a href="/uni-verse-docs/working-in-universe-studio/" class="nav-list-link">Working in Uni-verse Studio</a><ul class="nav-list"><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html" class="nav-list-link">Installing Uni-verse Studio</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in Uni-verse Interface category" aria-pressed="false"> <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg> </button><a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/" class="nav-list-link">Uni-verse Interface</a><ul class="nav-list"><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html" class="nav-list-link">Toolbar</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/hierarchy.html" class="nav-list-link">Hierarchy</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html" class="nav-list-link">Scene</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html" class="nav-list-link">Inspector</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html" class="nav-list-link">Project</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/asset-store.html" class="nav-list-link">Asset Store</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/coding.html" class="nav-list-link">Coding</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/characters.html" class="nav-list-link">Characters</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/console.html" class="nav-list-link">Console</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/tools.html" class="nav-list-link">Tools</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/settings.html" class="nav-list-link">Settings</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/voxel.html" class="nav-list-link">Voxel</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/terrain.html" class="nav-list-link">Terrain</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/uniui.html" class="nav-list-link">Uni UI</a> </li></ul></li><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/editor-features.html" class="nav-list-link">Editor Features</a></li><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/creating-gameplay.html" class="nav-list-link">Creating Gameplay</a></li><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" class="nav-list-link">Quickstart Guide</a></li></ul></li><li class="nav-list-item"><a href="/uni-verse-docs/publishing.html" class="nav-list-link">Publishing</a></li></ul> </nav> <footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. </footer> </div> <div class="main" id="top"> <div id="main-header" class="main-header"> <div class="search" role="search"> <div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Uni-verse Docs" aria-label="Search Uni-verse Docs" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label> </div> <div id="search-results" class="search-results"></div> </div> </div> <div class="main-content-wrap"> <nav aria-label="Breadcrumb" class="breadcrumb-nav"> <ol class="breadcrumb-nav-list"> <li class="breadcrumb-nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/">Working in Uni-verse Studio</a></li> <li class="breadcrumb-nav-list-item"><span>Quickstart Guide</span></li> </ol> </nav> <div id="main-content" class="main-content"> <main> </main> </div> </div> <div class="search-overlay"></div> </div> </body> </html>
+<!DOCTYPE html> <html lang="en-US"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <link rel="stylesheet" href="/uni-verse-docs/assets/css/just-the-docs-default.css"> <link rel="stylesheet" href="/uni-verse-docs/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet"> <style id="jtd-nav-activation"> .site-nav > ul.nav-list:first-child > li > a, .site-nav > ul.nav-list:first-child > li > ul > li:not(:nth-child(4)) > a, .site-nav > ul.nav-list:first-child > li > ul > li > ul > li > a { background-image: none; } .site-nav > ul.nav-list:not(:first-child) a, .site-nav li.external a { background-image: none; } .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(4) > a { font-weight: 600; text-decoration: none; }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg, .site-nav > ul.nav-list:first-child > li:nth-child(2) > ul > li:nth-child(4) > button svg { transform: rotate(-90deg); }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list, .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list > li.nav-list-item:nth-child(4) > ul.nav-list { display: block; } </style> <script src="/uni-verse-docs/assets/js/vendor/lunr.min.js"></script> <script src="/uni-verse-docs/assets/js/just-the-docs.js"></script> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Quickstart Guide | Uni-verse Docs</title> <meta name="generator" content="Jekyll v4.2.2" /> <meta property="og:title" content="Quickstart Guide" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="Documentation for the most developer friendly game engine" /> <meta property="og:description" content="Documentation for the most developer friendly game engine" /> <link rel="canonical" href="https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" /> <meta property="og:url" content="https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" /> <meta property="og:site_name" content="Uni-verse Docs" /> <meta property="og:type" content="website" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Quickstart Guide" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"Documentation for the most developer friendly game engine","headline":"Quickstart Guide","url":"https://dodisoft-games.github.io/uni-verse-docs/working-in-universe-studio/quickstart-guide.html"}</script> <!-- End Jekyll SEO tag --> </head> <body> <a class="skip-to-main" href="#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" class="d-none"> <symbol id="svg-link" viewBox="0 0 24 24"> <title>Link</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"> <title>Menu</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"> <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"> <title>Expand</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"> <polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE --> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"> <title id="svg-external-link-title">(external link)</title> <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"> <title>Document</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"> <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"> <title>Search</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md --> <symbol id="svg-copy" viewBox="0 0 16 16"> <title>Copy</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/> <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/> </svg> </symbol> <symbol id="svg-copied" viewBox="0 0 16 16"> <title>Copied</title> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16"> <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/> </svg> </symbol> </svg> <div class="side-bar"> <div class="site-header" role="banner"> <a href="/uni-verse-docs/" class="site-title lh-tight"> Uni-verse Docs </a> <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false"> <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg> </button> </div> <nav aria-label="Main" id="site-nav" class="site-nav"> <ul class="nav-list"><li class="nav-list-item"><a href="/uni-verse-docs/what-is-uni-verse.html" class="nav-list-link">What is Uni-verse?</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in Working in Uni-verse Studio category" aria-pressed="false"> <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg> </button><a href="/uni-verse-docs/working-in-universe-studio/" class="nav-list-link">Working in Uni-verse Studio</a><ul class="nav-list"><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html" class="nav-list-link">Installing Uni-verse Studio</a></li><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="toggle items in Uni-verse Interface category" aria-pressed="false"> <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg> </button><a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/" class="nav-list-link">Uni-verse Interface</a><ul class="nav-list"><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html" class="nav-list-link">Toolbar</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/hierarchy.html" class="nav-list-link">Hierarchy</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html" class="nav-list-link">Scene</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html" class="nav-list-link">Inspector</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html" class="nav-list-link">Project</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/asset-store.html" class="nav-list-link">Asset Store</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/coding.html" class="nav-list-link">Coding</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/characters.html" class="nav-list-link">Characters</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/console.html" class="nav-list-link">Console</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/tools.html" class="nav-list-link">Tools</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/settings.html" class="nav-list-link">Settings</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/voxel.html" class="nav-list-link">Voxel</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/terrain.html" class="nav-list-link">Terrain</a> </li><li class="nav-list-item"> <a href="/uni-verse-docs/working-in-universe-studio/uni-verse-interface/uniui.html" class="nav-list-link">Uni UI</a> </li></ul></li><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/editor-features.html" class="nav-list-link">Editor Features</a></li><li class="nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/quickstart-guide.html" class="nav-list-link">Quickstart Guide</a></li></ul></li><li class="nav-list-item"><a href="/uni-verse-docs/publishing.html" class="nav-list-link">Publishing</a></li></ul> </nav> <footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. </footer> </div> <div class="main" id="top"> <div id="main-header" class="main-header"> <div class="search" role="search"> <div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Uni-verse Docs" aria-label="Search Uni-verse Docs" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label> </div> <div id="search-results" class="search-results"></div> </div> </div> <div class="main-content-wrap"> <nav aria-label="Breadcrumb" class="breadcrumb-nav"> <ol class="breadcrumb-nav-list"> <li class="breadcrumb-nav-list-item"><a href="/uni-verse-docs/working-in-universe-studio/">Working in Uni-verse Studio</a></li> <li class="breadcrumb-nav-list-item"><span>Quickstart Guide</span></li> </ol> </nav> <div id="main-content" class="main-content"> <main> <h1 id="quickstart-guide-work-in-progress"> <a href="#quickstart-guide-work-in-progress" class="anchor-heading" aria-labelledby="quickstart-guide-work-in-progress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quickstart Guide (WORK IN PROGRESS) </h1> <p>Embarking on your journey into game development is an exciting endeavor, and we’re thrilled to accompany you as you explore the endless possibilities within Uni-verse Studio. Whether you’re a seasoned developer seeking a new platform or a newcomer eager to dive into the world of game creation, this guide is designed to equip you with the fundamental knowledge and skills to kickstart your game development journey.</p> <p>In this comprehensive guide, we’ll walk you through the essential steps to get started with Uni-verse Studio by developing a simple game. By the end of this guide, you’ll have a solid understanding of the core features and workflows within Uni-verse Studio, enabling you to confidently embark on your game development projects with enthusiasm and proficiency.</p> <p>So, without further ado, let’s dive in and unlock the exciting world of game development with Uni-verse Studio!</p> <h2 id="requirements"> <a href="#requirements" class="anchor-heading" aria-labelledby="requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Requirements </h2> <p>There is one requirement for this guide, and that is the Uni-verse Studio itself! Please follow the instructions in <a href="./installing-uni-verse-studio.html">Installing Uni-verse Studio</a> to install the latest version of Uni-verse Studio, and double-click on the shortcut on your desktop to start developing your first project.</p> <h2 id="creating-the-project"> <a href="#creating-the-project" class="anchor-heading" aria-labelledby="creating-the-project"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Creating the project </h2> <p>When you first start Uni-verse Studio, the login page will welcome you. If you already have an account, go ahead and type in your details to login. If you don’t have one, follow the instructions on the screen to create a new one, and then login with your account.</p> <p>After logging in, click the “New project” button in Uni-verse Project Explorer to start creating your first game. Give a name to your game and then click “OK”. In this instance, we named our game “My awesome game”.</p> <h2 id="importing-the-essentials"> <a href="#importing-the-essentials" class="anchor-heading" aria-labelledby="importing-the-essentials"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Importing the essentials </h2> <p>Uni-verse Studio provides unlimited freedom to developers but that freedom comes with a cost: when you first create your project, it will be completely empty and you will need to download your assets manually. But fret not! This step is very simple:</p> <ul> <li>Open the Store.</li> <li>Search for “Framework” and import the latest version.</li> <li>Search for “Helper scripts” and import the latest version.</li> </ul> <p>You are half-way there already! With these packages imported, you can code your game but you are still missing assets. Luckily, you now know how to do that:</p> <ul> <li>Open the Store.</li> <li>Search for “Primitives” and import the latest version.</li> <li>Search for “Cube” and import the latest version.</li> <li>Search for “Sphere” and import the latest version.</li> <li>Search for “Amorph” and import the latest version.</li> </ul> <p>Now that we have everything to create our game, we can move on to the fun part!</p> <h2 id="creating-the-game-scene"> <a href="#creating-the-game-scene" class="anchor-heading" aria-labelledby="creating-the-game-scene"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Creating the game scene </h2> <p>A scene contains the game objects to interact with in a game. Let’s create that first:</p> <ul> <li>Right click in the Project component and click “New scene”</li> <li>Name your scene something cool, like “Main”</li> <li>Double click on your scene to open it.</li> </ul> <p>This sets your scene as the active scene and you can see it in the Scene component.</p> <h2 id="lights-camera-and-action"> <a href="#lights-camera-and-action" class="anchor-heading" aria-labelledby="lights-camera-and-action"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lights, camera, and ACTION! </h2> <p>We have a scene, but it doesn’t have a camera! Which means even though we can see what’s in there in the editor, the players won’t be able to see anything. So let’s add a camera for the players:</p> <ul> <li>Right click in the Hierarchy component and click “Create Empty”</li> <li>Name this new game object “Camera”</li> <li>In the inspector panel, click “Attach script”</li> <li>Search for “Camera” and click “Attach script”</li> <li>FOV to 20</li> <li>Position to 0, 3, -20</li> <li>Right click in the Hierarchy component and click “Create Empty”</li> <li>Name this new game object “Light”</li> <li>In the inspector panel, click “Attach script”</li> <li>Search for “Light” and click “Attach script”</li> <li>Position to 0, 5, -6</li> <li>Rotation to 75, 0, 0</li> <li>Type to Directional</li> <li>Disable shadows</li> </ul> <h2 id="lets-get-some-ground"> <a href="#lets-get-some-ground" class="anchor-heading" aria-labelledby="lets-get-some-ground"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Let’s get some ground </h2> <p>In this game, we will – fill here –. To do that, we need a ground. A cube can do the job:</p> <ul> <li>Double click on Bundles, and then double click on Cube Model</li> <li>Click on Cube and drag and drop it on to the scene</li> <li>Rename it to “Ground” by right-clicking on your cube in the Hierarchy component, and clicking “Rename”</li> <li>Also tag it as “Ground” in the Inspector</li> <li>Now scale it in the Inspector as such so that it looks more like a ground: <ul> <li>X: 20, Y: 0.1, Z: 5</li> </ul> </li> <li>And make sure your Ground is at 0, 0, 0</li> <li>Attach the “Box Collider” script to the ground.</li> <li>Set the collider size to (1, 1, 1).</li> <li>Set the center to (0.5, 0.5, 0.5).</li> </ul> <p>Now click the “World” button in the Scene view to save and exit the scene.</p> <h2 id="ilk-tasi-gunahsiz-olaniniz-atsin"> <a href="#ilk-tasi-gunahsiz-olaniniz-atsin" class="anchor-heading" aria-labelledby="ilk-tasi-gunahsiz-olaniniz-atsin"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ilk tasi gunahsiz olaniniz atsin </h2> <ul> <li>In the Project component, right-click and select “Create folder”, and name the folder “Packs”</li> <li>Right-click on the newly created “Packs” folder, select “Create UniPack” and name it “Stone”</li> <li>Right-click on “Stone” and choose “Edit pack”</li> <li>Navigate to the “Bundles” folder, locate and double-click “Amorph” to open it.</li> <li>Drag and drop “Amorph” onto the scene.</li> <li>Set the scale of the “Amorph” model to 0.5, press CTRL + A to save your changes and then go back to the root of the “Stone” pack by clicking “Stone [Pack]” in the Hierarchy component</li> <li>Go to the root in the Project component, right-click and create a folder named “Scripts”</li> <li>Go into “Scripts”, right-click and create a new script called “Stone”</li> <li>Drag and drop this newly created “Stone” script onto the root of your “Stone” object</li> <li>Click “Attach script” and search for “Collider”, then select “Sphere collider” from the list</li> <li>In the Physics section in the Inspector component, set the Event receiver by dragging and dropping the “Stone” pack.</li> <li>Click the three dots next to the receiver and select “Stone.”</li> <li>And then finally lock the ZPosition in the Physics settings.</li> </ul> <p>Now click the “World” button in the Scene view to save and exit the scene.</p> <h2 id="create-the-player"> <a href="#create-the-player" class="anchor-heading" aria-labelledby="create-the-player"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Create the player </h2> <ul> <li>Right-click in the “Packs” folder, select “Create UniPack” and name it “Player”</li> <li>Right-click on “Player” and choose “Edit pack”</li> <li>Navigate to the “Bundles” folder, locate and double-click “Cube Model” to open it.</li> <li>Drag and drop “Cube” onto the scene and rename it to “Player”</li> <li>Right-click in the hierarchy and create an empty game object</li> <li>Rename it to “FirePoint” and set its position to (0.00, 1.00, 0.00)</li> </ul> <p>Now click the “World” button in the Scene view to save and exit the scene.</p> <h2 id="create-the-bullet"> <a href="#create-the-bullet" class="anchor-heading" aria-labelledby="create-the-bullet"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Create the bullet </h2> <ul> <li>Right-click in the “Packs” folder, select “Create UniPack” and name it “Bullet”</li> <li>Right-click on “Bullet” and choose “Edit pack”</li> <li>Navigate to the “Bundles” folder, locate and double-click “Sphere Model” to open it.</li> <li>Drag and drop “Sphere” onto the scene and rename it to “Fire”</li> <li>Change its tag to “bullet” in the Inspector</li> <li>Set its position to (0.00, -0.10, 0.00) and scale to (0.20, 0.30, 0.20)</li> <li>Click “Attach script” and search for “Collider”, then select “Sphere collider” from the list</li> <li>Set the collider’s center to (0.00, 0.50, 0.00) and radius to 0.7</li> </ul> <p>Now click the “World” button in the Scene view to save and exit the scene.</p> <h2 id="create-spawn-points"> <a href="#create-spawn-points" class="anchor-heading" aria-labelledby="create-spawn-points"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Create spawn points </h2> <ul> <li>In the scene, right-click in Hierarchy, create an empty game object and rename it to “StoneSpawnPoint”</li> <li>Right-click in Hierarchy one more time, create another empty game object and rename it to “PlayerSpawnPoint”</li> </ul> <h2 id="create-scripts"> <a href="#create-scripts" class="anchor-heading" aria-labelledby="create-scripts"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Create scripts </h2> <h3 id="fire"> <a href="#fire" class="anchor-heading" aria-labelledby="fire"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fire </h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Fire
+{
+	float @speed = 5;
+	
+	UniObject uni;
+	
+	
+	void OnInit()
+	{
+		uni = UniObjectUtil.GetUniObject(this);
+	}
+			
+	void OnUpdate()
+	{
+		uni.Translate(0, speed * Time.DeltaTime(), 0);
+	}
+}
+</code></pre></div></div> <h3 id="player"> <a href="#player" class="anchor-heading" aria-labelledby="player"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Player </h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>using Universe.Framework;
+
+class Player
+{
+	InputController @controller;
+	UniAsset @crack;
+	UniAsset @fire;
+	float @range = 10;
+	float @speed = 1;
+	float @fireRate = 0.5;
+	UniObject @firePoint;
+
+	UniObject uni;
+	Vector3 position;
+	Vector3 axis;
+	bool die;
+	bool firing;
+	float nextFire;
+	GameManager gManager;
+		
+	void OnInit()
+	{
+		uni = UniObjectUtil.GetUniObject(this);
+		controller.OnAxisEvent += OnAxis;
+		controller.OnActionEvent += OnAction;
+		position = new Vector3();
+		axis = new Vector3();
+	}
+	
+	void Initialize(GameManager manager)
+	{
+		gManager = manager;			
+	}
+	
+	void OnTriggerEnter(UniObject other)
+	{
+		if (!die &amp;&amp; other.tag == "stone")
+		{
+			die = true;
+			UniObjectUtil.InstantiateAndCallback(crack, "Dead", this, "OnDie", position);
+		}
+	}
+	
+	void OnDie(UniObject go, Vector3 pos)
+	{
+		gManager.Die();
+		uni.Destroy();
+		go.position = pos.ToVector();
+	}
+	
+	void OnAxis(string panel, string sender, string action, vector3 direction)
+	{
+		axis.FromVector(direction);
+	}
+	
+	void OnUpdate()
+	{
+		position.x += axis.x * speed * Time.DeltaTime();
+		position.x = Math.Clamp(position.x, -range / 2, range / 2);
+		uni.position = position.ToVector();
+		
+		float time = Time.GameTime();
+		if (firing &amp;&amp; time &gt; nextFire)
+		{
+			nextFire = time + fireRate;
+			Fire();
+		}
+	}
+
+	void OnAction(string panel, string sender, string action, bool state, object data)
+	{
+		if (action == "Fire")
+		{
+			firing = state;
+		}
+	}
+	
+	void Fire()
+	{
+		UniObjectUtil.InstantiateAndCallback(fire, "Fire", this, "OnFire", null);
+	}
+	
+	void OnFire(UniObject fireObject)
+	{
+		if (uni == null)
+		{
+			return;
+		}
+		
+		fireObject.position = uni.position + firePoint.position;
+	}
+
+}
+</code></pre></div></div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>using Universe.Framework;
+
+class Stone
+{
+	UniAsset @stone;
+	int @bounce = 4;
+	int @size = 3;
+	
+	UniObject uni;
+	Physics physics;
+	GameManager gManager;
+	
+	
+	void OnInit()
+	{
+		uni = UniObjectUtil.GetUniObject(this);
+		physics = uni.GetScript("Universe.Framework.Physics");
+	}
+	
+	void Initialize(GameManager manager, int newSize, int direction)
+	{
+		gManager = manager;
+		size = newSize;
+		float scale = size * 0.4;
+		physics.mass = size;
+		uni.scale = VectorUtil.One() * scale;
+		Vector3 rotation = new Vector3();
+		rotation.New(Math.Random(0, 360), Math.Random(0, 360), Math.Random(0, 360));
+		uni.rotation = rotation.ToVector();
+		physics.AddForce(direction * 2, 6, 0, ForceMode.Impact);
+	}
+	
+	void OnCollisionEnter(UniObject other)
+	{
+		switch(other.tag)
+		{
+			case "ground":
+				Bounce();
+			break;
+			
+			case "bullet":
+				other.Destroy();
+				Split();
+			break;
+		}
+	}
+	
+	void Bounce()
+	{
+		bounce--;
+		if (bounce == 0)
+		{
+			Destroy();
+		}
+		else
+		{
+			Vector3 velocity = new Vector3();
+			velocity.FromVector(physics.GetVelocity());
+			velocity.y = 15;
+			physics.SetVelocity(velocity.ToVector());
+		}
+	}
+	
+	void Destroy()
+	{
+		uni.Destroy();
+	}
+		
+	void Split()
+	{
+		if (gManager != null)
+		{
+			gManager.Score();
+		}
+		if (size &gt; 1)
+		{
+			UniObjectUtil.InstantiateAndCallback(stone, "Stone", this, "OnInstantiate", -1);
+			UniObjectUtil.InstantiateAndCallback(stone, "Stone", this, "OnInstantiate", 1);
+			Utility.CallMethodDelayed(this, "DestroyLate", null, 0.1);
+		} 
+		else
+		{
+			uni.Destroy();
+		}
+	}
+	
+	void OnInstantiate(UniObject newStone, int direction)
+	{
+		if (uni == null)
+		{
+			newStone.Destroy();
+			return;
+		}
+		vector3 pos = uni.GetWorldPosition() + VectorUtil.Right() * 0.05 * size * direction;
+		newStone.position = pos;
+		
+		Stone stoneScript = newStone.GetScript("Stone");
+		stoneScript.Initialize(gManager, size - 1, direction);
+	}
+	
+	void DestroyLate()
+	{
+		uni.Destroy();		
+	}
+	
+}
+</code></pre></div></div> <h3 id="gamemanager"> <a href="#gamemanager" class="anchor-heading" aria-labelledby="gamemanager"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GameManager </h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>using Universe.Framework;
+
+class GameManager
+{
+	UIPanel @gameUI;
+	UIPanel @controlsUI;
+	UIPanel @gameOverUI;
+	UIPanel @startUI;
+	InputController @controller;
+	BoxCollider @groundCollider;
+	UniObject @playerSpawnPos;
+	UniObject @stoneSpawnPos;
+	float @spawnRange = 14;
+	float @stoneSpawnRate = 1;
+	int @stoneSize = 4;
+	UniAsset @playerPack;
+	UniAsset @stonePack;
+	
+	
+	int score;
+	bool isGameOver = true;
+	float nextSpawn;
+	Player player;
+
+
+	void OnStart()
+	{
+		controller.OnActionEvent += OnAction;
+	}
+	
+	void OnUpdate()
+	{
+		float time = Time.GameTime();
+		if (!isGameOver &amp;&amp; time &gt; nextSpawn)
+		{
+			nextSpawn = time + stoneSpawnRate;
+			SpawnStone();
+		}
+	}
+	
+	void OnAction (string panel, string sender, string action, bool state, object data)
+	{
+		if (state)
+		{	
+			return;
+		}
+		
+		switch(action)
+		{
+			case "Start":
+			StartGame();
+			break;
+		}
+	}
+	
+	void StartGame()
+	{
+		UniObjectUtil.SetScriptActivation(groundCollider, true);
+		SpawnPlayer();
+		gameOverUI.Close();
+		startUI.Close();
+		controlsUI.Open(false);
+		isGameOver = false;
+		score = 0;
+		UpdateScore();
+	}
+	
+	void SpawnStone()
+	{
+		UniObjectUtil.InstantiateAndCallback(stonePack, "Stone", this, "OnStone", null);
+	}
+	
+	void SpawnPlayer()
+	{
+		UniObjectUtil.InstantiateAndCallback(playerPack, "Player", this, "OnSpawn", null);
+	}
+	
+	void OnStone(UniObject uni)
+	{
+		if (uni == null)
+		{
+			return;
+		}
+		Vector3 position = new Vector3();
+		position.FromVector(stoneSpawnPos.position);
+		position.x = Math.Random(-spawnRange, spawnRange);
+		uni.position = position.ToVector();
+		Stone stone = uni.GetScript("Stone");
+		stone.Initialize(this, stoneSize, 0);
+	}
+	
+	void OnSpawn(UniObject uni)
+	{
+		if (uni == null)
+		{
+			return;
+		}
+		uni.position = playerSpawnPos.position;
+		player = uni.GetScript("Player");
+		player.Initialize(this);
+	}
+	
+	void Die()
+	{
+		isGameOver = true;
+		controlsUI.Close();
+		gameOverUI.Open(false);
+		UniObjectUtil.SetScriptActivation(groundCollider, false);
+		Utility.CallMethodDelayed(this, "ShowStart", null, 2);
+	}
+	
+	void ShowStart()
+	{		
+		startUI.Open(false);
+	}
+	
+	void Score()
+	{
+		score++;
+		UpdateScore();
+	}
+	
+	void UpdateScore()
+	{
+		gameUI.SetItemValue("Score", score + "");
+	}
+}
+</code></pre></div></div> <h2 id="interacting-with-the-user"> <a href="#interacting-with-the-user" class="anchor-heading" aria-labelledby="interacting-with-the-user"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Interacting with the user </h2> <h3 id="controls"> <a href="#controls" class="anchor-heading" aria-labelledby="controls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Controls </h3> <ul> <li>In the Project window, right-click and create a new folder named “UI”</li> <li>Right-click on the UI folder and select “New UI” Name it “UI”</li> <li>Right-click on “UI” and select “Edit UI”</li> <li>Click “Add panel” and name it “Controls”</li> <li>Drag and drop a Joystick onto the panel, name it “Move,” and position it in the left bottom corner (150, 100) and resize it to (300, 300).</li> <li>Drag and drop a Button onto the panel, name it “Fire,” and position it in the right bottom corner (-150, 100) and resize it to (300, 300).</li> <li>In the Action tab, add actions: Left: A, left arrow Right: D, right arrow Fire: Space Start: Return</li> <li>Select the joystick and assign the corresponding actions.</li> <li>Select the button and assign the “Fire” action.</li> <li>Go back to UI</li> </ul> <h3 id="start"> <a href="#start" class="anchor-heading" aria-labelledby="start"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Start </h3> <ul> <li>Click “Add panel” and name it “Start”</li> <li>Drag and drop a button onto the panel</li> <li>Set its anchor to bottom-mid, position to (0, 190) and size to (300, 100)</li> <li>In Anims to MoveFromDownMid and Out Anims to MoveToDownFar</li> <li>Delay to (1, 0)</li> <li>Set its text to “Start” and action to “Start”</li> </ul> <h3 id="game"> <a href="#game" class="anchor-heading" aria-labelledby="game"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Game </h3> <ul> <li>Click “Add panel” and name it “Game”</li> <li>Drag and drop a text field onto the panel and name it to “Score”</li> <li>Set its anchor to top-right, position to (-50, -50) and size to (200, 80)</li> <li>In Anims to MoveFromRightMid</li> <li>Set its text to “0” and alignment to right</li> </ul> <h3 id="game-over"> <a href="#game-over" class="anchor-heading" aria-labelledby="game-over"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Game Over </h3> <ul> <li>Click “Add panel” and name it “Game Over”</li> <li>Drag and drop a text field onto the panel</li> <li>Set its position to (0, 95) and size to (400, 100)</li> <li>In Anims to LoopHorizontal</li> <li>Set its text to “Game Over”, text size to 100</li> </ul> <p>With these steps completed, you’ve set up the foundational elements of your projec</p> </main> </div> </div> <div class="search-overlay"></div> </div> </body> </html>

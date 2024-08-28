@@ -41,209 +41,349 @@
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/console.html"
   },"6": {
-    "doc": "Creating Gameplay",
-    "title": "Creating Gameplay",
-    "content": " ",
-    "url": "/uni-verse-docs/working-in-universe-studio/creating-gameplay.html",
-    
-    "relUrl": "/working-in-universe-studio/creating-gameplay.html"
-  },"7": {
     "doc": "Editor Features",
     "title": "Editor Features",
-    "content": " ",
+    "content": "Uni-verse Studio is built for developers from ground up. It aims to do only one thing: allow developers to make their games as quickly as possible without any hassle. Therefore it boasts all the capabilities to provide the developers with the optimum experience. ",
     "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html",
     
     "relUrl": "/working-in-universe-studio/editor-features.html"
+  },"7": {
+    "doc": "Editor Features",
+    "title": "Cross Platform Support",
+    "content": "Uni-verse Studio supports building games for a wide range of platforms, including Windows, macOS, iOS and Android . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#cross-platform-support",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#cross-platform-support"
   },"8": {
+    "doc": "Editor Features",
+    "title": "3D Game Development",
+    "content": "Robust 3D rendering engine allows you to develop the games of your dreams . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#3d-game-development",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#3d-game-development"
+  },"9": {
+    "doc": "Editor Features",
+    "title": "Built-in Asset Store",
+    "content": "With built-in asset store finding assets (both free and paid) is a breeze in the park . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#built-in-asset-store",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#built-in-asset-store"
+  },"10": {
+    "doc": "Editor Features",
+    "title": "Pre-made Gameplay Components",
+    "content": "You found all the assets you need but you still need to code your game. But why would you spend days or weeks doing that? With Uni-verse Studio’s Framework you can make any game you like in just a few hours . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#pre-made-gameplay-components",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#pre-made-gameplay-components"
+  },"11": {
+    "doc": "Editor Features",
+    "title": "Built-in Code Editor",
+    "content": "Uni-verse Studio comes with its own code editor, therefore you don’t need to install or maintain a 3rd party application to write your scripts . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#built-in-code-editor",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#built-in-code-editor"
+  },"12": {
+    "doc": "Editor Features",
+    "title": "Scripting in C#",
+    "content": "Uni-verse Studio’s choice of programming language is C# so if you have experience in other engines, you will feel at home . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#scripting-in-c",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#scripting-in-c"
+  },"13": {
+    "doc": "Editor Features",
+    "title": "UI System",
+    "content": "Uni-verse Studio includes a versatile UI toolkit for creating in-game interfaces, menus and HUDs via few clicks . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#ui-system",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#ui-system"
+  },"14": {
+    "doc": "Editor Features",
+    "title": "Out-of-the-box Multiplayer Support",
+    "content": "You don’t need plugins or 3rd party solutions to make a multiplayer game. Uni-verse Studio provides the necessary tools for creating multiplayer games out-of-the-box . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/editor-features.html#out-of-the-box-multiplayer-support",
+    
+    "relUrl": "/working-in-universe-studio/editor-features.html#out-of-the-box-multiplayer-support"
+  },"15": {
     "doc": "Hierarchy",
     "title": "The Hierarchy component",
     "content": "This component lists all your objects in your scene. Anything you put into your scene will be here: lights, cameras, objects etc. You can add more things into your scene simply by dragging and dropping from your Project component or by right-clicking into the Hierarchy component and choosing the appropriate action to create a light, a camera or an empty UniObject. An empty UniObject can be a functional in game object by adding the necessary scripts on it, or you can use it to organize your hierarchy. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/hierarchy.html#the-hierarchy-component",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/hierarchy.html#the-hierarchy-component"
-  },"9": {
+  },"16": {
     "doc": "Hierarchy",
     "title": "Hierarchy",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/hierarchy.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/hierarchy.html"
-  },"10": {
-    "doc": "Uni-verse Interface",
-    "title": "Uni-verse Interface",
-    "content": "Once you’ve installed Uni-verse Studio, simply double-click the shortcut on your desktop to kickstart your game creation journey. The create user screen will welcome you. Enter your details to set up your developer account. After successfully creating your account, use your login details to sign in. The Uni-verse Project Explorer will then be visible. Click on the plus icon to initiate your first project. Provide a name for your project and click OK. Your project will be created and you will be taken to the editor screen which starts up with 5 windows by default. | The Toolbar has controls for building and playing your game. | The Hierarchy component is a hierarchical representation of your Scene. | The Scene component is the window where you construct your game visually in 3D. | The Inspector component displays the properties of your objects in your scenes. It also lets you modify them to your liking. | The Project component lists all the assets that are available to you. Think of this as your library. You can import more assets to your project either by importing them manually or visiting the Uni-verse Asset Store. | . Other than these 5 main components, there are inactive components which you can access by clicking the relevant tabs. | The Store component lets you buy and import assets from Uni-verse Asset Store. Uni-verse developers have created numerous free assets that you are welcome to use in your games without any cost. | The Coding component is where you create and edit your scripts. | The Characters component has two simple functionalities: upload your characters or create new ones. | The Console component shows errors, warnings and messages generated by Uni-verse Studio. | The Tools component provides the tools to maintain your project such as backup, upload assets, check dependencies and an export wizard. | The Settings component . | The Voxel component . | The Terrain component . | The UniUI component is where the magic unfolds. This is your space to craft captivating user interfaces, allowing your players to seamlessly interact with your game. | . ",
-    "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/",
-    
-    "relUrl": "/working-in-universe-studio/uni-verse-interface/"
-  },"11": {
+  },"17": {
     "doc": "Working in Uni-verse Studio",
     "title": "Working in Uni-verse Studio",
     "content": "This section explains how to use Uni-verse Studio to create your own games. | Installing Uni-verse Studio If you encounter any difficulties while installing Uni-verse Studio, refer to this guide for user-friendly instructions to assist you. | Uni-verse Interface Delve into a comprehensive exploration of the primary windows you’ll regularly utilize in Uni-verse Studio . | Editor Features Discover details about numerous potent features within Uni-verse Editor, empowering you to tailor your workflow and seamlessly integrate with external tools. | Creating Gameplay Let’s make a game, shall we? . | Quickstart Guide Already experienced and anxious to dive into developing magical experiences with Uni-verse Studio? Check out our Quickstart Guide for your first 1-day project! . | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/",
     
     "relUrl": "/working-in-universe-studio/"
-  },"12": {
+  },"18": {
+    "doc": "Uni-verse Interface",
+    "title": "Uni-verse Interface",
+    "content": "Once you’ve installed Uni-verse Studio, simply double-click the shortcut on your desktop to kickstart your game creation journey. The create user screen will welcome you. Enter your details to set up your developer account. After successfully creating your account, use your login details to sign in. The Uni-verse Project Explorer will then be visible. Click on the plus icon to initiate your first project. Provide a name for your project and click OK. Your project will be created and you will be taken to the editor screen which starts up with 5 windows by default. | The Toolbar has controls for building and playing your game. | The Hierarchy component is a hierarchical representation of your Scene. | The Scene component is the window where you construct your game visually in 3D. | The Inspector component displays the properties of your objects in your scenes. It also lets you modify them to your liking. | The Project component lists all the assets that are available to you. Think of this as your library. You can import more assets to your project either by importing them manually or visiting the Uni-verse Asset Store. | . Other than these 5 main components, there are inactive components which you can access by clicking the relevant tabs. | The Store component lets you buy and import assets from Uni-verse Asset Store. Uni-verse developers have created numerous free assets that you are welcome to use in your games without any cost. | The Coding component is where you create and edit your scripts. | The Characters component has two simple functionalities: upload your characters or create new ones. | The Console component shows errors, warnings and messages generated by Uni-verse Studio. | The Tools component provides the tools to maintain your project such as backup, upload assets, check dependencies and an export wizard. | The Settings component . | The Voxel component . | The Terrain component . | The UniUI component is where the magic unfolds. This is your space to craft captivating user interfaces, allowing your players to seamlessly interact with your game. | . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/",
+    
+    "relUrl": "/working-in-universe-studio/uni-verse-interface/"
+  },"19": {
     "doc": "Inspector",
     "title": "The Inspector component",
     "content": "The Inspector component is a context aware tool that provides information about the currently selected component in the Project or the Scene component. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html#the-inspector-component",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/inspector.html#the-inspector-component"
-  },"13": {
+  },"20": {
     "doc": "Inspector",
     "title": "Inspector",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/inspector.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/inspector.html"
-  },"14": {
+  },"21": {
     "doc": "Installing Uni-verse Studio",
     "title": "Installing Uni-verse Studio",
     "content": "Uni-verse Studio is the application to create the games of your dreams in Uni-verse. ",
     "url": "/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html",
     
     "relUrl": "/working-in-universe-studio/installing-uni-verse-studio.html"
-  },"15": {
+  },"22": {
     "doc": "Installing Uni-verse Studio",
     "title": "System Requirements",
     "content": "For Uni-verse Studio to function smoothly, make sure your system meets these specifications: . | Windows (64-bit) – Windows 7, 8, 8.1, 10, or 11. | Mac – macOS 10.13 (High Sierra) and above. | Processor – Processor with a clock speed of 1.6 GHz or better. | RAM – 4 GB of system memory. | Hard Disk – At least 10 GB of available hard disk space after installation. | Graphics Card – A computer less than 5 years old with a dedicated video card or a laptop less than 3 years old with an integrated video card. | Internet Access – At least 4-8 MB/s to keep Studio up-to-date and save projects to your Roblox account. | . To install Uni-verse Studio: . | Go to create.universe.com. | Click the MAKE GAMES button to download the installer. | Find the Uni-verse Studio installer in your browser’s download history and double-click the file (it’s UniverseStudio.exe for Windows and UniverseStudio.dmg for Mac) . | After installing see Uni-verse Interface to start creating your games. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/installing-uni-verse-studio.html#system-requirements",
     
     "relUrl": "/working-in-universe-studio/installing-uni-verse-studio.html#system-requirements"
-  },"16": {
+  },"23": {
     "doc": "Project",
     "title": "The Project component",
     "content": "The Project component displays a list of all files, folders, and game assets that are available to you to make your game. Different types of files are represented by different icons to give you a visual hint. If you have a very ambitious project and it becomes really hard to find what you are looking for, you can always use the search bar on the bottom right corner to quickly access your files. You can also toggle the “Search Bundles” option to search for the file in your downloaded bundles from the Asset Store . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html#the-project-component",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/project.html#the-project-component"
-  },"17": {
+  },"24": {
     "doc": "Project",
     "title": "Project",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/project.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/project.html"
-  },"18": {
+  },"25": {
     "doc": "Publishing",
     "title": "Publishing",
     "content": " ",
     "url": "/uni-verse-docs/publishing.html",
     
     "relUrl": "/publishing.html"
-  },"19": {
+  },"26": {
+    "doc": "Quickstart Guide",
+    "title": "Quickstart Guide (WORK IN PROGRESS)",
+    "content": "Embarking on your journey into game development is an exciting endeavor, and we’re thrilled to accompany you as you explore the endless possibilities within Uni-verse Studio. Whether you’re a seasoned developer seeking a new platform or a newcomer eager to dive into the world of game creation, this guide is designed to equip you with the fundamental knowledge and skills to kickstart your game development journey. In this comprehensive guide, we’ll walk you through the essential steps to get started with Uni-verse Studio by developing a simple game. By the end of this guide, you’ll have a solid understanding of the core features and workflows within Uni-verse Studio, enabling you to confidently embark on your game development projects with enthusiasm and proficiency. So, without further ado, let’s dive in and unlock the exciting world of game development with Uni-verse Studio! . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#quickstart-guide-work-in-progress",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#quickstart-guide-work-in-progress"
+  },"27": {
+    "doc": "Quickstart Guide",
+    "title": "Requirements",
+    "content": "There is one requirement for this guide, and that is the Uni-verse Studio itself! Please follow the instructions in Installing Uni-verse Studio to install the latest version of Uni-verse Studio, and double-click on the shortcut on your desktop to start developing your first project. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#requirements",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#requirements"
+  },"28": {
+    "doc": "Quickstart Guide",
+    "title": "Creating the project",
+    "content": "When you first start Uni-verse Studio, the login page will welcome you. If you already have an account, go ahead and type in your details to login. If you don’t have one, follow the instructions on the screen to create a new one, and then login with your account. After logging in, click the “New project” button in Uni-verse Project Explorer to start creating your first game. Give a name to your game and then click “OK”. In this instance, we named our game “My awesome game”. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#creating-the-project",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#creating-the-project"
+  },"29": {
+    "doc": "Quickstart Guide",
+    "title": "Importing the essentials",
+    "content": "Uni-verse Studio provides unlimited freedom to developers but that freedom comes with a cost: when you first create your project, it will be completely empty and you will need to download your assets manually. But fret not! This step is very simple: . | Open the Store. | Search for “Framework” and import the latest version. | Search for “Helper scripts” and import the latest version. | . You are half-way there already! With these packages imported, you can code your game but you are still missing assets. Luckily, you now know how to do that: . | Open the Store. | Search for “Primitives” and import the latest version. | Search for “Cube” and import the latest version. | Search for “Sphere” and import the latest version. | Search for “Amorph” and import the latest version. | . Now that we have everything to create our game, we can move on to the fun part! . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#importing-the-essentials",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#importing-the-essentials"
+  },"30": {
+    "doc": "Quickstart Guide",
+    "title": "Creating the game scene",
+    "content": "A scene contains the game objects to interact with in a game. Let’s create that first: . | Right click in the Project component and click “New scene” | Name your scene something cool, like “Main” | Double click on your scene to open it. | . This sets your scene as the active scene and you can see it in the Scene component. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#creating-the-game-scene",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#creating-the-game-scene"
+  },"31": {
+    "doc": "Quickstart Guide",
+    "title": "Lights, camera, and ACTION!",
+    "content": "We have a scene, but it doesn’t have a camera! Which means even though we can see what’s in there in the editor, the players won’t be able to see anything. So let’s add a camera for the players: . | Right click in the Hierarchy component and click “Create Empty” | Name this new game object “Camera” | In the inspector panel, click “Attach script” | Search for “Camera” and click “Attach script” | FOV to 20 | Position to 0, 3, -20 | Right click in the Hierarchy component and click “Create Empty” | Name this new game object “Light” | In the inspector panel, click “Attach script” | Search for “Light” and click “Attach script” | Position to 0, 5, -6 | Rotation to 75, 0, 0 | Type to Directional | Disable shadows | . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#lights-camera-and-action",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#lights-camera-and-action"
+  },"32": {
+    "doc": "Quickstart Guide",
+    "title": "Let’s get some ground",
+    "content": "In this game, we will – fill here –. To do that, we need a ground. A cube can do the job: . | Double click on Bundles, and then double click on Cube Model | Click on Cube and drag and drop it on to the scene | Rename it to “Ground” by right-clicking on your cube in the Hierarchy component, and clicking “Rename” | Also tag it as “Ground” in the Inspector | Now scale it in the Inspector as such so that it looks more like a ground: . | X: 20, Y: 0.1, Z: 5 | . | And make sure your Ground is at 0, 0, 0 | Attach the “Box Collider” script to the ground. | Set the collider size to (1, 1, 1). | Set the center to (0.5, 0.5, 0.5). | . Now click the “World” button in the Scene view to save and exit the scene. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#lets-get-some-ground",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#lets-get-some-ground"
+  },"33": {
+    "doc": "Quickstart Guide",
+    "title": "Ilk tasi gunahsiz olaniniz atsin",
+    "content": ". | In the Project component, right-click and select “Create folder”, and name the folder “Packs” | Right-click on the newly created “Packs” folder, select “Create UniPack” and name it “Stone” | Right-click on “Stone” and choose “Edit pack” | Navigate to the “Bundles” folder, locate and double-click “Amorph” to open it. | Drag and drop “Amorph” onto the scene. | Set the scale of the “Amorph” model to 0.5, press CTRL + A to save your changes and then go back to the root of the “Stone” pack by clicking “Stone [Pack]” in the Hierarchy component | Go to the root in the Project component, right-click and create a folder named “Scripts” | Go into “Scripts”, right-click and create a new script called “Stone” | Drag and drop this newly created “Stone” script onto the root of your “Stone” object | Click “Attach script” and search for “Collider”, then select “Sphere collider” from the list | In the Physics section in the Inspector component, set the Event receiver by dragging and dropping the “Stone” pack. | Click the three dots next to the receiver and select “Stone.” | And then finally lock the ZPosition in the Physics settings. | . Now click the “World” button in the Scene view to save and exit the scene. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#ilk-tasi-gunahsiz-olaniniz-atsin",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#ilk-tasi-gunahsiz-olaniniz-atsin"
+  },"34": {
+    "doc": "Quickstart Guide",
+    "title": "Create the player",
+    "content": ". | Right-click in the “Packs” folder, select “Create UniPack” and name it “Player” | Right-click on “Player” and choose “Edit pack” | Navigate to the “Bundles” folder, locate and double-click “Cube Model” to open it. | Drag and drop “Cube” onto the scene and rename it to “Player” | Right-click in the hierarchy and create an empty game object | Rename it to “FirePoint” and set its position to (0.00, 1.00, 0.00) | . Now click the “World” button in the Scene view to save and exit the scene. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#create-the-player",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#create-the-player"
+  },"35": {
+    "doc": "Quickstart Guide",
+    "title": "Create the bullet",
+    "content": ". | Right-click in the “Packs” folder, select “Create UniPack” and name it “Bullet” | Right-click on “Bullet” and choose “Edit pack” | Navigate to the “Bundles” folder, locate and double-click “Sphere Model” to open it. | Drag and drop “Sphere” onto the scene and rename it to “Fire” | Change its tag to “bullet” in the Inspector | Set its position to (0.00, -0.10, 0.00) and scale to (0.20, 0.30, 0.20) | Click “Attach script” and search for “Collider”, then select “Sphere collider” from the list | Set the collider’s center to (0.00, 0.50, 0.00) and radius to 0.7 | . Now click the “World” button in the Scene view to save and exit the scene. ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#create-the-bullet",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#create-the-bullet"
+  },"36": {
+    "doc": "Quickstart Guide",
+    "title": "Create spawn points",
+    "content": ". | In the scene, right-click in Hierarchy, create an empty game object and rename it to “StoneSpawnPoint” | Right-click in Hierarchy one more time, create another empty game object and rename it to “PlayerSpawnPoint” | . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#create-spawn-points",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#create-spawn-points"
+  },"37": {
+    "doc": "Quickstart Guide",
+    "title": "Create scripts",
+    "content": "Fire . class Fire { float @speed = 5; UniObject uni; void OnInit() { uni = UniObjectUtil.GetUniObject(this); } void OnUpdate() { uni.Translate(0, speed * Time.DeltaTime(), 0); } } . Player . using Universe.Framework; class Player { InputController @controller; UniAsset @crack; UniAsset @fire; float @range = 10; float @speed = 1; float @fireRate = 0.5; UniObject @firePoint; UniObject uni; Vector3 position; Vector3 axis; bool die; bool firing; float nextFire; GameManager gManager; void OnInit() { uni = UniObjectUtil.GetUniObject(this); controller.OnAxisEvent += OnAxis; controller.OnActionEvent += OnAction; position = new Vector3(); axis = new Vector3(); } void Initialize(GameManager manager) { gManager = manager; } void OnTriggerEnter(UniObject other) { if (!die &amp;&amp; other.tag == \"stone\") { die = true; UniObjectUtil.InstantiateAndCallback(crack, \"Dead\", this, \"OnDie\", position); } } void OnDie(UniObject go, Vector3 pos) { gManager.Die(); uni.Destroy(); go.position = pos.ToVector(); } void OnAxis(string panel, string sender, string action, vector3 direction) { axis.FromVector(direction); } void OnUpdate() { position.x += axis.x * speed * Time.DeltaTime(); position.x = Math.Clamp(position.x, -range / 2, range / 2); uni.position = position.ToVector(); float time = Time.GameTime(); if (firing &amp;&amp; time &gt; nextFire) { nextFire = time + fireRate; Fire(); } } void OnAction(string panel, string sender, string action, bool state, object data) { if (action == \"Fire\") { firing = state; } } void Fire() { UniObjectUtil.InstantiateAndCallback(fire, \"Fire\", this, \"OnFire\", null); } void OnFire(UniObject fireObject) { if (uni == null) { return; } fireObject.position = uni.position + firePoint.position; } } . using Universe.Framework; class Stone { UniAsset @stone; int @bounce = 4; int @size = 3; UniObject uni; Physics physics; GameManager gManager; void OnInit() { uni = UniObjectUtil.GetUniObject(this); physics = uni.GetScript(\"Universe.Framework.Physics\"); } void Initialize(GameManager manager, int newSize, int direction) { gManager = manager; size = newSize; float scale = size * 0.4; physics.mass = size; uni.scale = VectorUtil.One() * scale; Vector3 rotation = new Vector3(); rotation.New(Math.Random(0, 360), Math.Random(0, 360), Math.Random(0, 360)); uni.rotation = rotation.ToVector(); physics.AddForce(direction * 2, 6, 0, ForceMode.Impact); } void OnCollisionEnter(UniObject other) { switch(other.tag) { case \"ground\": Bounce(); break; case \"bullet\": other.Destroy(); Split(); break; } } void Bounce() { bounce--; if (bounce == 0) { Destroy(); } else { Vector3 velocity = new Vector3(); velocity.FromVector(physics.GetVelocity()); velocity.y = 15; physics.SetVelocity(velocity.ToVector()); } } void Destroy() { uni.Destroy(); } void Split() { if (gManager != null) { gManager.Score(); } if (size &gt; 1) { UniObjectUtil.InstantiateAndCallback(stone, \"Stone\", this, \"OnInstantiate\", -1); UniObjectUtil.InstantiateAndCallback(stone, \"Stone\", this, \"OnInstantiate\", 1); Utility.CallMethodDelayed(this, \"DestroyLate\", null, 0.1); } else { uni.Destroy(); } } void OnInstantiate(UniObject newStone, int direction) { if (uni == null) { newStone.Destroy(); return; } vector3 pos = uni.GetWorldPosition() + VectorUtil.Right() * 0.05 * size * direction; newStone.position = pos; Stone stoneScript = newStone.GetScript(\"Stone\"); stoneScript.Initialize(gManager, size - 1, direction); } void DestroyLate() { uni.Destroy(); } } . GameManager . using Universe.Framework; class GameManager { UIPanel @gameUI; UIPanel @controlsUI; UIPanel @gameOverUI; UIPanel @startUI; InputController @controller; BoxCollider @groundCollider; UniObject @playerSpawnPos; UniObject @stoneSpawnPos; float @spawnRange = 14; float @stoneSpawnRate = 1; int @stoneSize = 4; UniAsset @playerPack; UniAsset @stonePack; int score; bool isGameOver = true; float nextSpawn; Player player; void OnStart() { controller.OnActionEvent += OnAction; } void OnUpdate() { float time = Time.GameTime(); if (!isGameOver &amp;&amp; time &gt; nextSpawn) { nextSpawn = time + stoneSpawnRate; SpawnStone(); } } void OnAction (string panel, string sender, string action, bool state, object data) { if (state) { return; } switch(action) { case \"Start\": StartGame(); break; } } void StartGame() { UniObjectUtil.SetScriptActivation(groundCollider, true); SpawnPlayer(); gameOverUI.Close(); startUI.Close(); controlsUI.Open(false); isGameOver = false; score = 0; UpdateScore(); } void SpawnStone() { UniObjectUtil.InstantiateAndCallback(stonePack, \"Stone\", this, \"OnStone\", null); } void SpawnPlayer() { UniObjectUtil.InstantiateAndCallback(playerPack, \"Player\", this, \"OnSpawn\", null); } void OnStone(UniObject uni) { if (uni == null) { return; } Vector3 position = new Vector3(); position.FromVector(stoneSpawnPos.position); position.x = Math.Random(-spawnRange, spawnRange); uni.position = position.ToVector(); Stone stone = uni.GetScript(\"Stone\"); stone.Initialize(this, stoneSize, 0); } void OnSpawn(UniObject uni) { if (uni == null) { return; } uni.position = playerSpawnPos.position; player = uni.GetScript(\"Player\"); player.Initialize(this); } void Die() { isGameOver = true; controlsUI.Close(); gameOverUI.Open(false); UniObjectUtil.SetScriptActivation(groundCollider, false); Utility.CallMethodDelayed(this, \"ShowStart\", null, 2); } void ShowStart() { startUI.Open(false); } void Score() { score++; UpdateScore(); } void UpdateScore() { gameUI.SetItemValue(\"Score\", score + \"\"); } } . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#create-scripts",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#create-scripts"
+  },"38": {
+    "doc": "Quickstart Guide",
+    "title": "Interacting with the user",
+    "content": "Controls . | In the Project window, right-click and create a new folder named “UI” | Right-click on the UI folder and select “New UI” Name it “UI” | Right-click on “UI” and select “Edit UI” | Click “Add panel” and name it “Controls” | Drag and drop a Joystick onto the panel, name it “Move,” and position it in the left bottom corner (150, 100) and resize it to (300, 300). | Drag and drop a Button onto the panel, name it “Fire,” and position it in the right bottom corner (-150, 100) and resize it to (300, 300). | In the Action tab, add actions: Left: A, left arrow Right: D, right arrow Fire: Space Start: Return | Select the joystick and assign the corresponding actions. | Select the button and assign the “Fire” action. | Go back to UI | . Start . | Click “Add panel” and name it “Start” | Drag and drop a button onto the panel | Set its anchor to bottom-mid, position to (0, 190) and size to (300, 100) | In Anims to MoveFromDownMid and Out Anims to MoveToDownFar | Delay to (1, 0) | Set its text to “Start” and action to “Start” | . Game . | Click “Add panel” and name it “Game” | Drag and drop a text field onto the panel and name it to “Score” | Set its anchor to top-right, position to (-50, -50) and size to (200, 80) | In Anims to MoveFromRightMid | Set its text to “0” and alignment to right | . Game Over . | Click “Add panel” and name it “Game Over” | Drag and drop a text field onto the panel | Set its position to (0, 95) and size to (400, 100) | In Anims to LoopHorizontal | Set its text to “Game Over”, text size to 100 | . With these steps completed, you’ve set up the foundational elements of your projec . ",
+    "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html#interacting-with-the-user",
+    
+    "relUrl": "/working-in-universe-studio/quickstart-guide.html#interacting-with-the-user"
+  },"39": {
     "doc": "Quickstart Guide",
     "title": "Quickstart Guide",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/quickstart-guide.html",
     
     "relUrl": "/working-in-universe-studio/quickstart-guide.html"
-  },"20": {
+  },"40": {
     "doc": "Scene",
     "title": "The Scene component",
     "content": "The Scene component is a visual reprentation of your hierarchy, a window to your game where you modify and re-arrange your objects. In order to move, rotate or resize your objects, either select them in your Hierarchy component or simply click on them in the Scene component, and click and drag the handles that appear on your object. Alternatively you can modify the position, rotation and scale values within the Inspector component when your object is selected. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html#the-scene-component",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/scene.html#the-scene-component"
-  },"21": {
+  },"41": {
     "doc": "Scene",
     "title": "Scene",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/scene.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/scene.html"
-  },"22": {
+  },"42": {
     "doc": "Settings",
     "title": "Settings",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/settings.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/settings.html"
-  },"23": {
+  },"43": {
     "doc": "Terrain",
     "title": "Terrain",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/terrain.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/terrain.html"
-  },"24": {
+  },"44": {
     "doc": "Toolbar",
     "title": "The Toolbar",
     "content": "The toolbar is the first thing you see at the top of your window when you start your editor. It contains the controls to start/stop/pause playing your game and a few menus to interact with your project. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#the-toolbar",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#the-toolbar"
-  },"25": {
+  },"45": {
     "doc": "Toolbar",
     "title": "Play/Stop/Pause buttons",
     "content": "Press the play button to start playing your game within the editor, and press the stop button to stop playing. If you would like to inspect a frame or your code when something specific happens, press the pause button to temporarily pause your game. ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#playstoppause-buttons",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#playstoppause-buttons"
-  },"26": {
+  },"46": {
     "doc": "Toolbar",
     "title": "Project menu",
     "content": "This menu includes controls for the following actions: . | Open: Opens another project. | Add new: Creates a new folder or a script file | Save file: Saves the current script file or the scene. | Save all: Saves all modified files and scenes. | Close: Closes the current projects. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#project-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#project-menu"
-  },"27": {
+  },"47": {
     "doc": "Toolbar",
     "title": "Edit menu",
     "content": "This menu includes controls for the following actions: . | Auto save: Saves all modified files when a change is detected. | Zoom: Increases/decreases the size of the UI elements in the editor. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#edit-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#edit-menu"
-  },"28": {
+  },"48": {
     "doc": "Toolbar",
     "title": "Build menu",
     "content": "This menu includes controls for the following actions: . | Build: Compiles all script files into machine code to play your game. Uni-verse Editor does that automatically for you but if you want to force a compile yourself, you can use this button. | Play: Starts playing your game. | Stop: Stops playing your game. | Pause/stop: Pauses your game. | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#build-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#build-menu"
-  },"29": {
+  },"49": {
     "doc": "Toolbar",
     "title": "Tests menu",
     "content": ". | Bundle creation: | . ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html#tests-menu",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html#tests-menu"
-  },"30": {
+  },"50": {
     "doc": "Toolbar",
     "title": "Toolbar",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/toolbar.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/toolbar.html"
-  },"31": {
+  },"51": {
     "doc": "Tools",
     "title": "Tools",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/tools.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/tools.html"
-  },"32": {
+  },"52": {
     "doc": "Uni UI",
     "title": "Uni UI",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/uniui.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/uniui.html"
-  },"33": {
+  },"53": {
     "doc": "Voxel",
     "title": "Voxel",
     "content": " ",
     "url": "/uni-verse-docs/working-in-universe-studio/uni-verse-interface/voxel.html",
     
     "relUrl": "/working-in-universe-studio/uni-verse-interface/voxel.html"
-  },"34": {
+  },"54": {
     "doc": "What is Uni-verse?",
     "title": "What is Uni-verse?",
     "content": "Uni-verse is your online platform and game creation system, giving you the tools to design and create your own games, or play the ones that are crafted by others. With a variety of features, Uni-verse lets you develop your games using a scripting programming language very similar to C#. In Uni-verse, you can explore a vast virtual universe filled with a range of games and experiences, from simple obstacle courses to complex simulations and role-playing adventures. You can customize your avatars and purchase virtual items using the in-game currency called UniCron. Moveroever, you can easily publish your games or assets you have created on Uni-verse Asset Store, reaching out to other players while earning money. To learn more about the publishing aspect of Uni-verse, see Publishing. ",
     "url": "/uni-verse-docs/what-is-uni-verse.html",
     
     "relUrl": "/what-is-uni-verse.html"
-  },"35": {
+  },"55": {
     "doc": "What is Uni-verse?",
     "title": "What is Uni-verse Studio?",
     "content": "Uni-verse Studio is a cross-platform game development engine that allows you to develop your own games to play in Uni-verse. Key features of Uni-verse Studio include: . | Cross-platform development: Uni-verse supports the development of games for various platforms, including Windows, macOS, Linux, Android and iOS. This allows you to create games that can run on multiple devices without significant modifications. | Asset store: Uni-verse has an extensive Asset Store where you can find and sell assets, including 3D models, textures, audio, and pre-built scripts. This makes it easier for you to access resources and accelerate the game development process. | Scripting with C#: Uni-verse uses the C# programming language for scripting, providing a user-friendly and versatile coding environment. C# is widely used in the game development industry and offers a good balance between performance and ease of use. | Publishing within Uni-verse: Uni-verse Studio allows you to deploy your games to Uni-verse eco-system with one click. | Community and support: Uni-verse Studio has a large and active community of developers who share knowledge, resources, and support through forums and online communities. Uni-verse offers a variety of sample games, making it exceptionally user-friendly for beginners who find it easy to initiate development with these provided examples. | . ",
