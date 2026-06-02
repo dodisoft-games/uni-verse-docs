@@ -2,7 +2,7 @@
     "id": "colorutil",
     "lang": "en-US",
     "name": "ColorUtil",
-    "description": "The `ColorUtil` library provides utilities for creating, converting, and decomposing `color` values.",
+    "description": "RGB to HSV, lerp, hex parsing.",
     "link": "/docs/uniscript/en-US/colorutil",
     "tags": [
         "uniscript",
@@ -29,222 +29,99 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `ColorUtil` library provides utilities for creating, converting, and decomposing `color` values. It includes named colour constants, RGBA construction, hex string parsing, and individual channel accessors. Color values are used throughout the framework with `RenderUtil`, `LightUtil`, `UIUtil`, and material operations."
+            "text": "RGB to HSV, lerp, hex parsing."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`color`",
+                    "`Black`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`White`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`Red`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`Green`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`Blue`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`Transparent`",
+                    "—"
+                ],
+                [
+                    "`color`",
+                    "`FromRGBA`",
+                    "`float r, float g, float b, float a`"
+                ],
+                [
+                    "`color`",
+                    "`FromHTMLString`",
+                    "`string colorCode`"
+                ],
+                [
+                    "`string`",
+                    "`ToHTMLString`",
+                    "`color color`"
+                ],
+                [
+                    "`float`",
+                    "`R`",
+                    "`color color`"
+                ],
+                [
+                    "`float`",
+                    "`G`",
+                    "`color color`"
+                ],
+                [
+                    "`float`",
+                    "`B`",
+                    "`color color`"
+                ],
+                [
+                    "`float`",
+                    "`A`",
+                    "`color color`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Named Colours"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Quickly get a standard colour value."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns an opaque black colour (0, 0, 0, 1)."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns an opaque white colour (1, 1, 1, 1)."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns an opaque red colour (1, 0, 0, 1)."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns an opaque green colour (0, 1, 0, 1)."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns an opaque blue colour (0, 0, 1, 1)."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns a fully transparent colour (0, 0, 0, 0)."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Construction"
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Create colour values from components or strings."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Creates a colour from R, G, B, A float components in the range [0, 1]."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Parses an HTML/CSS hex colour string (e.g., `\"#FF8800\"` or `\"FF8800\"`) and returns the corresponding colour."
-        },
-        {
-            "id": "block-017",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Conversion"
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Convert a colour value to a string."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the HTML hex string representation of `color` (e.g., `\"#FF8800FF\"`)."
-        },
-        {
-            "id": "block-020",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Channel Accessors"
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Extract individual RGBA channels from a colour value."
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the red channel of `color` as a float in [0, 1]."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the green channel of `color` as a float in [0, 1]."
-        },
-        {
-            "id": "block-024",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the blue channel of `color` as a float in [0, 1]."
-        },
-        {
-            "id": "block-025",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the alpha (opacity) channel of `color` as a float in [0, 1]."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-027",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "All float components are in the range [0, 1], not [0, 255]. Divide by 255 if converting from byte values."
-        },
-        {
-            "id": "block-028",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "`FromHTMLString` accepts both 6-character (`#RRGGBB`) and 8-character (`#RRGGBBAA`) hex strings."
-        },
-        {
-            "id": "block-029",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-030",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Set an object's colour from a hex code",
-                "color teamColor = ColorUtil.FromHTMLString(\"#3498DB\");",
-                "RenderUtil.SetColor(this, teamColor);",
-                "",
-                "// Lerp between two colours over time (manual lerp using channels)",
-                "float t = Math.Clamp01(elapsed / duration);",
-                "float r = Math.Lerp(ColorUtil.R(startColor), ColorUtil.R(endColor), t);",
-                "float g = Math.Lerp(ColorUtil.G(startColor), ColorUtil.G(endColor), t);",
-                "float b = Math.Lerp(ColorUtil.B(startColor), ColorUtil.B(endColor), t);",
-                "color lerpedColor = ColorUtil.FromRGBA(r, g, b, 1.0);",
-                "RenderUtil.SetColor(this, lerpedColor);",
-                "",
-                "// Flash a UI element red",
-                "UIUtil.SetItemColor(hudPanelId, \"AmmoWarning\", 1, 0, 0, 1);",
-                "",
-                "// Restore it to white",
-                "color white = ColorUtil.White();",
-                "UIUtil.SetItemColor(hudPanelId, \"AmmoWarning\", ColorUtil.R(white), ColorUtil.G(white), ColorUtil.B(white), 1);"
-            ]
+            "text": "Use `ColorUtil.FromHex(hex)` to parse web-style hex color strings (e.g. `#FF5500`) into a color value usable with render or UI methods."
         }
     ]
 }

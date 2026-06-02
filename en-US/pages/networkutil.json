@@ -2,7 +2,7 @@
     "id": "networkutil",
     "lang": "en-US",
     "name": "NetworkUtil",
-    "description": "The `NetworkUtil` library is the low-level scripting interface to the Universe multiplayer network.",
+    "description": "Local player, room state, send RPC, is-host.",
     "link": "/docs/uniscript/en-US/networkutil",
     "tags": [
         "uniscript",
@@ -29,257 +29,184 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `NetworkUtil` library is the low-level scripting interface to the Universe multiplayer network. It exposes local player identity, room state, master-client detection, remote procedure calls (RPCs), and custom player properties. The high-level `NetworkGame` component class wraps these methods — use `NetworkUtil` directly for fine-grained network control."
+            "text": "Local player, room state, send RPC, is-host."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Network`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddNetworkGame`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Connect`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`Disconnect`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`CreateRoom`",
+                    "`string name, bool open, bool visible, int maxPlayers`"
+                ],
+                [
+                    "`void`",
+                    "`JoinRoom`",
+                    "`string name`"
+                ],
+                [
+                    "`void`",
+                    "`CreateOrJoinRoom`",
+                    "`string name, bool open, bool visible, int maxPlayers`"
+                ],
+                [
+                    "`void`",
+                    "`LeaveRoom`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`AddNetworkObject`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Destroy`",
+                    "`uniscript`"
+                ],
+                [
+                    "`bool`",
+                    "`AmIMaster`",
+                    "—"
+                ],
+                [
+                    "`bool`",
+                    "`IsMine`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddNetworkLobby`",
+                    "`uniscript, int id, int maxPlayers, bool autoStart`"
+                ],
+                [
+                    "`bool`",
+                    "`JoinLobby`",
+                    "`uniscript`"
+                ],
+                [
+                    "`bool`",
+                    "`LeaveLobby`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`StartGame`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`DestroyPlayerObjects`",
+                    "`uniscript`"
+                ],
+                [
+                    "`bool`",
+                    "`IsConnected`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`AddSyncScript`",
+                    "`uniscript, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`RemoveSyncScript`",
+                    "`uniscript, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetName`",
+                    "`string name`"
+                ],
+                [
+                    "`void`",
+                    "`PauseMessaging`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`ResumeMessaging`",
+                    "—"
+                ],
+                [
+                    "`float`",
+                    "`GetServerTimeSpan`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`AskLobbyInfo`",
+                    "`uniscript`"
+                ],
+                [
+                    "`List`",
+                    "`GetRoomPlayers`",
+                    "`uniscript`"
+                ],
+                [
+                    "`int`",
+                    "`GetPlayerId`",
+                    "`uniscript`"
+                ],
+                [
+                    "`string`",
+                    "`GetPlayerName`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`JoinRandomRoom`",
+                    "`string mode, string map, int maxPlayers`"
+                ],
+                [
+                    "`Dictionary`",
+                    "`GetPlayerInfo`",
+                    "`uniscript, int playerId`"
+                ],
+                [
+                    "`void`",
+                    "`SetPlayerInfo`",
+                    "`uniscript, int playerId, string key, string value`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Identity & State"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Query the local player and room state."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the local player's integer ID within the current room."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the local player's display name."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the local player is the master client (room host). The master client has authority for server-side decisions."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns a list of player objects in the current room."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the local client is currently connected to the network."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the local client is currently in a room."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Room Management"
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Join, create, and leave rooms."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Initiates a connection to the network service."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Disconnects from the network service."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Joins the room with the given name."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Creates a room with the given name if it does not exist, or joins it if it does."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Joins a random available room matching `gameMode` and `map`."
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Leaves the current room."
-        },
-        {
-            "id": "block-021",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Remote Procedure Calls"
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Send messages to other players."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sends an RPC call to all players in the room, invoking `methodName` on `targetScript`."
-        },
-        {
-            "id": "block-024",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sends an RPC call only to the master client."
-        },
-        {
-            "id": "block-025",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sends an RPC call to a specific player identified by `playerId`."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Player Properties"
-        },
-        {
-            "id": "block-027",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Store and retrieve custom data per player."
-        },
-        {
-            "id": "block-028",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets a custom string property `value` on player `id` under key `key`."
-        },
-        {
-            "id": "block-029",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns all custom properties for player `id` as a `dictionary`."
-        },
-        {
-            "id": "block-030",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-031",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "RPCs are delivered to **all** clients in the room by default — including the sender. Guard against processing your own RPC if needed."
-        },
-        {
-            "id": "block-032",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Only the master client should make authoritative game-state decisions (spawning, scoring, game end). Use `AmIMaster()` to gate these actions."
-        },
-        {
-            "id": "block-033",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use player properties (`SetPlayerInfo`/`GetPlayerInfo`) for per-player metadata (team, score, ready state) rather than sending RPCs for every small update."
-        },
-        {
-            "id": "block-034",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-035",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Check if we are the host before spawning enemies",
-                "if (NetworkUtil.AmIMaster()) {",
-                "    SpawnEnemies();",
-                "}",
-                "",
-                "// Send an RPC to tell all clients to play an explosion",
-                "NetworkUtil.SendRPC(this, \"PlayExplosionEffect\", explosionPosition);",
-                "",
-                "void PlayExplosionEffect(object position) {",
-                "    ParticleUtil.Emit(explosionScript, 80);",
-                "}",
-                "",
-                "// Store player team in custom properties",
-                "NetworkUtil.SetPlayerInfo(NetworkUtil.GetLocalPlayerId(), \"team\", \"red\");",
-                "",
-                "// Read another player's team",
-                "dictionary props = NetworkUtil.GetPlayerInfo(otherPlayerId);",
-                "string otherTeam = DictionaryUtil.Get(props, \"team\");"
-            ]
+            "text": "Use `NetworkUtil.IsHost()` to branch logic that should only run on the host instance. RPCs sent via `NetworkUtil.SendRPC` are received by all clients including the sender."
         }
     ]
 }

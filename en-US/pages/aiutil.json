@@ -40,29 +40,85 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "The `AIUtil` library exposes 11 methods:"
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "lines": [
-                "void GenerateNavigation(uniscript npcController)",
-                "void AddNpcController(uniscript npcController)",
-                "void UpdateAgentDimensions(uniscript npcController)",
-                "bool SetNavigationTarget(uniscript npcController, vector3 position)",
-                "void AddTargetObject(uniscript npcController, uniscript target)",
-                "void RemoveTargetObject(uniscript npcController, uniscript target)",
-                "void StartNavigation(uniscript npcController)",
-                "void StopNavigation(uniscript npcController)",
-                "void AssignTargetsAutomatically(uniscript npcController, string targetTag)",
-                "void ResetSettings(uniscript npcController)",
-                "void ExternalEvent(uniscript npcController, int eventCode, object value)"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`GenerateNavigation`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddNpcController`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`UpdateAgentDimensions`",
+                    "`uniscript`"
+                ],
+                [
+                    "`bool`",
+                    "`SetNavigationTarget`",
+                    "`uniscript, vector3 position`"
+                ],
+                [
+                    "`void`",
+                    "`AddTargetObject`",
+                    "`uniscript, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`RemoveTargetObject`",
+                    "`uniscript, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`StartNavigation`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`StopNavigation`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AssignTargetsAutomatically`",
+                    "`uniscript, string targetTag`"
+                ],
+                [
+                    "`void`",
+                    "`ResetSettings`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`ExternalEvent`",
+                    "`uniscript, int eventCode, object value`"
+                ]
             ]
+        },
+        {
+            "id": "block-006",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Use `AIUtil.SetDestination(uniscript, vector3)` to move an NPC to a world position via NavMesh. Ensure the target position is on a valid NavMesh surface."
         }
     ]
 }

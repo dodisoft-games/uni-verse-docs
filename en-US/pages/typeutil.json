@@ -2,7 +2,7 @@
     "id": "typeutil",
     "lang": "en-US",
     "name": "TypeUtil",
-    "description": "The `TypeUtil` library provides runtime type inspection and conversion utilities.",
+    "description": "Runtime type queries and conversions.",
     "link": "/docs/uniscript/en-US/typeutil",
     "tags": [
         "uniscript",
@@ -29,172 +29,41 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `TypeUtil` library provides runtime type inspection and conversion utilities. It lets you determine the type of any value at runtime and safely convert between Uniscript's built-in data types. This is especially useful when handling data from external systems, dictionaries, or dynamic method calls where the exact type is unknown."
+            "text": "Runtime type queries and conversions."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
-        },
-        {
-            "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Type Inspection"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Query the type of an object at runtime."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the name of the type of `obj` as a human-readable string (e.g., `\"Integer\"`, `\"Vector3\"`)."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the `DataType` enum value corresponding to the type of `obj`."
-        },
-        {
-            "id": "block-009",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Type Conversion"
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Convert a value to a specific target type. Returns a default value on failure."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to an `int`. Parses strings if needed."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to a `float`. Parses strings if needed."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to a `bool`. Accepts booleans, integers (0/1), and `\"true\"`/`\"false\"` strings."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to its string representation. Works with all types."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to a `vector3`. Accepts native vectors and compatible representations."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to a `quaternion`."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to an `rgba` color value."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts `obj` to a `list`."
-        },
-        {
-            "id": "block-019",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-020",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "TypeUtil operates on the `Dodisoft` type system. The type names it returns (`\"Integer\"`, `\"Float\"`, etc.) are Uniscript type names, not C# names."
-        },
-        {
-            "id": "block-021",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Conversion failures return a default value rather than throwing — always validate the result before using it in calculations."
-        },
-        {
-            "id": "block-022",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-023",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Dynamically handle an incoming value whose type is unknown",
-                "object incoming = GetValueFromExternalSystem();",
-                "string typeName = TypeUtil.GetTypeName(incoming);",
-                "",
-                "if (typeName == \"Integer\") {",
-                "    int count = TypeUtil.ConvertToInteger(incoming);",
-                "    Debug.Log(\"Count: \" + count);",
-                "} else if (typeName == \"String\") {",
-                "    string label = TypeUtil.ConvertToString(incoming);",
-                "    Debug.Log(\"Label: \" + label);",
-                "}",
-                "",
-                "// Parse a user-supplied string into a float for validation",
-                "string userInput = \"3.14\";",
-                "float parsed = TypeUtil.ConvertToFloat(userInput);",
-                "if (parsed > 0) {",
-                "    ApplyRadius(parsed);",
-                "}"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`string`",
+                    "`GetTypeName`",
+                    "`object value`"
+                ],
+                [
+                    "`int`",
+                    "`GetType`",
+                    "`object value`"
+                ],
+                [
+                    "`object`",
+                    "`Convert`",
+                    "`object value, int newType`"
+                ]
             ]
         }
     ]

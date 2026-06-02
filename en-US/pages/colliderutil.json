@@ -2,7 +2,7 @@
     "id": "colliderutil",
     "lang": "en-US",
     "name": "ColliderUtil",
-    "description": "The `ColliderUtil` library handles registration of collider components with the physics system.",
+    "description": "Registers collider components when called from their OnInit. For trigger detection use the @-field pattern instead.",
     "link": "/docs/uniscript/en-US/colliderutil",
     "tags": [
         "uniscript",
@@ -29,141 +29,64 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `ColliderUtil` library handles registration of collider components with the physics system. Colliders in Universe must be explicitly registered from their `OnInit` method using one of these calls before they participate in collision detection or trigger events. For trigger detection (entering, exiting, staying), use the `@`-field pattern on the host script rather than these registration methods directly."
+            "text": "Registers collider components when called from their OnInit. For trigger detection use the @-field pattern instead."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddBoxCollider`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddCapsuleCollider`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddSphereCollider`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddMeshCollider`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddWheelCollider`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetIgnoreCollisions`",
+                    "`uniscript, List tags, bool ignoreCollision`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Collider Registration"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Register a collider component with the physics system. Call from `OnInit` of the collider script."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a box (rectangular cuboid) collider. The shape is defined by the `size` property on the script."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a sphere collider. The shape is defined by the `radius` property on the script."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a capsule collider. Capsules are commonly used for characters."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a mesh collider, using the host object's mesh for precise collision. More expensive than primitive colliders."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a terrain collider — used specifically with terrain objects."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a trigger sphere. Trigger colliders detect overlap but do not physically block movement."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-014",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Collider registration must happen in `OnInit`. Calling a registration method after init has no effect."
-        },
-        {
-            "id": "block-015",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Mesh colliders are significantly more expensive than box, sphere, or capsule colliders. Reserve them for static geometry only."
-        },
-        {
-            "id": "block-016",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Trigger colliders do not block movement — they only fire enter/exit events. Use the `@OnTriggerEnter` magic method on the host script to respond."
-        },
-        {
-            "id": "block-017",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "For character collision, prefer `AddCapsuleCollider` — capsules handle step-climbing and slope-sliding better than boxes or spheres."
-        },
-        {
-            "id": "block-018",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-019",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// BoxCollider OnInit — register this script as a box collider",
-                "void OnInit() {",
-                "    ColliderUtil.AddBoxCollider(this);",
-                "}",
-                "",
-                "// SphereCollider OnInit — register as a sphere trigger",
-                "void OnInit() {",
-                "    ColliderUtil.AddTriggerSphere(this);",
-                "}",
-                "",
-                "// On the object that owns the collider, receive trigger events",
-                "// using the @-field pattern:",
-                "// @OnTriggerEnter(other)  { ... }",
-                "// @OnTriggerExit(other)   { ... }"
-            ]
+            "text": "Call `ColliderUtil.Register*(this)` from the `OnInit` method of the script attached to the collider object. For trigger detection, use the `@OnTriggerEnter`, `@OnTriggerExit` field pattern instead."
         }
     ]
 }

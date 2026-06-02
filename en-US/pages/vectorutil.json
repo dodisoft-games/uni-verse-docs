@@ -2,7 +2,7 @@
     "id": "vectorutil",
     "lang": "en-US",
     "name": "VectorUtil",
-    "description": "The `VectorUtil` library provides static vector math operations that cannot be expressed directly through the native `vector3` type literal syntax.",
+    "description": "Vector math the parser can't express directly: New, X/Y/Z component, cross, dot, project, distance.",
     "link": "/docs/uniscript/en-US/vectorutil",
     "tags": [
         "uniscript",
@@ -29,321 +29,134 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `VectorUtil` library provides static vector math operations that cannot be expressed directly through the native `vector3` type literal syntax. It is the underlying implementation used by the `Vector3` object-oriented wrapper class. Use `VectorUtil` directly for performance-critical code, or when working purely with native `vector3` values."
+            "text": "Vector math the parser can't express directly: New, X/Y/Z component, cross, dot, project, distance."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`vector3`",
+                    "`Zero`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Up`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Down`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Left`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Right`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Forward`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`Back`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`One`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`New`",
+                    "`float x, float y, float z`"
+                ],
+                [
+                    "`vector3`",
+                    "`Lerp`",
+                    "`vector3 from, vector3 to, float speed`"
+                ],
+                [
+                    "`vector3`",
+                    "`SmoothLerp`",
+                    "`vector3 from, vector3 to, float speed`"
+                ],
+                [
+                    "`float`",
+                    "`Magnitude`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`vector3`",
+                    "`Normalized`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`vector3`",
+                    "`Cross`",
+                    "`vector3 vector1, vector3 vector2`"
+                ],
+                [
+                    "`float`",
+                    "`Dot`",
+                    "`vector3 vector1, vector3 vector2`"
+                ],
+                [
+                    "`vector3`",
+                    "`Project`",
+                    "`vector3 vector, vector3 normal`"
+                ],
+                [
+                    "`float`",
+                    "`X`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`float`",
+                    "`Y`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`float`",
+                    "`Z`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`float`",
+                    "`Distance`",
+                    "`vector3 a, vector3 b`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Construction"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Create vector3 values from components."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Creates a new `vector3` from `x`, `y`, and `z` float components. This is the primary way to construct a vector3 at runtime."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the X component of `v` as a float."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the Y component of `v` as a float."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the Z component of `v` as a float."
-        },
-        {
-            "id": "block-011",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Standard Directions"
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Named direction constants as vector3 values."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (0, 0, 0) — the zero vector."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (1, 1, 1)."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (0, 1, 0)."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (0, -1, 0)."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (0, 0, 1)."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (0, 0, -1)."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (1, 0, 0)."
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns (-1, 0, 0)."
-        },
-        {
-            "id": "block-021",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Vector Math"
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Core geometric operations."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the length (magnitude) of `v`."
-        },
-        {
-            "id": "block-024",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns a copy of `v` scaled to unit length (magnitude = 1)."
-        },
-        {
-            "id": "block-025",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the scalar distance between two points `a` and `b`."
-        },
-        {
-            "id": "block-026",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the dot product of `a` and `b`. Positive if they point in the same general direction, zero if perpendicular, negative if opposing."
-        },
-        {
-            "id": "block-027",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the cross product of `a` and `b` — a vector perpendicular to both."
-        },
-        {
-            "id": "block-028",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Projects vector `v` onto `normal`, returning the component of `v` along `normal`."
-        },
-        {
-            "id": "block-029",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Projects vector `v` onto the plane defined by `normal`, removing the component along the normal."
-        },
-        {
-            "id": "block-030",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Reflects direction `v` off a surface with the given `normal`."
-        },
-        {
-            "id": "block-031",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the unsigned angle in degrees between `from` and `to`."
-        },
-        {
-            "id": "block-032",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the signed angle in degrees from `from` to `to`, measured around `axis`."
-        },
-        {
-            "id": "block-033",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Interpolation"
-        },
-        {
-            "id": "block-034",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Smooth blending between two vectors."
-        },
-        {
-            "id": "block-035",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Linearly interpolates from `a` to `b` by `t` (clamped to [0, 1])."
-        },
-        {
-            "id": "block-036",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Like `Lerp` but `t` is not clamped, allowing extrapolation."
-        },
-        {
-            "id": "block-037",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Moves `current` toward `target` by at most `maxDelta`, never overshooting."
-        },
-        {
-            "id": "block-038",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Smoothly damps `current` toward `target`. Requires a mutable `currentVelocity` variable."
-        },
-        {
-            "id": "block-039",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-040",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Do not normalise the zero vector — `VectorUtil.Normalize(VectorUtil.Zero())` produces NaN values."
-        },
-        {
-            "id": "block-041",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "When working inside an `OnUpdate` loop, prefer `VectorUtil.MoveTowards` over `Lerp` for physics-like movement — `MoveTowards` guarantees the object reaches the target exactly."
-        },
-        {
-            "id": "block-042",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `VectorUtil.Dot` to cheaply test whether a target is in front of or behind an object before doing more expensive ray or distance checks."
-        },
-        {
-            "id": "block-043",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-044",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Construct a vector and normalize it",
-                "vector3 dir = VectorUtil.New(1, 0, 1);",
-                "vector3 normDir = VectorUtil.Normalize(dir);",
-                "",
-                "// Check if two objects are roughly facing the same way",
-                "vector3 fwd1 = UniObjectUtil.Forward(obj1);",
-                "vector3 fwd2 = UniObjectUtil.Forward(obj2);",
-                "float dot = VectorUtil.Dot(fwd1, fwd2);",
-                "if (dot > 0.9) {",
-                "    Debug.Log(\"Objects are facing the same direction\");",
-                "}",
-                "",
-                "// Find the distance between two objects",
-                "vector3 posA = UniObjectUtil.GetWorldPosition(objA);",
-                "vector3 posB = UniObjectUtil.GetWorldPosition(objB);",
-                "float dist = VectorUtil.Distance(posA, posB);",
-                "",
-                "// Smoothly move an object toward a target position",
-                "vector3 newPos = VectorUtil.MoveTowards(currentPos, targetPos, speed * Time.DeltaTime());"
-            ]
+            "text": "UniScript cannot construct or decompose vectors with inline syntax. Use `VectorUtil.New(x, y, z)` to create a `vector3` and `VectorUtil.GetX(v)` / `GetY` / `GetZ` to read components."
         }
     ]
 }

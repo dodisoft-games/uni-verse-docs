@@ -2,7 +2,7 @@
     "id": "inpututil",
     "lang": "en-US",
     "name": "InputUtil",
-    "description": "The `InputUtil` library has a single entry point: `AddInputListener`.",
+    "description": "AddInputListener(this) only -- the rest of the input surface comes via OnAxis / OnAction magic methods on the script.",
     "link": "/docs/uniscript/en-US/inpututil",
     "tags": [
         "uniscript",
@@ -29,106 +29,39 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `InputUtil` library has a single entry point: `AddInputListener`. Calling it registers a script to receive `OnAction` and `OnAxis` magic method callbacks from the input system. All other input handling — binding actions to keys, mapping axes — is configured in the project's input settings, not in script."
+            "text": "AddInputListener(this) only -- the rest of the input surface comes via OnAxis / OnAction magic methods on the script."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddInputListener`",
+                    "`uniscript`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Registration"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Register a script to receive input events."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers `script` with the input system. After this call, `script` will receive `OnAction` and `OnAxis` magic method callbacks whenever mapped inputs occur."
-        },
-        {
-            "id": "block-008",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-009",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "A script must call `AddInputListener(this)` in `OnInit` to receive any input events. Without registration, `OnAction` and `OnAxis` will never be called."
-        },
-        {
-            "id": "block-010",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Multiple scripts can be registered as input listeners simultaneously. Each will receive all input events independently."
-        },
-        {
-            "id": "block-011",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Deactivate the host script (`UniObjectUtil.SetScriptActivation`) to temporarily suppress input without unregistering."
-        },
-        {
-            "id": "block-012",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-013",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Register for input in OnInit",
-                "void OnInit() {",
-                "    InputUtil.AddInputListener(this);",
-                "}",
-                "",
-                "// Receive action events (button presses / releases)",
-                "void OnAction(string panel, string sender, string action, bool state, object data) {",
-                "    if (action == \"Jump\" && state) {",
-                "        characterScript.Jump(true);",
-                "    }",
-                "    if (action == \"Fire\" && state) {",
-                "        weapon.Fire();",
-                "    }",
-                "}",
-                "",
-                "// Receive axis events (joystick, WASD, mouse movement)",
-                "void OnAxis(string panel, string sender, string action, vector3 direction) {",
-                "    if (action == \"Move\") {",
-                "        characterScript.SetInput(direction.x, direction.z);",
-                "    }",
-                "}"
-            ]
+            "text": "`InputUtil` only exposes `AddInputListener(uniscript)` — call it once from `OnInit`. All actual input handling is done via magic methods on the script: `OnAxis(name, value)` and `OnAction(name, phase)`."
         }
     ]
 }

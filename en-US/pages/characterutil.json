@@ -2,7 +2,7 @@
     "id": "characterutil",
     "lang": "en-US",
     "name": "CharacterUtil",
-    "description": "The `CharacterUtil` library is the scripting backend for the character system.",
+    "description": "Find characters, set animation state, blend layers (see uni-character skill for full surface).",
     "link": "/docs/uniscript/en-US/characterutil",
     "tags": [
         "uniscript",
@@ -29,301 +29,168 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `CharacterUtil` library is the scripting backend for the character system. It handles registration of character controllers, animation state management, blend layer control, inverse kinematics, and velocity. Use it from within character scripts (or scripts that control characters) — it underpins the high-level `Character` and `NpcController` classes."
+            "text": "Find characters, set animation state, blend layers (see uni-character skill for full surface)."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Character`."
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "h2",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Registration"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Register a character with the character system."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers `script`'s host object as a physics-based character controller."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers `script`'s host object as an action (animation-driven) character controller."
-        },
-        {
-            "id": "block-009",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Movement State"
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Set the character's current movement type."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the active movement state of the character (e.g., walking, running, jumping). Accepts a `Movements` enum value."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the movement input axes for the character. `xAxis` is horizontal, `yAxis` is vertical/forward."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Triggers a jump on the character. Pass `true` to begin, `false` to release."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Enables or disables the running state on the character."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Starts the character's movement system."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Stops the character's movement system."
-        },
-        {
-            "id": "block-017",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Animation"
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Control animations and motion assets."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Adds a motion asset to the character's animator."
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Adds a named motion asset — the name is used to trigger the animation via `PlayMotion`."
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays the named motion on the character. Optionally stops the previous action and controls gravity during the motion."
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays a motion directly from a `UniAsset` reference."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the character's facial expression using a `FacialExpression` enum value."
-        },
-        {
-            "id": "block-024",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Inverse Kinematics"
-        },
-        {
-            "id": "block-025",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Control IK targets for limbs and look-at."
-        },
-        {
-            "id": "block-026",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Enables or disables the IK system on the character."
-        },
-        {
-            "id": "block-027",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the position and rotation blend weights for an IK node."
-        },
-        {
-            "id": "block-028",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets a target `UniObject` for an IK node — the limb will track the target's position."
-        },
-        {
-            "id": "block-029",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Transform & Camera"
-        },
-        {
-            "id": "block-030",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Position, rotate, and configure cameras for the character."
-        },
-        {
-            "id": "block-031",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the character's world rotation."
-        },
-        {
-            "id": "block-032",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Instantly snaps the character to a new position and rotation."
-        },
-        {
-            "id": "block-033",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Assigns a camera that will follow this character."
-        },
-        {
-            "id": "block-034",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the character's current velocity as a `vector3`."
-        },
-        {
-            "id": "block-035",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Adds `velocity` to the character. Pass `local = true` to apply in local space."
-        },
-        {
-            "id": "block-036",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-037",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Always call `AddCharacter` or `AddActionCharacter` in `OnInit` — the character system must be initialised before any other `CharacterUtil` method is effective."
-        },
-        {
-            "id": "block-038",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`SetInput` accepts axis values in the range [-1, 1]. Values outside this range are clamped by the character system."
-        },
-        {
-            "id": "block-039",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `AddMotionWithName` to pre-load custom animations and `PlayMotion` to trigger them by name — this is cleaner than holding asset references everywhere."
-        },
-        {
-            "id": "block-040",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-041",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Minimal character setup in OnInit",
-                "void OnInit() {",
-                "    CharacterUtil.AddCharacter(this);",
-                "}",
-                "",
-                "// Handle WASD/stick input from an InputController",
-                "void OnAxis(string panel, string sender, string action, vector3 dir) {",
-                "    if (action == \"Move\") {",
-                "        CharacterUtil.SetInput(this, dir.x, dir.z);",
-                "    }",
-                "}",
-                "",
-                "// Jump on button press",
-                "void OnAction(string panel, string sender, string action, bool state, object data) {",
-                "    if (action == \"Jump\" && state) {",
-                "        CharacterUtil.Jump(this, true);",
-                "    }",
-                "}",
-                "",
-                "// Play a custom death animation, disable gravity mid-air",
-                "CharacterUtil.PlayMotion(this, \"Death\", true, false);"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddCharacter`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetInput`",
+                    "`uniscript, float xAxis, float yAxis`"
+                ],
+                [
+                    "`void`",
+                    "`SetMovement`",
+                    "`uniscript, int movement`"
+                ],
+                [
+                    "`void`",
+                    "`SetFacialExpression`",
+                    "`uniscript, int expression`"
+                ],
+                [
+                    "`void`",
+                    "`PlayAction`",
+                    "`uniscript, int action`"
+                ],
+                [
+                    "`void`",
+                    "`AddMotion`",
+                    "`uniscript, object motionAsset`"
+                ],
+                [
+                    "`void`",
+                    "`AddMotion`",
+                    "`uniscript, object motionAsset, string name`"
+                ],
+                [
+                    "`void`",
+                    "`PlayMotion`",
+                    "`uniscript, string motion, bool stopPreviousAction, string callbackMethod, bool useGravity`"
+                ],
+                [
+                    "`void`",
+                    "`PlayMotion`",
+                    "`uniscript, string motion, bool stopPreviousAction, string callbackMethod, bool useGravity, int avatarMaskType`"
+                ],
+                [
+                    "`void`",
+                    "`SetRunningState`",
+                    "`uniscript, bool state`"
+                ],
+                [
+                    "`void`",
+                    "`AttachAccessory`",
+                    "`uniscript, uniscript, int bone, vector3 positon, vector3 rotation`"
+                ],
+                [
+                    "`void`",
+                    "`SetRotation`",
+                    "`uniscript, vector3 rotation`"
+                ],
+                [
+                    "`void`",
+                    "`Stop`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Start`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddActionCharacter`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetInputAction`",
+                    "`uniscript, int action, bool state`"
+                ],
+                [
+                    "`void`",
+                    "`SetFollowerCamera`",
+                    "`uniscript, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`ResetTransform`",
+                    "`uniscript, vector3 position, vector3 rotation`"
+                ],
+                [
+                    "`void`",
+                    "`SetIKState`",
+                    "`uniscript, bool enable`"
+                ],
+                [
+                    "`void`",
+                    "`SetIKWeights`",
+                    "`uniscript, int goal, float positionWeight, float rotationWeight`"
+                ],
+                [
+                    "`void`",
+                    "`SetIKGoal`",
+                    "`uniscript, int goal, uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddVelocity`",
+                    "`uniscript, vector3 velocity, bool local`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetVelocity`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddPlayerTag`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddCustomLoopMotion`",
+                    "`uniscript, object motion, float speed`"
+                ],
+                [
+                    "`void`",
+                    "`PlayCustomLoopMotion`",
+                    "`uniscript, string motion, float speed`"
+                ],
+                [
+                    "`void`",
+                    "`StopCustomLoopMotion`",
+                    "`uniscript`"
+                ]
             ]
         }
     ]

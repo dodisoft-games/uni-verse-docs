@@ -2,7 +2,7 @@
     "id": "audioutil",
     "lang": "en-US",
     "name": "AudioUtil",
-    "description": "The `AudioUtil` library manages the audio system — from registering audio players and playing one-shot sounds, to controlling master volume and querying the listener position.",
+    "description": "Play one-shots, set master volume, get listener position.",
     "link": "/docs/uniscript/en-US/audioutil",
     "tags": [
         "uniscript",
@@ -29,200 +29,78 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `AudioUtil` library manages the audio system — from registering audio players and playing one-shot sounds, to controlling master volume and querying the listener position. 3D sounds are automatically attenuated based on the distance from the listener."
+            "text": "Play one-shots, set master volume, get listener position."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "h2",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Registration"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Register an audio player component."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers `script`'s host object as an audio player. Call from `OnInit` of an audio player script."
-        },
-        {
-            "id": "block-008",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Playback"
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Play, pause, and stop audio on a registered audio player."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Starts playback on the audio player registered to `script`."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Stops playback and resets playback position."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Pauses playback at the current position."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "One-Shot Sounds"
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Play a sound clip once at a world position without a persistent audio source."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays `audioAsset` once at the world-space position of `script`'s host object."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays `audioAsset` once at the specified world-space `position`."
-        },
-        {
-            "id": "block-017",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Volume & Listener"
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Global audio control."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the global master volume. `volume` is in the range [0, 1]."
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the current master volume."
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the world-space position of the active audio listener (typically the player camera)."
-        },
-        {
-            "id": "block-022",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-023",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Call `AddAudioPlayer(this)` in `OnInit` before calling `Play`, `Stop`, or `Pause` on the same script."
-        },
-        {
-            "id": "block-024",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "One-shot sounds (`PlayOneShot`, `PlayOneShotAtPoint`) do not require a registered audio player — they are self-contained and cleaned up automatically after playback."
-        },
-        {
-            "id": "block-025",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `PlayOneShotAtPoint` for impact and environment sounds — it avoids the overhead of a persistent audio player object."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-027",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Register in OnInit and auto-start looping background music",
-                "void OnInit() {",
-                "    AudioUtil.AddAudioPlayer(this);",
-                "    AudioUtil.Play(this);",
-                "}",
-                "",
-                "// Play a one-shot explosion sound at the impact point",
-                "AudioUtil.PlayOneShotAtPoint(explosionClipAsset, impactPosition);",
-                "",
-                "// Mute the game",
-                "AudioUtil.SetMasterVolume(0.0);",
-                "",
-                "// Distance-based sound: only play if listener is close",
-                "vector3 listenerPos = AudioUtil.GetListenerPosition();",
-                "vector3 myPos       = UniObjectUtil.GetWorldPosition(UniObjectUtil.GetUniObject(this));",
-                "if (VectorUtil.Distance(myPos, listenerPos) < 20.0) {",
-                "    AudioUtil.PlayOneShot(footstepAsset, this);",
-                "}"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddAudioPlayer`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Play2DAudio`",
+                    "`object asset, float volume`"
+                ],
+                [
+                    "`void`",
+                    "`Play3DAudio`",
+                    "`object asset, vector3 position, float volume`"
+                ],
+                [
+                    "`void`",
+                    "`Play3DAudio`",
+                    "`object asset, vector3 position, float volume, int distributionMode, float minDistance, float maxDistance`"
+                ],
+                [
+                    "`void`",
+                    "`Play`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Stop`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`Pause`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetAudioActivition`",
+                    "`bool enabled`"
+                ],
+                [
+                    "`void`",
+                    "`SetPitch`",
+                    "`uniscript, float value`"
+                ]
             ]
         }
     ]

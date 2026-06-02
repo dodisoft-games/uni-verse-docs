@@ -2,7 +2,7 @@
     "id": "sceneutil",
     "lang": "en-US",
     "name": "SceneUtil",
-    "description": "The `SceneUtil` library provides scene loading and unloading.",
+    "description": "Load / Unload only. (Tag/name lookups live on UniObjectUtil.FindUniObjectsByTag etc.)",
     "link": "/docs/uniscript/en-US/sceneutil",
     "tags": [
         "uniscript",
@@ -29,94 +29,44 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `SceneUtil` library provides scene loading and unloading. It is intentionally minimal — tag and name-based object lookups live on `UniObjectUtil`. Use `SceneUtil` to transition between game scenes or to additively load secondary scenes (e.g. loading a HUD scene on top of a game scene)."
+            "text": "Load / Unload only. (Tag/name lookups live on UniObjectUtil.FindUniObjectsByTag etc.)"
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`Load`",
+                    "`object scene, bool additive`"
+                ],
+                [
+                    "`void`",
+                    "`Unload`",
+                    "—"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Scene Management"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Load and unload scenes by name."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Loads the scene named `sceneName`, replacing the currently loaded scene. All current objects are destroyed."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Unloads the additively loaded scene named `sceneName` without affecting other loaded scenes."
-        },
-        {
-            "id": "block-009",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-010",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "`LoadScene` destroys all objects in the current scene. Persist objects across loads by setting their `persistent` property to `true` before the load."
-        },
-        {
-            "id": "block-011",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Scene names are case-sensitive and must match the name registered in the project settings."
-        },
-        {
-            "id": "block-012",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-013",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Transition to the main menu after a fade",
-                "void GoToMainMenu() {",
-                "    CameraUtil.FadeOut(1.0);",
-                "    Utility.CallMethodDelayed(this, \"DoLoad\", null, 1.0);",
-                "}",
-                "",
-                "void DoLoad(object _) {",
-                "    SceneUtil.LoadScene(\"MainMenu\");",
-                "}"
-            ]
+            "text": "Only `Load` and `Unload` are available here. For finding objects within a scene, use `UniObjectUtil.FindUniObjectsByTag` or `FindUniObjectsByName`."
         }
     ]
 }

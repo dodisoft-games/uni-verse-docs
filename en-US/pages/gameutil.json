@@ -40,18 +40,27 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "The `GameUtil` library exposes 1 methods:"
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "lines": [
-                "void AddMovingPlatform(uniscript script)"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddMovingPlatform`",
+                    "`uniscript`"
+                ]
             ]
         }
     ]

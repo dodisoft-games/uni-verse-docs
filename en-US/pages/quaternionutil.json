@@ -2,7 +2,7 @@
     "id": "quaternionutil",
     "lang": "en-US",
     "name": "QuaternionUtil",
-    "description": "The `QuaternionUtil` library provides rotation utilities using quaternions — the standard representation for 3D rotations that avoids gimbal lock.",
+    "description": "Euler conversions, slerp, look-rotation.",
     "link": "/docs/uniscript/en-US/quaternionutil",
     "tags": [
         "uniscript",
@@ -29,172 +29,69 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `QuaternionUtil` library provides rotation utilities using quaternions — the standard representation for 3D rotations that avoids gimbal lock. Use it when you need to combine rotations, interpolate between orientations, or calculate look-at rotations from direction vectors."
+            "text": "Euler conversions, slerp, look-rotation."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`quaternion`",
+                    "`Identity`",
+                    "—"
+                ],
+                [
+                    "`quaternion`",
+                    "`New`",
+                    "`float x, float y, float z`"
+                ],
+                [
+                    "`quaternion`",
+                    "`Slerp`",
+                    "`quaternion from, quaternion to, float speed`"
+                ],
+                [
+                    "`quaternion`",
+                    "`SlerpV3`",
+                    "`vector3 from, vector3 to, float speed`"
+                ],
+                [
+                    "`quaternion`",
+                    "`LookRotation`",
+                    "`vector3 direction, vector3 up`"
+                ],
+                [
+                    "`quaternion`",
+                    "`Euler`",
+                    "`vector3 vector`"
+                ],
+                [
+                    "`vector3`",
+                    "`ToVector`",
+                    "`quaternion rotation`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Construction"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Create quaternion values from common rotation descriptions."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Creates a quaternion from Euler angles `(x, y, z)` in degrees. The rotation order is Z → X → Y."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Creates a quaternion that rotates the forward axis toward `forward`, with `up` as the upward direction."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the identity quaternion — no rotation."
-        },
-        {
-            "id": "block-010",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Conversion"
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Convert between quaternions and Euler angles."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts a `quaternion` to a `vector3` of Euler angles in degrees."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Interpolation"
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Blend between two orientations."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Spherically interpolates between `a` and `b` by `t` (clamped to [0, 1]). Produces smooth, constant-speed rotation."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Like `Slerp` but `t` is not clamped, allowing extrapolation beyond `b`."
-        },
-        {
-            "id": "block-017",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Composition"
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Combine or invert rotations."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the inverse (opposite) of quaternion `q`. Applying `q` then `Inverse(q)` returns to the original rotation."
-        },
-        {
-            "id": "block-020",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-021",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Always prefer `Slerp` over `Lerp` for blending rotations — linear interpolation of quaternion components does not produce constant-speed rotation."
-        },
-        {
-            "id": "block-022",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`LookRotation` requires a non-zero `forward` vector. If the target is exactly at the object's position, guard against zero-length direction vectors."
-        },
-        {
-            "id": "block-023",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-024",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Construct a 45-degree Y-axis rotation and apply it",
-                "quaternion rot = QuaternionUtil.Euler(0, 45, 0);",
-                "UniObjectUtil.SetLocalRotation(this, QuaternionUtil.ToEuler(rot));",
-                "",
-                "// Make an object smoothly look at a target direction",
-                "vector3 toTarget = VectorUtil.Normalize(targetPos - myPos);",
-                "quaternion lookRot = QuaternionUtil.LookRotation(toTarget, VectorUtil.Up());",
-                "quaternion current = UniObjectUtil.GetUniObject(this).GetRotation();",
-                "quaternion smooth  = QuaternionUtil.Slerp(current, lookRot, 5.0 * Time.DeltaTime());",
-                "UniObjectUtil.GetUniObject(this).SetRotation(smooth);"
-            ]
+            "text": "Use `QuaternionUtil.Euler(x, y, z)` to convert human-readable rotation angles into a quaternion suitable for setting object rotations."
         }
     ]
 }

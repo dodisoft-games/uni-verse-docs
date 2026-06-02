@@ -2,7 +2,7 @@
     "id": "renderutil",
     "lang": "en-US",
     "name": "RenderUtil",
-    "description": "The `RenderUtil` library provides per-renderer material operations on the host object of the calling script.",
+    "description": "Per-renderer material ops on the calling script's host UniObject. First arg is ALWAYS this.",
     "link": "/docs/uniscript/en-US/renderutil",
     "tags": [
         "uniscript",
@@ -29,201 +29,79 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `RenderUtil` library provides per-renderer material operations on the host object of the calling script. **The first argument is always `this`** — every method targets the renderer on the object that owns the calling script. Use it to change colours, swap shaders or textures, and control object visibility at the renderer level."
+            "text": "Per-renderer material ops on the calling script's host UniObject. First arg is ALWAYS this."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`SetColor`",
+                    "`uniscript, float r, float g, float b, float a`"
+                ],
+                [
+                    "`void`",
+                    "`SetColor`",
+                    "`uniscript, color color`"
+                ],
+                [
+                    "`void`",
+                    "`SetMaterial`",
+                    "`uniscript, int shader, object texture`"
+                ],
+                [
+                    "`void`",
+                    "`SetShader`",
+                    "`uniscript, int shader`"
+                ],
+                [
+                    "`void`",
+                    "`SetTexture`",
+                    "`uniscript, object texture`"
+                ],
+                [
+                    "`void`",
+                    "`SetTextureSettings`",
+                    "`object texture, int filterMode, int wrapModeU, int wrapModeV`"
+                ],
+                [
+                    "`void`",
+                    "`SetTextureTiling`",
+                    "`uniscript, vector3 tiling`"
+                ],
+                [
+                    "`void`",
+                    "`SetTextureOffset`",
+                    "`uniscript, vector3 offset`"
+                ],
+                [
+                    "`void`",
+                    "`SetVisibility`",
+                    "`uniscript, bool visible, bool includeSubItems`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Colour"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Change the colour of the object's material."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the material colour using individual R, G, B, A float components (0.0–1.0)."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the material colour from a `color` value (e.g., from `ColorUtil.FromRGBA`)."
-        },
-        {
-            "id": "block-009",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Material & Shader"
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Swap the shader or the full material."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Applies a shader (by integer enum) and a texture asset to the material."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Applies a shader without changing the texture."
-        },
-        {
-            "id": "block-013",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Texture"
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Replace or adjust the material texture."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Replaces the material's main texture with `texture` asset."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Configures texture filtering and wrap modes. `filterMode` and `wrapModeU/V` accept integer enum values."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the UV tiling of the material. `tiling` X and Y control horizontal and vertical repetition."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the UV offset (scroll) of the material."
-        },
-        {
-            "id": "block-019",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Visibility"
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Show or hide renderers."
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Shows or hides the renderer on the calling script's object. Pass `includeSubItems = true` to also affect child renderers."
-        },
-        {
-            "id": "block-022",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-023",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Every `RenderUtil` method requires `this` as its first argument — it always targets the renderer on the calling script's host object."
-        },
-        {
-            "id": "block-024",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`SetVisibility(this, false, true)` hides all child renderers too. Use `false` for the last argument to hide only the direct renderer."
-        },
-        {
-            "id": "block-025",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Scrolling UV offsets (`SetTextureOffset`) are a cheap way to animate water, conveyor belts, or lava without a shader graph."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-027",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Flash the object red when hit, then restore",
-                "void TakeDamage(object amount) {",
-                "    RenderUtil.SetColor(this, 1, 0, 0, 1);  // red",
-                "    Utility.CallMethodDelayed(this, \"RestoreColor\", null, 0.15);",
-                "}",
-                "",
-                "void RestoreColor(object _) {",
-                "    RenderUtil.SetColor(this, originalColor);",
-                "}",
-                "",
-                "// Apply a scrolling texture for a waterfall",
-                "void OnUpdate() {",
-                "    float scrollY = Time.GameTime() * 0.3;",
-                "    RenderUtil.SetTextureOffset(this, VectorUtil.New(0, scrollY, 0));",
-                "}",
-                "",
-                "// Hide the object's mesh but keep its collider active",
-                "RenderUtil.SetVisibility(this, false, true);"
-            ]
+            "text": "All `RenderUtil` methods operate on the calling script's host object. The first argument is always the `uniscript` reference — the renderer is resolved automatically from it."
         }
     ]
 }

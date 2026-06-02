@@ -2,7 +2,7 @@
     "id": "camerautil",
     "lang": "en-US",
     "name": "CameraUtil",
-    "description": "The `CameraUtil` library provides access to the active camera and coordinate conversion utilities between 3D world space and 2D screen space.",
+    "description": "Active camera, world to screen conversions, fade.",
     "link": "/docs/uniscript/en-US/camerautil",
     "tags": [
         "uniscript",
@@ -29,167 +29,58 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `CameraUtil` library provides access to the active camera and coordinate conversion utilities between 3D world space and 2D screen space. It is also used to register cameras with the rendering system and to trigger screen fade effects."
+            "text": "Active camera, world to screen conversions, fade."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Available as `Universe.Core`."
-        },
-        {
-            "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Camera Registration"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Register a camera component with the rendering system."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Registers the calling script as a camera. Call from `OnInit` of your camera script."
-        },
-        {
-            "id": "block-008",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Active Camera"
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Get a reference to the currently rendering camera."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the active camera `UniObject`. Useful when you need to transform coordinates or attach effects."
-        },
-        {
-            "id": "block-011",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Coordinate Conversion"
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Convert between 3D world positions and 2D screen positions."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts a world-space `vector3` position to screen-space coordinates. Returns a `vector3` where X and Y are screen pixels and Z is depth."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Converts a screen-space position back to a world-space `vector3` at the given depth."
-        },
-        {
-            "id": "block-015",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Screen Effects"
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Fade the screen in and out."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Fades the screen from black to transparent over `duration` seconds."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Fades the screen from transparent to black over `duration` seconds."
-        },
-        {
-            "id": "block-019",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-020",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "`WorldToScreen` returns meaningful values only when the position is in front of the camera. A negative Z component indicates the position is behind the camera."
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
-            "id": "block-021",
-            "tag": "tip",
+            "id": "block-005",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Use `FadeIn`/`FadeOut` around scene loads to give a polished transition effect without additional scripting."
-        },
-        {
-            "id": "block-022",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-023",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Register a camera in its OnInit",
-                "void OnInit() {",
-                "    CameraUtil.AddCamera(this);",
-                "}",
-                "",
-                "// Position a UI health bar above the player's head",
-                "vector3 worldPos = UniObjectUtil.GetWorldPosition(player);",
-                "vector3 screenPos = CameraUtil.WorldToScreen(worldPos + VectorUtil.New(0, 2, 0));",
-                "uiPanel.SetPanelPosition(screenPos, UIPositionType.Screen);",
-                "",
-                "// Fade out before a scene transition",
-                "CameraUtil.FadeOut(1.5);",
-                "Utility.CallMethodDelayed(this, \"LoadNextScene\", null, 1.5);"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`AddCamera`",
+                    "`uniscript`"
+                ],
+                [
+                    "`UniObject`",
+                    "`GetActiveCamera`",
+                    "—"
+                ],
+                [
+                    "`vector3`",
+                    "`GetActiveCameraPosition`",
+                    "—"
+                ],
+                [
+                    "`quaternion`",
+                    "`GetActiveCameraRotation`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`SetCameraBlendTime`",
+                    "`float seconds`"
+                ]
             ]
         }
     ]

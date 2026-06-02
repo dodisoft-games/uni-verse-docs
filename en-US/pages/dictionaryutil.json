@@ -2,7 +2,7 @@
     "id": "dictionaryutil",
     "lang": "en-US",
     "name": "DictionaryUtil",
-    "description": "The `DictionaryUtil` library provides static helper operations for Uniscript's native `dictionary` type, which does not support direct method calls.",
+    "description": "Get / Set / Remove / ContainsKey - helpers the parser can't express on Dictionary<,>.",
     "link": "/docs/uniscript/en-US/dictionaryutil",
     "tags": [
         "uniscript",
@@ -29,200 +29,98 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `DictionaryUtil` library provides static helper operations for Uniscript's native `dictionary` type, which does not support direct method calls. It is the underlying implementation for the object-oriented `Dictionary` wrapper class. Use it for key-value data stores, player property bags, and any runtime data that needs fast lookup by key."
+            "text": "Get / Set / Remove / ContainsKey - helpers the parser can't express on Dictionary<,>."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "h2",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Read & Write"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Get and set values by key."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the value associated with `key`, or `null` if the key does not exist."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the value for `key`. Creates the entry if it does not exist, or overwrites it if it does."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the value at position `index` in insertion order. Use with `Count` to iterate all entries."
-        },
-        {
-            "id": "block-010",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Membership"
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Check whether keys or values exist."
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the dictionary has an entry for `key`."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the dictionary contains `value` in any entry."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the number of key-value pairs in the dictionary."
-        },
-        {
-            "id": "block-015",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Modification"
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Add and remove entries."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Adds a new entry for `key` with `value`. Throws if the key already exists — use `Set` to overwrite safely."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes the entry for `key`. Returns `true` if the key was found and removed."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes all entries from the dictionary."
-        },
-        {
-            "id": "block-020",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Keys"
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Retrieve all keys."
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns a `list` of all keys in the dictionary in insertion order."
-        },
-        {
-            "id": "block-023",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-024",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Keys must be unique. Calling `Add` with a key that already exists will cause a runtime error — prefer `Set` when the key may already be present."
-        },
-        {
-            "id": "block-025",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`GetByIndex` gives ordered access but is O(n) — avoid in tight loops. Use `Get` with a known key for O(1) access."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-027",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Store per-player scores",
-                "dictionary scores = {};",
-                "DictionaryUtil.Set(scores, \"Alice\", 1200);",
-                "DictionaryUtil.Set(scores, \"Bob\",   980);",
-                "DictionaryUtil.Set(scores, \"Carol\", 1450);",
-                "",
-                "// Read a value safely",
-                "if (DictionaryUtil.ContainsKey(scores, \"Alice\")) {",
-                "    int aliceScore = DictionaryUtil.Get(scores, \"Alice\");",
-                "    Debug.Log(\"Alice: \" + aliceScore);",
-                "}",
-                "",
-                "// Iterate all entries",
-                "list keys = DictionaryUtil.Keys(scores);",
-                "for (int i = 0; i < keys.Count(); i++) {",
-                "    string name = keys.Get(i);",
-                "    Debug.Log(name + \" => \" + DictionaryUtil.Get(scores, name));",
-                "}"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`Dictionary`",
+                    "`New`",
+                    "—"
+                ],
+                [
+                    "`Dictionary`",
+                    "`New`",
+                    "`int size`"
+                ],
+                [
+                    "`void`",
+                    "`Add`",
+                    "`Dictionary dictionary, object key, object value`"
+                ],
+                [
+                    "`bool`",
+                    "`Remove`",
+                    "`Dictionary dictionary, object key`"
+                ],
+                [
+                    "`bool`",
+                    "`ContainsKey`",
+                    "`Dictionary dictionary, object key`"
+                ],
+                [
+                    "`bool`",
+                    "`ContainsValue`",
+                    "`Dictionary dictionary, object value`"
+                ],
+                [
+                    "`int`",
+                    "`Count`",
+                    "`Dictionary dictionary`"
+                ],
+                [
+                    "`void`",
+                    "`Clear`",
+                    "`Dictionary dictionary`"
+                ],
+                [
+                    "`object`",
+                    "`Get`",
+                    "`Dictionary dictionary, object key`"
+                ],
+                [
+                    "`void`",
+                    "`Set`",
+                    "`Dictionary dictionary, object key, object value`"
+                ],
+                [
+                    "`List`",
+                    "`Keys`",
+                    "`Dictionary dictionary`"
+                ],
+                [
+                    "`List`",
+                    "`Values`",
+                    "`Dictionary dictionary`"
+                ],
+                [
+                    "`void`",
+                    "`ForEach`",
+                    "`Dictionary dictionary, uniscript, string callMethod, object value`"
+                ]
             ]
         }
     ]

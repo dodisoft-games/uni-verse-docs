@@ -2,7 +2,7 @@
     "id": "listutil",
     "lang": "en-US",
     "name": "ListUtil",
-    "description": "The `ListUtil` library provides static helper operations for Uniscript's native `list` type.",
+    "description": "Sort, shuffle, find, distinct, Get, Set, Count - helpers the parser can't express on List<>.",
     "link": "/docs/uniscript/en-US/listutil",
     "tags": [
         "uniscript",
@@ -29,247 +29,128 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `ListUtil` library provides static helper operations for Uniscript's native `list` type. The native list type does not support method calls directly — use `ListUtil` for sorting, shuffling, searching, and element access. It is the underlying implementation used by the object-oriented `List` wrapper class."
+            "text": "Sort, shuffle, find, distinct, Get, Set, Count - helpers the parser can't express on List<>."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "h2",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Access"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Read and write elements by index."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the element at `index`. Returns `null` if the index is out of range."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the element at `index` to `item`. Returns the previous value."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the first element, or `null` if the list is empty."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the last element, or `null` if the list is empty."
-        },
-        {
-            "id": "block-011",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the number of elements in the list."
-        },
-        {
-            "id": "block-012",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Modification"
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Add, insert, and remove elements."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Appends `item` to the end of the list."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Inserts `item` at `index`, shifting subsequent elements right."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes the first occurrence of `item`. Returns `true` if found and removed."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes the element at `index`."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes all elements from the list."
-        },
-        {
-            "id": "block-019",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Search & Query"
-        },
-        {
-            "id": "block-020",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Find elements and check membership."
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the list contains `item`."
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the zero-based index of the first occurrence of `item`, or -1 if not found."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the first element matching a predicate, or `null` if none match."
-        },
-        {
-            "id": "block-024",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns a new list with duplicate values removed."
-        },
-        {
-            "id": "block-025",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Ordering"
-        },
-        {
-            "id": "block-026",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Reorder list elements."
-        },
-        {
-            "id": "block-027",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sorts the list in ascending order in place."
-        },
-        {
-            "id": "block-028",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Randomly reorders the list in place using a Fisher-Yates shuffle."
-        },
-        {
-            "id": "block-029",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-030",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "List indices are zero-based — the first element is at index 0."
-        },
-        {
-            "id": "block-031",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`ListUtil` mutates the list in place for `Sort`, `Shuffle`, `Add`, `Remove`, etc. There is no copy made."
-        },
-        {
-            "id": "block-032",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `Distinct` after `FindUniObjectsByTag` if the scene may contain duplicates or if the same tag is applied to child objects."
-        },
-        {
-            "id": "block-033",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-034",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Build a list of spawn points and shuffle them",
-                "list spawnPoints = UniObjectUtil.FindUniObjectsByTag(\"spawnpoint\");",
-                "ListUtil.Shuffle(spawnPoints);",
-                "",
-                "// Take the first 4 spawn points for players",
-                "for (int i = 0; i < 4; i++) {",
-                "    object point = ListUtil.Get(spawnPoints, i);",
-                "    SpawnPlayer(i, point);",
-                "}",
-                "",
-                "// Filter a list to unique enemies only",
-                "list allEnemies = UniObjectUtil.FindUniObjectsByTag(\"enemy\");",
-                "list uniqueEnemies = ListUtil.Distinct(allEnemies);",
-                "",
-                "// Sort scores descending (negate values, sort, negate back)",
-                "ListUtil.Sort(scores);"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`List`",
+                    "`New`",
+                    "—"
+                ],
+                [
+                    "`List`",
+                    "`New`",
+                    "`int size`"
+                ],
+                [
+                    "`void`",
+                    "`Add`",
+                    "`List list, object item`"
+                ],
+                [
+                    "`void`",
+                    "`Insert`",
+                    "`List list, int index, object item`"
+                ],
+                [
+                    "`bool`",
+                    "`Remove`",
+                    "`List list, object item`"
+                ],
+                [
+                    "`void`",
+                    "`RemoveAt`",
+                    "`List list, int index`"
+                ],
+                [
+                    "`bool`",
+                    "`Contains`",
+                    "`List list, object item`"
+                ],
+                [
+                    "`int`",
+                    "`Count`",
+                    "`List list`"
+                ],
+                [
+                    "`void`",
+                    "`Clear`",
+                    "`List list`"
+                ],
+                [
+                    "`object`",
+                    "`Get`",
+                    "`List list, int index`"
+                ],
+                [
+                    "`object`",
+                    "`Set`",
+                    "`List list, int index, object item`"
+                ],
+                [
+                    "`int`",
+                    "`IndexOf`",
+                    "`List list, object item`"
+                ],
+                [
+                    "`object`",
+                    "`First`",
+                    "`List list`"
+                ],
+                [
+                    "`object`",
+                    "`Last`",
+                    "`List list`"
+                ],
+                [
+                    "`object`",
+                    "`Find`",
+                    "`List list, uniscript, string filterMethod, object filterValue`"
+                ],
+                [
+                    "`object`",
+                    "`FindLast`",
+                    "`List list, uniscript, string filterMethod, object filterValue`"
+                ],
+                [
+                    "`List`",
+                    "`FindAll`",
+                    "`List list, uniscript, string filterMethod, object filterValue`"
+                ],
+                [
+                    "`bool`",
+                    "`Sort`",
+                    "`List list, uniscript, string sortMethod, object filterValue`"
+                ],
+                [
+                    "`void`",
+                    "`ForEach`",
+                    "`List list, uniscript, string callMethod, object value`"
+                ]
             ]
         }
     ]

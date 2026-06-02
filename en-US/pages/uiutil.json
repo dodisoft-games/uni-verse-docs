@@ -2,7 +2,7 @@
     "id": "uiutil",
     "lang": "en-US",
     "name": "UIUtil",
-    "description": "The `UIUtil` library is the scripting backend for the entire UI system.",
+    "description": "Open/Close panels, set element labels, toasts/modals.",
     "link": "/docs/uniscript/en-US/uiutil",
     "tags": [
         "uniscript",
@@ -29,342 +29,156 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The `UIUtil` library is the scripting backend for the entire UI system. It provides methods to open and close panels, show and hide elements, set values and colours, animate elements, control scoreboard lists, and manage world-space versus screen-space positioning. All UI panels in the scene are referenced by the numeric IDs assigned to them in the UI editor."
+            "text": "Open/Close panels, set element labels, toasts/modals."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Namespace"
+            "text": "Methods"
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Available as `Universe.Core`."
-        },
-        {
-            "id": "block-005",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Panel Lifecycle"
-        },
-        {
-            "id": "block-006",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Open and close UI panels."
-        },
-        {
-            "id": "block-007",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Opens the panel with `panelId`. Pass `closeOthers = true` to close all other panels first."
-        },
-        {
-            "id": "block-008",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Closes the panel with `panelId`."
-        },
-        {
-            "id": "block-009",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Closes all open UI panels."
-        },
-        {
-            "id": "block-010",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns `true` if the panel with `panelId` is currently open."
-        },
-        {
-            "id": "block-011",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Visibility"
-        },
-        {
-            "id": "block-012",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Show or hide panels and individual elements without changing open state."
-        },
-        {
-            "id": "block-013",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Makes the panel visible without affecting its open state."
-        },
-        {
-            "id": "block-014",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Makes the panel invisible without affecting its open state."
-        },
-        {
-            "id": "block-015",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets panel visibility to `state`."
-        },
-        {
-            "id": "block-016",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Makes a named element inside a panel visible."
-        },
-        {
-            "id": "block-017",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Makes a named element inside a panel invisible."
-        },
-        {
-            "id": "block-018",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets a named element's visibility to `state`."
-        },
-        {
-            "id": "block-019",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Enables or disables interaction on a named element."
-        },
-        {
-            "id": "block-020",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Element Values"
-        },
-        {
-            "id": "block-021",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Read and write the content of UI elements."
-        },
-        {
-            "id": "block-022",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the display value of a named element (label text, slider value, icon ID, etc.)."
-        },
-        {
-            "id": "block-023",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the current value of a named element."
-        },
-        {
-            "id": "block-024",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the icon of a named element by asset or icon ID."
-        },
-        {
-            "id": "block-025",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the RGBA colour of a named element."
-        },
-        {
-            "id": "block-026",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Position & Scale"
-        },
-        {
-            "id": "block-027",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Move and resize panels and elements at runtime."
-        },
-        {
-            "id": "block-028",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the position of a panel. `positionType` controls the coordinate space (World, Screen, or Anchored)."
-        },
-        {
-            "id": "block-029",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the current position of a panel."
-        },
-        {
-            "id": "block-030",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the position of a named element."
-        },
-        {
-            "id": "block-031",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Returns the current position of a named element."
-        },
-        {
-            "id": "block-032",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Sets the scale factor of an entire panel."
-        },
-        {
-            "id": "block-033",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Animations"
-        },
-        {
-            "id": "block-034",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Trigger UI animations."
-        },
-        {
-            "id": "block-035",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays a named animation on a panel."
-        },
-        {
-            "id": "block-036",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Plays a named animation on a named element."
-        },
-        {
-            "id": "block-037",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Scoreboards"
-        },
-        {
-            "id": "block-038",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Manage list-based scoreboard elements."
-        },
-        {
-            "id": "block-039",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Initialises the scoreboard element named `itemName` inside `panelId`."
-        },
-        {
-            "id": "block-040",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Adds an entry to a scoreboard element."
-        },
-        {
-            "id": "block-041",
-            "tag": "p",
-            "styles": null,
-            "classes": null,
-            "text": "Removes all entries from a scoreboard element."
-        },
-        {
-            "id": "block-042",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Notes"
-        },
-        {
-            "id": "block-043",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Panel IDs are integers assigned in the UI editor — they do not change at runtime. Store them in constants or in `OnInit` for readability."
-        },
-        {
-            "id": "block-044",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Elements must exist in the panel's UI definition before they can be manipulated. `SetItemValue` on a non-existent element silently has no effect."
-        },
-        {
-            "id": "block-045",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `SetItemVisibility` to toggle optional HUD elements (e.g. a crosshair, map, or minimap) without opening and closing entire panels."
-        },
-        {
-            "id": "block-046",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Example Usage"
-        },
-        {
-            "id": "block-047",
-            "tag": "code",
-            "styles": null,
-            "classes": null,
-            "lines": [
-                "// Open the HUD when gameplay starts",
-                "UIUtil.OpenPanel(hudPanelId, false);",
-                "",
-                "// Update health bar",
-                "UIUtil.SetItemValue(hudPanelId, \"HealthBar\", currentHealth / maxHealth);",
-                "UIUtil.SetItemValue(hudPanelId, \"HealthLabel\", currentHealth + \"/\" + maxHealth);",
-                "",
-                "// Show a damage number at the player's screen position",
-                "vector3 screenPos = CameraUtil.WorldToScreen(hitPosition);",
-                "UIUtil.SetPanelPosition(damageNumberPanelId, screenPos, UIPositionType.Screen);",
-                "UIUtil.OpenPanel(damageNumberPanelId, false);",
-                "UIUtil.SetItemValue(damageNumberPanelId, \"DamageLabel\", damageAmount);",
-                "",
-                "// End of round — show the scoreboard",
-                "UIUtil.CloseAllPanels();",
-                "UIUtil.OpenPanel(scorePanelId, false);",
-                "UIUtil.InitScoreboard(scorePanelId, \"ScoreList\");",
-                "for (int i = 0; i < playerScores.Count(); i++) {",
-                "    UIUtil.AddScoreboardItem(scorePanelId, \"ScoreList\", ListUtil.Get(playerScores, i));",
-                "}"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`int`",
+                    "`OpenPanel`",
+                    "`string panelName, bool destroyOthers`"
+                ],
+                [
+                    "`void`",
+                    "`ClosePanel`",
+                    "`int panelId`"
+                ],
+                [
+                    "`void`",
+                    "`CloseAllPanels`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`SetPanelVisibility`",
+                    "`int panelId, bool visible`"
+                ],
+                [
+                    "`void`",
+                    "`SetPanelEvents`",
+                    "`int panelId, bool enable`"
+                ],
+                [
+                    "`void`",
+                    "`PlayPanelAnimation`",
+                    "`int panelId, string animation`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementVisibility`",
+                    "`int panelId, string elementName, bool visible`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementEvents`",
+                    "`int panelId, string elementName, bool enable`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementLabel`",
+                    "`int panelId, string elementName, string text`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementIcon`",
+                    "`int panelId, string elementName, int iconId`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementItems`",
+                    "`int panelId, string elementName, List items`"
+                ],
+                [
+                    "`void`",
+                    "`PlayElementAnimation`",
+                    "`int panelId, string elementName, string animation`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementInteract`",
+                    "`int panelId, string elementName, bool interactable`"
+                ],
+                [
+                    "`object`",
+                    "`GetValue`",
+                    "`int panelId, string elementName`"
+                ],
+                [
+                    "`void`",
+                    "`SetValue`",
+                    "`int panelId, string elementName, object value`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementPosition`",
+                    "`int panelId, string elementName, vector3 position, int positionType`"
+                ],
+                [
+                    "`void`",
+                    "`SetPanelPosition`",
+                    "`int panelId, vector3 position, int positionType`"
+                ],
+                [
+                    "`void`",
+                    "`SetPanelScale`",
+                    "`int panelId, float scale`"
+                ],
+                [
+                    "`void`",
+                    "`AddScoreboardElement`",
+                    "`int panelId, string elementName, string text`"
+                ],
+                [
+                    "`void`",
+                    "`InitScoreboard`",
+                    "`int panelId, string elementName`"
+                ],
+                [
+                    "`void`",
+                    "`ClearScoreboard`",
+                    "`int panelId, string elementName`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementColor`",
+                    "`int panelId, string elementName, float r, float g, float b, float a`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetPanelPosition`",
+                    "`int panelId, int positionType`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetElementPosition`",
+                    "`int panelId, string elementName, int positionType`"
+                ],
+                [
+                    "`void`",
+                    "`SetElementRotation`",
+                    "`int panelId, string elementName, vector3 position, bool local`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetElementRotation`",
+                    "`int panelId, string elementName, bool local`"
+                ]
             ]
         }
     ]

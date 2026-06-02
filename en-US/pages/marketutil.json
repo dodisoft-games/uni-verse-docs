@@ -40,20 +40,37 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "The `MarketUtil` library exposes 3 methods:"
+            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "lines": [
-                "void ShowCatalog(uniscript script, string catalogId)",
-                "void HideCatalog()",
-                "void PurchaseProduct(uniscript script, string productId, int amount)"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`ShowCatalog`",
+                    "`uniscript, string catalogId`"
+                ],
+                [
+                    "`void`",
+                    "`HideCatalog`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`PurchaseProduct`",
+                    "`uniscript, string productId, int amount`"
+                ]
             ]
         }
     ]

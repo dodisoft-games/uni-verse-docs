@@ -40,42 +40,143 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "The `StringUtil` library exposes 24 methods:"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`bool`",
+                    "`Contains`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`bool`",
+                    "`EndsWith`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`int`",
+                    "`IndexOf`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`int`",
+                    "`IndexOfAny`",
+                    "`string text, string chars`"
+                ],
+                [
+                    "`string`",
+                    "`Insert`",
+                    "`string text, int index, string value`"
+                ],
+                [
+                    "`int`",
+                    "`LastIndexOf`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`int`",
+                    "`LastIndexOfAny`",
+                    "`string text, string chars`"
+                ],
+                [
+                    "`int`",
+                    "`Length`",
+                    "`string text`"
+                ],
+                [
+                    "`string`",
+                    "`Merge`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`string`",
+                    "`PadLeft`",
+                    "`string text, string character, int length`"
+                ],
+                [
+                    "`string`",
+                    "`PadRight`",
+                    "`string text, string character, int length`"
+                ],
+                [
+                    "`string`",
+                    "`Remove`",
+                    "`string text, int start`"
+                ],
+                [
+                    "`string`",
+                    "`Remove`",
+                    "`string text, int start, int length`"
+                ],
+                [
+                    "`string`",
+                    "`Replace`",
+                    "`string text, string search, string replace`"
+                ],
+                [
+                    "`List`",
+                    "`Split`",
+                    "`string text, string divider`"
+                ],
+                [
+                    "`List`",
+                    "`SplitAny`",
+                    "`string text, string dividerChars`"
+                ],
+                [
+                    "`bool`",
+                    "`StartsWith`",
+                    "`string text, string value`"
+                ],
+                [
+                    "`string`",
+                    "`Substring`",
+                    "`string text, int start`"
+                ],
+                [
+                    "`string`",
+                    "`Substring`",
+                    "`string text, int start, int length`"
+                ],
+                [
+                    "`string`",
+                    "`ToLower`",
+                    "`string text`"
+                ],
+                [
+                    "`string`",
+                    "`ToUpper`",
+                    "`string text`"
+                ],
+                [
+                    "`string`",
+                    "`Trim`",
+                    "`string text`"
+                ],
+                [
+                    "`string`",
+                    "`TrimEnd`",
+                    "`string text`"
+                ],
+                [
+                    "`string`",
+                    "`TrimStart`",
+                    "`string text`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "lines": [
-                "bool Contains(string text, string value)",
-                "bool EndsWith(string text, string value)",
-                "int IndexOf(string text, string value)",
-                "int IndexOfAny(string text, string chars)",
-                "string Insert(string text, int index, string value)",
-                "int LastIndexOf(string text, string value)",
-                "int LastIndexOfAny(string text, string chars)",
-                "int Length(string text)",
-                "string Merge(string text, string value)",
-                "string PadLeft(string text, string character, int length)",
-                "string PadRight(string text, string character, int length)",
-                "string Remove(string text, int start)",
-                "string Remove(string text, int start, int length)",
-                "string Replace(string text, string search, string replace)",
-                "List Split(string text, string divider)",
-                "List SplitAny(string text, string dividerChars)",
-                "bool StartsWith(string text, string value)",
-                "string Substring(string text, int start)",
-                "string Substring(string text, int start, int length)",
-                "string ToLower(string text)",
-                "string ToUpper(string text)",
-                "string Trim(string text)",
-                "string TrimEnd(string text)",
-                "string TrimStart(string text)"
-            ]
+            "text": "UniScript strings do not support methods directly (e.g. `.Split()` won't work). Use `StringUtil` helpers for all string operations."
         }
     ]
 }

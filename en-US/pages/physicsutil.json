@@ -43,26 +43,119 @@
             "tag": "table",
             "styles": null,
             "classes": null,
-            "headers": ["Returns", "Method", "Parameters"],
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
             "rows": [
-                ["`void`", "`AddPhysics`", "—"],
-                ["`void`", "`AddForce`", "`float x, float y, float z, int mode`"],
-                ["`void`", "`AddForce`", "`vector3 force, int mode`"],
-                ["`vector3`", "`GetVelocity`", "—"],
-                ["`void`", "`SetVelocity`", "`vector3 velocity`"],
-                ["`void`", "`AddMovingPlatform`", "—"],
-                ["`void`", "`AddTorque`", "`float x, float y, float z, int mode`"],
-                ["`void`", "`AddTorque`", "`vector3 force, int mode`"],
-                ["`vector3`", "`GetAngularVelocity`", "—"],
-                ["`void`", "`SetAngularVelocity`", "`vector3 velocity`"],
-                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance`"],
-                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
-                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
-                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance`"],
-                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
-                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
-                ["`void`", "`SetCenterOfMass`", "`vector3 center`"]
+                [
+                    "`void`",
+                    "`AddPhysics`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddForce`",
+                    "`uniscript, float x, float y, float z, int mode`"
+                ],
+                [
+                    "`void`",
+                    "`AddForce`",
+                    "`uniscript, vector3 force, int mode`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetVelocity`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetVelocity`",
+                    "`uniscript, vector3 velocity`"
+                ],
+                [
+                    "`void`",
+                    "`AddMovingPlatform`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`AddTorque`",
+                    "`uniscript, float x, float y, float z, int mode`"
+                ],
+                [
+                    "`void`",
+                    "`AddTorque`",
+                    "`uniscript, vector3 force, int mode`"
+                ],
+                [
+                    "`vector3`",
+                    "`GetAngularVelocity`",
+                    "`uniscript`"
+                ],
+                [
+                    "`void`",
+                    "`SetAngularVelocity`",
+                    "`uniscript, vector3 velocity`"
+                ],
+                [
+                    "`Dictionary`",
+                    "`Raycast`",
+                    "`vector3 position, vector3 direction, float maxDistance`"
+                ],
+                [
+                    "`Dictionary`",
+                    "`Raycast`",
+                    "`vector3 position, vector3 direction, float maxDistance, string tag`"
+                ],
+                [
+                    "`Dictionary`",
+                    "`Raycast`",
+                    "`vector3 position, vector3 direction, float maxDistance, List tags`"
+                ],
+                [
+                    "`List`",
+                    "`RaycastAll`",
+                    "`vector3 position, vector3 direction, float maxDistance`"
+                ],
+                [
+                    "`List`",
+                    "`RaycastAll`",
+                    "`vector3 position, vector3 direction, float maxDistance, string tag`"
+                ],
+                [
+                    "`List`",
+                    "`RaycastAll`",
+                    "`vector3 position, vector3 direction, float maxDistance, List tags`"
+                ],
+                [
+                    "`void`",
+                    "`SetCenterOfMass`",
+                    "`uniscript, vector3 center`"
+                ]
             ]
+        },
+        {
+            "id": "block-005",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Most methods require a `uniscript` reference as their first argument — pass the script instance that owns the physics body. Methods that operate on world coordinates (like `Raycast`) do not require this."
+        },
+        {
+            "id": "block-006",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "Always use `PhysicsUtil` to move physics-enabled objects. Setting `position` directly on an object with an active physics body causes undefined behaviour."
+        },
+        {
+            "id": "block-007",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Combine `SetVelocity` and `SetAngularVelocity` with a zero vector to stop an object instantly without applying forces."
         }
     ]
 }

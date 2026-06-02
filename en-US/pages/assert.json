@@ -40,26 +40,63 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "The `Assert` library exposes 8 methods:"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`void`",
+                    "`Equal`",
+                    "`object expected, object actual, string message`"
+                ],
+                [
+                    "`void`",
+                    "`NotEqual`",
+                    "`object expected, object actual, string message`"
+                ],
+                [
+                    "`void`",
+                    "`True`",
+                    "`bool condition, string message`"
+                ],
+                [
+                    "`void`",
+                    "`False`",
+                    "`bool condition, string message`"
+                ],
+                [
+                    "`void`",
+                    "`Null`",
+                    "`object value, string message`"
+                ],
+                [
+                    "`void`",
+                    "`NotNull`",
+                    "`object value, string message`"
+                ],
+                [
+                    "`void`",
+                    "`Fail`",
+                    "`string message`"
+                ],
+                [
+                    "`void`",
+                    "`Pass`",
+                    "`string testName`"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "lines": [
-                "void Equal(object expected, object actual, string message)",
-                "void NotEqual(object expected, object actual, string message)",
-                "void True(bool condition, string message)",
-                "void False(bool condition, string message)",
-                "void Null(object value, string message)",
-                "void NotNull(object value, string message)",
-                "void Fail(string message)",
-                "void Pass(string testName)"
-            ]
+            "text": "Assert methods are only intended for use inside `Test_*` UniScripts. They have no effect in production scenes and should not be used in gameplay logic."
         }
     ]
 }

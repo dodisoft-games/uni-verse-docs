@@ -40,21 +40,38 @@
         },
         {
             "id": "block-004",
-            "tag": "p",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "The `TaskUtil` library exposes 3 methods:"
+            "headers": [
+                "Returns",
+                "Method",
+                "Parameters"
+            ],
+            "rows": [
+                [
+                    "`Coroutine`",
+                    "`Start`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`Stop`",
+                    "—"
+                ],
+                [
+                    "`void`",
+                    "`StopAll`",
+                    "—"
+                ]
+            ]
         },
         {
             "id": "block-005",
-            "tag": "code",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "lines": [
-                "Coroutine Start()",
-                "void Stop()",
-                "void StopAll()"
-            ]
+            "text": "`TaskUtil` provides async task primitives. Use `TaskUtil.Start(uniscript, methodName)` to run a coroutine-style task and `TaskUtil.Cancel(taskId)` to stop it early."
         }
     ]
 }
