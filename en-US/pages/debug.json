@@ -1,0 +1,171 @@
+{
+    "id": "debug",
+    "lang": "en-US",
+    "name": "Debug",
+    "description": "The `Debug` library provides development-time logging and playback control for Uniscript.",
+    "link": "/docs/uniscript/en-US/debug",
+    "tags": [
+        "uniscript",
+        "debug"
+    ],
+    "previous": {
+        "name": "TypeUtil",
+        "link": "/docs/uniscript/en-US/typeutil"
+    },
+    "next": {
+        "name": "Time",
+        "link": "/docs/uniscript/en-US/time"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Debug"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `Debug` library provides development-time logging and playback control for Uniscript. It is Dodisoft's own debug system — **not** UnityEngine.Debug — so it integrates directly with the Universe Studio console and runtime tools. Use it throughout development to inspect values, flag issues, or halt execution for debugging."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Dodisoft.Debug`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Logging"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Write messages to the Universe Studio console output."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Prints `message` to the developer console. Accepts any type — numbers, strings, vectors, and objects are all converted automatically."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Displays `message` as a persistent status line in the console. Useful for values you want to monitor every frame without flooding the log."
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Playback Control"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Halt or pause the game session from within a script."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Immediately stops the current play session. Equivalent to clicking the Stop button in the editor."
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Pauses the current play session. Execution can be resumed from the editor."
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-014",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "This is `Dodisoft.Debug`, **not** `UnityEngine.Debug`. Calling `UnityEngine.Debug.Log` from Uniscript will not work."
+        },
+        {
+            "id": "block-015",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Stop()` is destructive in a live session — use `Debug.Pause()` during development when you want to resume."
+        },
+        {
+            "id": "block-016",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Status` overwrites its output line on each call, making it ideal for values that update frequently (speeds, positions, timers)."
+        },
+        {
+            "id": "block-017",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Wrap `Debug.Log` calls in an `if (debugMode)` guard so you can disable them in production without removing the code."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-019",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Log a value every frame to trace a bug",
+                "void OnUpdate() {",
+                "    Debug.Status(\"Player speed: \" + speed);",
+                "}",
+                "",
+                "// Halt execution at a critical assertion",
+                "if (target == null) {",
+                "    Debug.Log(\"ERROR: target is null at checkpoint A\");",
+                "    Debug.Stop();",
+                "}",
+                "",
+                "// Pause to inspect scene state mid-animation",
+                "if (animFrame == 10) {",
+                "    Debug.Log(\"Reached frame 10 — pausing for inspection\");",
+                "    Debug.Pause();",
+                "}"
+            ]
+        }
+    ]
+}

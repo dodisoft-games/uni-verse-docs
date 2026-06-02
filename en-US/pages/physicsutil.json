@@ -1,0 +1,68 @@
+{
+    "id": "physicsutil",
+    "lang": "en-US",
+    "name": "PhysicsUtil",
+    "description": "AddForce / GetVelocity / SetVelocity etc. Always use this for moving objects (balls, players, projectiles).",
+    "link": "/docs/uniscript/en-US/physicsutil",
+    "tags": [
+        "uniscript",
+        "physicsutil"
+    ],
+    "previous": {
+        "name": "ColliderUtil",
+        "link": "/docs/uniscript/en-US/colliderutil"
+    },
+    "next": {
+        "name": "CameraUtil",
+        "link": "/docs/uniscript/en-US/camerautil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "PhysicsUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "AddForce / GetVelocity / SetVelocity etc. Always use this for moving objects (balls, players, projectiles)."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Methods"
+        },
+        {
+            "id": "block-004",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": ["Returns", "Method", "Parameters"],
+            "rows": [
+                ["`void`", "`AddPhysics`", "`uniscript script`"],
+                ["`void`", "`AddForce`", "`uniscript script, float x, float y, float z, int mode`"],
+                ["`void`", "`AddForce`", "`uniscript script, vector3 force, int mode`"],
+                ["`vector3`", "`GetVelocity`", "`uniscript script`"],
+                ["`void`", "`SetVelocity`", "`uniscript script, vector3 velocity`"],
+                ["`void`", "`AddMovingPlatform`", "`uniscript script`"],
+                ["`void`", "`AddTorque`", "`uniscript script, float x, float y, float z, int mode`"],
+                ["`void`", "`AddTorque`", "`uniscript script, vector3 force, int mode`"],
+                ["`vector3`", "`GetAngularVelocity`", "`uniscript script`"],
+                ["`void`", "`SetAngularVelocity`", "`uniscript script, vector3 velocity`"],
+                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance`"],
+                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
+                ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
+                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance`"],
+                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
+                ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
+                ["`void`", "`SetCenterOfMass`", "`uniscript script, vector3 center`"]
+            ]
+        }
+    ]
+}

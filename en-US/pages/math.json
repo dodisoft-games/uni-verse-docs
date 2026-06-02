@@ -1,0 +1,681 @@
+{
+    "id": "math",
+    "lang": "en-US",
+    "name": "Math",
+    "description": "The `Math` library is the primary source of mathematical operations in Uniscript.",
+    "link": "/docs/uniscript/en-US/math",
+    "tags": [
+        "uniscript",
+        "math"
+    ],
+    "previous": {
+        "name": "",
+        "link": ""
+    },
+    "next": {
+        "name": "TypeUtil",
+        "link": "/docs/uniscript/en-US/typeutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Math"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `Math` library is the primary source of mathematical operations in Uniscript. It covers everything from basic arithmetic and trigonometry to interpolation, noise generation, and random number utilities. Most scripts that deal with movement, animation blending, or procedural generation rely on `Math` heavily."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Trigonometry"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Standard trigonometric functions. All angle arguments and return values are in **radians** unless otherwise stated."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the sine of angle `f` in radians."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the cosine of angle `f` in radians."
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the tangent of angle `f` in radians."
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the arcsine of `f` in radians. Input must be in the range [-1, 1]."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the arccosine of `f` in radians. Input must be in the range [-1, 1]."
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the arctangent of `f` in radians."
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the arctangent of `y/x` in radians, using the signs of both arguments to determine the correct quadrant."
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Rounding"
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Functions that snap float values to integer boundaries."
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the largest integer less than or equal to `f`."
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the largest integer less than or equal to `f`, as an `int`."
+        },
+        {
+            "id": "block-018",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smallest integer greater than or equal to `f`."
+        },
+        {
+            "id": "block-019",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smallest integer greater than or equal to `f`, as an `int`."
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rounds `f` to the nearest integer. Halfway values round to even."
+        },
+        {
+            "id": "block-021",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rounds `f` to the nearest integer and returns it as an `int`."
+        },
+        {
+            "id": "block-022",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Basic Arithmetic"
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Absolute value, sign, roots, powers, and logarithms."
+        },
+        {
+            "id": "block-024",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the absolute (unsigned) value of `f`."
+        },
+        {
+            "id": "block-025",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns 1 if `f` is positive, -1 if negative, and 0 if zero."
+        },
+        {
+            "id": "block-026",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the square root of `f`. `f` must be non-negative."
+        },
+        {
+            "id": "block-027",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `f` raised to the power `p`."
+        },
+        {
+            "id": "block-028",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns *e* raised to the power `power`."
+        },
+        {
+            "id": "block-029",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the natural logarithm (base *e*) of `f`."
+        },
+        {
+            "id": "block-030",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the logarithm of `f` in base `p`."
+        },
+        {
+            "id": "block-031",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the base-10 logarithm of `f`."
+        },
+        {
+            "id": "block-032",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the larger of two float values `a` and `b`."
+        },
+        {
+            "id": "block-033",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smaller of two float values `a` and `b`."
+        },
+        {
+            "id": "block-034",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the larger of two integer values `a` and `b`."
+        },
+        {
+            "id": "block-035",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smaller of two integer values `a` and `b`."
+        },
+        {
+            "id": "block-036",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Clamping & Range"
+        },
+        {
+            "id": "block-037",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Functions that constrain values within a range or create repeating patterns."
+        },
+        {
+            "id": "block-038",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Clamps `value` so it is never less than `min` or greater than `max`."
+        },
+        {
+            "id": "block-039",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Clamps `value` to the range [0, 1]. Equivalent to `Clamp(value, 0, 1)`."
+        },
+        {
+            "id": "block-040",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Loops the value `t` so it is never larger than `length` and never less than 0."
+        },
+        {
+            "id": "block-041",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Pings the value `t` back and forth between 0 and `length`."
+        },
+        {
+            "id": "block-042",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Interpolation & Smoothing"
+        },
+        {
+            "id": "block-043",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Blend, lerp, and smooth-damp functions used heavily in movement and animation."
+        },
+        {
+            "id": "block-044",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Linearly interpolates between `a` and `b` by `t`. `t` is clamped to [0, 1]."
+        },
+        {
+            "id": "block-045",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Interpolates between two angles (in degrees) by `t`, correctly wrapping around 360."
+        },
+        {
+            "id": "block-046",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Like `Lerp` but `t` is **not** clamped, so values outside [0, 1] extrapolate beyond `a` and `b`."
+        },
+        {
+            "id": "block-047",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the parameter `t` such that `Lerp(a, b, t) == value`. The inverse of `Lerp`."
+        },
+        {
+            "id": "block-048",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Interpolates between `from` and `to` with smoothing at both ends of the range."
+        },
+        {
+            "id": "block-049",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Gradually changes `current` toward `target` over time. Returns a vector3 of (new value, new velocity, 0)."
+        },
+        {
+            "id": "block-050",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Moves `current` toward `target` by at most `maxDelta` per call. Never overshoots."
+        },
+        {
+            "id": "block-051",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Like `MoveTowards` but correctly handles wrap-around for angle values."
+        },
+        {
+            "id": "block-052",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Angles & Conversion"
+        },
+        {
+            "id": "block-053",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Utilities for working with degrees and radians."
+        },
+        {
+            "id": "block-054",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the constant factor to convert degrees to radians (~0.01745)."
+        },
+        {
+            "id": "block-055",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the constant factor to convert radians to degrees (~57.296)."
+        },
+        {
+            "id": "block-056",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Calculates the shortest signed difference between two angles in degrees."
+        },
+        {
+            "id": "block-057",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Constants"
+        },
+        {
+            "id": "block-058",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Mathematical and floating-point constants."
+        },
+        {
+            "id": "block-059",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the mathematical constant π (~3.14159)."
+        },
+        {
+            "id": "block-060",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smallest positive float value distinguishable from zero."
+        },
+        {
+            "id": "block-061",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns positive infinity."
+        },
+        {
+            "id": "block-062",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns negative infinity."
+        },
+        {
+            "id": "block-063",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Power of Two"
+        },
+        {
+            "id": "block-064",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Helpers for texture and buffer size validation."
+        },
+        {
+            "id": "block-065",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if `value` is an exact power of two."
+        },
+        {
+            "id": "block-066",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the power of two closest to `value`."
+        },
+        {
+            "id": "block-067",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the smallest power of two that is greater than or equal to `value`."
+        },
+        {
+            "id": "block-068",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Color Space"
+        },
+        {
+            "id": "block-069",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Convert between gamma-corrected and linear color values."
+        },
+        {
+            "id": "block-070",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Converts a gamma-space color value to linear space."
+        },
+        {
+            "id": "block-071",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Converts a linear-space color value to gamma space."
+        },
+        {
+            "id": "block-072",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Noise"
+        },
+        {
+            "id": "block-073",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Procedural noise functions for smooth random values."
+        },
+        {
+            "id": "block-074",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a 2D Perlin noise value in the range [0, 1] for the given (x, y) coordinates."
+        },
+        {
+            "id": "block-075",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a 1D Perlin noise value in the range [0, 1] for the given `x` coordinate."
+        },
+        {
+            "id": "block-076",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a 3D Perlin noise value in the range [0, 1] for the given (x, y, z) coordinates."
+        },
+        {
+            "id": "block-077",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Random"
+        },
+        {
+            "id": "block-078",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Seeded random number generation."
+        },
+        {
+            "id": "block-079",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a random float between `a` (inclusive) and `b` (exclusive)."
+        },
+        {
+            "id": "block-080",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a random integer between `a` (inclusive) and `b` (exclusive)."
+        },
+        {
+            "id": "block-081",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Seeds the random number generator with `seed`, making subsequent `Random` calls reproducible."
+        },
+        {
+            "id": "block-082",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if `a` and `b` are within a small epsilon of each other. Use instead of `==` for floats."
+        },
+        {
+            "id": "block-083",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-084",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "All trig functions (`Sin`, `Cos`, `Tan`, etc.) expect radians. Use `Deg2Rad()` to convert from degrees first."
+        },
+        {
+            "id": "block-085",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`DeltaTime()` comes from the `Time` library, not `Math`. Always multiply speeds and forces by `Time.DeltaTime()` to keep movement frame-rate independent."
+        },
+        {
+            "id": "block-086",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`Approximately` should be preferred over `==` when comparing two floats, since floating-point arithmetic rarely produces exact equality."
+        },
+        {
+            "id": "block-087",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`SmoothDamp` is ideal for camera follow or velocity-based smoothing — it returns both the new value and the updated velocity."
+        },
+        {
+            "id": "block-088",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Use `Clamp01` instead of `Clamp(value, 0, 1)` when you know the range is always 0–1 — it is slightly more expressive."
+        },
+        {
+            "id": "block-089",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "For procedural terrain or animation variation, combine `PerlinNoise` at different scales and amplitudes (fractal brownian motion)."
+        },
+        {
+            "id": "block-090",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-091",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Smooth follow: move an object toward a target each frame",
+                "float step = Math.Min(speed * Time.DeltaTime(), distance);",
+                "obj.position = obj.position + direction * step;",
+                "",
+                "// Oscillate a value with a sine wave",
+                "float bobOffset = Math.Sin(Time.GameTime() * frequency) * amplitude;",
+                "",
+                "// Clamp player health to valid range",
+                "health = Math.Clamp(health, 0, maxHealth);",
+                "",
+                "// Convert degrees to radians for trig functions",
+                "float angleRad = degrees * Math.Deg2Rad();",
+                "float horizontal = Math.Cos(angleRad);",
+                "float vertical   = Math.Sin(angleRad);",
+                "",
+                "// Generate a reproducible random map layout",
+                "Math.InitSeed(42);",
+                "float heightValue = Math.PerlinNoise(x * 0.1, z * 0.1);",
+                "",
+                "// Lerp between two positions over time",
+                "float t = Math.Clamp01(elapsed / duration);",
+                "vector3 current = VectorUtil.Lerp(startPos, endPos, t);"
+            ]
+        }
+    ]
+}

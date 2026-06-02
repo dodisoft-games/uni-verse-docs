@@ -1,0 +1,277 @@
+{
+    "id": "playerutil",
+    "lang": "en-US",
+    "name": "PlayerUtil",
+    "description": "The `PlayerUtil` library provides access to the local player's account data and outfit, and exposes hooks into the platform's game-event and quest-event systems.",
+    "link": "/docs/uniscript/en-US/playerutil",
+    "tags": [
+        "uniscript",
+        "playerutil"
+    ],
+    "previous": {
+        "name": "CharacterUtil",
+        "link": "/docs/uniscript/en-US/characterutil"
+    },
+    "next": {
+        "name": "AudioUtil",
+        "link": "/docs/uniscript/en-US/audioutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "PlayerUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `PlayerUtil` library provides access to the local player's account data and outfit, and exposes hooks into the platform's game-event and quest-event systems. It also handles server-side inventory reads and writes. All methods that communicate with the platform use a callback pattern."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Identity"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Access the local player's profile information."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the local player's unique account ID string."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the local player's display name."
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the identifier of the player's currently selected avatar."
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the identifier of the player's currently selected outfit."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns an integer representing the player's selected gender (0 = unset, 1 = male, 2 = female)."
+        },
+        {
+            "id": "block-012",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Outfits"
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Apply player outfits to character objects."
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies the local player's saved outfit to `character`. Calls `callbackMethod` on `callbackScript` when done."
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies a specific outfit (by ID string) to `character`. Calls `callbackMethod` when done."
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies an outfit from an in-scene `outfit` script instance to `character`."
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies an outfit from a `UniAsset` reference to `character`."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Inventory"
+        },
+        {
+            "id": "block-019",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Read and write the player's server-side inventory."
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Asynchronously fetches the player's inventory. Calls `callbackMethod` on `script` with a `Dictionary` result."
+        },
+        {
+            "id": "block-021",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Saves `inventory` (a `Dictionary`) to the player's server-side inventory. Calls `callbackMethod` when done."
+        },
+        {
+            "id": "block-022",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Events"
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Trigger platform-level game and quest events."
+        },
+        {
+            "id": "block-024",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Records a game-start metric on the platform — call once when a play session begins."
+        },
+        {
+            "id": "block-025",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Fires a numeric game event to the platform event system."
+        },
+        {
+            "id": "block-026",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Fires a named quest event with a float value — used to advance quest objectives."
+        },
+        {
+            "id": "block-027",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Profile Photos"
+        },
+        {
+            "id": "block-028",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Display a player's profile photo inside a UI element."
+        },
+        {
+            "id": "block-029",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Loads and sets the profile photo for `playerId` into the UI element `elementName` on panel `panelId`, using `photoVersion` for cache-busting."
+        },
+        {
+            "id": "block-030",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-031",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`GetInventory` and `SetInventory` are asynchronous — results arrive in a callback, not as return values. Always design around the callback pattern."
+        },
+        {
+            "id": "block-032",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`TriggerQuestEvent` requires the event ID to match exactly what is configured in the platform's quest system."
+        },
+        {
+            "id": "block-033",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-034",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Show the local player's name in a HUD label",
+                "void OnInit() {",
+                "    string name = PlayerUtil.GetName();",
+                "    hudPanel.SetItemValue(\"PlayerNameLabel\", name);",
+                "}",
+                "",
+                "// Apply the player's outfit to the spawned character",
+                "void OnCharacterSpawned(object characterObj) {",
+                "    PlayerUtil.ApplyPlayerOutfit(characterScript, this, \"OnOutfitApplied\");",
+                "}",
+                "",
+                "void OnOutfitApplied(object _) {",
+                "    Debug.Log(\"Outfit applied successfully\");",
+                "}",
+                "",
+                "// Advance a quest objective",
+                "PlayerUtil.TriggerQuestEvent(\"enemies_defeated\", 1);"
+            ]
+        }
+    ]
+}

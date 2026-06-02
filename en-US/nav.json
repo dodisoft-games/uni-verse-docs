@@ -1,0 +1,333 @@
+{
+    "items": [
+        {
+            "id": "core",
+            "name": "Core",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "math",
+                    "name": "Math",
+                    "link": "/docs/uniscript/en-US/math",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "typeutil",
+                    "name": "TypeUtil",
+                    "link": "/docs/uniscript/en-US/typeutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "debug",
+                    "name": "Debug",
+                    "link": "/docs/uniscript/en-US/debug",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "time",
+                    "name": "Time",
+                    "link": "/docs/uniscript/en-US/time",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "utility",
+                    "name": "Utility",
+                    "link": "/docs/uniscript/en-US/utility",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "objects",
+            "name": "Objects",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "uniobjectutil",
+                    "name": "UniObjectUtil",
+                    "link": "/docs/uniscript/en-US/uniobjectutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "vectorutil",
+                    "name": "VectorUtil",
+                    "link": "/docs/uniscript/en-US/vectorutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "quaternionutil",
+                    "name": "QuaternionUtil",
+                    "link": "/docs/uniscript/en-US/quaternionutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "collections",
+            "name": "Collections",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "listutil",
+                    "name": "ListUtil",
+                    "link": "/docs/uniscript/en-US/listutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "dictionaryutil",
+                    "name": "DictionaryUtil",
+                    "link": "/docs/uniscript/en-US/dictionaryutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "physics",
+            "name": "Physics",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "colliderutil",
+                    "name": "ColliderUtil",
+                    "link": "/docs/uniscript/en-US/colliderutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "physicsutil",
+                    "name": "PhysicsUtil",
+                    "link": "/docs/uniscript/en-US/physicsutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "world",
+            "name": "World",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "camerautil",
+                    "name": "CameraUtil",
+                    "link": "/docs/uniscript/en-US/camerautil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "lightutil",
+                    "name": "LightUtil",
+                    "link": "/docs/uniscript/en-US/lightutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "sceneutil",
+                    "name": "SceneUtil",
+                    "link": "/docs/uniscript/en-US/sceneutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "input",
+            "name": "Input",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "inpututil",
+                    "name": "InputUtil",
+                    "link": "/docs/uniscript/en-US/inpututil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "characters",
+            "name": "Characters",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "characterutil",
+                    "name": "CharacterUtil",
+                    "link": "/docs/uniscript/en-US/characterutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "playerutil",
+                    "name": "PlayerUtil",
+                    "link": "/docs/uniscript/en-US/playerutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "audio-ui",
+            "name": "Audio & UI",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "audioutil",
+                    "name": "AudioUtil",
+                    "link": "/docs/uniscript/en-US/audioutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "uiutil",
+                    "name": "UIUtil",
+                    "link": "/docs/uniscript/en-US/uiutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "rendering",
+            "name": "Rendering",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "renderutil",
+                    "name": "RenderUtil",
+                    "link": "/docs/uniscript/en-US/renderutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "colorutil",
+                    "name": "ColorUtil",
+                    "link": "/docs/uniscript/en-US/colorutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "particleutil",
+                    "name": "ParticleUtil",
+                    "link": "/docs/uniscript/en-US/particleutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "network",
+            "name": "Network",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "networkutil",
+                    "name": "NetworkUtil",
+                    "link": "/docs/uniscript/en-US/networkutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "storage",
+            "name": "Storage",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "storageutil",
+                    "name": "StorageUtil",
+                    "link": "/docs/uniscript/en-US/storageutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "stringutil",
+                    "name": "StringUtil",
+                    "link": "/docs/uniscript/en-US/stringutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "tasks-ai",
+            "name": "Tasks & AI",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "taskutil",
+                    "name": "TaskUtil",
+                    "link": "/docs/uniscript/en-US/taskutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "aiutil",
+                    "name": "AIUtil",
+                    "link": "/docs/uniscript/en-US/aiutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "game-market",
+            "name": "Game & Market",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "gameutil",
+                    "name": "GameUtil",
+                    "link": "/docs/uniscript/en-US/gameutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "marketutil",
+                    "name": "MarketUtil",
+                    "link": "/docs/uniscript/en-US/marketutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "testing",
+            "name": "Testing",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "assert",
+                    "name": "Assert",
+                    "link": "/docs/uniscript/en-US/assert",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        }
+    ]
+}

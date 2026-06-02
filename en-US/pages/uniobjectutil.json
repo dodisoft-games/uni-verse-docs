@@ -1,0 +1,490 @@
+{
+    "id": "uniobjectutil",
+    "lang": "en-US",
+    "name": "UniObjectUtil",
+    "description": "The `UniObjectUtil` library is the most-used library in Uniscript.",
+    "link": "/docs/uniscript/en-US/uniobjectutil",
+    "tags": [
+        "uniscript",
+        "uniobjectutil"
+    ],
+    "previous": {
+        "name": "Utility",
+        "link": "/docs/uniscript/en-US/utility"
+    },
+    "next": {
+        "name": "VectorUtil",
+        "link": "/docs/uniscript/en-US/vectorutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "UniObjectUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `UniObjectUtil` library is the most-used library in Uniscript. It provides the full surface for creating, finding, destroying, and manipulating `UniObject` instances in the scene — including transform operations, activation control, component management, and tag-based search. Almost every script will use `UniObjectUtil` in some form."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Self Reference"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Obtain a reference to the UniObject that hosts the current script."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the `UniObject` that owns `this` script. This is the primary way a script refers to its own game object."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Finding Objects"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Search the scene for objects by name, tag, or other criteria."
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the first active `UniObject` in the scene whose name exactly matches `name`."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a list of all active `UniObject` instances that have the specified `tag`."
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a list of all active `UniObject` instances whose name matches `name`."
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a list of every active `UniObject` currently in the scene."
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Instantiation & Destruction"
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Create new objects from assets and remove objects from the scene."
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Instantiates a new `UniObject` from a `UniAsset` at the given world position and rotation."
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes `uniObject` from the scene immediately."
+        },
+        {
+            "id": "block-018",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes `uniObject` from the scene after `delay` seconds."
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Activation"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Enable or disable objects and scripts."
+        },
+        {
+            "id": "block-021",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the active state of `uniObject`. Inactive objects are hidden and do not update."
+        },
+        {
+            "id": "block-022",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the activation state of a script component."
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the activation state of a script component."
+        },
+        {
+            "id": "block-024",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Transform"
+        },
+        {
+            "id": "block-025",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Manipulate object position, rotation, and scale directly."
+        },
+        {
+            "id": "block-026",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the world-space position of `uniObject`."
+        },
+        {
+            "id": "block-027",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the current world-space position of `uniObject`."
+        },
+        {
+            "id": "block-028",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the position of `uniObject` relative to its parent."
+        },
+        {
+            "id": "block-029",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the position of `uniObject` relative to its parent."
+        },
+        {
+            "id": "block-030",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the local rotation of `uniObject` in Euler angles."
+        },
+        {
+            "id": "block-031",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the local rotation of `uniObject` in Euler angles."
+        },
+        {
+            "id": "block-032",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the local scale of `uniObject`."
+        },
+        {
+            "id": "block-033",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the local scale of `uniObject`."
+        },
+        {
+            "id": "block-034",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Moves `uniObject` by `(x, y, z)` in local space."
+        },
+        {
+            "id": "block-035",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rotates `uniObject` by `(x, y, z)` degrees in local space."
+        },
+        {
+            "id": "block-036",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rotates `uniObject` to face `target` object."
+        },
+        {
+            "id": "block-037",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rotates `uniObject` to face the world-space point `target`."
+        },
+        {
+            "id": "block-038",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Smoothly rotates `uniObject` toward `target` at `speed` degrees per second."
+        },
+        {
+            "id": "block-039",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the normalised forward direction vector of `uniObject`."
+        },
+        {
+            "id": "block-040",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the normalised right direction vector of `uniObject`."
+        },
+        {
+            "id": "block-041",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the normalised up direction vector of `uniObject`."
+        },
+        {
+            "id": "block-042",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Hierarchy"
+        },
+        {
+            "id": "block-043",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Navigate and modify the parent-child object hierarchy."
+        },
+        {
+            "id": "block-044",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the parent `UniObject`, or `null` if the object has no parent."
+        },
+        {
+            "id": "block-045",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a list of all direct child `UniObject` instances."
+        },
+        {
+            "id": "block-046",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Changes the parent of `uniObject` to the object hosting `parentScript`."
+        },
+        {
+            "id": "block-047",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Components & Scripts"
+        },
+        {
+            "id": "block-048",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Add, retrieve, and remove script components."
+        },
+        {
+            "id": "block-049",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the script component of type `name` attached to `uniObject`, or `null` if not found."
+        },
+        {
+            "id": "block-050",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Adds a new script component of type `name` to `uniObject` and returns it."
+        },
+        {
+            "id": "block-051",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes the script component named `name` from `uniObject`."
+        },
+        {
+            "id": "block-052",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes the specific script instance `script` from its host object."
+        },
+        {
+            "id": "block-053",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Visuals"
+        },
+        {
+            "id": "block-054",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Change the material, shader, and colour of an object's renderer."
+        },
+        {
+            "id": "block-055",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the RGBA colour of `uniObject`'s material."
+        },
+        {
+            "id": "block-056",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies a shader and texture to `uniObject`'s material."
+        },
+        {
+            "id": "block-057",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Applies a shader to `uniObject`'s material without changing its texture."
+        },
+        {
+            "id": "block-058",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-059",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`GetUniObject(this)` is the idiomatic way for a script to obtain a reference to its own object. The result should typically be stored in a field during `OnInit`."
+        },
+        {
+            "id": "block-060",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Find functions search the **active** scene only. Objects that have been deactivated with `SetUniObjectActivation(obj, false)` will not be returned."
+        },
+        {
+            "id": "block-061",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "For large scenes, prefer tag-based lookups over name-based ones — tag comparisons are faster internally."
+        },
+        {
+            "id": "block-062",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Cache the result of `GetUniObject(this)` and `FindUniObject` in `OnInit` rather than calling them every frame."
+        },
+        {
+            "id": "block-063",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-064",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Get a reference to this script's own object",
+                "UniObject self = UniObjectUtil.GetUniObject(this);",
+                "self.tag = \"player\";",
+                "",
+                "// Instantiate an enemy prefab at a spawn point",
+                "UniObject enemy = UniObjectUtil.InstantiateUniObject(enemyAsset, spawnPoint, [0, 0, 0]);",
+                "",
+                "// Find all pickups and activate them",
+                "list pickups = UniObjectUtil.FindUniObjectsByTag(\"pickup\");",
+                "for (int i = 0; i < pickups.Count(); i++) {",
+                "    UniObject pickup = pickups.Get(i);",
+                "    UniObjectUtil.SetUniObjectActivation(pickup, true);",
+                "}",
+                "",
+                "// Make this object smoothly look at the player",
+                "UniObject player = UniObjectUtil.FindUniObject(\"Player\");",
+                "UniObjectUtil.LookAtSmooth(self, player, 90.0);",
+                "",
+                "// Destroy self after 3 seconds (e.g. a bullet hitting a wall)",
+                "UniObjectUtil.DestroyUniObjectDelayed(self, 3.0);"
+            ]
+        }
+    ]
+}

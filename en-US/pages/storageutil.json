@@ -1,0 +1,245 @@
+{
+    "id": "storageutil",
+    "lang": "en-US",
+    "name": "StorageUtil",
+    "description": "The `StorageUtil` library provides two distinct key-value storage tiers and a scoreboard system.",
+    "link": "/docs/uniscript/en-US/storageutil",
+    "tags": [
+        "uniscript",
+        "storageutil"
+    ],
+    "previous": {
+        "name": "NetworkUtil",
+        "link": "/docs/uniscript/en-US/networkutil"
+    },
+    "next": {
+        "name": "StringUtil",
+        "link": "/docs/uniscript/en-US/stringutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "StorageUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `StorageUtil` library provides two distinct key-value storage tiers and a scoreboard system. **Temporary data** lives in memory and is cleared when the session ends — use it for cross-script communication within a session. **Saved data** is persisted to the platform (PlayerPrefs-style) and survives between sessions — use it for player settings, progress, and high scores."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Temporary Data"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Session-scoped in-memory key-value storage."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Stores `data` under `key` in temporary storage. Overwrites any existing value."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Retrieves the value stored under `key`, or `defaultValue` if the key does not exist."
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if `key` exists in temporary storage."
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes the entry for `key` from temporary storage."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes all entries from temporary storage."
+        },
+        {
+            "id": "block-012",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Saved Data"
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Persisted key-value storage that survives between sessions."
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Saves `data` under `key` to persistent storage. Use for settings and progress."
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Retrieves the persisted value under `key`, or `defaultValue` if the key does not exist."
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if `key` exists in persistent storage."
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes the persisted entry for `key`."
+        },
+        {
+            "id": "block-018",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Removes all persisted entries. **Irreversible** — use with caution."
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Scoreboards"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Submit and retrieve server-side leaderboard data."
+        },
+        {
+            "id": "block-021",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Submits a score entry for `userId` to the scoreboard identified by `scoreboardId`. Calls `callbackMethod` on `callbackScript` with the result."
+        },
+        {
+            "id": "block-022",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Fetches the top entries for `scoreboardId`. Calls `callbackMethod` with a list of entries."
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Clears all entries from `scoreboardId`. Calls `callbackMethod` when done."
+        },
+        {
+            "id": "block-024",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-025",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`ClearSavedData()` permanently deletes all persistent storage for the game. Never call this accidentally — always gate behind an explicit user action."
+        },
+        {
+            "id": "block-026",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Scoreboard operations are asynchronous. The result arrives in the callback method, not as a return value."
+        },
+        {
+            "id": "block-027",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Use a consistent key-naming convention (e.g., `\"settings.volume\"`, `\"progress.level\"`) to avoid collisions between different script authors."
+        },
+        {
+            "id": "block-028",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-029",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Save the player's volume setting",
+                "StorageUtil.SetSavedData(\"masterVolume\", 0.75);",
+                "float vol = StorageUtil.GetSavedData(\"masterVolume\", 1.0); // default 1.0",
+                "AudioUtil.SetMasterVolume(vol);",
+                "",
+                "// Cross-script communication via temp storage",
+                "StorageUtil.SetTempData(\"lastCheckpoint\", checkpointId);",
+                "",
+                "// In another script, read the checkpoint",
+                "if (StorageUtil.HasTempData(\"lastCheckpoint\")) {",
+                "    string cp = StorageUtil.GetTempData(\"lastCheckpoint\", \"start\");",
+                "    RespawnAt(cp);",
+                "}",
+                "",
+                "// Submit a high score",
+                "StorageUtil.AddToScoreboard(\"highscores\", playerId, playerName, score, 100, false, null, this, \"OnScoreSubmitted\");",
+                "",
+                "void OnScoreSubmitted(object result) {",
+                "    Debug.Log(\"Score submitted!\");",
+                "}"
+            ]
+        }
+    ]
+}

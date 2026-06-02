@@ -1,0 +1,280 @@
+{
+    "id": "utility",
+    "lang": "en-US",
+    "name": "Utility",
+    "description": "The `Utility` library is the superclass of all per-domain `*Util` libraries and exposes a set of cross-cutting helpers used throughout the framework.",
+    "link": "/docs/uniscript/en-US/utility",
+    "tags": [
+        "uniscript",
+        "utility"
+    ],
+    "previous": {
+        "name": "Time",
+        "link": "/docs/uniscript/en-US/time"
+    },
+    "next": {
+        "name": "UniObjectUtil",
+        "link": "/docs/uniscript/en-US/uniobjectutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Utility"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `Utility` library is the superclass of all per-domain `*Util` libraries and exposes a set of cross-cutting helpers used throughout the framework. It covers dynamic method calls, asset loading, unique ID generation, visual effect attachment (line renderers, trails, outlines), cursor control, and animation duration queries."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Dynamic Method Calls"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Invoke methods on other scripts by name at runtime — the foundation for event callbacks used across the framework."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Calls the method named `methodName` on `script`, passing `refData` as an argument. Returns the method's return value."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if `script` has a method named `methodName`. Use before `CallMethod` to avoid errors."
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Schedules `methodName` on `script` to be called after `delay` seconds, passing `refData`."
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Asset Utilities"
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Inspect and load game assets asynchronously."
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the name string of an asset object."
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the type string of an asset object (e.g., `\"Audio\"`, `\"Texture\"`, `\"Motion\"`)."
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Asynchronously loads `asset` and calls `callbackMethod` on `callbackScript` when loading is complete."
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the duration in seconds of an animation motion asset."
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Unique IDs"
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Generate universally unique identifiers."
+        },
+        {
+            "id": "block-018",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns a new GUID-format string that is unique across sessions. Useful for network object IDs or save-game keys."
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Visual Effects"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Attach rendering effects to the host object of a script."
+        },
+        {
+            "id": "block-021",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Adds a LineRenderer component to the object hosting `script`, enabling line drawing at runtime."
+        },
+        {
+            "id": "block-022",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Adds a TrailRenderer component to the object hosting `script`, leaving a visual trail as it moves."
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Adds an outline effect to the object hosting `script`."
+        },
+        {
+            "id": "block-024",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Refreshes the outline mesh — call after changing the object's geometry."
+        },
+        {
+            "id": "block-025",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Cursor"
+        },
+        {
+            "id": "block-026",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Show or hide the system cursor."
+        },
+        {
+            "id": "block-027",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Shows or hides the cursor. Pass `true` to show, `false` to hide."
+        },
+        {
+            "id": "block-028",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns `true` if the cursor is currently visible."
+        },
+        {
+            "id": "block-029",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-030",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`CallMethod` and `CallMethodDelayed` are the standard callback mechanism in the framework. Many library methods (like `StorageUtil.GetScoreboard`) require a `callbackScript` and `callbackMethod` — those are resolved via `Utility.CallMethod` internally."
+        },
+        {
+            "id": "block-031",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "All `*Util` libraries inherit from `Utility`, so `Utility` methods can be called on any library instance."
+        },
+        {
+            "id": "block-032",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Always call `HasMethod` before `CallMethod` on an unknown script to avoid runtime errors from missing methods."
+        },
+        {
+            "id": "block-033",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-034",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Dynamic callback pattern used throughout the framework",
+                "Utility.LoadAssetAndCallback(myAsset, this, \"OnAssetLoaded\");",
+                "",
+                "void OnAssetLoaded(object asset) {",
+                "    Debug.Log(\"Loaded: \" + Utility.GetAssetName(asset));",
+                "}",
+                "",
+                "// Call a method on another script by name, safely",
+                "if (Utility.HasMethod(targetScript, \"TakeDamage\")) {",
+                "    Utility.CallMethod(targetScript, \"TakeDamage\", damageAmount);",
+                "}",
+                "",
+                "// Delayed method call for a 2-second cooldown",
+                "Utility.CallMethodDelayed(this, \"ResetCooldown\", null, 2.0);",
+                "",
+                "// Hide cursor when gameplay starts",
+                "Utility.SetCursorVisibility(false);",
+                "",
+                "// Assign unique IDs to network-synced objects",
+                "string objectId = Utility.GenerateUniqueID();"
+            ]
+        }
+    ]
+}

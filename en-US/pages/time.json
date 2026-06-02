@@ -1,0 +1,145 @@
+{
+    "id": "time",
+    "lang": "en-US",
+    "name": "Time",
+    "description": "The `Time` library exposes the game engine's time values as callable methods.",
+    "link": "/docs/uniscript/en-US/time",
+    "tags": [
+        "uniscript",
+        "time"
+    ],
+    "previous": {
+        "name": "Debug",
+        "link": "/docs/uniscript/en-US/debug"
+    },
+    "next": {
+        "name": "Utility",
+        "link": "/docs/uniscript/en-US/utility"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Time"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `Time` library exposes the game engine's time values as callable methods. Note that `DeltaTime()` is a **method**, not a property — always call it with parentheses. Multiplying movement and physics values by `DeltaTime()` is the standard way to make behaviour frame-rate independent in Uniscript."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Time Values"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Access the current time and per-frame delta."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the time in seconds since the game session started, scaled by the time scale. Pauses when the game is paused."
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the real wall-clock time in seconds since the session started. Unaffected by pausing or time scale changes."
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Returns the time in seconds that elapsed since the last frame. Multiply speeds and forces by this value to achieve frame-rate-independent movement."
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-011",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`DeltaTime()` is a **method** — write `Time.DeltaTime()`, not `Time.DeltaTime`. Forgetting the parentheses is one of the most common beginner mistakes."
+        },
+        {
+            "id": "block-012",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Use `GameTime()` for in-game timers and cooldowns. Use `RealTime()` for benchmarking or anything that must not be affected by in-game pause."
+        },
+        {
+            "id": "block-013",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Store `Time.DeltaTime()` in a local variable at the top of `OnUpdate` if you use it more than once in the same frame — it avoids repeated method calls."
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Frame-rate-independent rotation",
+                "void OnUpdate() {",
+                "    float rotationThisFrame = rotationSpeed * Time.DeltaTime();",
+                "    obj.Rotate(0, rotationThisFrame, 0);",
+                "}",
+                "",
+                "// Spawn an enemy every 5 seconds of game time",
+                "void OnUpdate() {",
+                "    if (Time.GameTime() - lastSpawnTime > 5.0) {",
+                "        SpawnEnemy();",
+                "        lastSpawnTime = Time.GameTime();",
+                "    }",
+                "}",
+                "",
+                "// Show a timer that counts real seconds regardless of pausing",
+                "void OnUpdate() {",
+                "    uiPanel.SetItemValue(\"TimerLabel\", Math.Floor(Time.RealTime()));",
+                "}"
+            ]
+        }
+    ]
+}

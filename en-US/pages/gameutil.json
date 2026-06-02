@@ -1,0 +1,58 @@
+{
+    "id": "gameutil",
+    "lang": "en-US",
+    "name": "GameUtil",
+    "description": "AddMovingPlatform only -- registers the calling script as a moving platform.",
+    "link": "/docs/uniscript/en-US/gameutil",
+    "tags": [
+        "uniscript",
+        "gameutil"
+    ],
+    "previous": {
+        "name": "AIUtil",
+        "link": "/docs/uniscript/en-US/aiutil"
+    },
+    "next": {
+        "name": "MarketUtil",
+        "link": "/docs/uniscript/en-US/marketutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "GameUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "AddMovingPlatform only -- registers the calling script as a moving platform."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Methods"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `GameUtil` library exposes 1 methods:"
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "void AddMovingPlatform(uniscript script)"
+            ]
+        }
+    ]
+}

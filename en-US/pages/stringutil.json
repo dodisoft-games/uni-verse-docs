@@ -1,0 +1,81 @@
+{
+    "id": "stringutil",
+    "lang": "en-US",
+    "name": "StringUtil",
+    "description": "Format, split, contains - operations the parser can't express on string.",
+    "link": "/docs/uniscript/en-US/stringutil",
+    "tags": [
+        "uniscript",
+        "stringutil"
+    ],
+    "previous": {
+        "name": "StorageUtil",
+        "link": "/docs/uniscript/en-US/storageutil"
+    },
+    "next": {
+        "name": "TaskUtil",
+        "link": "/docs/uniscript/en-US/taskutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "StringUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Format, split, contains - operations the parser can't express on string."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Methods"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `StringUtil` library exposes 24 methods:"
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "bool Contains(string text, string value)",
+                "bool EndsWith(string text, string value)",
+                "int IndexOf(string text, string value)",
+                "int IndexOfAny(string text, string chars)",
+                "string Insert(string text, int index, string value)",
+                "int LastIndexOf(string text, string value)",
+                "int LastIndexOfAny(string text, string chars)",
+                "int Length(string text)",
+                "string Merge(string text, string value)",
+                "string PadLeft(string text, string character, int length)",
+                "string PadRight(string text, string character, int length)",
+                "string Remove(string text, int start)",
+                "string Remove(string text, int start, int length)",
+                "string Replace(string text, string search, string replace)",
+                "List Split(string text, string divider)",
+                "List SplitAny(string text, string dividerChars)",
+                "bool StartsWith(string text, string value)",
+                "string Substring(string text, int start)",
+                "string Substring(string text, int start, int length)",
+                "string ToLower(string text)",
+                "string ToUpper(string text)",
+                "string Trim(string text)",
+                "string TrimEnd(string text)",
+                "string TrimStart(string text)"
+            ]
+        }
+    ]
+}

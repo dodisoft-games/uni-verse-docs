@@ -1,0 +1,192 @@
+{
+    "id": "particleutil",
+    "lang": "en-US",
+    "name": "ParticleUtil",
+    "description": "The `ParticleUtil` library manages particle system components — registration, playback, and emission control.",
+    "link": "/docs/uniscript/en-US/particleutil",
+    "tags": [
+        "uniscript",
+        "particleutil"
+    ],
+    "previous": {
+        "name": "ColorUtil",
+        "link": "/docs/uniscript/en-US/colorutil"
+    },
+    "next": {
+        "name": "NetworkUtil",
+        "link": "/docs/uniscript/en-US/networkutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "ParticleUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `ParticleUtil` library manages particle system components — registration, playback, and emission control. Particle systems must first be registered with `AddParticleSystem` before any other operation. Use `Emit` for burst effects (explosions, impacts) and `SetEmissionRateOverTime` for continuous effects (fire, rain)."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Namespace"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Available as `Universe.Core`."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Registration"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Register a particle system component from `OnInit`."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Registers `script`'s host object as a particle system. Must be called from `OnInit`."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Playback"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Start, stop, and pause the particle system."
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Starts particle emission on the system registered to `script`."
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Stops emission and clears all active particles."
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Pauses emission while keeping existing particles alive."
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Emission Control"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Control how and when particles are emitted."
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Immediately emits a burst of `number` particles from the system registered to `script`."
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the continuous particles-per-second emission rate."
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sets the particles-per-unit-of-distance emission rate — useful for trail effects that respond to movement speed."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Notes"
+        },
+        {
+            "id": "block-019",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`AddParticleSystem` must be called in `OnInit`. Calling it later has no effect."
+        },
+        {
+            "id": "block-020",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`Emit` is a one-shot burst and does not start continuous emission — call `Start` separately if you also want continuous emission."
+        },
+        {
+            "id": "block-021",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Example Usage"
+        },
+        {
+            "id": "block-022",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Register in OnInit (the particle system starts stopped by default)",
+                "void OnInit() {",
+                "    ParticleUtil.AddParticleSystem(this);",
+                "}",
+                "",
+                "// Burst on impact — emit 50 sparks at once",
+                "void OnCollisionEnter(object other) {",
+                "    ParticleUtil.Emit(this, 50);",
+                "}",
+                "",
+                "// Continuous fire effect — start and set rate",
+                "ParticleUtil.Start(this);",
+                "ParticleUtil.SetEmissionRateOverTime(this, 120); // 120 particles/second",
+                "",
+                "// Trail effect tied to object movement speed",
+                "ParticleUtil.SetEmissionRateOverDistance(this, 10);"
+            ]
+        }
+    ]
+}

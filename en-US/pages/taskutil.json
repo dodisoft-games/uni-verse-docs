@@ -1,0 +1,60 @@
+{
+    "id": "taskutil",
+    "lang": "en-US",
+    "name": "TaskUtil",
+    "description": "Async task primitives - start, await, cancel.",
+    "link": "/docs/uniscript/en-US/taskutil",
+    "tags": [
+        "uniscript",
+        "taskutil"
+    ],
+    "previous": {
+        "name": "StringUtil",
+        "link": "/docs/uniscript/en-US/stringutil"
+    },
+    "next": {
+        "name": "AIUtil",
+        "link": "/docs/uniscript/en-US/aiutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "TaskUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Async task primitives - start, await, cancel."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Methods"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The `TaskUtil` library exposes 3 methods:"
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Coroutine Start()",
+                "void Stop()",
+                "void StopAll()"
+            ]
+        }
+    ]
+}
