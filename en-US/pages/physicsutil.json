@@ -45,23 +45,23 @@
             "classes": null,
             "headers": ["Returns", "Method", "Parameters"],
             "rows": [
-                ["`void`", "`AddPhysics`", "`uniscript script`"],
-                ["`void`", "`AddForce`", "`uniscript script, float x, float y, float z, int mode`"],
-                ["`void`", "`AddForce`", "`uniscript script, vector3 force, int mode`"],
-                ["`vector3`", "`GetVelocity`", "`uniscript script`"],
-                ["`void`", "`SetVelocity`", "`uniscript script, vector3 velocity`"],
-                ["`void`", "`AddMovingPlatform`", "`uniscript script`"],
-                ["`void`", "`AddTorque`", "`uniscript script, float x, float y, float z, int mode`"],
-                ["`void`", "`AddTorque`", "`uniscript script, vector3 force, int mode`"],
-                ["`vector3`", "`GetAngularVelocity`", "`uniscript script`"],
-                ["`void`", "`SetAngularVelocity`", "`uniscript script, vector3 velocity`"],
+                ["`void`", "`AddPhysics`", "—"],
+                ["`void`", "`AddForce`", "`float x, float y, float z, int mode`"],
+                ["`void`", "`AddForce`", "`vector3 force, int mode`"],
+                ["`vector3`", "`GetVelocity`", "—"],
+                ["`void`", "`SetVelocity`", "`vector3 velocity`"],
+                ["`void`", "`AddMovingPlatform`", "—"],
+                ["`void`", "`AddTorque`", "`float x, float y, float z, int mode`"],
+                ["`void`", "`AddTorque`", "`vector3 force, int mode`"],
+                ["`vector3`", "`GetAngularVelocity`", "—"],
+                ["`void`", "`SetAngularVelocity`", "`vector3 velocity`"],
                 ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance`"],
                 ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
                 ["`Dictionary`", "`Raycast`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
                 ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance`"],
                 ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, string tag`"],
                 ["`List`", "`RaycastAll`", "`vector3 position, vector3 direction, float maxDistance, List tags`"],
-                ["`void`", "`SetCenterOfMass`", "`uniscript script, vector3 center`"]
+                ["`void`", "`SetCenterOfMass`", "`vector3 center`"]
             ]
         }
     ]
