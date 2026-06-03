@@ -1,16 +1,18 @@
 {
     "id": "assert",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "Assert",
-    "description": "Test-harness assertions (Assert.Equal etc.) - used inside Test_* UniScripts.",
-    "link": "/docs/uniscript/en-us/assert",
+    "description": "Write tests that check your game logic is correct: compare values, verify conditions, and pass or fail a test on purpose.",
+    "link": "/docs/uniscript/en-US/assert",
     "tags": [
         "uniscript",
-        "assert"
+        "assert",
+        "test",
+        "testing"
     ],
     "previous": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-us/marketutil"
+        "link": "/docs/uniscript/en-US/marketutil"
     },
     "next": {
         "name": "",
@@ -29,17 +31,135 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Test-harness assertions (Assert.Equal etc.) - used inside Test_* UniScripts."
+            "text": "`Assert` helps you **test** that your game logic actually does what you expect. Each method states something you believe is true — like \"the score should be 10\" — and reports whether it held up. Tests catch mistakes early, before players ever see them."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Asserts are used while building and testing. When your game runs normally for players, they're simply ignored — so they never slow anything down or show up in the finished game."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Comparing values"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The most common check: confirm a value matches what you expect. Every assert takes a final **message** describing the check, which makes failures easy to read."
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "Passes when"
+            ],
+            "rows": [
+                ["`Equal(expected, actual, message)`", "`actual` equals `expected`."],
+                ["`NotEqual(expected, actual, message)`", "The two values are different."]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "int score = AddPoints(5, 5);",
+                "Assert.Equal(10, score, \"adding 5 and 5 should give 10\");"
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Checking conditions and values"
+        },
+        {
+            "id": "block-009",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "Passes when"
+            ],
+            "rows": [
+                ["`True(condition, message)`", "`condition` is `true`."],
+                ["`False(condition, message)`", "`condition` is `false`."],
+                ["`Null(value, message)`", "`value` is empty (null)."],
+                ["`NotNull(value, message)`", "`value` is set (not null)."]
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Assert.True(player.health > 0, \"player should still be alive\");",
+                "Assert.NotNull(savedGame, \"a saved game should have loaded\");"
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Passing or failing on purpose"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Sometimes you want to declare a result directly — for example, fail a test if your code reaches a branch it never should."
+        },
+        {
+            "id": "block-013",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Fail(message)`", "Marks the test as failed."],
+                ["`Pass(testName)`", "Marks the test as passed."]
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "if (unexpectedState)",
+                "{",
+                "    Assert.Fail(\"we should never reach this state\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-016",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,54 +169,22 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`Equal`",
-                    "`object expected, object actual, string message`"
-                ],
-                [
-                    "`void`",
-                    "`NotEqual`",
-                    "`object expected, object actual, string message`"
-                ],
-                [
-                    "`void`",
-                    "`True`",
-                    "`bool condition, string message`"
-                ],
-                [
-                    "`void`",
-                    "`False`",
-                    "`bool condition, string message`"
-                ],
-                [
-                    "`void`",
-                    "`Null`",
-                    "`object value, string message`"
-                ],
-                [
-                    "`void`",
-                    "`NotNull`",
-                    "`object value, string message`"
-                ],
-                [
-                    "`void`",
-                    "`Fail`",
-                    "`string message`"
-                ],
-                [
-                    "`void`",
-                    "`Pass`",
-                    "`string testName`"
-                ]
+                ["`void`", "`Equal`", "`object expected, object actual, string message`"],
+                ["`void`", "`NotEqual`", "`object expected, object actual, string message`"],
+                ["`void`", "`True`", "`bool condition, string message`"],
+                ["`void`", "`False`", "`bool condition, string message`"],
+                ["`void`", "`Null`", "`object value, string message`"],
+                ["`void`", "`NotNull`", "`object value, string message`"],
+                ["`void`", "`Fail`", "`string message`"],
+                ["`void`", "`Pass`", "`string testName`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
+            "id": "block-017",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Assert methods are only intended for use inside `Test_*` UniScripts. They have no effect in production scenes and should not be used in gameplay logic."
+            "text": "Write a clear `message` for every assert — when a test fails, that message is exactly what tells you what went wrong and where to look."
         }
     ]
 }

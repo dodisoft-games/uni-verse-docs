@@ -1,20 +1,24 @@
 {
     "id": "inpututil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "InputUtil",
-    "description": "AddInputListener(this) only -- the rest of the input surface comes via OnAxis / OnAction magic methods on the script.",
-    "link": "/docs/uniscript/en-us/inpututil",
+    "description": "Let a script hear player input. Register once, then receive button presses through OnAction and joystick/WASD movement through OnAxis.",
+    "link": "/docs/uniscript/en-US/inpututil",
     "tags": [
         "uniscript",
-        "inpututil"
+        "inpututil",
+        "input",
+        "onaction",
+        "onaxis",
+        "controls"
     ],
     "previous": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/en-us/sceneutil"
+        "link": "/docs/uniscript/en-US/sceneutil"
     },
     "next": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-us/characterutil"
+        "link": "/docs/uniscript/en-US/characterutil"
     },
     "content": [
         {
@@ -29,17 +33,145 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "AddInputListener(this) only -- the rest of the input surface comes via OnAxis / OnAction magic methods on the script."
+            "text": "`InputUtil` is how a script starts **listening to the player** — button taps, key presses, and joystick movement. It has just one job: sign your script up to receive input. Once registered, the input itself arrives through two special callbacks, `OnAction` and `OnAxis`."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Step 1 — Register the listener"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Call `AddInputListener(this)` once when your script starts. After this, your script will be notified whenever the player triggers an input."
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    void OnStart()",
+                "    {",
+                "        // Start listening for player input.",
+                "        InputUtil.AddInputListener(this);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 2 — Receive button presses with OnAction"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "When the player presses a button or key tied to an **action** (like \"jump\" or \"fire\"), your `OnAction` method runs. The important value is `state`: `true` when the button goes down, `false` when it's released."
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "void OnAction(string panel, string sender, string action, bool state, object data)",
+                "{",
+                "    if (action == \"jump\" && state)",
+                "    {",
+                "        Jump();   // runs once, the moment Jump is pressed",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parameter",
+                "What it tells you"
+            ],
+            "rows": [
+                ["`panel`", "Which UI panel the input came from."],
+                ["`sender`", "Which element (button) sent it."],
+                ["`action`", "The action's name, e.g. `\"jump\"` — check this to know what happened."],
+                ["`state`", "`true` on press, `false` on release."],
+                ["`data`", "Any extra value attached to the action (often unused)."]
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "Declare `OnAction` with exactly these five parameters and `state` as a `bool`. If you leave `state` out or use the wrong type, your button presses won't register correctly."
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 3 — Receive movement with OnAxis"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Joystick and WASD-style movement arrives through `OnAxis`. The `value` is a `vector3` describing the direction the player is pushing. Read the parts with [VectorUtil](/docs/uniscript/en-US/vectorutil)."
+        },
+        {
+            "id": "block-013",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "void OnAxis(string panel, string sender, string axis, vector3 value)",
+                "{",
+                "    if (axis == \"move\")",
+                "    {",
+                "        float strafe  = VectorUtil.X(value);  // left / right",
+                "        float forward = VectorUtil.Y(value);  // forward / back",
+                "        CharacterUtil.SetInput(this, strafe, forward);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "For movement, the forward/back amount is in the value's **Y** part and left/right is in the **X** part. Reading the wrong part is a common reason movement \"doesn't work\" even though the joystick is set up."
+        },
+        {
+            "id": "block-015",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Input only reaches your script through **actions** you set up on UI elements (buttons, joysticks). If a key seems to do nothing, make sure its action is wired to an element and your script registered with `AddInputListener`. See [UIUtil](/docs/uniscript/en-US/uiutil) for binding actions to buttons."
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-017",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,19 +181,15 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`AddInputListener`",
-                    "`uniscript`"
-                ]
+                ["`void`", "`AddInputListener`", "`uniscript`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
+            "id": "block-018",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "`InputUtil` only exposes `AddInputListener(uniscript)` — call it once from `OnInit`. All actual input handling is done via magic methods on the script: `OnAxis(name, value)` and `OnAction(name, phase)`."
+            "text": "Register in `OnStart` rather than `OnInit` — that way the object is fully placed in the scene before it starts receiving input."
         }
     ]
 }

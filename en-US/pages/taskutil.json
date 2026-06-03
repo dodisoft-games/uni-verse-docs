@@ -1,20 +1,22 @@
 {
     "id": "taskutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "TaskUtil",
-    "description": "Async task primitives - start, await, cancel.",
-    "link": "/docs/uniscript/en-us/taskutil",
+    "description": "Controls for background tasks — start a task, and stop one or all of them.",
+    "link": "/docs/uniscript/en-US/taskutil",
     "tags": [
         "uniscript",
-        "taskutil"
+        "taskutil",
+        "task",
+        "background"
     ],
     "previous": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-us/stringutil"
+        "link": "/docs/uniscript/en-US/stringutil"
     },
     "next": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-us/aiutil"
+        "link": "/docs/uniscript/en-US/aiutil"
     },
     "content": [
         {
@@ -29,17 +31,39 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Async task primitives - start, await, cancel."
+            "text": "`TaskUtil` is a small set of controls for **background tasks** — work that runs alongside your game rather than all at once. It lets you start a task and stop one or all of them."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Start()`", "Begins a background task."],
+                ["`Stop()`", "Stops the current task."],
+                ["`StopAll()`", "Stops every running task."]
+            ]
         },
         {
             "id": "block-004",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "For most everyday timing needs, you'll get further with the tools you already know: schedule a one-off action with [Utility's CallMethodDelayed](/docs/uniscript/en-US/utility#block-004), and handle per-frame or repeating timing with [Time](/docs/uniscript/en-US/time)."
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-006",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,29 +73,10 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`Coroutine`",
-                    "`Start`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`Stop`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`StopAll`",
-                    "—"
-                ]
+                ["`void`", "`Start`", "—"],
+                ["`void`", "`Stop`", "—"],
+                ["`void`", "`StopAll`", "—"]
             ]
-        },
-        {
-            "id": "block-005",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`TaskUtil` provides async task primitives. Use `TaskUtil.Start(uniscript, methodName)` to run a coroutine-style task and `TaskUtil.Cancel(taskId)` to stop it early."
         }
     ]
 }

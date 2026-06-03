@@ -1,20 +1,24 @@
 {
     "id": "aiutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "AIUtil",
-    "description": "NPC behaviour, NavMesh queries, microdatabase access.",
-    "link": "/docs/uniscript/en-us/aiutil",
+    "description": "Give non-player characters a brain: build a walkable map, send NPCs to a spot, and make them chase targets with smart pathfinding.",
+    "link": "/docs/uniscript/en-US/aiutil",
     "tags": [
         "uniscript",
-        "aiutil"
+        "aiutil",
+        "ai",
+        "npc",
+        "navigation",
+        "pathfinding"
     ],
     "previous": {
         "name": "TaskUtil",
-        "link": "/docs/uniscript/en-us/taskutil"
+        "link": "/docs/uniscript/en-US/taskutil"
     },
     "next": {
         "name": "GameUtil",
-        "link": "/docs/uniscript/en-us/gameutil"
+        "link": "/docs/uniscript/en-US/gameutil"
     },
     "content": [
         {
@@ -29,24 +33,172 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "NPC behaviour, NavMesh queries, microdatabase access."
+            "text": "`AIUtil` gives **non-player characters** (NPCs) — enemies, allies, wandering villagers — the ability to move around your world intelligently. Instead of you steering them, they use **pathfinding** to figure out how to walk to a spot, going around walls and obstacles on their own."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Every method takes the `uniscript` of the NPC you're controlling — usually `this` on the NPC's own script."
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "text": "Step 1 — Set up the NPC and the map"
         },
         {
             "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Two things are needed before an NPC can navigate: the object must become an NPC, and the level needs a **navigation map** that marks where it's possible to walk."
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddNpcController(this)`", "Turns the object into a pathfinding NPC."],
+                ["`GenerateNavigation(this)`", "Builds the walkable map of the level so NPCs know where they can go."],
+                ["`UpdateAgentDimensions(this)`", "Refreshes the NPC's size (radius/height) used for navigation."]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class Enemy",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        AIUtil.AddNpcController(this);",
+                "        AIUtil.GenerateNavigation(this);   // build the walkable map once",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 2 — Send the NPC somewhere"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetNavigationTarget` tells the NPC where to go; it returns `true` if a path was found. Use `StartNavigation` and `StopNavigation` to control whether it's actually moving."
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetNavigationTarget(this, position)`", "Sets a destination; returns `true` if the NPC can reach it."],
+                ["`StartNavigation(this)`", "Starts the NPC moving along its path."],
+                ["`StopNavigation(this)`", "Stops the NPC where it is."]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Walk the enemy to where the player is standing.",
+                "vector3 target = UniObjectUtil.GetWorldPosition(player);",
+                "if (AIUtil.SetNavigationTarget(this, target))",
+                "{",
+                "    AIUtil.StartNavigation(this);",
+                "}"
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Chasing targets"
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Instead of setting a position by hand, you can give the NPC **targets** to react to — for example, chase the nearest player."
+        },
+        {
+            "id": "block-014",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddTargetObject(this, target)`", "Adds an object the NPC should pay attention to."],
+                ["`RemoveTargetObject(this, target)`", "Removes a target."],
+                ["`AssignTargetsAutomatically(this, targetTag)`", "Automatically uses every object with the given tag as a target."]
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Treat everything tagged \"player\" as something to chase.",
+                "AIUtil.AssignTargetsAutomatically(this, \"player\");"
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Advanced controls"
+        },
+        {
+            "id": "block-017",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`ResetSettings(this)`", "Resets the NPC's navigation settings to their defaults."],
+                ["`ExternalEvent(this, eventCode, value)`", "Sends a custom signal to the NPC's behavior (e.g. \"alert\" or \"flee\")."]
+            ]
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-019",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,69 +208,25 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`GenerateNavigation`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`AddNpcController`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`UpdateAgentDimensions`",
-                    "`uniscript`"
-                ],
-                [
-                    "`bool`",
-                    "`SetNavigationTarget`",
-                    "`uniscript, vector3 position`"
-                ],
-                [
-                    "`void`",
-                    "`AddTargetObject`",
-                    "`uniscript, uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`RemoveTargetObject`",
-                    "`uniscript, uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`StartNavigation`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`StopNavigation`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`AssignTargetsAutomatically`",
-                    "`uniscript, string targetTag`"
-                ],
-                [
-                    "`void`",
-                    "`ResetSettings`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`ExternalEvent`",
-                    "`uniscript, int eventCode, object value`"
-                ]
+                ["`void`", "`GenerateNavigation`", "`uniscript`"],
+                ["`void`", "`AddNpcController`", "`uniscript`"],
+                ["`void`", "`UpdateAgentDimensions`", "`uniscript`"],
+                ["`bool`", "`SetNavigationTarget`", "`uniscript, vector3 position`"],
+                ["`void`", "`AddTargetObject`", "`uniscript, uniscript target`"],
+                ["`void`", "`RemoveTargetObject`", "`uniscript, uniscript target`"],
+                ["`void`", "`StartNavigation`", "`uniscript`"],
+                ["`void`", "`StopNavigation`", "`uniscript`"],
+                ["`void`", "`AssignTargetsAutomatically`", "`uniscript, string targetTag`"],
+                ["`void`", "`ResetSettings`", "`uniscript`"],
+                ["`void`", "`ExternalEvent`", "`uniscript, int eventCode, object value`"]
             ]
         },
         {
-            "id": "block-006",
+            "id": "block-020",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `AIUtil.SetDestination(uniscript, vector3)` to move an NPC to a world position via NavMesh. Ensure the target position is on a valid NavMesh surface."
+            "text": "Build the navigation map with `GenerateNavigation` once after the level is set up — not every frame. Tagging your targets (see [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-030)) makes `AssignTargetsAutomatically` the easiest way to wire up chasing."
         }
     ]
 }

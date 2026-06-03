@@ -1,20 +1,24 @@
 {
     "id": "renderutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "RenderUtil",
-    "description": "Per-renderer material ops on the calling script's host UniObject. First arg is ALWAYS this.",
-    "link": "/docs/uniscript/en-us/renderutil",
+    "description": "Change how an object looks: recolor it, swap its texture or material, tile and offset the texture, and show or hide it.",
+    "link": "/docs/uniscript/en-US/renderutil",
     "tags": [
         "uniscript",
-        "renderutil"
+        "renderutil",
+        "color",
+        "texture",
+        "material",
+        "appearance"
     ],
     "previous": {
         "name": "UIUtil",
-        "link": "/docs/uniscript/en-us/uiutil"
+        "link": "/docs/uniscript/en-US/uiutil"
     },
     "next": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-us/colorutil"
+        "link": "/docs/uniscript/en-US/colorutil"
     },
     "content": [
         {
@@ -29,17 +33,121 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Per-renderer material ops on the calling script's host UniObject. First arg is ALWAYS this."
+            "text": "`RenderUtil` changes how an object **looks** — its color, its texture (the image wrapped around it), and whether it's visible at all. Use it to flash an enemy red when hit, recolor a team's gear, or hide an object's graphics."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Coloring an object"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetColor` tints an object. You can give it four numbers (red, green, blue, and opacity, each `0`–`1`) or a ready-made color value from [ColorUtil](/docs/uniscript/en-US/colorutil)."
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Flash the object bright red (with four numbers).",
+                "RenderUtil.SetColor(this, 1.0, 0.0, 0.0, 1.0);",
+                "",
+                "// Or use a named color.",
+                "RenderUtil.SetColor(this, ColorUtil.Red());"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Textures and materials"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "A **texture** is the image painted onto an object's surface; a **material** combines a texture with a shader (the rule for how light hits it). These let you swap them while the game runs."
+        },
+        {
+            "id": "block-008",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetTexture(this, texture)`", "Swaps the image on the object's surface."],
+                ["`SetShader(this, shader)`", "Changes the shader (a number choosing a built-in look)."],
+                ["`SetMaterial(this, shader, texture)`", "Sets the shader and texture together."],
+                ["`SetTextureTiling(this, tiling)`", "Repeats the texture across the surface (the `x` and `y` of the vector set how many times)."],
+                ["`SetTextureOffset(this, offset)`", "Shifts the texture — animate this for scrolling effects like water or a conveyor belt."],
+                ["`SetTextureSettings(texture, filterMode, wrapModeU, wrapModeV)`", "Fine-tunes a texture: `filterMode` (`0` crisp/pixelated, `1` smooth) and wrap modes (`0` repeat, `1` clamp)."]
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Scroll a texture to fake flowing water.",
+                "void OnUpdate()",
+                "{",
+                "    float t = Time.GameTime() * 0.2;",
+                "    RenderUtil.SetTextureOffset(this, VectorUtil.New(t, 0.0, 0.0));",
+                "}"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Showing and hiding the graphics"
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetVisibility` hides or shows just an object's **graphics** while leaving the object itself active (it can still move and collide). The `includeSubItems` value extends this to child objects too."
+        },
+        {
+            "id": "block-012",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Make the object invisible, including its children.",
+                "RenderUtil.SetVisibility(this, false, true);"
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`SetVisibility` only hides the look — the object still exists and reacts. To turn an object off entirely, use `SetUniObjectActivation` from [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-018)."
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-015",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,59 +157,23 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`SetColor`",
-                    "`uniscript, float r, float g, float b, float a`"
-                ],
-                [
-                    "`void`",
-                    "`SetColor`",
-                    "`uniscript, color color`"
-                ],
-                [
-                    "`void`",
-                    "`SetMaterial`",
-                    "`uniscript, int shader, object texture`"
-                ],
-                [
-                    "`void`",
-                    "`SetShader`",
-                    "`uniscript, int shader`"
-                ],
-                [
-                    "`void`",
-                    "`SetTexture`",
-                    "`uniscript, object texture`"
-                ],
-                [
-                    "`void`",
-                    "`SetTextureSettings`",
-                    "`object texture, int filterMode, int wrapModeU, int wrapModeV`"
-                ],
-                [
-                    "`void`",
-                    "`SetTextureTiling`",
-                    "`uniscript, vector3 tiling`"
-                ],
-                [
-                    "`void`",
-                    "`SetTextureOffset`",
-                    "`uniscript, vector3 offset`"
-                ],
-                [
-                    "`void`",
-                    "`SetVisibility`",
-                    "`uniscript, bool visible, bool includeSubItems`"
-                ]
+                ["`void`", "`SetColor`", "`uniscript, float r, float g, float b, float a`"],
+                ["`void`", "`SetColor`", "`uniscript, color color`"],
+                ["`void`", "`SetMaterial`", "`uniscript, int shader, object texture`"],
+                ["`void`", "`SetShader`", "`uniscript, int shader`"],
+                ["`void`", "`SetTexture`", "`uniscript, object texture`"],
+                ["`void`", "`SetTextureSettings`", "`object texture, int filterMode, int wrapModeU, int wrapModeV`"],
+                ["`void`", "`SetTextureTiling`", "`uniscript, vector3 tiling`"],
+                ["`void`", "`SetTextureOffset`", "`uniscript, vector3 offset`"],
+                ["`void`", "`SetVisibility`", "`uniscript, bool visible, bool includeSubItems`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
+            "id": "block-016",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "All `RenderUtil` methods operate on the calling script's host object. The first argument is always the `uniscript` reference — the renderer is resolved automatically from it."
+            "text": "For building and reading the color values used by `SetColor`, see [ColorUtil](/docs/uniscript/en-US/colorutil)."
         }
     ]
 }

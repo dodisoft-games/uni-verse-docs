@@ -1,20 +1,23 @@
 {
     "id": "storageutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "StorageUtil",
-    "description": "Persistent key/value storage (PlayerPrefs-style).",
-    "link": "/docs/uniscript/en-us/storageutil",
+    "description": "Remember things: short-lived temp data for the current session, saved data that survives between plays, and online scoreboards.",
+    "link": "/docs/uniscript/en-US/storageutil",
     "tags": [
         "uniscript",
-        "storageutil"
+        "storageutil",
+        "save",
+        "storage",
+        "scoreboard"
     ],
     "previous": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-us/networkutil"
+        "link": "/docs/uniscript/en-US/networkutil"
     },
     "next": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-us/stringutil"
+        "link": "/docs/uniscript/en-US/stringutil"
     },
     "content": [
         {
@@ -29,17 +32,173 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Persistent key/value storage (PlayerPrefs-style)."
+            "text": "`StorageUtil` lets your game **remember things**. There are two kinds of memory: **temp data** that lasts only for the current play session (great for passing values between scenes), and **saved data** that stays on the device so it's still there next time the player returns. It also handles online **scoreboards**."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Both kinds work like labelled boxes: you store a value under a **key** (a name) and read it back with the same key."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Temp data — for this play session"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Temp data is cleared when the game stops. It's perfect for carrying a value from one scene to the next — like remembering which level the player chose."
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetTempData(key, data)`", "Stores a value under a name."],
+                ["`GetTempData(key, default)`", "Reads it back — returns `default` if the key was never set."],
+                ["`HasTempData(key)`", "`true` if that key exists."],
+                ["`DelTempData(key)`", "Removes one value."],
+                ["`ClearTempData()`", "Removes all temp data."]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// In the menu scene, remember the chosen level.",
+                "StorageUtil.SetTempData(\"selectedLevel\", 3);",
+                "",
+                "// In the game scene, read it back (default to 1).",
+                "int level = StorageUtil.GetTempData(\"selectedLevel\", 1);"
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Saved data — remembered between plays"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Saved data persists after the game closes — use it for high scores, settings, unlocked items, and progress. It works exactly like temp data, just permanent."
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetSavedData(key, data)`", "Saves a value permanently."],
+                ["`GetSavedData(key, default)`", "Loads it back — returns `default` if not found."],
+                ["`HasSavedData(key)`", "`true` if that key was saved."],
+                ["`DelSavedData(key)`", "Deletes one saved value."],
+                ["`ClearSavedData()`", "Reserved for clearing all saved data."]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Save a new high score only if it beats the old one.",
+                "int best = StorageUtil.GetSavedData(\"highScore\", 0);",
+                "if (score > best)",
+                "{",
+                "    StorageUtil.SetSavedData(\"highScore\", score);",
+                "}"
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "To remove saved values, delete them one at a time with `DelSavedData(key)` — that's the safe, predictable way to clear what you no longer need."
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Online scoreboards"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Scoreboards are stored on the server and shared between all players. Because they travel over the internet, each call finishes with a **callback** — a method on your script that runs when the result arrives."
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddToScoreboard(scoreboardId, userId, name, score, maxItems, allowMultiple, customData, script, method)`", "Submits a score, then calls `method` on `script` when done."],
+                ["`GetScoreboard(scoreboardId, userId, script, method)`", "Fetches the list of scores and hands it to your callback."],
+                ["`ClearScoreboard(scoreboardId, script, method)`", "Empties a scoreboard."]
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Submit the player's score to the global board.",
+                "string id = PlayerUtil.GetID();",
+                "string name = PlayerUtil.GetName();",
+                "StorageUtil.AddToScoreboard(\"global\", id, name, score, 100, false, null, this, \"OnScoreSubmitted\");",
+                "",
+                "void OnScoreSubmitted(bool ok, int rank, string userId)",
+                "{",
+                "    if (ok) { Debug.Log(\"You ranked #\" + rank); }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "When `GetScoreboard` finishes, your callback receives whether it succeeded and a [list](/docs/uniscript/en-US/listutil) of score rows. Each row is a [dictionary](/docs/uniscript/en-US/dictionaryutil) with keys `\"id\"`, `\"name\"`, `\"score\"`, `\"me\"` (true for the current player), and `\"data\"` (your custom info)."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-019",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,86 +208,27 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`SetTempData`",
-                    "`string key, object data`"
-                ],
-                [
-                    "`object`",
-                    "`GetTempData`",
-                    "`string key, object defaultValue`"
-                ],
-                [
-                    "`void`",
-                    "`DelTempData`",
-                    "`string key`"
-                ],
-                [
-                    "`bool`",
-                    "`HasTempData`",
-                    "`string key`"
-                ],
-                [
-                    "`void`",
-                    "`ClearTempData`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`SetSavedData`",
-                    "`string key, object data`"
-                ],
-                [
-                    "`object`",
-                    "`GetSavedData`",
-                    "`string key, object defaultValue`"
-                ],
-                [
-                    "`void`",
-                    "`DelSavedData`",
-                    "`string key`"
-                ],
-                [
-                    "`bool`",
-                    "`HasSavedData`",
-                    "`string key`"
-                ],
-                [
-                    "`void`",
-                    "`ClearSavedData`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`AddToScoreboard`",
-                    "`string scoreboardId, string userId, string name, float score, int maxItems, bool allowMultiple, Dictionary customData, uniscript, string callbackMethod`"
-                ],
-                [
-                    "`void`",
-                    "`GetScoreboard`",
-                    "`string scoreboardId, string userId, uniscript, string callbackMethod`"
-                ],
-                [
-                    "`void`",
-                    "`ClearScoreboard`",
-                    "`string scoreboardId, uniscript, string callbackMethod`"
-                ]
+                ["`void`", "`SetTempData`", "`string key, object data`"],
+                ["`object`", "`GetTempData`", "`string key, object defaultValue`"],
+                ["`void`", "`DelTempData`", "`string key`"],
+                ["`bool`", "`HasTempData`", "`string key`"],
+                ["`void`", "`ClearTempData`", "—"],
+                ["`void`", "`SetSavedData`", "`string key, object data`"],
+                ["`object`", "`GetSavedData`", "`string key, object defaultValue`"],
+                ["`void`", "`DelSavedData`", "`string key`"],
+                ["`bool`", "`HasSavedData`", "`string key`"],
+                ["`void`", "`ClearSavedData`", "—"],
+                ["`void`", "`AddToScoreboard`", "`string scoreboardId, string userId, string name, float score, int maxItems, bool allowMultiple, Dictionary customData, uniscript callbackScript, string callbackMethod`"],
+                ["`void`", "`GetScoreboard`", "`string scoreboardId, string userId, uniscript callbackScript, string callbackMethod`"],
+                ["`void`", "`ClearScoreboard`", "`string scoreboardId, uniscript callbackScript, string callbackMethod`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "Storage is persistent across sessions (PlayerPrefs-style). Keys are global — use a consistent naming convention to avoid collisions between scripts."
-        },
-        {
-            "id": "block-006",
+            "id": "block-020",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `StorageUtil.HasKey(key)` before reading a value to avoid unexpected defaults on a fresh install."
+            "text": "Always pass a sensible `default` to `GetTempData` / `GetSavedData` so your game still works on a player's very first run, before anything has been stored."
         }
     ]
 }

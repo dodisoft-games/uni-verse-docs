@@ -1,20 +1,23 @@
 {
     "id": "colorutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "ColorUtil",
-    "description": "RGB to HSV, lerp, hex parsing.",
-    "link": "/docs/uniscript/en-us/colorutil",
+    "description": "Create and read colors: ready-made presets, build from red/green/blue/opacity, convert to and from hex codes, and pull out individual channels.",
+    "link": "/docs/uniscript/en-US/colorutil",
     "tags": [
         "uniscript",
-        "colorutil"
+        "colorutil",
+        "color",
+        "rgba",
+        "hex"
     ],
     "previous": {
         "name": "RenderUtil",
-        "link": "/docs/uniscript/en-us/renderutil"
+        "link": "/docs/uniscript/en-US/renderutil"
     },
     "next": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-us/particleutil"
+        "link": "/docs/uniscript/en-US/particleutil"
     },
     "content": [
         {
@@ -29,17 +32,136 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "RGB to HSV, lerp, hex parsing."
+            "text": "`ColorUtil` makes and reads **colors**. A color is built from four parts — red, green, blue, and alpha (opacity) — each from `0` to `1`. Use these tools to grab a quick preset, mix your own color, or work with hex codes like `#FF8800`."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Ready-made colors"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The quickest option — call one and you have a color:"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "Color"
+            ],
+            "rows": [
+                ["`Black()`", "Black."],
+                ["`White()`", "White."],
+                ["`Red()`", "Red."],
+                ["`Green()`", "Green."],
+                ["`Blue()`", "Blue."],
+                ["`Transparent()`", "Fully see-through (invisible)."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Making your own color"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`FromRGBA` mixes a custom color from four numbers. Set `a` (the last value) below `1` to make it partly see-through."
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// A solid orange.",
+                "color orange = ColorUtil.FromRGBA(1.0, 0.5, 0.0, 1.0);",
+                "",
+                "// A half-transparent blue.",
+                "color ghostBlue = ColorUtil.FromRGBA(0.0, 0.0, 1.0, 0.5);"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Working with hex codes"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Hex codes are the `#RRGGBB` colors you see in design tools. Convert them back and forth:"
+        },
+        {
+            "id": "block-011",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`FromHTMLString(colorCode)`", "Turns a hex string like `\"#FF8800\"` into a color."],
+                ["`ToHTMLString(color)`", "Turns a color back into a hex string."]
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "color brand = ColorUtil.FromHTMLString(\"#FF8800\");"
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Reading a color's parts"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`R`, `G`, `B`, and `A` pull a single channel back out of a color (each `0`–`1`) — handy for fading or comparing colors."
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "float opacity = ColorUtil.A(someColor);   // how see-through it is"
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-017",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,79 +171,27 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`color`",
-                    "`Black`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`White`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`Red`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`Green`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`Blue`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`Transparent`",
-                    "—"
-                ],
-                [
-                    "`color`",
-                    "`FromRGBA`",
-                    "`float r, float g, float b, float a`"
-                ],
-                [
-                    "`color`",
-                    "`FromHTMLString`",
-                    "`string colorCode`"
-                ],
-                [
-                    "`string`",
-                    "`ToHTMLString`",
-                    "`color color`"
-                ],
-                [
-                    "`float`",
-                    "`R`",
-                    "`color color`"
-                ],
-                [
-                    "`float`",
-                    "`G`",
-                    "`color color`"
-                ],
-                [
-                    "`float`",
-                    "`B`",
-                    "`color color`"
-                ],
-                [
-                    "`float`",
-                    "`A`",
-                    "`color color`"
-                ]
+                ["`color`", "`Black`", "—"],
+                ["`color`", "`White`", "—"],
+                ["`color`", "`Red`", "—"],
+                ["`color`", "`Green`", "—"],
+                ["`color`", "`Blue`", "—"],
+                ["`color`", "`Transparent`", "—"],
+                ["`color`", "`FromRGBA`", "`float r, float g, float b, float a`"],
+                ["`color`", "`FromHTMLString`", "`string colorCode`"],
+                ["`string`", "`ToHTMLString`", "`color color`"],
+                ["`float`", "`R`", "`color color`"],
+                ["`float`", "`G`", "`color color`"],
+                ["`float`", "`B`", "`color color`"],
+                ["`float`", "`A`", "`color color`"]
             ]
         },
         {
-            "id": "block-005",
+            "id": "block-018",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `ColorUtil.FromHex(hex)` to parse web-style hex color strings (e.g. `#FF5500`) into a color value usable with render or UI methods."
+            "text": "Colors made here are exactly what [RenderUtil's SetColor](/docs/uniscript/en-US/renderutil#block-003) and [LightUtil](/docs/uniscript/en-US/lightutil) expect — mix a color once and reuse it everywhere."
         }
     ]
 }

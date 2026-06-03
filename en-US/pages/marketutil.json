@@ -1,20 +1,24 @@
 {
     "id": "marketutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "MarketUtil",
-    "description": "In-app store queries, owned inventory checks.",
-    "link": "/docs/uniscript/en-us/marketutil",
+    "description": "Show an in-game store: open and close a product catalog and start a purchase, with results delivered back to your script.",
+    "link": "/docs/uniscript/en-US/marketutil",
     "tags": [
         "uniscript",
-        "marketutil"
+        "marketutil",
+        "store",
+        "shop",
+        "purchase",
+        "catalog"
     ],
     "previous": {
         "name": "GameUtil",
-        "link": "/docs/uniscript/en-us/gameutil"
+        "link": "/docs/uniscript/en-US/gameutil"
     },
     "next": {
         "name": "Assert",
-        "link": "/docs/uniscript/en-us/assert"
+        "link": "/docs/uniscript/en-US/assert"
     },
     "content": [
         {
@@ -29,24 +33,83 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "In-app store queries, owned inventory checks."
+            "text": "`MarketUtil` shows an **in-game store** where players can browse and buy products — skins, coins, power-ups. You open a catalog, the player interacts with it, and your script is told what happened."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Showing and hiding the store"
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`ShowCatalog(this, catalogId)`", "Opens the store showing the products in catalog `catalogId`."],
+                ["`HideCatalog()`", "Closes the store."],
+                ["`PurchaseProduct(this, productId, amount)`", "Starts a purchase of a product."]
+            ]
         },
         {
             "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Open the coin shop when the player taps the shop button.",
+                "MarketUtil.ShowCatalog(this, \"coins\");"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Hearing what the player did"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "While the catalog is open, the store reports back to your script by calling a method named `MarketEventCall`. Add that method to react to events like a completed purchase."
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// The store calls this with an event code and details.",
+                "void MarketEventCall(int productEvent, object detail)",
+                "{",
+                "    // Respond to the store event here (e.g. grant the purchased item).",
+                "}"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Real money and ownership are handled securely by the platform, not by your script. Your job is to open the catalog and respond to the events it reports through `MarketEventCall`."
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-011",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,22 +119,17 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`ShowCatalog`",
-                    "`uniscript, string catalogId`"
-                ],
-                [
-                    "`void`",
-                    "`HideCatalog`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`PurchaseProduct`",
-                    "`uniscript, string productId, int amount`"
-                ]
+                ["`void`", "`ShowCatalog`", "`uniscript, string catalogId`"],
+                ["`void`", "`HideCatalog`", "—"],
+                ["`void`", "`PurchaseProduct`", "`uniscript, string productId, int amount`"]
             ]
+        },
+        {
+            "id": "block-012",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Pair the store with saved data so purchases stick: when `MarketEventCall` tells you a purchase succeeded, record it with [StorageUtil](/docs/uniscript/en-US/storageutil)."
         }
     ]
 }

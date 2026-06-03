@@ -1,20 +1,24 @@
 {
     "id": "playerutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "PlayerUtil",
-    "description": "Local-player accessors (camera, character, UI).",
-    "link": "/docs/uniscript/en-us/playerutil",
+    "description": "Reach the real person playing: read their profile (name, avatar, outfit), dress a character in their look, manage inventory, and report quest and game events.",
+    "link": "/docs/uniscript/en-US/playerutil",
     "tags": [
         "uniscript",
-        "playerutil"
+        "playerutil",
+        "player",
+        "profile",
+        "outfit",
+        "inventory"
     ],
     "previous": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-us/characterutil"
+        "link": "/docs/uniscript/en-US/characterutil"
     },
     "next": {
         "name": "AudioUtil",
-        "link": "/docs/uniscript/en-us/audioutil"
+        "link": "/docs/uniscript/en-US/audioutil"
     },
     "content": [
         {
@@ -29,24 +33,186 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Local-player accessors (camera, character, UI)."
+            "text": "`PlayerUtil` connects your game to the **real person** playing it — their account profile, their chosen look, and their inventory. Use it to greet players by name, dress a character in the player's own outfit, save what they own, and report progress back to the platform."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Reading the player's profile"
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "table",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "headers": [
+                "Method",
+                "Returns"
+            ],
+            "rows": [
+                ["`GetName()`", "The player's display name — great for greetings and scoreboards."],
+                ["`GetID()`", "The player's unique ID, for telling players apart."],
+                ["`GetAvatar()`", "The player's avatar."],
+                ["`GetOutfit()`", "The player's current outfit."],
+                ["`GetGender()`", "The player's gender as a number (`0` or `1`)."]
+            ]
         },
         {
             "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "string name = PlayerUtil.GetName();",
+                "Debug.Log(\"Welcome, \" + name + \"!\");"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Dressing a character in the player's look"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "These put an outfit onto a character so the in-game body matches the player (or any outfit you choose). The versions that take a callback notify you when the change has finished applying."
+        },
+        {
+            "id": "block-008",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`ApplyPlayerOutfit(character, script, method)`", "Dresses `character` in the **player's own** outfit, then calls `method` on `script` when done."],
+                ["`ApplyOutfit(character, outfit, script, method)`", "Dresses `character` in a specific named `outfit`, with a callback when done."],
+                ["`ApplyOutfitModel(character, outfit)`", "Copies the look from another outfit model onto the character."],
+                ["`ApplyOutfitAsset(character, source)`", "Applies an outfit from a wired asset."]
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Make the player's character wear their own outfit.",
+                "PlayerUtil.ApplyPlayerOutfit(myCharacter, this, \"OnOutfitReady\");",
+                "",
+                "void OnOutfitReady()",
+                "{",
+                "    Debug.Log(\"Outfit applied!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Inventory"
+        },
+        {
+            "id": "block-011",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The inventory is what the player owns. Because it's saved on the platform, reading and writing it happen with a callback rather than instantly."
+        },
+        {
+            "id": "block-012",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`GetInventory(script, method)`", "Fetches the player's inventory and calls `method` on `script` with the result."],
+                ["`SetInventory(script, method, inventory)`", "Saves an updated inventory (a [Dictionary](/docs/uniscript/en-US/dictionaryutil)), with a callback when done."]
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Reporting progress and events"
+        },
+        {
+            "id": "block-014",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`TriggerQuestEvent(eventId, value)`", "Reports progress toward a quest — e.g. \"collected 1 of 5\"."],
+                ["`TriggerGameEvent(gameEvent)`", "Fires a numbered game event for the platform to record."],
+                ["`AddGameStartMetric()`", "Records that a game session started (for analytics)."]
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Report that the player collected another quest item.",
+                "PlayerUtil.TriggerQuestEvent(\"collect_coins\", 1.0);"
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Showing a player's profile photo"
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetProfilePhoto` loads a player's profile picture into a UI image element — handy for scoreboards and multiplayer name plates."
+        },
+        {
+            "id": "block-018",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parameter",
+                "Meaning"
+            ],
+            "rows": [
+                ["`panelId`", "The UI panel that holds the image."],
+                ["`elementName`", "The name of the image element to fill."],
+                ["`playerId`", "Whose photo to show (an ID from `GetID`)."],
+                ["`photoVersion`", "Which photo to use (`0` or `1`)."]
+            ]
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-020",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,82 +222,29 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`string`",
-                    "`GetID`",
-                    "—"
-                ],
-                [
-                    "`string`",
-                    "`GetName`",
-                    "—"
-                ],
-                [
-                    "`string`",
-                    "`GetAvatar`",
-                    "—"
-                ],
-                [
-                    "`string`",
-                    "`GetOutfit`",
-                    "—"
-                ],
-                [
-                    "`int`",
-                    "`GetGender`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`ApplyPlayerOutfit`",
-                    "`uniscript, uniscript, string callbackMethod`"
-                ],
-                [
-                    "`void`",
-                    "`ApplyOutfit`",
-                    "`uniscript, string outfit, uniscript, string callbackMethod`"
-                ],
-                [
-                    "`void`",
-                    "`ApplyOutfitModel`",
-                    "`uniscript, uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`ApplyOutfitAsset`",
-                    "`uniscript, UniAsset source`"
-                ],
-                [
-                    "`void`",
-                    "`AddGameStartMetric`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`GetInventory`",
-                    "`uniscript, string callbackMethod`"
-                ],
-                [
-                    "`void`",
-                    "`SetInventory`",
-                    "`uniscript, string callbackMethod, Dictionary inventory`"
-                ],
-                [
-                    "`void`",
-                    "`TriggerGameEvent`",
-                    "`int gameEvent`"
-                ],
-                [
-                    "`void`",
-                    "`TriggerQuestEvent`",
-                    "`string eventId, float value`"
-                ],
-                [
-                    "`void`",
-                    "`SetProfilePhoto`",
-                    "`int panelId, string elementName, string playerId, int photoVersion`"
-                ]
+                ["`string`", "`GetID`", "—"],
+                ["`string`", "`GetName`", "—"],
+                ["`string`", "`GetAvatar`", "—"],
+                ["`string`", "`GetOutfit`", "—"],
+                ["`int`", "`GetGender`", "—"],
+                ["`void`", "`ApplyPlayerOutfit`", "`uniscript character, uniscript callbackScript, string callbackMethod`"],
+                ["`void`", "`ApplyOutfit`", "`uniscript character, string outfit, uniscript callbackScript, string callbackMethod`"],
+                ["`void`", "`ApplyOutfitModel`", "`uniscript character, uniscript outfit`"],
+                ["`void`", "`ApplyOutfitAsset`", "`uniscript character, object source`"],
+                ["`void`", "`AddGameStartMetric`", "—"],
+                ["`void`", "`GetInventory`", "`uniscript, string callbackMethod`"],
+                ["`void`", "`SetInventory`", "`uniscript, string callbackMethod, Dictionary inventory`"],
+                ["`void`", "`TriggerGameEvent`", "`int gameEvent`"],
+                ["`void`", "`TriggerQuestEvent`", "`string eventId, float value`"],
+                ["`void`", "`SetProfilePhoto`", "`int panelId, string elementName, string playerId, int photoVersion`"]
             ]
+        },
+        {
+            "id": "block-021",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Profile values like name and outfit come from the player's real account, so they appear when the game runs on the live platform. Design your game to handle them gracefully whatever the player's profile contains."
         }
     ]
 }

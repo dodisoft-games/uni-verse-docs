@@ -1,20 +1,24 @@
 {
     "id": "uiutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "UIUtil",
-    "description": "Open/Close panels, set element labels, toasts/modals.",
-    "link": "/docs/uniscript/en-us/uiutil",
+    "description": "Control your on-screen interface from code: open and close panels, update labels, icons, colors and values, build scoreboards, and move UI around.",
+    "link": "/docs/uniscript/en-US/uiutil",
     "tags": [
         "uniscript",
-        "uiutil"
+        "uiutil",
+        "ui",
+        "panel",
+        "hud",
+        "menu"
     ],
     "previous": {
         "name": "AudioUtil",
-        "link": "/docs/uniscript/en-us/audioutil"
+        "link": "/docs/uniscript/en-US/audioutil"
     },
     "next": {
         "name": "RenderUtil",
-        "link": "/docs/uniscript/en-us/renderutil"
+        "link": "/docs/uniscript/en-US/renderutil"
     },
     "content": [
         {
@@ -29,17 +33,206 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Open/Close panels, set element labels, toasts/modals."
+            "text": "`UIUtil` controls your game's on-screen interface from code — the menus, buttons, score text, and health bars the player sees. With it you open and close panels, change what they show, read what the player typed or selected, and build scoreboards."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Two ideas run through this whole page: a **panel** is a screen of UI (a menu, a HUD), and an **element** is one item inside it (a button, a label, a slider). You address a panel by its **panel ID** (a number) and an element by its **name** (text you set in the editor)."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Opening and closing panels"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`OpenPanel` shows a panel and gives you back its **panel ID** — keep that number, because every other method needs it to know which panel you mean. The `destroyOthers` value lets you close other open panels at the same time (useful when switching screens)."
+        },
+        {
+            "id": "block-006",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Open the pause menu and close anything else.",
+                "int menuId = UIUtil.OpenPanel(\"PauseMenu\", true);",
+                "",
+                "// Later, close it again by its ID.",
+                "UIUtil.ClosePanel(menuId);"
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`OpenPanel(panelName, destroyOthers)`", "Opens a panel by name; returns its panel ID. `destroyOthers = true` closes other panels first."],
+                ["`ClosePanel(panelId)`", "Closes one panel."],
+                ["`CloseAllPanels()`", "Closes every open panel."],
+                ["`SetPanelVisibility(panelId, visible)`", "Hides or shows a panel without closing it."],
+                ["`SetPanelScale(panelId, scale)`", "Resizes a whole panel."],
+                ["`PlayPanelAnimation(panelId, animation)`", "Plays a named animation on the panel (e.g. a slide-in)."],
+                ["`SetPanelEvents(panelId, enable)`", "Turns the panel's input on or off."]
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Opening a panel adds it on top of what's already there — it doesn't replace the others by itself. Pass `destroyOthers = true` (or call `ClosePanel` / `CloseAllPanels`) when you want a clean switch."
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Updating what an element shows"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "These are the everyday tools for keeping your HUD up to date — changing the score text, swapping an icon, flashing a color."
+        },
+        {
+            "id": "block-011",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetElementLabel(panelId, elementName, text)`", "Sets an element's text — e.g. the score or a timer."],
+                ["`SetElementIcon(panelId, elementName, iconId)`", "Changes an element's icon."],
+                ["`SetElementColor(panelId, elementName, r, g, b, a)`", "Tints an element. Each value is `0`–`1`; `a` is opacity."],
+                ["`SetElementVisibility(panelId, elementName, visible)`", "Hides or shows one element."],
+                ["`SetElementInteract(panelId, elementName, interactable)`", "Greys out / re-enables a button so it can't be clicked."],
+                ["`SetElementItems(panelId, elementName, items)`", "Fills a list element with a [list](/docs/uniscript/en-US/listutil) of items."],
+                ["`PlayElementAnimation(panelId, elementName, animation)`", "Plays a named animation on one element (a button bounce)."],
+                ["`SetElementEvents(panelId, elementName, enable)`", "Turns one element's input on or off."]
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Update the score label every time it changes.",
+                "UIUtil.SetElementLabel(hudId, \"ScoreText\", \"Score: \" + score);"
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Reading and setting values"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "For elements the player changes — sliders, text inputs, toggles — `GetValue` reads the current value and `SetValue` sets it."
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Read a volume slider the player dragged.",
+                "object vol = UIUtil.GetValue(settingsId, \"VolumeSlider\");",
+                "",
+                "// Pre-fill a name box.",
+                "UIUtil.SetValue(settingsId, \"NameInput\", \"Player1\");"
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Scoreboards"
+        },
+        {
+            "id": "block-017",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "A scoreboard is a list element you fill with rows. Set it up once, add rows as scores come in, and clear it to rebuild."
+        },
+        {
+            "id": "block-018",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`InitScoreboard(panelId, elementName)`", "Prepares a scoreboard element."],
+                ["`AddScoreboardElement(panelId, elementName, text)`", "Adds one row."],
+                ["`ClearScoreboard(panelId, elementName)`", "Empties it so you can rebuild."]
+            ]
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Moving and rotating UI"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "You can reposition whole panels or single elements. The `positionType` number selects how the position is measured (for example, on-screen versus in the world)."
+        },
+        {
+            "id": "block-021",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`SetPanelPosition(panelId, position, positionType)` / `GetPanelPosition(panelId, positionType)`", "Move or read a panel's position."],
+                ["`SetElementPosition(panelId, elementName, position, positionType)` / `GetElementPosition(panelId, elementName, positionType)`", "Move or read one element."],
+                ["`SetElementRotation(panelId, elementName, rotation, local)` / `GetElementRotation(panelId, elementName, local)`", "Rotate or read an element's rotation."]
+            ]
+        },
+        {
+            "id": "block-022",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-023",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,137 +242,40 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`int`",
-                    "`OpenPanel`",
-                    "`string panelName, bool destroyOthers`"
-                ],
-                [
-                    "`void`",
-                    "`ClosePanel`",
-                    "`int panelId`"
-                ],
-                [
-                    "`void`",
-                    "`CloseAllPanels`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`SetPanelVisibility`",
-                    "`int panelId, bool visible`"
-                ],
-                [
-                    "`void`",
-                    "`SetPanelEvents`",
-                    "`int panelId, bool enable`"
-                ],
-                [
-                    "`void`",
-                    "`PlayPanelAnimation`",
-                    "`int panelId, string animation`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementVisibility`",
-                    "`int panelId, string elementName, bool visible`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementEvents`",
-                    "`int panelId, string elementName, bool enable`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementLabel`",
-                    "`int panelId, string elementName, string text`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementIcon`",
-                    "`int panelId, string elementName, int iconId`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementItems`",
-                    "`int panelId, string elementName, List items`"
-                ],
-                [
-                    "`void`",
-                    "`PlayElementAnimation`",
-                    "`int panelId, string elementName, string animation`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementInteract`",
-                    "`int panelId, string elementName, bool interactable`"
-                ],
-                [
-                    "`object`",
-                    "`GetValue`",
-                    "`int panelId, string elementName`"
-                ],
-                [
-                    "`void`",
-                    "`SetValue`",
-                    "`int panelId, string elementName, object value`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementPosition`",
-                    "`int panelId, string elementName, vector3 position, int positionType`"
-                ],
-                [
-                    "`void`",
-                    "`SetPanelPosition`",
-                    "`int panelId, vector3 position, int positionType`"
-                ],
-                [
-                    "`void`",
-                    "`SetPanelScale`",
-                    "`int panelId, float scale`"
-                ],
-                [
-                    "`void`",
-                    "`AddScoreboardElement`",
-                    "`int panelId, string elementName, string text`"
-                ],
-                [
-                    "`void`",
-                    "`InitScoreboard`",
-                    "`int panelId, string elementName`"
-                ],
-                [
-                    "`void`",
-                    "`ClearScoreboard`",
-                    "`int panelId, string elementName`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementColor`",
-                    "`int panelId, string elementName, float r, float g, float b, float a`"
-                ],
-                [
-                    "`vector3`",
-                    "`GetPanelPosition`",
-                    "`int panelId, int positionType`"
-                ],
-                [
-                    "`vector3`",
-                    "`GetElementPosition`",
-                    "`int panelId, string elementName, int positionType`"
-                ],
-                [
-                    "`void`",
-                    "`SetElementRotation`",
-                    "`int panelId, string elementName, vector3 position, bool local`"
-                ],
-                [
-                    "`vector3`",
-                    "`GetElementRotation`",
-                    "`int panelId, string elementName, bool local`"
-                ]
+                ["`int`", "`OpenPanel`", "`string panelName, bool destroyOthers`"],
+                ["`void`", "`ClosePanel`", "`int panelId`"],
+                ["`void`", "`CloseAllPanels`", "—"],
+                ["`void`", "`SetPanelVisibility`", "`int panelId, bool visible`"],
+                ["`void`", "`SetPanelEvents`", "`int panelId, bool enable`"],
+                ["`void`", "`PlayPanelAnimation`", "`int panelId, string animation`"],
+                ["`void`", "`SetElementVisibility`", "`int panelId, string elementName, bool visible`"],
+                ["`void`", "`SetElementEvents`", "`int panelId, string elementName, bool enable`"],
+                ["`void`", "`SetElementLabel`", "`int panelId, string elementName, string text`"],
+                ["`void`", "`SetElementIcon`", "`int panelId, string elementName, int iconId`"],
+                ["`void`", "`SetElementItems`", "`int panelId, string elementName, List items`"],
+                ["`void`", "`PlayElementAnimation`", "`int panelId, string elementName, string animation`"],
+                ["`void`", "`SetElementInteract`", "`int panelId, string elementName, bool interactable`"],
+                ["`object`", "`GetValue`", "`int panelId, string elementName`"],
+                ["`void`", "`SetValue`", "`int panelId, string elementName, object value`"],
+                ["`void`", "`SetElementPosition`", "`int panelId, string elementName, vector3 position, int positionType`"],
+                ["`void`", "`SetPanelPosition`", "`int panelId, vector3 position, int positionType`"],
+                ["`void`", "`SetPanelScale`", "`int panelId, float scale`"],
+                ["`void`", "`AddScoreboardElement`", "`int panelId, string elementName, string text`"],
+                ["`void`", "`InitScoreboard`", "`int panelId, string elementName`"],
+                ["`void`", "`ClearScoreboard`", "`int panelId, string elementName`"],
+                ["`void`", "`SetElementColor`", "`int panelId, string elementName, float r, float g, float b, float a`"],
+                ["`vector3`", "`GetPanelPosition`", "`int panelId, int positionType`"],
+                ["`vector3`", "`GetElementPosition`", "`int panelId, string elementName, int positionType`"],
+                ["`void`", "`SetElementRotation`", "`int panelId, string elementName, vector3 rotation, bool local`"],
+                ["`vector3`", "`GetElementRotation`", "`int panelId, string elementName, bool local`"]
             ]
+        },
+        {
+            "id": "block-024",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Save the panel ID from `OpenPanel` in a field so you can update its elements later. To react when the player clicks a button on a panel, see how input arrives in [InputUtil](/docs/uniscript/en-US/inpututil)."
         }
     ]
 }

@@ -1,20 +1,23 @@
 {
     "id": "stringutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "StringUtil",
-    "description": "Format, split, contains - operations the parser can't express on string.",
-    "link": "/docs/uniscript/en-us/stringutil",
+    "description": "Work with text: measure and search it, change case, trim spaces, join and replace, cut out parts, and split it into a list.",
+    "link": "/docs/uniscript/en-US/stringutil",
     "tags": [
         "uniscript",
-        "stringutil"
+        "stringutil",
+        "string",
+        "text",
+        "split"
     ],
     "previous": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-us/storageutil"
+        "link": "/docs/uniscript/en-US/storageutil"
     },
     "next": {
         "name": "TaskUtil",
-        "link": "/docs/uniscript/en-us/taskutil"
+        "link": "/docs/uniscript/en-US/taskutil"
     },
     "content": [
         {
@@ -29,17 +32,178 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Format, split, contains - operations the parser can't express on string."
+            "text": "A **string** is text — a name, a message, a number the player typed. `StringUtil` is the toolbox for working with text: measuring it, searching inside it, changing its case, trimming spaces, joining pieces, and splitting it apart."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Positions in text start at **0**: in `\"Hello\"`, `H` is at `0`, `e` at `1`, and so on. Methods that look for something return `-1` when it isn't found."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Measuring and searching"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Length(text)`", "How many characters the text has."],
+                ["`Contains(text, value)`", "`true` if `value` appears anywhere inside."],
+                ["`StartsWith(text, value)` / `EndsWith(text, value)`", "`true` if the text begins / ends with `value`."],
+                ["`IndexOf(text, value)`", "The position of the first match (or `-1`)."],
+                ["`LastIndexOf(text, value)`", "The position of the last match."],
+                ["`IndexOfAny(text, chars)` / `LastIndexOfAny(text, chars)`", "Finds the first / last spot where any one of several characters appears."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "if (StringUtil.Contains(message, \"hello\"))",
+                "{",
+                "    Debug.Log(\"They said hello!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Changing case and trimming"
+        },
+        {
+            "id": "block-008",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`ToUpper(text)` / `ToLower(text)`", "Converts to ALL CAPS or all lowercase."],
+                ["`Trim(text)`", "Removes spaces from both ends."],
+                ["`TrimStart(text)` / `TrimEnd(text)`", "Removes spaces from just the start / end."]
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`ToLower` is great for comparing text the player typed, since it ignores capitalization: compare `StringUtil.ToLower(answer)` to `\"yes\"`."
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Joining, replacing, and padding"
+        },
+        {
+            "id": "block-011",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Merge(text, value)`", "Joins two pieces of text together."],
+                ["`Replace(text, search, replace)`", "Swaps every `search` for `replace`."],
+                ["`Insert(text, index, value)`", "Inserts `value` at a position."],
+                ["`PadLeft(text, character, length)` / `PadRight(text, character, length)`", "Pads the text to a length by adding a character on the left / right (e.g. zero-padding a number)."]
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Show a timer as 05 instead of 5.",
+                "string display = StringUtil.PadLeft(\"5\", \"0\", 2);   // \"05\""
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Cutting out parts"
+        },
+        {
+            "id": "block-014",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Substring(text, start)`", "The text from `start` to the end."],
+                ["`Substring(text, start, length)`", "A `length`-long piece beginning at `start`."],
+                ["`Remove(text, start)`", "Removes everything from `start` onward."],
+                ["`Remove(text, start, length)`", "Removes a `length`-long piece beginning at `start`."]
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Splitting into a list"
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Split` breaks text into a [list](/docs/uniscript/en-US/listutil) wherever it finds a divider — perfect for reading comma-separated values."
+        },
+        {
+            "id": "block-017",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Turn \"red,green,blue\" into a list of three words.",
+                "List parts = StringUtil.Split(\"red,green,blue\", \",\");",
+                "Debug.Log(ListUtil.Count(parts));   // 3"
+            ]
+        },
+        {
+            "id": "block-018",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SplitAny` is similar but breaks at **any** of several characters — handy when items might be separated by commas *or* spaces."
+        },
+        {
+            "id": "block-019",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-020",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,134 +213,38 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`bool`",
-                    "`Contains`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`bool`",
-                    "`EndsWith`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`int`",
-                    "`IndexOf`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`int`",
-                    "`IndexOfAny`",
-                    "`string text, string chars`"
-                ],
-                [
-                    "`string`",
-                    "`Insert`",
-                    "`string text, int index, string value`"
-                ],
-                [
-                    "`int`",
-                    "`LastIndexOf`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`int`",
-                    "`LastIndexOfAny`",
-                    "`string text, string chars`"
-                ],
-                [
-                    "`int`",
-                    "`Length`",
-                    "`string text`"
-                ],
-                [
-                    "`string`",
-                    "`Merge`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`string`",
-                    "`PadLeft`",
-                    "`string text, string character, int length`"
-                ],
-                [
-                    "`string`",
-                    "`PadRight`",
-                    "`string text, string character, int length`"
-                ],
-                [
-                    "`string`",
-                    "`Remove`",
-                    "`string text, int start`"
-                ],
-                [
-                    "`string`",
-                    "`Remove`",
-                    "`string text, int start, int length`"
-                ],
-                [
-                    "`string`",
-                    "`Replace`",
-                    "`string text, string search, string replace`"
-                ],
-                [
-                    "`List`",
-                    "`Split`",
-                    "`string text, string divider`"
-                ],
-                [
-                    "`List`",
-                    "`SplitAny`",
-                    "`string text, string dividerChars`"
-                ],
-                [
-                    "`bool`",
-                    "`StartsWith`",
-                    "`string text, string value`"
-                ],
-                [
-                    "`string`",
-                    "`Substring`",
-                    "`string text, int start`"
-                ],
-                [
-                    "`string`",
-                    "`Substring`",
-                    "`string text, int start, int length`"
-                ],
-                [
-                    "`string`",
-                    "`ToLower`",
-                    "`string text`"
-                ],
-                [
-                    "`string`",
-                    "`ToUpper`",
-                    "`string text`"
-                ],
-                [
-                    "`string`",
-                    "`Trim`",
-                    "`string text`"
-                ],
-                [
-                    "`string`",
-                    "`TrimEnd`",
-                    "`string text`"
-                ],
-                [
-                    "`string`",
-                    "`TrimStart`",
-                    "`string text`"
-                ]
+                ["`bool`", "`Contains`", "`string text, string value`"],
+                ["`bool`", "`EndsWith`", "`string text, string value`"],
+                ["`int`", "`IndexOf`", "`string text, string value`"],
+                ["`int`", "`IndexOfAny`", "`string text, string chars`"],
+                ["`string`", "`Insert`", "`string text, int index, string value`"],
+                ["`int`", "`LastIndexOf`", "`string text, string value`"],
+                ["`int`", "`LastIndexOfAny`", "`string text, string chars`"],
+                ["`int`", "`Length`", "`string text`"],
+                ["`string`", "`Merge`", "`string text, string value`"],
+                ["`string`", "`PadLeft`", "`string text, string character, int length`"],
+                ["`string`", "`PadRight`", "`string text, string character, int length`"],
+                ["`string`", "`Remove`", "`string text, int start`"],
+                ["`string`", "`Remove`", "`string text, int start, int length`"],
+                ["`string`", "`Replace`", "`string text, string search, string replace`"],
+                ["`List`", "`Split`", "`string text, string divider`"],
+                ["`List`", "`SplitAny`", "`string text, string dividerChars`"],
+                ["`bool`", "`StartsWith`", "`string text, string value`"],
+                ["`string`", "`Substring`", "`string text, int start`"],
+                ["`string`", "`Substring`", "`string text, int start, int length`"],
+                ["`string`", "`ToLower`", "`string text`"],
+                ["`string`", "`ToUpper`", "`string text`"],
+                ["`string`", "`Trim`", "`string text`"],
+                ["`string`", "`TrimEnd`", "`string text`"],
+                ["`string`", "`TrimStart`", "`string text`"]
             ]
         },
         {
-            "id": "block-005",
+            "id": "block-021",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "UniScript strings do not support methods directly (e.g. `.Split()` won't work). Use `StringUtil` helpers for all string operations."
+            "text": "To turn typed text into a real number for math, hand the cleaned-up string to [TypeUtil's Convert](/docs/uniscript/en-US/typeutil#block-009) — trim it first with `Trim` to remove stray spaces."
         }
     ]
 }

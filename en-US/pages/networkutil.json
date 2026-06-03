@@ -1,20 +1,24 @@
 {
     "id": "networkutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "NetworkUtil",
-    "description": "Local player, room state, send RPC, is-host.",
-    "link": "/docs/uniscript/en-us/networkutil",
+    "description": "Build multiplayer: connect players, create and join rooms and lobbies, keep objects in sync across players, and read who owns what.",
+    "link": "/docs/uniscript/en-US/networkutil",
     "tags": [
         "uniscript",
-        "networkutil"
+        "networkutil",
+        "multiplayer",
+        "network",
+        "room",
+        "lobby"
     ],
     "previous": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-us/particleutil"
+        "link": "/docs/uniscript/en-US/particleutil"
     },
     "next": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-us/storageutil"
+        "link": "/docs/uniscript/en-US/storageutil"
     },
     "content": [
         {
@@ -29,17 +33,207 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Local player, room state, send RPC, is-host."
+            "text": "`NetworkUtil` powers **multiplayer** — it connects players over the internet, groups them into rooms and lobbies, and keeps the action in sync so everyone sees the same thing. This is one of the more advanced topics, so take it step by step."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Multiplayer has a few key ideas: a **room** is a match players share; a **network object** is something that exists for everyone (like a player or a ball); and **ownership** decides who controls each object. Most methods take the `uniscript` of your network game, object, or lobby script."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Connecting"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "First, set up a network game on an object and connect to the servers."
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddNetworkGame(this)`", "Sets the object up as the network game manager."],
+                ["`Connect()`", "Connects to the multiplayer servers."],
+                ["`Disconnect()`", "Disconnects."],
+                ["`IsConnected()`", "`true` once connected."],
+                ["`SetName(name)`", "Sets the player's name others will see."]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class GameNetwork",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        NetworkUtil.AddNetworkGame(this);",
+                "        NetworkUtil.SetName(PlayerUtil.GetName());",
+                "        NetworkUtil.Connect();",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Rooms — grouping players into a match"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Once connected, players join a room to play together. When creating a room you choose whether it's `open` (others can join), `visible` (shows in lists), and the maximum number of players."
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`CreateRoom(name, open, visible, maxPlayers)`", "Makes a new room."],
+                ["`JoinRoom(name)`", "Joins an existing room by name."],
+                ["`CreateOrJoinRoom(name, open, visible, maxPlayers)`", "Joins the room if it exists, otherwise creates it."],
+                ["`JoinRandomRoom(mode, map, maxPlayers)`", "Drops the player into any matching open room."],
+                ["`LeaveRoom()`", "Leaves the current room."]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Lobbies — waiting rooms before the match"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "A lobby is a waiting area where players gather before the game starts."
+        },
+        {
+            "id": "block-013",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddNetworkLobby(this, id, maxPlayers, autoStart)`", "Sets up a lobby on the object."],
+                ["`JoinLobby(this)` / `LeaveLobby(this)`", "Joins or leaves the lobby."],
+                ["`StartGame(this)`", "Starts the match for everyone in the lobby."],
+                ["`AskLobbyInfo(this)`", "Requests the latest lobby details."]
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Networked objects and ownership"
+        },
+        {
+            "id": "block-015",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "A **network object** exists for every player. **Ownership** tells you whether *this* player controls it — you usually only move and act on objects you own."
+        },
+        {
+            "id": "block-016",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddNetworkObject(this)`", "Marks the object as networked (shared with everyone)."],
+                ["`IsMine(this)`", "`true` if this player owns the object — control it only when this is true."],
+                ["`AmIMaster()`", "`true` if this player is the host (the one in charge of shared decisions)."],
+                ["`AddSyncScript(this, syncScript)`", "Registers a script whose synced values should travel to other players."],
+                ["`RemoveSyncScript(this, syncScript)`", "Stops syncing that script."],
+                ["`Destroy(this)`", "Removes a networked object for everyone."],
+                ["`DestroyPlayerObjects(this)`", "Removes all of this player's networked objects."]
+            ]
+        },
+        {
+            "id": "block-017",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "void OnUpdate()",
+                "{",
+                "    // Only the owner drives this object; everyone else just watches.",
+                "    if (NetworkUtil.IsMine(this))",
+                "    {",
+                "        // ...handle input and movement here...",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Player info and timing"
+        },
+        {
+            "id": "block-019",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it returns / does"
+            ],
+            "rows": [
+                ["`GetRoomPlayers(this)`", "A list of everyone in the room."],
+                ["`GetPlayerId(this)` / `GetPlayerName(this)`", "This player's ID / name."],
+                ["`GetPlayerInfo(this, playerId)`", "A dictionary of custom info for a player."],
+                ["`SetPlayerInfo(this, playerId, key, value)`", "Stores a piece of custom info (team, ready state, etc.)."],
+                ["`GetServerTimeSpan()`", "A shared clock value, so all players agree on timing."],
+                ["`PauseMessaging()` / `ResumeMessaging()`", "Temporarily hold and resume network messages."]
+            ]
+        },
+        {
+            "id": "block-020",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-021",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,164 +243,44 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`AddNetworkGame`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Connect`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`Disconnect`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`CreateRoom`",
-                    "`string name, bool open, bool visible, int maxPlayers`"
-                ],
-                [
-                    "`void`",
-                    "`JoinRoom`",
-                    "`string name`"
-                ],
-                [
-                    "`void`",
-                    "`CreateOrJoinRoom`",
-                    "`string name, bool open, bool visible, int maxPlayers`"
-                ],
-                [
-                    "`void`",
-                    "`LeaveRoom`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`AddNetworkObject`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Destroy`",
-                    "`uniscript`"
-                ],
-                [
-                    "`bool`",
-                    "`AmIMaster`",
-                    "—"
-                ],
-                [
-                    "`bool`",
-                    "`IsMine`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`AddNetworkLobby`",
-                    "`uniscript, int id, int maxPlayers, bool autoStart`"
-                ],
-                [
-                    "`bool`",
-                    "`JoinLobby`",
-                    "`uniscript`"
-                ],
-                [
-                    "`bool`",
-                    "`LeaveLobby`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`StartGame`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`DestroyPlayerObjects`",
-                    "`uniscript`"
-                ],
-                [
-                    "`bool`",
-                    "`IsConnected`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`AddSyncScript`",
-                    "`uniscript, uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`RemoveSyncScript`",
-                    "`uniscript, uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`SetName`",
-                    "`string name`"
-                ],
-                [
-                    "`void`",
-                    "`PauseMessaging`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`ResumeMessaging`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`GetServerTimeSpan`",
-                    "—"
-                ],
-                [
-                    "`void`",
-                    "`AskLobbyInfo`",
-                    "`uniscript`"
-                ],
-                [
-                    "`List`",
-                    "`GetRoomPlayers`",
-                    "`uniscript`"
-                ],
-                [
-                    "`int`",
-                    "`GetPlayerId`",
-                    "`uniscript`"
-                ],
-                [
-                    "`string`",
-                    "`GetPlayerName`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`JoinRandomRoom`",
-                    "`string mode, string map, int maxPlayers`"
-                ],
-                [
-                    "`Dictionary`",
-                    "`GetPlayerInfo`",
-                    "`uniscript, int playerId`"
-                ],
-                [
-                    "`void`",
-                    "`SetPlayerInfo`",
-                    "`uniscript, int playerId, string key, string value`"
-                ]
+                ["`void`", "`AddNetworkGame`", "`uniscript`"],
+                ["`void`", "`Connect`", "—"],
+                ["`void`", "`Disconnect`", "—"],
+                ["`void`", "`CreateRoom`", "`string name, bool open, bool visible, int maxPlayers`"],
+                ["`void`", "`JoinRoom`", "`string name`"],
+                ["`void`", "`CreateOrJoinRoom`", "`string name, bool open, bool visible, int maxPlayers`"],
+                ["`void`", "`LeaveRoom`", "—"],
+                ["`void`", "`AddNetworkObject`", "`uniscript`"],
+                ["`void`", "`Destroy`", "`uniscript`"],
+                ["`bool`", "`AmIMaster`", "—"],
+                ["`bool`", "`IsMine`", "`uniscript`"],
+                ["`void`", "`AddNetworkLobby`", "`uniscript, int id, int maxPlayers, bool autoStart`"],
+                ["`bool`", "`JoinLobby`", "`uniscript`"],
+                ["`bool`", "`LeaveLobby`", "`uniscript`"],
+                ["`void`", "`StartGame`", "`uniscript`"],
+                ["`void`", "`DestroyPlayerObjects`", "`uniscript`"],
+                ["`bool`", "`IsConnected`", "—"],
+                ["`void`", "`AddSyncScript`", "`uniscript, uniscript syncScript`"],
+                ["`void`", "`RemoveSyncScript`", "`uniscript, uniscript syncScript`"],
+                ["`void`", "`SetName`", "`string name`"],
+                ["`void`", "`PauseMessaging`", "—"],
+                ["`void`", "`ResumeMessaging`", "—"],
+                ["`float`", "`GetServerTimeSpan`", "—"],
+                ["`void`", "`AskLobbyInfo`", "`uniscript`"],
+                ["`List`", "`GetRoomPlayers`", "`uniscript`"],
+                ["`int`", "`GetPlayerId`", "`uniscript`"],
+                ["`string`", "`GetPlayerName`", "`uniscript`"],
+                ["`void`", "`JoinRandomRoom`", "`string mode, string map, int maxPlayers`"],
+                ["`Dictionary`", "`GetPlayerInfo`", "`uniscript, int playerId`"],
+                ["`void`", "`SetPlayerInfo`", "`uniscript, int playerId, string key, string value`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
+            "id": "block-022",
+            "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `NetworkUtil.IsHost()` to branch logic that should only run on the host instance. RPCs sent via `NetworkUtil.SendRPC` are received by all clients including the sender."
+            "text": "Always guard control logic with `IsMine` so each player only drives their own objects, and let the host (`AmIMaster`) make shared decisions like spawning enemies — this keeps every player's view consistent."
         }
     ]
 }

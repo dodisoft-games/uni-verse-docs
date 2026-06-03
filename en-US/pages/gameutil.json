@@ -1,20 +1,22 @@
 {
     "id": "gameutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "GameUtil",
-    "description": "AddMovingPlatform only -- registers the calling script as a moving platform.",
-    "link": "/docs/uniscript/en-us/gameutil",
+    "description": "Turn an object into a moving platform that carries the player along as it moves.",
+    "link": "/docs/uniscript/en-US/gameutil",
     "tags": [
         "uniscript",
-        "gameutil"
+        "gameutil",
+        "platform",
+        "moving"
     ],
     "previous": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-us/aiutil"
+        "link": "/docs/uniscript/en-US/aiutil"
     },
     "next": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-us/marketutil"
+        "link": "/docs/uniscript/en-US/marketutil"
     },
     "content": [
         {
@@ -29,24 +31,53 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "AddMovingPlatform only -- registers the calling script as a moving platform."
+            "text": "`GameUtil` provides a ready-made game-building helper: turning an object into a **moving platform**. A moving platform carries whatever stands on it — so when the platform slides or rises, the player rides along instead of being left behind."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Making a moving platform"
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "text": "Call `AddMovingPlatform(this)` once on the object. After that, move the platform however you like — players standing on it move with it correctly."
         },
         {
             "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class Elevator",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        GameUtil.AddMovingPlatform(this);",
+                "    }",
+                "",
+                "    void OnUpdate()",
+                "    {",
+                "        // Bob the platform up and down; riders move with it.",
+                "        float y = Math.Sin(Time.GameTime()) * 2.0;",
+                "        UniObjectUtil.SetPosition(this, VectorUtil.New(0.0, y, 0.0));",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-007",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,12 +87,15 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`AddMovingPlatform`",
-                    "`uniscript`"
-                ]
+                ["`void`", "`AddMovingPlatform`", "`uniscript`"]
             ]
+        },
+        {
+            "id": "block-008",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Move the platform with [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-004) for simple back-and-forth motion, or drive it with physics from [PhysicsUtil](/docs/uniscript/en-US/physicsutil) — either way, `AddMovingPlatform` is what makes riders stick."
         }
     ]
 }

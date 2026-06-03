@@ -1,20 +1,24 @@
 {
     "id": "audioutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "AudioUtil",
-    "description": "Play one-shots, set master volume, get listener position.",
-    "link": "/docs/uniscript/en-us/audioutil",
+    "description": "Play sound effects and music: quick one-shot sounds (flat or positioned in 3D), control an attached audio player, change pitch, and mute everything.",
+    "link": "/docs/uniscript/en-US/audioutil",
     "tags": [
         "uniscript",
-        "audioutil"
+        "audioutil",
+        "audio",
+        "sound",
+        "music",
+        "sfx"
     ],
     "previous": {
         "name": "PlayerUtil",
-        "link": "/docs/uniscript/en-us/playerutil"
+        "link": "/docs/uniscript/en-US/playerutil"
     },
     "next": {
         "name": "UIUtil",
-        "link": "/docs/uniscript/en-us/uiutil"
+        "link": "/docs/uniscript/en-US/uiutil"
     },
     "content": [
         {
@@ -29,24 +33,151 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Play one-shots, set master volume, get listener position."
+            "text": "`AudioUtil` plays sound in your game — coin pings, footsteps, explosions, and music. There are two easy ways to make a sound: a quick **one-shot** (fire and forget) or an **attached audio player** you can start, stop, and tweak over time."
         },
         {
             "id": "block-003",
-            "tag": "h2",
-            "styles": null,
-            "classes": null,
-            "text": "Methods"
-        },
-        {
-            "id": "block-004",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "text": "The sound-playing methods take an **audio asset** — a sound file you wire into a field in the editor."
+        },
+        {
+            "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Quick one-shot sounds"
         },
         {
             "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "One-shots are perfect for short effects. There are two kinds: **2D** (heard equally everywhere, ideal for UI clicks and music) and **3D** (comes from a position in the world, so it's louder when you're close)."
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Play2DAudio(asset, volume)`", "Plays a flat sound at the chosen `volume` (`0`–`1`). Great for clicks, pickups, and UI."],
+                ["`Play3DAudio(asset, position, volume)`", "Plays a sound at a spot in the world — it fades with distance."],
+                ["`Play3DAudio(asset, position, volume, distanceMode, minDistance, maxDistance)`", "A 3D sound with control over how it fades (see below)."]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// A UI click — same volume everywhere.",
+                "AudioUtil.Play2DAudio(clickSound, 1.0);",
+                "",
+                "// An explosion at the player's position — fades with distance.",
+                "vector3 pos = UniObjectUtil.GetWorldPosition(this);",
+                "AudioUtil.Play3DAudio(explosionSound, pos, 0.8);"
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "For the detailed 3D version, `distanceMode` controls how the sound fades: `0` for **logarithmic** (natural falloff) or `1` for **linear** (even fade). `minDistance` is how close you can get before it's at full volume, and `maxDistance` is where it fades to silence."
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "An attached audio player"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "When you need ongoing control — looping music, an engine hum you start and stop — attach an audio player to an object with `AddAudioPlayer`, then drive it:"
+        },
+        {
+            "id": "block-011",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`AddAudioPlayer(this)`", "Adds an audio player to the object (set its clip in the editor)."],
+                ["`Play(this)`", "Starts playing."],
+                ["`Stop(this)`", "Stops and rewinds to the start."],
+                ["`Pause(this)`", "Pauses, keeping the position so `Play` resumes."],
+                ["`SetPitch(this, value)`", "Changes the pitch/speed — `1.0` is normal, higher is faster and squeakier."]
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class EngineSound",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        AudioUtil.AddAudioPlayer(this);",
+                "        AudioUtil.Play(this);",
+                "    }",
+                "",
+                "    // Make the engine rev with speed.",
+                "    void SetSpeed(float speed)",
+                "    {",
+                "        AudioUtil.SetPitch(this, 1.0 + speed * 0.1);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Muting everything"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetAudioActivition` turns all game audio on or off at once — perfect for a mute button. Pass `true` for sound on, `false` to silence everything."
+        },
+        {
+            "id": "block-015",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Mute all audio.",
+                "AudioUtil.SetAudioActivition(false);"
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-017",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,52 +187,23 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`AddAudioPlayer`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Play2DAudio`",
-                    "`object asset, float volume`"
-                ],
-                [
-                    "`void`",
-                    "`Play3DAudio`",
-                    "`object asset, vector3 position, float volume`"
-                ],
-                [
-                    "`void`",
-                    "`Play3DAudio`",
-                    "`object asset, vector3 position, float volume, int distributionMode, float minDistance, float maxDistance`"
-                ],
-                [
-                    "`void`",
-                    "`Play`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Stop`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Pause`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`SetAudioActivition`",
-                    "`bool enabled`"
-                ],
-                [
-                    "`void`",
-                    "`SetPitch`",
-                    "`uniscript, float value`"
-                ]
+                ["`void`", "`AddAudioPlayer`", "`uniscript`"],
+                ["`void`", "`Play2DAudio`", "`object asset, float volume`"],
+                ["`void`", "`Play3DAudio`", "`object asset, vector3 position, float volume`"],
+                ["`void`", "`Play3DAudio`", "`object asset, vector3 position, float volume, int distributionMode, float minDistance, float maxDistance`"],
+                ["`void`", "`Play`", "`uniscript`"],
+                ["`void`", "`Stop`", "`uniscript`"],
+                ["`void`", "`Pause`", "`uniscript`"],
+                ["`void`", "`SetAudioActivition`", "`bool enabled`"],
+                ["`void`", "`SetPitch`", "`uniscript, float value`"]
             ]
+        },
+        {
+            "id": "block-018",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Use `Play2DAudio` for anything that should sound the same wherever the player is (UI, music, alerts) and `Play3DAudio` for things that happen at a place in the world (footsteps, gunfire, doors). A tiny pitch variation on repeated sounds keeps them from feeling robotic."
         }
     ]
 }

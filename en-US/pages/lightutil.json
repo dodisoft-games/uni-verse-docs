@@ -1,9 +1,9 @@
 {
     "id": "lightutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "LightUtil",
     "description": "Set the mood of your world: turn an object into a light, tint the ambient sky/ground colors, and switch fog on with a chosen color and thickness.",
-    "link": "/docs/uniscript/en-us/lightutil",
+    "link": "/docs/uniscript/en-US/lightutil",
     "tags": [
         "uniscript",
         "lightutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/en-us/camerautil"
+        "link": "/docs/uniscript/en-US/camerautil"
     },
     "next": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/en-us/sceneutil"
+        "link": "/docs/uniscript/en-US/sceneutil"
     },
     "content": [
         {
@@ -40,7 +40,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "The color methods here take a **color** value. Build one with [ColorUtil](/docs/uniscript/en-us/colorutil), for example `ColorUtil.New(...)`."
+            "text": "The color methods here take a **color** value. Build one with [ColorUtil](/docs/uniscript/en-US/colorutil), for example `ColorUtil.FromRGBA(...)`."
         },
         {
             "id": "block-004",
@@ -137,7 +137,7 @@
             "lines": [
                 "// Switch on a light grey fog.",
                 "LightUtil.SetFog(true);",
-                "LightUtil.SetFogColor(ColorUtil.New(0.6, 0.6, 0.6, 1.0));",
+                "LightUtil.SetFogColor(ColorUtil.FromRGBA(0.6, 0.6, 0.6, 1.0));",
                 "LightUtil.SetFogDensity(0.03);"
             ]
         },

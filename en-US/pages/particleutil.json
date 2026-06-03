@@ -1,20 +1,23 @@
 {
     "id": "particleutil",
-    "lang": "en-us",
+    "lang": "en-US",
     "name": "ParticleUtil",
-    "description": "Spawn particle effects from prefab references.",
-    "link": "/docs/uniscript/en-us/particleutil",
+    "description": "Control particle effects — smoke, sparks, dust, magic. Add a particle system to an object, start and stop it, burst on demand, and set how fast it emits.",
+    "link": "/docs/uniscript/en-US/particleutil",
     "tags": [
         "uniscript",
-        "particleutil"
+        "particleutil",
+        "particles",
+        "effects",
+        "vfx"
     ],
     "previous": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-us/colorutil"
+        "link": "/docs/uniscript/en-US/colorutil"
     },
     "next": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-us/networkutil"
+        "link": "/docs/uniscript/en-US/networkutil"
     },
     "content": [
         {
@@ -29,24 +32,111 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Spawn particle effects from prefab references."
+            "text": "**Particles** are the little bits that make effects feel alive — smoke, sparks, dust clouds, magic sparkles, fire. A **particle system** is the emitter that produces them. `ParticleUtil` lets you add one to an object and control when and how fast it puffs out particles."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Adding a particle system"
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "text": "`AddParticleSystem(this)` attaches an emitter to the object. Set up its look in the editor, then control it from script."
         },
         {
             "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class Campfire",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        ParticleUtil.AddParticleSystem(this);",
+                "        ParticleUtil.Start(this);   // start puffing smoke",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Starting and stopping"
+        },
+        {
+            "id": "block-007",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Start(this)`", "Begins emitting particles continuously."],
+                ["`Stop(this)`", "Stops emitting (existing particles finish their life)."],
+                ["`Pause(this)`", "Freezes the effect where it is."]
+            ]
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bursts and emission rate"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "For a one-off puff (an impact, a jump of dust), `Emit` fires a set number of particles instantly. To change a continuous effect's intensity, set its emission rate."
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                ["`Emit(this, number)`", "Releases `number` particles right now — perfect for a burst on impact."],
+                ["`SetEmissionRateOverTime(this, value)`", "How many particles stream out per second (a steady flow like smoke)."],
+                ["`SetEmissionRateOverDistance(this, value)`", "How many particles appear as the object **moves** (a trail of dust behind a car)."]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Puff out 20 particles when the player lands.",
+                "void OnLand()",
+                "{",
+                "    ParticleUtil.Emit(this, 20);",
+                "}"
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-013",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -56,42 +146,21 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`AddParticleSystem`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Start`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Stop`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Pause`",
-                    "`uniscript`"
-                ],
-                [
-                    "`void`",
-                    "`Emit`",
-                    "`uniscript, int number`"
-                ],
-                [
-                    "`void`",
-                    "`SetEmissionRateOverTime`",
-                    "`uniscript, int value`"
-                ],
-                [
-                    "`void`",
-                    "`SetEmissionRateOverDistance`",
-                    "`uniscript, int value`"
-                ]
+                ["`void`", "`AddParticleSystem`", "`uniscript`"],
+                ["`void`", "`Start`", "`uniscript`"],
+                ["`void`", "`Stop`", "`uniscript`"],
+                ["`void`", "`Pause`", "`uniscript`"],
+                ["`void`", "`Emit`", "`uniscript, int number`"],
+                ["`void`", "`SetEmissionRateOverTime`", "`uniscript, int value`"],
+                ["`void`", "`SetEmissionRateOverDistance`", "`uniscript, int value`"]
             ]
+        },
+        {
+            "id": "block-014",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Use `Emit` for sudden one-time effects (hits, pickups) and `Start` / `Stop` with an emission rate for ongoing effects (smoke, rain, a magic aura)."
         }
     ]
 }
