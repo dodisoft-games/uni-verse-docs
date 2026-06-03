@@ -2,11 +2,14 @@
     "id": "time",
     "lang": "en-US",
     "name": "Time",
-    "description": "Game/real time + delta. DeltaTime() is a method, not a property.",
+    "description": "Read the game clock and, most importantly, use DeltaTime so movement and timers feel the same on every device, fast or slow.",
     "link": "/docs/uniscript/en-US/time",
     "tags": [
         "uniscript",
-        "time"
+        "time",
+        "deltatime",
+        "clock",
+        "timer"
     ],
     "previous": {
         "name": "Debug",
@@ -29,17 +32,133 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Game/real time + delta. DeltaTime() is a method, not a property."
+            "text": "`Time` lets you read the game's clock. You'll use it for timers, cooldowns, animations, and — most importantly — to make movement run at the same speed on every device, whether it's a fast gaming PC or a slow phone."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "The three clocks"
         },
         {
             "id": "block-004",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it gives you"
+            ],
+            "rows": [
+                [
+                    "`GameTime()`",
+                    "How many seconds the **game** has been running. This is the clock to use for gameplay timers."
+                ],
+                [
+                    "`RealTime()`",
+                    "Real-world seconds, measured independently of the game."
+                ],
+                [
+                    "`DeltaTime()`",
+                    "How many seconds passed since the **last frame** — a tiny number used to keep movement smooth and consistent (explained below)."
+                ]
+            ]
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Why DeltaTime matters"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Your game updates many times per second, frame by frame. A fast device draws more frames than a slow one. If you move an object \"a little bit every frame\", it would travel **faster on fast devices** — which is unfair and unpredictable."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`DeltaTime()` fixes this. By multiplying your speed by it, you turn \"per frame\" into \"per second\", so the result is identical everywhere:"
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// 5 units PER SECOND — correct on every device.",
+                "float distance = 5.0 * Time.DeltaTime();",
+                "",
+                "// A countdown that ticks down in real seconds.",
+                "timeLeft = timeLeft - Time.DeltaTime();",
+                "if (timeLeft <= 0.0)",
+                "{",
+                "    Debug.Log(\"Time's up!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "Rule of thumb: whenever you change something **a bit each frame** (movement, rotation, a fading value, a timer), multiply by `Time.DeltaTime()`. Without it, your game behaves differently on different hardware."
+        },
+        {
+            "id": "block-010",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "These are all **methods**, so always include the parentheses: write `Time.DeltaTime()`, not `Time.DeltaTime`."
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Building a cooldown"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "A common pattern: remember *when* something happened with `GameTime()`, then check if enough time has passed before allowing it again."
+        },
+        {
+            "id": "block-013",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "float lastShotTime = -999.0;",
+                "",
+                "void Fire()",
+                "{",
+                "    // Only allow firing every 0.5 seconds.",
+                "    if (Time.GameTime() - lastShotTime >= 0.5)",
+                "    {",
+                "        lastShotTime = Time.GameTime();",
+                "        // ...spawn the bullet...",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-015",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -65,20 +184,6 @@
                     "—"
                 ]
             ]
-        },
-        {
-            "id": "block-005",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`DeltaTime()` is a **method**, not a property. Always call it as `Time.DeltaTime()` — omitting the parentheses will not return a value."
-        },
-        {
-            "id": "block-006",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Multiply movement or force values by `Time.DeltaTime()` to make them frame-rate independent."
         }
     ]
 }

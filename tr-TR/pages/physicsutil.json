@@ -1,24 +1,24 @@
 {
     "id": "physicsutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "PhysicsUtil",
-    "description": "Make objects move with real physics: push them with forces, set their speed, spin them, and shoot rays to detect what's in front of them.",
-    "link": "/docs/uniscript/en-US/physicsutil",
+    "description": "Nesneleri gerçek fizikle hareket ettirin: kuvvetlerle itin, hızlarını ayarlayın, döndürün ve önlerinde ne olduğunu algılamak için ışınlar gönderin.",
+    "link": "/docs/uniscript/tr-TR/physicsutil",
     "tags": [
         "uniscript",
         "physicsutil",
-        "physics",
-        "force",
-        "velocity",
+        "fizik",
+        "kuvvet",
+        "hız",
         "raycast"
     ],
     "previous": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/en-US/colliderutil"
+        "link": "/docs/uniscript/tr-TR/colliderutil"
     },
     "next": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/en-US/camerautil"
+        "link": "/docs/uniscript/tr-TR/camerautil"
     },
     "content": [
         {
@@ -33,21 +33,21 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`PhysicsUtil` makes objects behave like real-world things — they can be pushed, fall under gravity, bounce, roll, and spin. It's the right tool for balls, projectiles, crates, and anything that should move physically. It also includes **raycasting**: shooting an invisible ray to detect what an object is looking at."
+            "text": "`PhysicsUtil`, nesnelerin gerçek dünyadaki şeyler gibi davranmasını sağlar — itilebilir, yer çekimiyle düşebilir, sekebilir, yuvarlanabilir ve dönebilirler. Toplar, mermiler, sandıklar ve fiziksel olarak hareket etmesi gereken her şey için doğru araçtır. Ayrıca **raycasting** içerir: bir nesnenin neye baktığını algılamak için görünmez bir ışın gönderme."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Step 1 — Give the object physics"
+            "text": "1. Adım — Nesneye fizik ver"
         },
         {
             "id": "block-004",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Before an object can be pushed or fall, it needs a physics body. Add one once with `AddPhysics`:"
+            "text": "Bir nesne itilebilmeden veya düşebilmeden önce bir fizik gövdesine ihtiyacı vardır. `AddPhysics` ile bir kez ekleyin:"
         },
         {
             "id": "block-005",
@@ -59,7 +59,7 @@
                 "{",
                 "    void OnInit()",
                 "    {",
-                "        PhysicsUtil.AddPhysics(this);   // now it can move and fall",
+                "        PhysicsUtil.AddPhysics(this);   // artık hareket edebilir ve düşebilir",
                 "    }",
                 "}"
             ]
@@ -69,14 +69,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Setting and reading speed"
+            "text": "Hızı ayarlama ve okuma"
         },
         {
             "id": "block-007",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "**Velocity** is an object's speed and direction combined, as a `vector3`. Setting it directly is the simplest way to control movement."
+            "text": "**Hız (velocity)**, bir nesnenin hızı ve yönünün birleşimidir, bir `vector3` olarak. Onu doğrudan ayarlamak, hareketi kontrol etmenin en basit yoludur."
         },
         {
             "id": "block-008",
@@ -84,12 +84,12 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`SetVelocity(this, velocity)`", "Sets the object's exact speed and direction."],
-                ["`GetVelocity(this)`", "Reads the current speed and direction — e.g. to check if it's falling."]
+                ["`SetVelocity(this, velocity)`", "Nesnenin tam hızını ve yönünü ayarlar."],
+                ["`GetVelocity(this)`", "Mevcut hızı ve yönü okur — örn. düşüp düşmediğini kontrol etmek için."]
             ]
         },
         {
@@ -98,7 +98,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Launch the ball forward at 10 units/second.",
+                "// Topu saniyede 10 birim hızla ileri fırlat.",
                 "PhysicsUtil.SetVelocity(this, VectorUtil.New(0.0, 0.0, 10.0));"
             ]
         },
@@ -107,14 +107,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Pushing with forces"
+            "text": "Kuvvetlerle itme"
         },
         {
             "id": "block-011",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`AddForce` pushes an object instead of setting its speed outright — which feels more natural for jumps, explosions, and wind. The last parameter, the **force mode**, decides how the push is applied:"
+            "text": "`AddForce`, bir nesnenin hızını doğrudan belirlemek yerine onu iter — bu da zıplamalar, patlamalar ve rüzgar için daha doğal hissettirir. Son parametre olan **kuvvet modu**, itişin nasıl uygulanacağına karar verir:"
         },
         {
             "id": "block-012",
@@ -122,15 +122,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Mode",
-                "Name",
-                "Use for"
+                "Mod",
+                "Ad",
+                "Ne için"
             ],
             "rows": [
-                ["`0`", "Acceleration", "A steady push that ignores how heavy the object is."],
-                ["`1`", "Force", "A steady push affected by weight (the everyday choice for continuous push)."],
-                ["`2`", "Impulse", "A sudden, one-off kick affected by weight — jumps, hits, explosions."],
-                ["`3`", "VelocityChange", "A sudden kick that ignores weight — instant, consistent speed changes."]
+                ["`0`", "Acceleration", "Nesnenin ne kadar ağır olduğunu yok sayan sabit bir itiş."],
+                ["`1`", "Force", "Ağırlıktan etkilenen sabit bir itiş (sürekli itiş için günlük tercih)."],
+                ["`2`", "Impulse", "Ağırlıktan etkilenen ani, tek seferlik bir vuruş — zıplamalar, çarpmalar, patlamalar."],
+                ["`3`", "VelocityChange", "Ağırlığı yok sayan ani bir vuruş — anında, tutarlı hız değişimleri."]
             ]
         },
         {
@@ -139,10 +139,10 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// An instant upward jump (Impulse = 2).",
+                "// Anında yukarı doğru bir zıplama (Impulse = 2).",
                 "PhysicsUtil.AddForce(this, 0.0, 8.0, 0.0, 2);",
                 "",
-                "// The same push using a vector.",
+                "// Aynı itiş, bir vektör kullanarak.",
                 "vector3 jump = VectorUtil.New(0.0, 8.0, 0.0);",
                 "PhysicsUtil.AddForce(this, jump, 2);"
             ]
@@ -152,14 +152,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Spinning objects"
+            "text": "Nesneleri döndürme"
         },
         {
             "id": "block-015",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "**Torque** is a twisting push that makes an object rotate. It works just like force, including the same mode numbers."
+            "text": "**Tork (torque)**, bir nesneyi döndüren bükücü bir itiştir. Tıpkı kuvvet gibi çalışır, aynı mod numaraları dahil."
         },
         {
             "id": "block-016",
@@ -167,14 +167,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`AddTorque(this, x, y, z, mode)`", "Applies a spinning push."],
-                ["`AddTorque(this, vector, mode)`", "Same, using a `vector3`."],
-                ["`SetAngularVelocity(this, velocity)` / `GetAngularVelocity(this)`", "Set or read how fast the object is spinning."],
-                ["`SetCenterOfMass(this, center)`", "Moves the object's balance point — affects how it tips and spins."]
+                ["`AddTorque(this, x, y, z, mode)`", "Döndürücü bir itiş uygular."],
+                ["`AddTorque(this, vector, mode)`", "Aynısı, bir `vector3` kullanarak."],
+                ["`SetAngularVelocity(this, velocity)` / `GetAngularVelocity(this)`", "Nesnenin ne kadar hızlı döndüğünü ayarlar veya okur."],
+                ["`SetCenterOfMass(this, center)`", "Nesnenin denge noktasını taşır — nasıl devrildiğini ve döndüğünü etkiler."]
             ]
         },
         {
@@ -182,35 +182,35 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Moving platforms"
+            "text": "Hareketli platformlar"
         },
         {
             "id": "block-018",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`AddMovingPlatform(this)` marks an object as a moving platform so characters standing on it are carried along correctly as it moves."
+            "text": "`AddMovingPlatform(this)`, bir nesneyi hareketli platform olarak işaretler; böylece üzerinde duran karakterler, platform hareket ettikçe doğru şekilde taşınır."
         },
         {
             "id": "block-019",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Raycasting — detecting what's ahead"
+            "text": "Raycasting — ileride ne olduğunu algılama"
         },
         {
             "id": "block-020",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **raycast** shoots an invisible line from a point in a direction and reports the first thing it hits. It's how you check what's under a character (ground detection), what a gun is aimed at, or whether there's a wall ahead."
+            "text": "Bir **raycast**, bir noktadan bir yöne görünmez bir çizgi gönderir ve çarptığı ilk şeyi bildirir. Bir karakterin altında ne olduğunu (zemin algılama), bir silahın neye nişan aldığını veya ilerde bir duvar olup olmadığını böyle kontrol edersiniz."
         },
         {
             "id": "block-021",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Raycast` returns a [Dictionary](/docs/uniscript/en-US/dictionaryutil) describing the hit, or nothing if the ray hit empty space. The dictionary holds these keys:"
+            "text": "`Raycast`, çarpışmayı tanımlayan bir [Dictionary](/docs/uniscript/tr-TR/dictionaryutil) döndürür ya da ışın boşluğa çarptıysa hiçbir şey döndürmez. Dictionary şu anahtarları tutar:"
         },
         {
             "id": "block-022",
@@ -218,13 +218,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Key",
-                "What it holds"
+                "Anahtar",
+                "Ne tuttuğu"
             ],
             "rows": [
-                ["`\"point\"`", "The exact spot where the ray hit (a `vector3`)."],
-                ["`\"normal\"`", "The direction the hit surface faces."],
-                ["`\"other\"`", "The script of the object that was hit — so you can act on it."]
+                ["`\"point\"`", "Işının çarptığı tam nokta (bir `vector3`)."],
+                ["`\"normal\"`", "Çarpılan yüzeyin baktığı yön."],
+                ["`\"other\"`", "Çarpılan nesnenin betiği — böylece onun üzerinde işlem yapabilirsiniz."]
             ]
         },
         {
@@ -233,14 +233,14 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Shoot a ray straight down to find the ground, up to 5 units away.",
+                "// Zemini bulmak için dümdüz aşağı, 5 birime kadar bir ışın gönder.",
                 "vector3 from = UniObjectUtil.GetWorldPosition(this);",
                 "Dictionary hit = PhysicsUtil.Raycast(from, VectorUtil.Down(), 5.0);",
                 "",
                 "if (hit != null)",
                 "{",
                 "    vector3 groundPoint = DictionaryUtil.Get(hit, \"point\");",
-                "    Debug.Log(\"Ground found!\");",
+                "    Debug.Log(\"Zemin bulundu!\");",
                 "}"
             ]
         },
@@ -249,7 +249,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "You can also limit a ray to only notice objects with a certain **tag** (or list of tags), and `RaycastAll` reports every object along the line instead of just the first:"
+            "text": "Ayrıca bir ışını yalnızca belirli bir **etikete** (veya etiket listesine) sahip nesneleri fark edecek şekilde sınırlayabilirsiniz; `RaycastAll` ise yalnızca ilkini değil, çizgi boyunca her nesneyi bildirir:"
         },
         {
             "id": "block-025",
@@ -257,14 +257,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Raycast(from, direction, distance)`", "First object hit."],
-                ["`Raycast(from, direction, distance, tag)`", "First object hit that has this tag."],
-                ["`Raycast(from, direction, distance, tags)`", "First object hit matching any tag in the list."],
-                ["`RaycastAll(...)`", "A list of all objects along the ray (each entry has a `\"valid\"` key plus the same hit keys)."]
+                ["`Raycast(from, direction, distance)`", "Çarpılan ilk nesne."],
+                ["`Raycast(from, direction, distance, tag)`", "Bu etikete sahip, çarpılan ilk nesne."],
+                ["`Raycast(from, direction, distance, tags)`", "Listedeki herhangi bir etiketle eşleşen, çarpılan ilk nesne."],
+                ["`RaycastAll(...)`", "Işın boyunca tüm nesnelerin bir listesi (her girdide bir `\"valid\"` anahtarı artı aynı çarpışma anahtarları bulunur)."]
             ]
         },
         {
@@ -272,7 +272,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-027",
@@ -280,9 +280,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`void`", "`AddPhysics`", "`uniscript`"],
@@ -309,14 +309,14 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Don't add physics to a playable character.** A Character already has its own physics body; adding another makes the two fight and causes janky movement. To move a character, use the movement tools in [CharacterUtil](/docs/uniscript/en-US/characterutil) instead."
+            "text": "**Oynanabilir bir karaktere fizik eklemeyin.** Bir Character zaten kendi fizik gövdesine sahiptir; bir tane daha eklemek ikisinin çatışmasına ve hareketin bozulmasına neden olur. Bir karakteri hareket ettirmek için bunun yerine [CharacterUtil](/docs/uniscript/tr-TR/characterutil)'deki hareket araçlarını kullanın."
         },
         {
             "id": "block-029",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Physics moves an object, but it needs a shape to bump into things. Pair `PhysicsUtil` with a collider from [ColliderUtil](/docs/uniscript/en-US/colliderutil)."
+            "text": "Fizik bir nesneyi hareket ettirir, ama bir şeylere çarpması için bir şekle ihtiyacı vardır. `PhysicsUtil`'i [ColliderUtil](/docs/uniscript/tr-TR/colliderutil)'den bir collider ile eşleştirin."
         }
     ]
 }

@@ -1,0 +1,142 @@
+{
+    "id": "sceneutil",
+    "lang": "tr-TR",
+    "name": "SceneUtil",
+    "description": "Sahneler (seviyeler, menüler, haritalar) arasında geçiş yapın: mevcut sahneyi başka biriyle değiştirin ya da üzerine ikinci bir sahne ekleyin.",
+    "link": "/docs/uniscript/tr-TR/sceneutil",
+    "tags": [
+        "uniscript",
+        "sceneutil",
+        "sahne",
+        "seviye",
+        "yükleme"
+    ],
+    "previous": {
+        "name": "LightUtil",
+        "link": "/docs/uniscript/tr-TR/lightutil"
+    },
+    "next": {
+        "name": "CharacterUtil",
+        "link": "/docs/uniscript/tr-TR/characterutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "SceneUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bir **sahne (scene)**, oyununuzdaki kendi içinde bütün tek bir alandır — bir seviye, bir menü, bir harita, bir lobi. `SceneUtil`, oyuncuyu bir sahneden diğerine taşımanın yoludur: menüden bir seviye başlatmak, bir sonraki seviyeye geçmek veya başlık ekranına dönmek."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bir sahne yükleme"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Load`, başka bir sahneye geçer. İstediğiniz sahneyi editörde bir varlık alanına bağlar, sonra yüklersiniz. İkinci değer olan `additive`, yeni sahnenin mevcut olanın **yerine geçeceğine** mi yoksa **üstüne mi ekleneceğine** karar verir:"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "`additive` değeri",
+                "Ne olur"
+            ],
+            "rows": [
+                ["`false`", "Mevcut sahnenin yerine geçer — seviyeleri değiştirmenin normal yolu."],
+                ["`true`", "Yeni sahneyi mevcut olanın **üstüne** yükler, her ikisini de tutar."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class LevelExit",
+                "{",
+                "    // Bir sonraki sahneyi editörde bu alana sürükleyin.",
+                "    UniAsset @nextLevel;",
+                "",
+                "    void OnPlayerReachedExit()",
+                "    {",
+                "        // Bu seviyenin yerine bir sonrakini koy.",
+                "        SceneUtil.Load(nextLevel, false);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "Seviyeler veya ekranlar arasında geçiş için `Load`'u `additive = false` ile kullanın. Bu, tüm sahneyi temiz bir şekilde değiştirir; neredeyse her seferinde istediğiniz budur."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Sahneler arası şeyleri koruma"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Varsayılan olarak, bir sahnenin yerine geçmek içindeki her şeyi temizler. Sahneler arasında hayatta kalması gereken bir nesneniz varsa — bir skor yöneticisi, fon müziği, bir oyun denetleyicisi — onu editörde **kalıcı (persistent)** olarak işaretleyin. Kalıcı nesneler, yeni bir sahne `Load` ettiğinizde canlı kalır, böylece verileri aktarılır."
+        },
+        {
+            "id": "block-010",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Uzun ömürlü yöneticileri (skor, ayarlar, müzik) kalıcı bir nesneye koyun; böylece `Load(scene, false)` ile bir seviye değişimi onları silmez."
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm metot referansı"
+        },
+        {
+            "id": "block-012",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`void`", "`Load`", "`object scene, bool additive`"],
+                ["`void`", "`Unload`", "—"]
+            ]
+        },
+        {
+            "id": "block-013",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Mevcut sahnenin **içindeki** nesneleri mi arıyorsunuz (tüm altınlar, tüm düşmanlar)? Bu, [UniObjectUtil](/docs/uniscript/tr-TR/uniobjectutil#block-030) üzerinde bulunur — örneğin `FindUniObjectsByTag`."
+        }
+    ]
+}

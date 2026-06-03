@@ -1,0 +1,189 @@
+{
+    "id": "typeutil",
+    "lang": "tr-TR",
+    "name": "TypeUtil",
+    "description": "Elinizdeki değerin türünü öğrenin (sayı, metin, doğru/yanlış, vektör...) ve aralarında dönüştürün — örneğin yazılan metni kullanılabilir bir sayıya çevirin.",
+    "link": "/docs/uniscript/tr-TR/typeutil",
+    "tags": [
+        "uniscript",
+        "typeutil",
+        "dönüştürme",
+        "tür",
+        "cast"
+    ],
+    "previous": {
+        "name": "Math",
+        "link": "/docs/uniscript/tr-TR/math"
+    },
+    "next": {
+        "name": "Debug",
+        "link": "/docs/uniscript/tr-TR/debug"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "TypeUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Oyununuzdaki her değerin bir **türü** vardır — bir sayı, bir metin parçası, bir doğru/yanlış bayrağı, bir konum, bir renk vb. olabilir. `TypeUtil`, \"bu nasıl bir değer?\" diye sormanızı ve bir türü diğerine **dönüştürmenizi** sağlar; örneğin oyuncunun yazdığı metni (`\"42\"`) üzerinde matematik yapabileceğiniz gerçek bir sayıya (`42`) çevirmek gibi."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tür numaraları"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bazı metotlar, hangi tür değeri kastettiğinizi söylemek için bir **tür numarası** kullanır. İşte tam liste:"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Numara",
+                "Tür",
+                "Nedir"
+            ],
+            "rows": [
+                ["`0`", "Integer", "`7` gibi bir tam sayı."],
+                ["`1`", "Float", "`3.5` gibi bir ondalık sayı."],
+                ["`2`", "Boolean", "Bir doğru/yanlış bayrağı."],
+                ["`3`", "String", "`\"hello\"` gibi bir metin."],
+                ["`4`", "Object", "Herhangi bir türden genel bir değer."],
+                ["`5`", "Vector3", "3 boyutlu bir nokta veya yön (x, y, z)."],
+                ["`6`", "Quaternion", "Bir dönüş."],
+                ["`7`", "Color", "Bir renk (kırmızı, yeşil, mavi, alfa)."],
+                ["`8`", "Instance", "Bir betiğe veya nesneye referans."],
+                ["`9`", "List", "Sıralı bir değer koleksiyonu."],
+                ["`10`", "Dictionary", "Anahtar → değer çiftleri kümesi."],
+                ["`11`", "Asset", "Bir proje varlığına referans."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bir değerin türünü kontrol etmek"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`GetType`, tür **numarasını** (yukarıdaki tablodan) döndürür; `GetTypeName` ise okunabilir bir **ad** döndürür. Bir değer birden fazla tür olabildiğinde ve her durumu ayrı ele almanız gerektiğinde bunları kullanın."
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "int kind = TypeUtil.GetType(someValue);",
+                "if (kind == 0) { Debug.Log(\"Bu bir tam sayı!\"); }   // 0 = Integer",
+                "",
+                "string name = TypeUtil.GetTypeName(someValue);",
+                "Debug.Log(name);   // türün adını yazar"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Türler arasında dönüştürme"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Convert(value, newType)`, bir değeri istediğiniz türe çevirir. En yaygın kullanımı, oyuncunun girdi kutusundan gelen metni hesaplayabileceğiniz bir sayıya dönüştürmektir:"
+        },
+        {
+            "id": "block-011",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Oyuncu bir metin kutusuna \"42\" yazdı.",
+                "object typed = \"42\";",
+                "",
+                "// O metni gerçek bir tam sayıya çevir (tür 0 = Integer).",
+                "object asNumber = TypeUtil.Convert(typed, 0);",
+                "// asNumber artık 42 ve matematik içinde kullanılabilir."
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Mantıklı pek çok dönüşüm desteklenir, örneğin:"
+        },
+        {
+            "id": "block-013",
+            "tag": "ul",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {"t": "**Metin → sayı** — `\"42\"` `42` olur (veya Float için `3.5`)."},
+                {"t": "**Sayı → metin** — herhangi bir değer okunabilir bir metne dönüşebilir."},
+                {"t": "**Sayı ↔ doğru/yanlış** — `0` `false`, başka her şey `true`'dur."},
+                {"t": "**Vector3 ↔ Quaternion ↔ Color** — 3 boyutlu tarzdaki değerler arasında dönüştürme."},
+                {"t": "**Vector3 / Color → List** — bir değeri parçalarına ayırarak liste yapma."}
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "Dönüşümler yalnızca mantıklı olduğunda çalışır. `\"hello\"` metnini bir sayıya çevirmek gerçek bir değer üretemez, bu yüzden oyuncu girdisini her zaman kontrol edin — örneğin sonuca güvenmeden önce metnin bir sayı gibi göründüğünü doğrulayın."
+        },
+        {
+            "id": "block-015",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm metot referansı"
+        },
+        {
+            "id": "block-016",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`string`", "`GetTypeName`", "`object value`"],
+                ["`int`", "`GetType`", "`object value`"],
+                ["`object`", "`Convert`", "`object value, int newType`"]
+            ]
+        },
+        {
+            "id": "block-017",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Buradaki tür numaraları UniScript genelinde kullanılan numaralarla aynıdır. List (9) ve Dictionary (10) türleriyle çalışmak için [ListUtil](/docs/uniscript/tr-TR/listutil) ve [DictionaryUtil](/docs/uniscript/tr-TR/dictionaryutil) sayfalarına bakın."
+        }
+    ]
+}

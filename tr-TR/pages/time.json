@@ -1,0 +1,168 @@
+{
+    "id": "time",
+    "lang": "tr-TR",
+    "name": "Time",
+    "description": "Oyun saatini okuyun ve en önemlisi, hareketin ve zamanlayıcıların her cihazda (hızlı ya da yavaş) aynı hissettirmesi için DeltaTime kullanın.",
+    "link": "/docs/uniscript/tr-TR/time",
+    "tags": [
+        "uniscript",
+        "time",
+        "deltatime",
+        "saat",
+        "zamanlayıcı"
+    ],
+    "previous": {
+        "name": "Debug",
+        "link": "/docs/uniscript/tr-TR/debug"
+    },
+    "next": {
+        "name": "Utility",
+        "link": "/docs/uniscript/tr-TR/utility"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Time"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Time`, oyunun saatini okumanızı sağlar. Zamanlayıcılar, bekleme süreleri, animasyonlar için ve en önemlisi — hareketin hızlı bir oyun bilgisayarında da yavaş bir telefonda da aynı hızda çalışması için kullanırsınız."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Üç saat"
+        },
+        {
+            "id": "block-004",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Size verdiği"
+            ],
+            "rows": [
+                ["`GameTime()`", "**Oyunun** kaç saniyedir çalıştığı. Oyun içi zamanlayıcılar için kullanılacak saat budur."],
+                ["`RealTime()`", "Oyundan bağımsız ölçülen gerçek dünya saniyeleri."],
+                ["`DeltaTime()`", "**Son kareden** bu yana kaç saniye geçtiği — hareketi yumuşak ve tutarlı tutmak için kullanılan küçük bir sayı (aşağıda açıklanmıştır)."]
+            ]
+        },
+        {
+            "id": "block-005",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "DeltaTime neden önemli"
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Oyununuz saniyede birçok kez, kare kare güncellenir. Hızlı bir cihaz yavaş bir cihazdan daha fazla kare çizer. Bir nesneyi \"her karede biraz\" hareket ettirirseniz, **hızlı cihazlarda daha hızlı** giderdi — bu da adil değildir ve öngörülemez."
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`DeltaTime()` bunu çözer. Hızınızı onunla çarparak \"kare başına\"yı \"saniye başına\"ya çevirirsiniz, böylece sonuç her yerde aynı olur:"
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// SANİYEDE 5 birim — her cihazda doğru.",
+                "float distance = 5.0 * Time.DeltaTime();",
+                "",
+                "// Gerçek saniyelerle azalan bir geri sayım.",
+                "timeLeft = timeLeft - Time.DeltaTime();",
+                "if (timeLeft <= 0.0)",
+                "{",
+                "    Debug.Log(\"Süre doldu!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "Genel kural: ne zaman bir şeyi **her karede biraz** değiştirirseniz (hareket, dönüş, solan bir değer, bir zamanlayıcı), `Time.DeltaTime()` ile çarpın. Onsuz oyununuz farklı donanımlarda farklı davranır."
+        },
+        {
+            "id": "block-010",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Bunların hepsi **metottur**, bu yüzden her zaman parantezleri ekleyin: `Time.DeltaTime` değil, `Time.DeltaTime()` yazın."
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bir bekleme süresi (cooldown) oluşturma"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Yaygın bir desen: bir şeyin *ne zaman* gerçekleştiğini `GameTime()` ile hatırlayın, sonra tekrar izin vermeden önce yeterli zaman geçip geçmediğini kontrol edin."
+        },
+        {
+            "id": "block-013",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "float lastShotTime = -999.0;",
+                "",
+                "void Fire()",
+                "{",
+                "    // Yalnızca her 0.5 saniyede bir ateş etmeye izin ver.",
+                "    if (Time.GameTime() - lastShotTime >= 0.5)",
+                "    {",
+                "        lastShotTime = Time.GameTime();",
+                "        // ...mermiyi oluştur...",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm metot referansı"
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`float`", "`GameTime`", "—"],
+                ["`float`", "`RealTime`", "—"],
+                ["`float`", "`DeltaTime`", "—"]
+            ]
+        }
+    ]
+}

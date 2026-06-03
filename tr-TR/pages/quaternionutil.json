@@ -1,24 +1,24 @@
 {
     "id": "quaternionutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "QuaternionUtil",
-    "description": "Create and blend rotations the safe way: build a facing from angles or a direction, smoothly turn toward a target, and convert rotations to readable angles.",
-    "link": "/docs/uniscript/en-US/quaternionutil",
+    "description": "Dönüşleri güvenli yoldan oluşturun ve harmanlayın: açılardan veya bir yönden bir bakış oluşturun, bir hedefe doğru yumuşakça dönün ve dönüşleri okunabilir açılara çevirin.",
+    "link": "/docs/uniscript/tr-TR/quaternionutil",
     "tags": [
         "uniscript",
         "quaternionutil",
-        "rotation",
+        "dönüş",
         "quaternion",
         "lookrotation",
         "euler"
     ],
     "previous": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/en-US/vectorutil"
+        "link": "/docs/uniscript/tr-TR/vectorutil"
     },
     "next": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/en-US/listutil"
+        "link": "/docs/uniscript/tr-TR/listutil"
     },
     "content": [
         {
@@ -33,28 +33,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **quaternion** is how the game stores a **rotation** — which way an object is facing. The math behind quaternions is complex, but the good news is you almost never touch it directly. `QuaternionUtil` gives you simple ways to build a rotation from everyday angles or a direction, smoothly turn toward a target, and read a rotation back as plain angles."
+            "text": "Bir **quaternion**, oyunun bir **dönüşü** — bir nesnenin hangi yöne baktığını — sakladığı biçimdir. Quaternion'ların ardındaki matematik karmaşıktır, ama iyi haber şu ki ona neredeyse hiç doğrudan dokunmazsınız. `QuaternionUtil`, günlük açılardan veya bir yönden bir dönüş oluşturmanın, bir hedefe doğru yumuşakça dönmenin ve bir dönüşü düz açılar olarak geri okumanın basit yollarını verir."
         },
         {
             "id": "block-003",
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "You think in **angles** (degrees), the game thinks in **quaternions**. This page is the bridge: `New` and `Euler` turn angles into a rotation, and `ToVector` turns a rotation back into angles."
+            "text": "Siz **açılarla** (derece) düşünürsünüz, oyun **quaternion**'larla düşünür. Bu sayfa köprüdür: `New` ve `Euler` açıları bir dönüşe çevirir, `ToVector` ise bir dönüşü geri açılara çevirir."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Building a rotation from angles"
+            "text": "Açılardan bir dönüş oluşturma"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "The easiest way to make a rotation is from three angles in degrees: how much to tilt on each axis. The `y` angle is the common left/right turn."
+            "text": "Bir dönüş oluşturmanın en kolay yolu, derece cinsinden üç açıdandır: her eksende ne kadar eğileceği. `y` açısı, yaygın sol/sağ dönüşüdür."
         },
         {
             "id": "block-006",
@@ -62,11 +62,11 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Face 90 degrees to the right (turn around the up axis).",
+                "// 90 derece sağa dön (yukarı ekseni etrafında dönüş).",
                 "quaternion facing = QuaternionUtil.New(0.0, 90.0, 0.0);",
                 "UniObjectUtil.SetRotation(this, facing);",
                 "",
-                "// Same thing, but starting from a vector3 of angles.",
+                "// Aynı şey, ama bir vector3 açıdan başlayarak.",
                 "vector3 angles = VectorUtil.New(0.0, 90.0, 0.0);",
                 "quaternion facing2 = QuaternionUtil.Euler(angles);"
             ]
@@ -77,14 +77,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`New(x, y, z)`", "A rotation from three angles in degrees."],
-                ["`Euler(vector)`", "A rotation from a `vector3` of angles in degrees."],
-                ["`Identity()`", "The \"no rotation\" value — facing straight ahead, untilted."],
-                ["`ToVector(rotation)`", "Turns a rotation back into a readable `vector3` of angles."]
+                ["`New(x, y, z)`", "Derece cinsinden üç açıdan bir dönüş."],
+                ["`Euler(vector)`", "Derece cinsinden açıların bir `vector3`'ünden bir dönüş."],
+                ["`Identity()`", "\"Dönüş yok\" değeri — dümdüz ileri bakan, eğilmemiş."],
+                ["`ToVector(rotation)`", "Bir dönüşü, okunabilir bir `vector3` açıya geri çevirir."]
             ]
         },
         {
@@ -92,14 +92,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Facing toward a direction"
+            "text": "Bir yöne doğru bakma"
         },
         {
             "id": "block-009",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`LookRotation` builds the rotation needed to point along a direction — exactly what you want to aim at a target. It takes the direction to look along **and** an \"up\" direction (almost always `VectorUtil.Up()`)."
+            "text": "`LookRotation`, bir yön boyunca işaret etmek için gereken dönüşü oluşturur — bir hedefe nişan almak için tam olarak istediğiniz şey. Bakılacak yönü **ve** bir \"yukarı\" yönü (neredeyse her zaman `VectorUtil.Up()`) alır."
         },
         {
             "id": "block-010",
@@ -107,7 +107,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Turn to face a target.",
+                "// Bir hedefe bakacak şekilde dön.",
                 "vector3 myPos     = UniObjectUtil.GetWorldPosition(this);",
                 "vector3 targetPos = UniObjectUtil.GetWorldPosition(target);",
                 "vector3 direction = VectorUtil.Normalized(targetPos - myPos);",
@@ -121,21 +121,21 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "`LookRotation` needs **two** arguments — the direction and an up vector. Calling it with only the direction will not work. When in doubt, pass `VectorUtil.Up()` as the second argument."
+            "text": "`LookRotation`, **iki** argümana ihtiyaç duyar — yön ve bir yukarı vektörü. Onu yalnızca yönle çağırmak işe yaramaz. Emin değilseniz, ikinci argüman olarak `VectorUtil.Up()` verin."
         },
         {
             "id": "block-012",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Turning smoothly over time"
+            "text": "Zaman içinde yumuşakça dönme"
         },
         {
             "id": "block-013",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Snapping instantly to a new rotation can look harsh. `Slerp` blends from one rotation to another so an object **turns** toward its target instead of jumping."
+            "text": "Yeni bir dönüşe anında geçmek sert görünebilir. `Slerp`, bir dönüşten diğerine geçiş yapar, böylece nesne atlamak yerine hedefine doğru **döner**."
         },
         {
             "id": "block-014",
@@ -143,12 +143,12 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Slerp(from, to, t)`", "A rotation partway between two quaternions (`t` is `0`–`1`)."],
-                ["`SlerpV3(from, to, t)`", "The same, but you give the two rotations as `vector3` angle values."]
+                ["`Slerp(from, to, t)`", "İki quaternion arasında bir ara dönüş (`t`, `0`–`1` arası)."],
+                ["`SlerpV3(from, to, t)`", "Aynısı, ama iki dönüşü `vector3` açı değerleri olarak verirsiniz."]
             ]
         },
         {
@@ -157,7 +157,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Smoothly rotate toward 'look' a little each frame.",
+                "// Her karede 'look'a doğru yumuşakça biraz dön.",
                 "quaternion current = UniObjectUtil.GetRotation(this);",
                 "quaternion turned  = QuaternionUtil.Slerp(current, look, Time.DeltaTime() * 5.0);",
                 "UniObjectUtil.SetRotation(this, turned);"
@@ -168,7 +168,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-017",
@@ -176,9 +176,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`quaternion`", "`Identity`", "—"],
@@ -195,7 +195,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Need positions and directions instead of rotations? See [VectorUtil](/docs/uniscript/en-US/vectorutil). To apply a rotation to an object, see [UniObjectUtil's SetRotation](/docs/uniscript/en-US/uniobjectutil#block-013)."
+            "text": "Dönüşler yerine konumlar ve yönler mi gerekiyor? [VectorUtil](/docs/uniscript/tr-TR/vectorutil) sayfasına bakın. Bir dönüşü bir nesneye uygulamak için [UniObjectUtil'in SetRotation'ı](/docs/uniscript/tr-TR/uniobjectutil#block-013)'na bakın."
         }
     ]
 }

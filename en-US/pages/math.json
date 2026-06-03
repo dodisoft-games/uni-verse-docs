@@ -2,11 +2,15 @@
     "id": "math",
     "lang": "en-US",
     "name": "Math",
-    "description": "Sin/cos, clamp, lerp, abs, min/max, pow, sqrt, random, perlin.",
+    "description": "Your number toolbox: round, clamp, smoothly blend between values, pick random numbers, work with angles, and more — with plain examples for each.",
     "link": "/docs/uniscript/en-US/math",
     "tags": [
         "uniscript",
-        "math"
+        "math",
+        "numbers",
+        "random",
+        "lerp",
+        "clamp"
     ],
     "previous": {
         "name": "",
@@ -29,17 +33,426 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Sin/cos, clamp, lerp, abs, min/max, pow, sqrt, random, perlin."
+            "text": "`Math` is your **number toolbox**. Any time you need to round a value, keep a number inside a range, fade smoothly from one value to another, pick a random number, or work with angles — there's a ready-made tool here so you don't have to reinvent it."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Every tool here is called as `Math.SomeTool(...)` — you don't need a character or object first. For example: `float root = Math.Sqrt(9.0);` gives `3.0`."
         },
         {
             "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Rounding and whole numbers"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "These turn a decimal number into a whole one, or tell you its sign:"
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does",
+                "Example"
+            ],
+            "rows": [
+                [
+                    "`Round(f)`",
+                    "Rounds to the nearest whole number.",
+                    "`Math.Round(2.6)` → `3.0`"
+                ],
+                [
+                    "`Floor(f)`",
+                    "Rounds **down**.",
+                    "`Math.Floor(2.9)` → `2.0`"
+                ],
+                [
+                    "`Ceil(f)`",
+                    "Rounds **up**.",
+                    "`Math.Ceil(2.1)` → `3.0`"
+                ],
+                [
+                    "`RoundToInt(f)` / `FloorToInt(f)` / `CeilToInt(f)`",
+                    "Same as above but give back a whole `int` you can count with.",
+                    "`Math.FloorToInt(2.9)` → `2`"
+                ],
+                [
+                    "`Abs(f)`",
+                    "Removes the minus sign (absolute value).",
+                    "`Math.Abs(-5.0)` → `5.0`"
+                ],
+                [
+                    "`Sign(f)`",
+                    "Tells direction: `-1` if negative, `1` if positive.",
+                    "`Math.Sign(-8.0)` → `-1.0`"
+                ]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Keeping a number in range"
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Clamp` is one of the most useful tools in any game — it stops a value from going too high or too low. A health bar that can never exceed 100 or drop below 0 is a perfect example:"
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Health can never go below 0 or above 100.",
+                "health = Math.Clamp(health - damage, 0.0, 100.0);"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`Clamp(value, min, max)`",
+                    "Forces `value` to stay between `min` and `max`."
+                ],
+                [
+                    "`Clamp01(value)`",
+                    "Forces `value` to stay between `0` and `1` (a handy shortcut)."
+                ],
+                [
+                    "`Max(a, b)` / `Min(a, b)`",
+                    "Returns the bigger / smaller of two decimal numbers."
+                ],
+                [
+                    "`MaxInt(a, b)` / `MinInt(a, b)`",
+                    "Same, but for whole numbers (`int`)."
+                ]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Smoothly blending between values"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "**Interpolation** means \"find a value partway between two others\". It's how you make things fade, ease, and glide instead of snapping. The star of the show is `Lerp`."
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Math.Lerp(a, b, t)` gives you a point between `a` and `b`, where `t` is how far along (between `0` and `1`). `t = 0` returns `a`, `t = 1` returns `b`, and `t = 0.5` returns the exact middle."
+        },
+        {
+            "id": "block-014",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Math.Lerp(0.0, 100.0, 0.0);   // 0   (the start)",
+                "Math.Lerp(0.0, 100.0, 0.5);   // 50  (the middle)",
+                "Math.Lerp(0.0, 100.0, 1.0);   // 100 (the end)",
+                "",
+                "// Smoothly slide a value toward a target a little each frame.",
+                "current = Math.Lerp(current, target, 0.1);"
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`Lerp(a, b, t)`",
+                    "Blend between `a` and `b`. `t` is clamped to `0`–`1`."
+                ],
+                [
+                    "`LerpUnclamped(a, b, t)`",
+                    "Like `Lerp`, but allows `t` outside `0`–`1` to overshoot."
+                ],
+                [
+                    "`InverseLerp(a, b, value)`",
+                    "The opposite: given a `value`, tells you its `t` (how far between `a` and `b` it sits). Great for progress bars."
+                ],
+                [
+                    "`SmoothStep(from, to, t)`",
+                    "Like `Lerp` but eases in and out for an even softer feel."
+                ],
+                [
+                    "`MoveTowards(current, target, maxDelta)`",
+                    "Steps `current` toward `target` by at most `maxDelta` — never overshoots."
+                ],
+                [
+                    "`SmoothDamp(...)`",
+                    "Spring-like smoothing toward a target (see note below)."
+                ]
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "To make a blend feel the same on every device, scale your step by frame time: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. See [Time](/docs/uniscript/en-US/time) for why."
+        },
+        {
+            "id": "block-017",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`SmoothDamp(current, target, currentVelocity, smoothTime, maxSpeed, deltaTime)` returns a `vector3` where the **X** value is the new number and the **Y** value is the updated velocity — feed that velocity back in next frame to keep the spring going."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Random numbers"
+        },
+        {
+            "id": "block-019",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Randomness makes games feel alive — random drop positions, random enemy choices, random damage. `Math.Random(min, max)` gives a number in the range you ask for."
+        },
+        {
+            "id": "block-020",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// A random decimal between 0 and 1 (e.g. a chance roll).",
+                "float chance = Math.Random(0.0, 1.0);",
+                "if (chance < 0.25) { /* 25% of the time... */ }",
+                "",
+                "// A random whole number from 1 to 6 (like a dice roll).",
+                "int dice = Math.Random(1, 6);"
+            ]
+        },
+        {
+            "id": "block-021",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Passing **decimals** (`0.0, 1.0`) gives a decimal result; passing **whole numbers** (`1, 6`) gives a whole-number result. Call `Math.InitSeed(seed)` once if you want the same sequence of random numbers every play (useful for testing)."
+        },
+        {
+            "id": "block-022",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Angles and trigonometry"
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "These help with circular motion, aiming, and waves. `Sin` and `Cos` are especially handy for things that bob, sway, or orbit."
+        },
+        {
+            "id": "block-024",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Make an object bob up and down forever.",
+                "float bob = Math.Sin(Time.GameTime() * 2.0) * 0.5;",
+                "// ...then add 'bob' to the object's Y position each frame."
+            ]
+        },
+        {
+            "id": "block-025",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`Sin(f)` / `Cos(f)` / `Tan(f)`",
+                    "The basic trig functions (angle in **radians**)."
+                ],
+                [
+                    "`Asin(f)` / `Acos(f)` / `Atan(f)`",
+                    "The reverse trig functions."
+                ],
+                [
+                    "`Atan2(y, x)`",
+                    "The angle pointing toward the direction `(x, y)` — perfect for aiming."
+                ],
+                [
+                    "`DeltaAngle(current, target)`",
+                    "The shortest turn (in degrees) between two angles."
+                ],
+                [
+                    "`LerpAngle(a, b, t)` / `MoveTowardsAngle(...)`",
+                    "Blend or step between angles, taking the short way around."
+                ],
+                [
+                    "`Deg2Rad()` / `Rad2Deg()`",
+                    "Convert between degrees and radians: `angle * Math.Deg2Rad()`."
+                ],
+                [
+                    "`Approximately(a, b)`",
+                    "`true` if two decimals are *almost* equal (decimals are rarely exactly equal)."
+                ]
+            ]
+        },
+        {
+            "id": "block-026",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "`Sin`, `Cos`, and `Tan` expect angles in **radians**, not degrees. If you're thinking in degrees, multiply first: `Math.Sin(degrees * Math.Deg2Rad())`."
+        },
+        {
+            "id": "block-027",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Powers, roots, and logarithms"
+        },
+        {
+            "id": "block-028",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does",
+                "Example"
+            ],
+            "rows": [
+                [
+                    "`Pow(f, p)`",
+                    "Raise `f` to the power `p`.",
+                    "`Math.Pow(2.0, 3.0)` → `8.0`"
+                ],
+                [
+                    "`Sqrt(f)`",
+                    "Square root.",
+                    "`Math.Sqrt(16.0)` → `4.0`"
+                ],
+                [
+                    "`Exp(power)` / `Ln(f)`",
+                    "Natural exponential and logarithm.",
+                    "—"
+                ],
+                [
+                    "`Log(f, p)` / `Log10(f)`",
+                    "Logarithm with a chosen base / base 10.",
+                    "—"
+                ],
+                [
+                    "`NextPowerOfTwo(v)` / `ClosestPowerOfTwo(v)` / `IsPowerOfTwo(v)`",
+                    "Helpers for powers of two (2, 4, 8, 16, ...).",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "id": "block-029",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Loops, waves, and noise"
+        },
+        {
+            "id": "block-030",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Tool",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`Repeat(t, length)`",
+                    "Wraps `t` so it always stays between `0` and `length` (like a looping clock)."
+                ],
+                [
+                    "`PingPong(t, length)`",
+                    "Bounces `t` back and forth between `0` and `length` — great for patrols."
+                ],
+                [
+                    "`PerlinNoise(x, y)`",
+                    "Smooth, natural-looking randomness (range `0`–`1`). Good for wind, terrain, wobble."
+                ],
+                [
+                    "`Perlin1D(x)` / `Perlin3D(x, y, z)`",
+                    "Noise in 1 or 3 dimensions (range `-1`–`1`)."
+                ]
+            ]
+        },
+        {
+            "id": "block-031",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Constant values"
+        },
+        {
+            "id": "block-032",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "These take no input and just hand back a fixed value: `Math.PI()` (~3.14159), `Math.Epsilon()` (a tiny number close to zero), `Math.Infinity()`, and `Math.NegativeInfinity()`."
+        },
+        {
+            "id": "block-033",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Even though these are constants, they are written as **methods** with parentheses: `Math.PI()`, not `Math.PI`."
+        },
+        {
+            "id": "block-034",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full tool reference"
+        },
+        {
+            "id": "block-035",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,308 +462,70 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`float`",
-                    "`Abs`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Acos`",
-                    "`float f`"
-                ],
-                [
-                    "`bool`",
-                    "`Approximately`",
-                    "`float a, float b`"
-                ],
-                [
-                    "`float`",
-                    "`Asin`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Atan`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Atan2`",
-                    "`float y, float x`"
-                ],
-                [
-                    "`float`",
-                    "`Ceil`",
-                    "`float f`"
-                ],
-                [
-                    "`int`",
-                    "`CeilToInt`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Clamp`",
-                    "`float value, float min, float max`"
-                ],
-                [
-                    "`float`",
-                    "`Clamp01`",
-                    "`float value`"
-                ],
-                [
-                    "`float`",
-                    "`ClosestPowerOfTwo`",
-                    "`int value`"
-                ],
-                [
-                    "`float`",
-                    "`Cos`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Deg2Rad`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`DeltaAngle`",
-                    "`float current, float target`"
-                ],
-                [
-                    "`float`",
-                    "`Epsilon`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`Exp`",
-                    "`float power`"
-                ],
-                [
-                    "`float`",
-                    "`Floor`",
-                    "`float f`"
-                ],
-                [
-                    "`int`",
-                    "`FloorToInt`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`GammaToLinearSpace`",
-                    "`float value`"
-                ],
-                [
-                    "`float`",
-                    "`Infinity`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`InverseLerp`",
-                    "`float a, float b, float value`"
-                ],
-                [
-                    "`bool`",
-                    "`IsPowerOfTwo`",
-                    "`int value`"
-                ],
-                [
-                    "`float`",
-                    "`Lerp`",
-                    "`float a, float b, float t`"
-                ],
-                [
-                    "`float`",
-                    "`LerpAngle`",
-                    "`float a, float b, float t`"
-                ],
-                [
-                    "`float`",
-                    "`LerpUnclamped`",
-                    "`float a, float b, float t`"
-                ],
-                [
-                    "`float`",
-                    "`LinearToGammaSpace`",
-                    "`float value`"
-                ],
-                [
-                    "`float`",
-                    "`Ln`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Log`",
-                    "`float f, float p`"
-                ],
-                [
-                    "`float`",
-                    "`Log10`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Max`",
-                    "`float a, float b`"
-                ],
-                [
-                    "`float`",
-                    "`Min`",
-                    "`float a, float b`"
-                ],
-                [
-                    "`float`",
-                    "`MoveTowards`",
-                    "`float current, float target, float maxDelta`"
-                ],
-                [
-                    "`float`",
-                    "`MoveTowardsAngle`",
-                    "`float current, float target, float maxDelta`"
-                ],
-                [
-                    "`float`",
-                    "`NegativeInfinity`",
-                    "—"
-                ],
-                [
-                    "`int`",
-                    "`NextPowerOfTwo`",
-                    "`int value`"
-                ],
-                [
-                    "`float`",
-                    "`PerlinNoise`",
-                    "`float x, float y`"
-                ],
-                [
-                    "`float`",
-                    "`PI`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`PingPong`",
-                    "`float t, float length`"
-                ],
-                [
-                    "`float`",
-                    "`Pow`",
-                    "`float f, float p`"
-                ],
-                [
-                    "`float`",
-                    "`Rad2Deg`",
-                    "—"
-                ],
-                [
-                    "`float`",
-                    "`Repeat`",
-                    "`float t, float length`"
-                ],
-                [
-                    "`float`",
-                    "`Round`",
-                    "`float f`"
-                ],
-                [
-                    "`int`",
-                    "`RoundToInt`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Sign`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Sin`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`SmoothStep`",
-                    "`float from, float to, float t`"
-                ],
-                [
-                    "`float`",
-                    "`Sqrt`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Tan`",
-                    "`float f`"
-                ],
-                [
-                    "`float`",
-                    "`Random`",
-                    "`float a, float b`"
-                ],
-                [
-                    "`int`",
-                    "`Random`",
-                    "`int a, int b`"
-                ],
-                [
-                    "`void`",
-                    "`InitSeed`",
-                    "`int seed`"
-                ],
-                [
-                    "`vector3`",
-                    "`SmoothDamp`",
-                    "`float current, float target, float currentVelocity, float smoothTime, float maxSpeed, float deltaTime`"
-                ],
-                [
-                    "`int`",
-                    "`MaxInt`",
-                    "`int a, int b`"
-                ],
-                [
-                    "`int`",
-                    "`MinInt`",
-                    "`int a, int b`"
-                ],
-                [
-                    "`float`",
-                    "`Perlin1D`",
-                    "`float x`"
-                ],
-                [
-                    "`float`",
-                    "`Perlin3D`",
-                    "`float x, float y, float z`"
-                ]
+                ["`float`", "`Abs`", "`float f`"],
+                ["`float`", "`Acos`", "`float f`"],
+                ["`bool`", "`Approximately`", "`float a, float b`"],
+                ["`float`", "`Asin`", "`float f`"],
+                ["`float`", "`Atan`", "`float f`"],
+                ["`float`", "`Atan2`", "`float y, float x`"],
+                ["`float`", "`Ceil`", "`float f`"],
+                ["`int`", "`CeilToInt`", "`float f`"],
+                ["`float`", "`Clamp`", "`float value, float min, float max`"],
+                ["`float`", "`Clamp01`", "`float value`"],
+                ["`float`", "`ClosestPowerOfTwo`", "`int value`"],
+                ["`float`", "`Cos`", "`float f`"],
+                ["`float`", "`Deg2Rad`", "—"],
+                ["`float`", "`DeltaAngle`", "`float current, float target`"],
+                ["`float`", "`Epsilon`", "—"],
+                ["`float`", "`Exp`", "`float power`"],
+                ["`float`", "`Floor`", "`float f`"],
+                ["`int`", "`FloorToInt`", "`float f`"],
+                ["`float`", "`GammaToLinearSpace`", "`float value`"],
+                ["`float`", "`Infinity`", "—"],
+                ["`float`", "`InverseLerp`", "`float a, float b, float value`"],
+                ["`bool`", "`IsPowerOfTwo`", "`int value`"],
+                ["`float`", "`Lerp`", "`float a, float b, float t`"],
+                ["`float`", "`LerpAngle`", "`float a, float b, float t`"],
+                ["`float`", "`LerpUnclamped`", "`float a, float b, float t`"],
+                ["`float`", "`LinearToGammaSpace`", "`float value`"],
+                ["`float`", "`Ln`", "`float f`"],
+                ["`float`", "`Log`", "`float f, float p`"],
+                ["`float`", "`Log10`", "`float f`"],
+                ["`float`", "`Max`", "`float a, float b`"],
+                ["`float`", "`Min`", "`float a, float b`"],
+                ["`float`", "`MoveTowards`", "`float current, float target, float maxDelta`"],
+                ["`float`", "`MoveTowardsAngle`", "`float current, float target, float maxDelta`"],
+                ["`float`", "`NegativeInfinity`", "—"],
+                ["`int`", "`NextPowerOfTwo`", "`int value`"],
+                ["`float`", "`PerlinNoise`", "`float x, float y`"],
+                ["`float`", "`PI`", "—"],
+                ["`float`", "`PingPong`", "`float t, float length`"],
+                ["`float`", "`Pow`", "`float f, float p`"],
+                ["`float`", "`Rad2Deg`", "—"],
+                ["`float`", "`Repeat`", "`float t, float length`"],
+                ["`float`", "`Round`", "`float f`"],
+                ["`int`", "`RoundToInt`", "`float f`"],
+                ["`float`", "`Sign`", "`float f`"],
+                ["`float`", "`Sin`", "`float f`"],
+                ["`float`", "`SmoothStep`", "`float from, float to, float t`"],
+                ["`float`", "`Sqrt`", "`float f`"],
+                ["`float`", "`Tan`", "`float f`"],
+                ["`float`", "`Random`", "`float a, float b`"],
+                ["`int`", "`Random`", "`int a, int b`"],
+                ["`void`", "`InitSeed`", "`int seed`"],
+                ["`vector3`", "`SmoothDamp`", "`float current, float target, float currentVelocity, float smoothTime, float maxSpeed, float deltaTime`"],
+                ["`int`", "`MaxInt`", "`int a, int b`"],
+                ["`int`", "`MinInt`", "`int a, int b`"],
+                ["`float`", "`Perlin1D`", "`float x`"],
+                ["`float`", "`Perlin3D`", "`float x, float y, float z`"]
             ]
         },
         {
-            "id": "block-005",
-            "tag": "note",
-            "styles": null,
-            "classes": null,
-            "text": "`PI()`, `Deg2Rad()`, `Rad2Deg()`, `Epsilon()`, `Infinity()`, and `NegativeInfinity()` are methods with no parameters — they return their respective constant values."
-        },
-        {
-            "id": "block-006",
+            "id": "block-036",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `Math.Lerp(a, b, t)` to smoothly interpolate between two values over time. `t` should be between `0` and `1`. For clamped results use `Math.Clamp01(t)` before passing it."
-        },
-        {
-            "id": "block-007",
-            "tag": "tip",
-            "styles": null,
-            "classes": null,
-            "text": "Use `Math.Random(min, max)` to generate random integers or floats. Call `Math.InitSeed(seed)` first if you need reproducible results."
+            "text": "Working with positions and directions instead of single numbers? See [VectorUtil](/docs/uniscript/en-US/vectorutil) for the 3D version of these tools."
         }
     ]
 }

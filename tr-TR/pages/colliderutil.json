@@ -1,23 +1,23 @@
 {
     "id": "colliderutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "ColliderUtil",
-    "description": "Give an object a physical shape so it can bump into, stand on, or detect other objects — boxes, capsules, spheres, meshes, and wheels.",
-    "link": "/docs/uniscript/en-US/colliderutil",
+    "description": "Bir nesneye fiziksel bir şekil verin; böylece başka nesnelere çarpabilir, üzerlerinde durabilir veya onları algılayabilir — kutular, kapsüller, küreler, mesh'ler ve tekerlekler.",
+    "link": "/docs/uniscript/tr-TR/colliderutil",
     "tags": [
         "uniscript",
         "colliderutil",
         "collider",
-        "collision",
-        "physics"
+        "çarpışma",
+        "fizik"
     ],
     "previous": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/en-US/dictionaryutil"
+        "link": "/docs/uniscript/tr-TR/dictionaryutil"
     },
     "next": {
         "name": "PhysicsUtil",
-        "link": "/docs/uniscript/en-US/physicsutil"
+        "link": "/docs/uniscript/tr-TR/physicsutil"
     },
     "content": [
         {
@@ -32,28 +32,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **collider** is an object's physical shape — the invisible boundary that lets it bump into walls, stand on floors, or notice when something touches it. `ColliderUtil` adds a collider to an object and lets you control which objects it ignores."
+            "text": "Bir **collider** (çarpıştırıcı), bir nesnenin fiziksel şeklidir — duvarlara çarpmasını, zeminlerde durmasını veya bir şey ona dokunduğunda fark etmesini sağlayan görünmez sınır. `ColliderUtil`, bir nesneye collider ekler ve hangi nesneleri yok sayacağını kontrol etmenizi sağlar."
         },
         {
             "id": "block-003",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Most objects you place from the editor already come with a collider. You only need `ColliderUtil` when you build or change an object from script and want to give it a shape."
+            "text": "Editörden yerleştirdiğiniz çoğu nesne zaten bir collider ile gelir. `ColliderUtil`'e yalnızca bir nesneyi betikten oluşturduğunuzda veya değiştirdiğinizde ve ona bir şekil vermek istediğinizde ihtiyacınız vardır."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Choosing a shape"
+            "text": "Bir şekil seçme"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Pick the shape that best matches the object. Simpler shapes (box, capsule, sphere) are faster and smoother than a mesh collider, so prefer them when you can."
+            "text": "Nesneye en uygun şekli seçin. Daha basit şekiller (kutu, kapsül, küre) bir mesh collider'dan daha hızlı ve daha pürüzsüzdür, bu yüzden mümkün olduğunda onları tercih edin."
         },
         {
             "id": "block-006",
@@ -61,15 +61,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "Best for"
+                "Metot",
+                "En uygun olduğu"
             ],
             "rows": [
-                ["`AddBoxCollider(this)`", "Crates, walls, platforms, and most blocky objects."],
-                ["`AddCapsuleCollider(this)`", "Characters and rounded, upright objects — slides nicely along surfaces."],
-                ["`AddSphereCollider(this)`", "Balls, coins, and round pickups."],
-                ["`AddMeshCollider(this)`", "Complex shapes that need exact contours (use sparingly — it's heavier)."],
-                ["`AddWheelCollider(this)`", "Vehicle wheels, for driving physics."]
+                ["`AddBoxCollider(this)`", "Sandıklar, duvarlar, platformlar ve çoğu köşeli nesne."],
+                ["`AddCapsuleCollider(this)`", "Karakterler ve yuvarlatılmış, dik nesneler — yüzeyler boyunca güzelce kayar."],
+                ["`AddSphereCollider(this)`", "Toplar, altınlar ve yuvarlak toplananlar."],
+                ["`AddMeshCollider(this)`", "Tam kontur gerektiren karmaşık şekiller (idareli kullanın — daha ağırdır)."],
+                ["`AddWheelCollider(this)`", "Araç tekerlekleri, sürüş fiziği için."]
             ]
         },
         {
@@ -82,7 +82,7 @@
                 "{",
                 "    void OnInit()",
                 "    {",
-                "        // Give this coin a round shape so the player can collect it.",
+                "        // Bu altına, oyuncu toplayabilsin diye yuvarlak bir şekil ver.",
                 "        ColliderUtil.AddSphereCollider(this);",
                 "    }",
                 "}"
@@ -93,14 +93,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Letting objects pass through each other"
+            "text": "Nesnelerin birbirinden geçmesine izin verme"
         },
         {
             "id": "block-009",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`SetIgnoreCollisions` tells an object to stop colliding with every object that has one of the given tags. This is handy when, say, you don't want bullets from the same team to hit each other."
+            "text": "`SetIgnoreCollisions`, bir nesneye verilen etiketlerden birine sahip her nesneyle çarpışmayı durdurmasını söyler. Bu, örneğin aynı takımdan mermilerin birbirine çarpmasını istemediğinizde kullanışlıdır."
         },
         {
             "id": "block-010",
@@ -108,14 +108,14 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Build a list of tags to ignore.",
+                "// Yok sayılacak etiketlerin bir listesini oluştur.",
                 "List ignoreTags = ListUtil.New();",
                 "ListUtil.Add(ignoreTags, \"teammate\");",
                 "",
-                "// Stop colliding with anything tagged \"teammate\".",
+                "// \"teammate\" etiketli her şeyle çarpışmayı durdur.",
                 "ColliderUtil.SetIgnoreCollisions(this, ignoreTags, true);",
                 "",
-                "// Pass 'false' later to start colliding again.",
+                "// Tekrar çarpışmaya başlamak için sonradan 'false' verin.",
                 "ColliderUtil.SetIgnoreCollisions(this, ignoreTags, false);"
             ]
         },
@@ -124,14 +124,14 @@
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "A playable **character** already manages its own shape. Don't add a separate collider to a Character object — it can fight with the one the character already has. See [CharacterUtil](/docs/uniscript/en-US/characterutil)."
+            "text": "Oynanabilir bir **karakter** kendi şeklini zaten yönetir. Bir Character nesnesine ayrı bir collider eklemeyin — karakterin zaten sahip olduğuyla çatışabilir. [CharacterUtil](/docs/uniscript/tr-TR/characterutil) sayfasına bakın."
         },
         {
             "id": "block-012",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-013",
@@ -139,9 +139,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`void`", "`AddBoxCollider`", "`uniscript`"],
@@ -157,7 +157,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "A collider gives an object a shape; to make it actually move, bounce, or fall you also need physics. See [PhysicsUtil](/docs/uniscript/en-US/physicsutil)."
+            "text": "Bir collider, nesneye bir şekil verir; ama gerçekten hareket etmesi, sekmesi veya düşmesi için fiziğe de ihtiyacı vardır. [PhysicsUtil](/docs/uniscript/tr-TR/physicsutil) sayfasına bakın."
         }
     ]
 }

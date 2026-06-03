@@ -1,24 +1,24 @@
 {
     "id": "lightutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "LightUtil",
-    "description": "Set the mood of your world: turn an object into a light, tint the ambient sky/ground colors, and switch fog on with a chosen color and thickness.",
-    "link": "/docs/uniscript/en-US/lightutil",
+    "description": "Dünyanızın havasını ayarlayın: bir nesneyi ışığa çevirin, ortam gökyüzü/zemin renklerini tonlayın ve seçtiğiniz bir renk ve yoğunlukla sisi açın.",
+    "link": "/docs/uniscript/tr-TR/lightutil",
     "tags": [
         "uniscript",
         "lightutil",
-        "light",
-        "fog",
-        "ambient",
-        "atmosphere"
+        "ışık",
+        "sis",
+        "ortam",
+        "atmosfer"
     ],
     "previous": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/en-US/camerautil"
+        "link": "/docs/uniscript/tr-TR/camerautil"
     },
     "next": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/en-US/sceneutil"
+        "link": "/docs/uniscript/tr-TR/sceneutil"
     },
     "content": [
         {
@@ -33,28 +33,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Lighting sets the **mood** of your world — bright and cheerful, dim and spooky, foggy and mysterious. `LightUtil` lets you add a light to an object, tint the overall ambient color of the scene, and control fog."
+            "text": "Aydınlatma, dünyanızın **havasını** ayarlar — parlak ve neşeli, loş ve ürkütücü, sisli ve gizemli. `LightUtil`, bir nesneye ışık eklemenizi, sahnenin genel ortam rengini tonlamanızı ve sisi kontrol etmenizi sağlar."
         },
         {
             "id": "block-003",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "The color methods here take a **color** value. Build one with [ColorUtil](/docs/uniscript/en-US/colorutil), for example `ColorUtil.New(...)`."
+            "text": "Buradaki renk metotları bir **color** değeri alır. Birini [ColorUtil](/docs/uniscript/tr-TR/colorutil) ile oluşturun, örneğin `ColorUtil.New(...)`."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Adding a light"
+            "text": "Bir ışık ekleme"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`AddLight` turns an object into a light source that brightens the area around it — like a lamp, the sun, or a torch."
+            "text": "`AddLight`, bir nesneyi çevresini aydınlatan bir ışık kaynağına çevirir — bir lamba, güneş veya meşale gibi."
         },
         {
             "id": "block-006",
@@ -76,14 +76,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Ambient color — the world's base light"
+            "text": "Ortam rengi — dünyanın temel ışığı"
         },
         {
             "id": "block-008",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "**Ambient light** is the soft, all-over light that fills your scene even where no lamp reaches. It's split into three bands so you can give the light from above, the sides, and below different tints — for instance a warm sky and a cool ground."
+            "text": "**Ortam ışığı (ambient)**, hiçbir lambanın ulaşmadığı yerlerde bile sahnenizi dolduran yumuşak, her yere yayılan ışıktır. Yukarıdan, yanlardan ve aşağıdan gelen ışığa farklı tonlar verebilmeniz için üç banda ayrılmıştır — örneğin sıcak bir gökyüzü ve serin bir zemin."
         },
         {
             "id": "block-009",
@@ -91,13 +91,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "Tints the light coming from"
+                "Metot",
+                "Şuradan gelen ışığı tonlar"
             ],
             "rows": [
-                ["`SetSkyColor(color)`", "Above (the sky)."],
-                ["`SetMedianColor(color)`", "The sides (the horizon)."],
-                ["`SetGroundColor(color)`", "Below (the ground)."]
+                ["`SetSkyColor(color)`", "Yukarıdan (gökyüzü)."],
+                ["`SetMedianColor(color)`", "Yanlardan (ufuk)."],
+                ["`SetGroundColor(color)`", "Aşağıdan (zemin)."]
             ]
         },
         {
@@ -105,14 +105,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Fog"
+            "text": "Sis"
         },
         {
             "id": "block-011",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Fog hides distant objects in a haze. It's great for spooky levels, weather, or simply keeping the player focused on what's nearby."
+            "text": "Sis, uzaktaki nesneleri bir pusla gizler. Ürkütücü seviyeler, hava durumu için veya yalnızca oyuncuyu yakındakine odaklı tutmak için harikadır."
         },
         {
             "id": "block-012",
@@ -120,13 +120,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`SetFog(true/false)`", "Turns fog on or off."],
-                ["`SetFogColor(color)`", "The color of the haze (often matched to the sky)."],
-                ["`SetFogDensity(amount)`", "How thick the fog is. Small numbers like `0.02` are subtle; larger numbers close in fast."]
+                ["`SetFog(true/false)`", "Sisi açar veya kapatır."],
+                ["`SetFogColor(color)`", "Pusun rengi (genellikle gökyüzüyle eşleştirilir)."],
+                ["`SetFogDensity(amount)`", "Sisin ne kadar yoğun olduğu. `0.02` gibi küçük sayılar belirsizdir; daha büyük sayılar hızla yaklaşır."]
             ]
         },
         {
@@ -135,7 +135,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Switch on a light grey fog.",
+                "// Açık gri bir sis aç.",
                 "LightUtil.SetFog(true);",
                 "LightUtil.SetFogColor(ColorUtil.New(0.6, 0.6, 0.6, 1.0));",
                 "LightUtil.SetFogDensity(0.03);"
@@ -146,7 +146,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-015",
@@ -154,9 +154,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`void`", "`AddLight`", "`uniscript`"],
@@ -173,7 +173,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "The fog methods affect the **whole scene**, so a single call changes the atmosphere everywhere. Match the fog color to your sky color for the most natural look."
+            "text": "Sis metotları **tüm sahneyi** etkiler, bu yüzden tek bir çağrı atmosferi her yerde değiştirir. En doğal görünüm için sis rengini gökyüzü renginizle eşleştirin."
         }
     ]
 }

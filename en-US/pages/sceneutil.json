@@ -2,11 +2,14 @@
     "id": "sceneutil",
     "lang": "en-US",
     "name": "SceneUtil",
-    "description": "Load / Unload only. (Tag/name lookups live on UniObjectUtil.FindUniObjectsByTag etc.)",
+    "description": "Move between scenes (levels, menus, maps): replace the current scene with another, or layer a second scene on top.",
     "link": "/docs/uniscript/en-US/sceneutil",
     "tags": [
         "uniscript",
-        "sceneutil"
+        "sceneutil",
+        "scene",
+        "level",
+        "load"
     ],
     "previous": {
         "name": "LightUtil",
@@ -29,17 +32,92 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Load / Unload only. (Tag/name lookups live on UniObjectUtil.FindUniObjectsByTag etc.)"
+            "text": "A **scene** is one self-contained space in your game — a level, a menu, a map, a lobby. `SceneUtil` is how you move the player from one scene to another: starting a level from the menu, advancing to the next level, or returning to the title screen."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Loading a scene"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Load` switches to another scene. You wire the scene you want into an asset field in the editor, then load it. The second value, `additive`, decides whether the new scene **replaces** the current one or **adds on top** of it:"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "`additive` value",
+                "What happens"
+            ],
+            "rows": [
+                ["`false`", "Replaces the current scene — the normal way to change levels."],
+                ["`true`", "Loads the new scene **on top** of the current one, keeping both."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class LevelExit",
+                "{",
+                "    // Drag the next scene onto this field in the editor.",
+                "    UniAsset @nextLevel;",
+                "",
+                "    void OnPlayerReachedExit()",
+                "    {",
+                "        // Replace this level with the next one.",
+                "        SceneUtil.Load(nextLevel, false);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "For moving between levels or screens, use `Load` with `additive = false`. This cleanly swaps the whole scene, which is what you want almost every time."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Keeping things across scenes"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "By default, replacing a scene clears everything in it. If you have an object that must survive between scenes — a score manager, background music, a game controller — mark it as **persistent** in the editor. Persistent objects stay alive when you `Load` a new scene, so their data carries over."
+        },
+        {
+            "id": "block-010",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Put long-lived managers (score, settings, music) on a persistent object so a level change with `Load(scene, false)` doesn't wipe them out."
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-012",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -49,24 +127,16 @@
                 "Parameters"
             ],
             "rows": [
-                [
-                    "`void`",
-                    "`Load`",
-                    "`object scene, bool additive`"
-                ],
-                [
-                    "`void`",
-                    "`Unload`",
-                    "—"
-                ]
+                ["`void`", "`Load`", "`object scene, bool additive`"],
+                ["`void`", "`Unload`", "—"]
             ]
         },
         {
-            "id": "block-005",
+            "id": "block-013",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Only `Load` and `Unload` are available here. For finding objects within a scene, use `UniObjectUtil.FindUniObjectsByTag` or `FindUniObjectsByName`."
+            "text": "Looking for objects **inside** the current scene (all coins, all enemies)? That lives on [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-030) — for example `FindUniObjectsByTag`."
         }
     ]
 }

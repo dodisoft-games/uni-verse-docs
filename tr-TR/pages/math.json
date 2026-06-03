@@ -1,0 +1,424 @@
+{
+    "id": "math",
+    "lang": "tr-TR",
+    "name": "Math",
+    "description": "Sayı araç kutunuz: yuvarlama, sınırlama, değerler arasında yumuşak geçiş, rastgele sayı seçme, açılarla çalışma ve daha fazlası — her biri için sade örneklerle.",
+    "link": "/docs/uniscript/tr-TR/math",
+    "tags": [
+        "uniscript",
+        "math",
+        "sayılar",
+        "rastgele",
+        "lerp",
+        "clamp"
+    ],
+    "previous": {
+        "name": "",
+        "link": ""
+    },
+    "next": {
+        "name": "TypeUtil",
+        "link": "/docs/uniscript/tr-TR/typeutil"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Math"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Math`, sizin **sayı araç kutunuzdur**. Bir değeri yuvarlamak, bir sayıyı belirli bir aralıkta tutmak, bir değerden diğerine yumuşakça geçmek, rastgele bir sayı seçmek veya açılarla çalışmak istediğinizde — bunu sıfırdan yazmanıza gerek kalmasın diye hazır bir araç burada bulunur."
+        },
+        {
+            "id": "block-003",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Buradaki her araç `Math.SomeTool(...)` şeklinde çağrılır — önce bir karaktere veya nesneye ihtiyacınız yoktur. Örneğin: `float root = Math.Sqrt(9.0);` size `3.0` verir."
+        },
+        {
+            "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Yuvarlama ve tam sayılar"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bunlar bir ondalık sayıyı tam sayıya çevirir veya işaretini söyler:"
+        },
+        {
+            "id": "block-006",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar",
+                "Örnek"
+            ],
+            "rows": [
+                ["`Round(f)`", "En yakın tam sayıya yuvarlar.", "`Math.Round(2.6)` → `3.0`"],
+                ["`Floor(f)`", "**Aşağı** yuvarlar.", "`Math.Floor(2.9)` → `2.0`"],
+                ["`Ceil(f)`", "**Yukarı** yuvarlar.", "`Math.Ceil(2.1)` → `3.0`"],
+                ["`RoundToInt(f)` / `FloorToInt(f)` / `CeilToInt(f)`", "Yukarıdakilerle aynı, ama sayabileceğiniz bir tam `int` döndürür.", "`Math.FloorToInt(2.9)` → `2`"],
+                ["`Abs(f)`", "Eksi işaretini kaldırır (mutlak değer).", "`Math.Abs(-5.0)` → `5.0`"],
+                ["`Sign(f)`", "Yönü söyler: negatifse `-1`, pozitifse `1`.", "`Math.Sign(-8.0)` → `-1.0`"]
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bir sayıyı aralıkta tutmak"
+        },
+        {
+            "id": "block-008",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Clamp`, her oyundaki en kullanışlı araçlardan biridir — bir değerin çok yükselmesini veya çok düşmesini engeller. Asla 100'ü aşamayan veya 0'ın altına inemeyen bir can çubuğu buna mükemmel bir örnektir:"
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Can asla 0'ın altına inemez veya 100'ün üstüne çıkamaz.",
+                "health = Math.Clamp(health - damage, 0.0, 100.0);"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`Clamp(value, min, max)`", "`value` değerini `min` ile `max` arasında kalmaya zorlar."],
+                ["`Clamp01(value)`", "`value` değerini `0` ile `1` arasında kalmaya zorlar (kullanışlı bir kısayol)."],
+                ["`Max(a, b)` / `Min(a, b)`", "İki ondalık sayıdan büyüğünü / küçüğünü döndürür."],
+                ["`MaxInt(a, b)` / `MinInt(a, b)`", "Aynısı, ama tam sayılar (`int`) için."]
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Değerler arasında yumuşak geçiş"
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "**İnterpolasyon**, \"iki değer arasında bir ara değer bul\" demektir. Nesnelerin sıçramak yerine yumuşakça solmasını, hızlanmasını ve kaymasını böyle sağlarsınız. Yıldız oyuncu `Lerp`'tir."
+        },
+        {
+            "id": "block-013",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Math.Lerp(a, b, t)`, `a` ile `b` arasında bir nokta verir; burada `t` ne kadar ilerlendiğini gösterir (`0` ile `1` arası). `t = 0` → `a`, `t = 1` → `b`, `t = 0.5` → tam orta noktayı döndürür."
+        },
+        {
+            "id": "block-014",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Math.Lerp(0.0, 100.0, 0.0);   // 0   (başlangıç)",
+                "Math.Lerp(0.0, 100.0, 0.5);   // 50  (orta)",
+                "Math.Lerp(0.0, 100.0, 1.0);   // 100 (son)",
+                "",
+                "// Bir değeri her karede hedefe doğru biraz kaydır.",
+                "current = Math.Lerp(current, target, 0.1);"
+            ]
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`Lerp(a, b, t)`", "`a` ile `b` arasında geçiş yapar. `t`, `0`–`1` arasına sınırlanır."],
+                ["`LerpUnclamped(a, b, t)`", "`Lerp` gibi, ama `t`'nin `0`–`1` dışına çıkıp taşmasına izin verir."],
+                ["`InverseLerp(a, b, value)`", "Tersi: bir `value` verildiğinde onun `t`'sini (yani `a` ile `b` arasında ne kadar ileride olduğunu) söyler. İlerleme çubukları için harika."],
+                ["`SmoothStep(from, to, t)`", "`Lerp` gibi, ama daha da yumuşak bir his için başta ve sonda hızlanmayı yumuşatır."],
+                ["`MoveTowards(current, target, maxDelta)`", "`current`'ı `target`'a doğru en fazla `maxDelta` kadar yaklaştırır — asla taşmaz."],
+                ["`SmoothDamp(...)`", "Bir hedefe doğru yay benzeri yumuşatma (aşağıdaki nota bakın)."]
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Bir geçişin her cihazda aynı hissettirmesi için adımınızı kare süresiyle ölçeklendirin: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. Nedeni için [Time](/docs/uniscript/tr-TR/time) sayfasına bakın."
+        },
+        {
+            "id": "block-017",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`SmoothDamp(current, target, currentVelocity, smoothTime, maxSpeed, deltaTime)`, bir `vector3` döndürür; **X** değeri yeni sayı, **Y** değeri ise güncellenmiş hızdır — yayı sürdürmek için o hızı bir sonraki karede geri verin."
+        },
+        {
+            "id": "block-018",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Rastgele sayılar"
+        },
+        {
+            "id": "block-019",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Rastgelelik, oyunları canlı kılar — rastgele düşme konumları, rastgele düşman seçimi, rastgele hasar. `Math.Random(min, max)`, istediğiniz aralıkta bir sayı verir."
+        },
+        {
+            "id": "block-020",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// 0 ile 1 arasında rastgele bir ondalık (örneğin bir şans atışı).",
+                "float chance = Math.Random(0.0, 1.0);",
+                "if (chance < 0.25) { /* zamanın %25'inde... */ }",
+                "",
+                "// 1 ile 6 arasında rastgele bir tam sayı (zar atışı gibi).",
+                "int dice = Math.Random(1, 6);"
+            ]
+        },
+        {
+            "id": "block-021",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "**Ondalık** (`0.0, 1.0`) vermek ondalık bir sonuç verir; **tam sayı** (`1, 6`) vermek tam sayı bir sonuç verir. Her oyunda aynı rastgele sayı dizisini istiyorsanız (test için kullanışlı) bir kez `Math.InitSeed(seed)` çağırın."
+        },
+        {
+            "id": "block-022",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Açılar ve trigonometri"
+        },
+        {
+            "id": "block-023",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bunlar dairesel hareket, nişan alma ve dalgalar için yardımcı olur. `Sin` ve `Cos`, özellikle salınan, sallanan veya yörüngede dönen şeyler için kullanışlıdır."
+        },
+        {
+            "id": "block-024",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Bir nesneyi sürekli aşağı yukarı salla.",
+                "float bob = Math.Sin(Time.GameTime() * 2.0) * 0.5;",
+                "// ...sonra her karede 'bob' değerini nesnenin Y konumuna ekle."
+            ]
+        },
+        {
+            "id": "block-025",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`Sin(f)` / `Cos(f)` / `Tan(f)`", "Temel trigonometri fonksiyonları (açı **radyan** cinsinden)."],
+                ["`Asin(f)` / `Acos(f)` / `Atan(f)`", "Ters trigonometri fonksiyonları."],
+                ["`Atan2(y, x)`", "`(x, y)` yönüne işaret eden açı — nişan almak için mükemmel."],
+                ["`DeltaAngle(current, target)`", "İki açı arasındaki en kısa dönüş (derece cinsinden)."],
+                ["`LerpAngle(a, b, t)` / `MoveTowardsAngle(...)`", "Açılar arasında geçiş yap veya adım at, kısa yoldan giderek."],
+                ["`Deg2Rad()` / `Rad2Deg()`", "Derece ile radyan arasında dönüştürür: `angle * Math.Deg2Rad()`."],
+                ["`Approximately(a, b)`", "İki ondalık *neredeyse* eşitse `true` (ondalıklar nadiren tam eşittir)."]
+            ]
+        },
+        {
+            "id": "block-026",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "`Sin`, `Cos` ve `Tan`, açıları derece değil **radyan** cinsinden bekler. Derece düşünüyorsanız önce çarpın: `Math.Sin(degrees * Math.Deg2Rad())`."
+        },
+        {
+            "id": "block-027",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Üsler, kökler ve logaritmalar"
+        },
+        {
+            "id": "block-028",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar",
+                "Örnek"
+            ],
+            "rows": [
+                ["`Pow(f, p)`", "`f`'yi `p` kuvvetine yükseltir.", "`Math.Pow(2.0, 3.0)` → `8.0`"],
+                ["`Sqrt(f)`", "Karekök.", "`Math.Sqrt(16.0)` → `4.0`"],
+                ["`Exp(power)` / `Ln(f)`", "Doğal üstel ve logaritma.", "—"],
+                ["`Log(f, p)` / `Log10(f)`", "Seçilen tabanda / 10 tabanında logaritma.", "—"],
+                ["`NextPowerOfTwo(v)` / `ClosestPowerOfTwo(v)` / `IsPowerOfTwo(v)`", "İkinin kuvvetleri (2, 4, 8, 16, ...) için yardımcılar.", "—"]
+            ]
+        },
+        {
+            "id": "block-029",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Döngüler, dalgalar ve gürültü"
+        },
+        {
+            "id": "block-030",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Araç",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`Repeat(t, length)`", "`t`'yi her zaman `0` ile `length` arasında kalacak şekilde sarmalar (döngüsel bir saat gibi)."],
+                ["`PingPong(t, length)`", "`t`'yi `0` ile `length` arasında ileri geri sektirir — devriye gezme için harika."],
+                ["`PerlinNoise(x, y)`", "Yumuşak, doğal görünümlü rastgelelik (aralık `0`–`1`). Rüzgar, arazi, titreşim için iyidir."],
+                ["`Perlin1D(x)` / `Perlin3D(x, y, z)`", "1 veya 3 boyutta gürültü (aralık `-1`–`1`)."]
+            ]
+        },
+        {
+            "id": "block-031",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Sabit değerler"
+        },
+        {
+            "id": "block-032",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bunlar girdi almaz ve sadece sabit bir değer döndürür: `Math.PI()` (~3.14159), `Math.Epsilon()` (sıfıra çok yakın küçük bir sayı), `Math.Infinity()` ve `Math.NegativeInfinity()`."
+        },
+        {
+            "id": "block-033",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Bunlar sabit olsa da, **metot** olarak parantezle yazılır: `Math.PI()`, `Math.PI` değil."
+        },
+        {
+            "id": "block-034",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm araç referansı"
+        },
+        {
+            "id": "block-035",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`float`", "`Abs`", "`float f`"],
+                ["`float`", "`Acos`", "`float f`"],
+                ["`bool`", "`Approximately`", "`float a, float b`"],
+                ["`float`", "`Asin`", "`float f`"],
+                ["`float`", "`Atan`", "`float f`"],
+                ["`float`", "`Atan2`", "`float y, float x`"],
+                ["`float`", "`Ceil`", "`float f`"],
+                ["`int`", "`CeilToInt`", "`float f`"],
+                ["`float`", "`Clamp`", "`float value, float min, float max`"],
+                ["`float`", "`Clamp01`", "`float value`"],
+                ["`float`", "`ClosestPowerOfTwo`", "`int value`"],
+                ["`float`", "`Cos`", "`float f`"],
+                ["`float`", "`Deg2Rad`", "—"],
+                ["`float`", "`DeltaAngle`", "`float current, float target`"],
+                ["`float`", "`Epsilon`", "—"],
+                ["`float`", "`Exp`", "`float power`"],
+                ["`float`", "`Floor`", "`float f`"],
+                ["`int`", "`FloorToInt`", "`float f`"],
+                ["`float`", "`GammaToLinearSpace`", "`float value`"],
+                ["`float`", "`Infinity`", "—"],
+                ["`float`", "`InverseLerp`", "`float a, float b, float value`"],
+                ["`bool`", "`IsPowerOfTwo`", "`int value`"],
+                ["`float`", "`Lerp`", "`float a, float b, float t`"],
+                ["`float`", "`LerpAngle`", "`float a, float b, float t`"],
+                ["`float`", "`LerpUnclamped`", "`float a, float b, float t`"],
+                ["`float`", "`LinearToGammaSpace`", "`float value`"],
+                ["`float`", "`Ln`", "`float f`"],
+                ["`float`", "`Log`", "`float f, float p`"],
+                ["`float`", "`Log10`", "`float f`"],
+                ["`float`", "`Max`", "`float a, float b`"],
+                ["`float`", "`Min`", "`float a, float b`"],
+                ["`float`", "`MoveTowards`", "`float current, float target, float maxDelta`"],
+                ["`float`", "`MoveTowardsAngle`", "`float current, float target, float maxDelta`"],
+                ["`float`", "`NegativeInfinity`", "—"],
+                ["`int`", "`NextPowerOfTwo`", "`int value`"],
+                ["`float`", "`PerlinNoise`", "`float x, float y`"],
+                ["`float`", "`PI`", "—"],
+                ["`float`", "`PingPong`", "`float t, float length`"],
+                ["`float`", "`Pow`", "`float f, float p`"],
+                ["`float`", "`Rad2Deg`", "—"],
+                ["`float`", "`Repeat`", "`float t, float length`"],
+                ["`float`", "`Round`", "`float f`"],
+                ["`int`", "`RoundToInt`", "`float f`"],
+                ["`float`", "`Sign`", "`float f`"],
+                ["`float`", "`Sin`", "`float f`"],
+                ["`float`", "`SmoothStep`", "`float from, float to, float t`"],
+                ["`float`", "`Sqrt`", "`float f`"],
+                ["`float`", "`Tan`", "`float f`"],
+                ["`float`", "`Random`", "`float a, float b`"],
+                ["`int`", "`Random`", "`int a, int b`"],
+                ["`void`", "`InitSeed`", "`int seed`"],
+                ["`vector3`", "`SmoothDamp`", "`float current, float target, float currentVelocity, float smoothTime, float maxSpeed, float deltaTime`"],
+                ["`int`", "`MaxInt`", "`int a, int b`"],
+                ["`int`", "`MinInt`", "`int a, int b`"],
+                ["`float`", "`Perlin1D`", "`float x`"],
+                ["`float`", "`Perlin3D`", "`float x, float y, float z`"]
+            ]
+        },
+        {
+            "id": "block-036",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Tek sayılar yerine konumlar ve yönlerle mi çalışıyorsunuz? Bu araçların 3 boyutlu sürümü için [VectorUtil](/docs/uniscript/tr-TR/vectorutil) sayfasına bakın."
+        }
+    ]
+}

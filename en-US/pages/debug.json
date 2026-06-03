@@ -2,11 +2,14 @@
     "id": "debug",
     "lang": "en-US",
     "name": "Debug",
-    "description": "Log / Status / Stop / Pause. Note: this is Dodisoft.Debug, NOT UnityEngine.Debug.",
+    "description": "Print messages while testing, show a quick status line, and stop or pause the running game from your script.",
     "link": "/docs/uniscript/en-US/debug",
     "tags": [
         "uniscript",
-        "debug"
+        "debug",
+        "log",
+        "testing",
+        "console"
     ],
     "previous": {
         "name": "TypeUtil",
@@ -29,17 +32,97 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Log / Status / Stop / Pause. Note: this is Dodisoft.Debug, NOT UnityEngine.Debug."
+            "text": "`Debug` is your window into what your game is actually doing while you build it. Use `Debug.Log` to print values to the console so you can confirm a number is what you expect, a method ran, or a condition was met. It also lets you stop or pause the running game from code."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Printing messages"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Log(message)` writes a line to the console. You can print text, numbers, or any value — joining text and a value together is the most common way to see what's going on:"
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Debug.Log(\"The game started!\");",
+                "",
+                "// Mix text and a value to inspect it.",
+                "Debug.Log(\"Player health is now: \" + health);",
+                "",
+                "// Confirm a branch was reached.",
+                "if (score > 100)",
+                "{",
+                "    Debug.Log(\"High score reached!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Status(message)` is similar but shows a short status line for quick, at-a-glance feedback while testing rather than a scrolling log."
+        },
+        {
+            "id": "block-007",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Stopping and pausing the game"
+        },
+        {
+            "id": "block-008",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`Stop()`",
+                    "Stops the running game completely (as if you pressed Stop)."
+                ],
+                [
+                    "`Pause()`",
+                    "Pauses the game so you can inspect the current state, then resume."
+                ]
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Freeze the game the instant something unexpected happens,",
+                "// so you can look at the scene.",
+                "if (somethingWentWrong)",
+                "{",
+                "    Debug.Pause();",
+                "}"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-011",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -72,18 +155,18 @@
             ]
         },
         {
-            "id": "block-005",
-            "tag": "important",
+            "id": "block-012",
+            "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "This is `Dodisoft.Debug`, **not** `UnityEngine.Debug`. Use it exclusively for in-game script logging and control — do not mix with Unity's built-in debug tools."
+            "text": "**Avoid `Debug.Log` inside per-frame code** — methods like `OnUpdate`, `OnPostUpdate`, and `OnAction` run constantly, and logging there can interrupt the rest of that method (so commands after the log never run) on top of flooding the console. Log once when something *changes*, not every frame."
         },
         {
-            "id": "block-006",
+            "id": "block-013",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Call `Debug.Log(message)` to print values to the console while testing. Wrap logs in a condition or remove them before shipping."
+            "text": "`Debug.Log` is for **building and testing**. Remove or disable your logs before you publish so players never see them and the game stays fast."
         }
     ]
 }

@@ -1,24 +1,24 @@
 {
     "id": "dictionaryutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "DictionaryUtil",
-    "description": "Store values by a key instead of a position — like player name → score. Add, look up, check, remove, and loop through key/value pairs.",
-    "link": "/docs/uniscript/en-US/dictionaryutil",
+    "description": "Değerleri bir konum yerine bir anahtarla saklayın — oyuncu adı → skor gibi. Anahtar/değer çiftlerini ekleyin, arayın, kontrol edin, kaldırın ve içlerinde dolaşın.",
+    "link": "/docs/uniscript/tr-TR/dictionaryutil",
     "tags": [
         "uniscript",
         "dictionaryutil",
         "dictionary",
-        "key",
-        "value",
-        "map"
+        "anahtar",
+        "değer",
+        "harita"
     ],
     "previous": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/en-US/listutil"
+        "link": "/docs/uniscript/tr-TR/listutil"
     },
     "next": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/en-US/colliderutil"
+        "link": "/docs/uniscript/tr-TR/colliderutil"
     },
     "content": [
         {
@@ -33,21 +33,21 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **dictionary** stores values you look up by a **key** instead of a position. Think of a real dictionary: you look up a word (the key) to find its meaning (the value). In a game you might map each player's name to their score, or each item ID to how many the player owns."
+            "text": "Bir **dictionary** (sözlük), değerleri bir konum yerine bir **anahtarla** aradığınız bir yapıdır. Gerçek bir sözlük gibi düşünün: anlamını bulmak için bir kelimeyi (anahtar) ararsınız. Bir oyunda her oyuncunun adını skoruna, ya da her eşya kimliğini oyuncunun kaç tane sahip olduğuna eşleyebilirsiniz."
         },
         {
             "id": "block-003",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Use a dictionary (instead of a [list](/docs/uniscript/en-US/listutil)) when each value has a natural name to find it by, and order doesn't matter."
+            "text": "Her değerin onu bulmak için doğal bir adı olduğunda ve sıra önemli olmadığında ([liste](/docs/uniscript/tr-TR/listutil) yerine) bir dictionary kullanın."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Creating one and adding pairs"
+            "text": "Bir tane oluşturma ve çift ekleme"
         },
         {
             "id": "block-005",
@@ -55,13 +55,13 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Map each player's name to their score.",
+                "// Her oyuncunun adını skoruna eşle.",
                 "Dictionary scores = DictionaryUtil.New();",
                 "",
                 "DictionaryUtil.Add(scores, \"Alice\", 100);",
                 "DictionaryUtil.Add(scores, \"Bob\", 75);",
                 "",
-                "// Look Alice's score back up by her name.",
+                "// Alice'in skorunu adıyla geri ara.",
                 "int aliceScore = DictionaryUtil.Get(scores, \"Alice\");   // 100"
             ]
         },
@@ -71,15 +71,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`New()`", "Creates a new empty dictionary."],
-                ["`New(size)`", "Creates a dictionary prepared to hold `size` pairs."],
-                ["`Add(dict, key, value)`", "Adds a new key with its value."],
-                ["`Set(dict, key, value)`", "Sets a key's value — adds it if new, replaces it if it already exists."],
-                ["`Get(dict, key)`", "Looks up the value stored under a key."]
+                ["`New()`", "Yeni boş bir dictionary oluşturur."],
+                ["`New(size)`", "`size` çift tutmaya hazırlanmış bir dictionary oluşturur."],
+                ["`Add(dict, key, value)`", "Değeriyle birlikte yeni bir anahtar ekler."],
+                ["`Set(dict, key, value)`", "Bir anahtarın değerini ayarlar — yeniyse ekler, zaten varsa değiştirir."],
+                ["`Get(dict, key)`", "Bir anahtarın altında saklanan değeri arar."]
             ]
         },
         {
@@ -87,14 +87,14 @@
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Each key can appear only **once**. Use `Add` for a brand-new key; use `Set` when you want to add-or-update safely (for example, raising a score that may already exist)."
+            "text": "Her anahtar yalnızca **bir kez** görünebilir. Yepyeni bir anahtar için `Add` kullanın; güvenli bir şekilde ekle-veya-güncelle istediğinizde (örneğin zaten var olabilecek bir skoru yükseltmek) `Set` kullanın."
         },
         {
             "id": "block-008",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Checking and removing"
+            "text": "Kontrol etme ve kaldırma"
         },
         {
             "id": "block-009",
@@ -102,15 +102,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`ContainsKey(dict, key)`", "`true` if that key exists. Check this before `Get` to avoid missing keys."],
-                ["`ContainsValue(dict, value)`", "`true` if some key holds that value."],
-                ["`Remove(dict, key)`", "Removes a key and its value."],
-                ["`Count(dict)`", "How many pairs are stored."],
-                ["`Clear(dict)`", "Removes everything."]
+                ["`ContainsKey(dict, key)`", "O anahtar varsa `true`. Eksik anahtarlardan kaçınmak için `Get`'ten önce bunu kontrol edin."],
+                ["`ContainsValue(dict, value)`", "Bir anahtar o değeri tutuyorsa `true`."],
+                ["`Remove(dict, key)`", "Bir anahtarı ve değerini kaldırır."],
+                ["`Count(dict)`", "Kaç çift saklandığı."],
+                ["`Clear(dict)`", "Her şeyi kaldırır."]
             ]
         },
         {
@@ -122,7 +122,7 @@
                 "if (DictionaryUtil.ContainsKey(scores, \"Alice\"))",
                 "{",
                 "    int s = DictionaryUtil.Get(scores, \"Alice\");",
-                "    DictionaryUtil.Set(scores, \"Alice\", s + 10);   // give Alice +10",
+                "    DictionaryUtil.Set(scores, \"Alice\", s + 10);   // Alice'e +10 ver",
                 "}"
             ]
         },
@@ -131,14 +131,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Looking at everything inside"
+            "text": "İçindeki her şeye bakma"
         },
         {
             "id": "block-012",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Keys` gives you a [list](/docs/uniscript/en-US/listutil) of every key, which you can loop through. `ForEach` is the quickest way to visit every pair — it runs your method once per pair, handing it the `key` and the `value`."
+            "text": "`Keys`, size her anahtarın bir [listesini](/docs/uniscript/tr-TR/listutil) verir; bu listede dolaşabilirsiniz. `ForEach`, her çifti ziyaret etmenin en hızlı yoludur — metodunuzu çift başına bir kez çalıştırır ve ona `key` ile `value`'yu verir."
         },
         {
             "id": "block-013",
@@ -146,12 +146,12 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Print every player and their score.",
+                "// Her oyuncuyu ve skorunu yazdır.",
                 "DictionaryUtil.ForEach(scores, this, \"PrintScore\", null);",
                 "",
                 "void PrintScore(object key, object value, object extra)",
                 "{",
-                "    Debug.Log(key + \" has \" + value + \" points\");",
+                "    Debug.Log(key + \" -> \" + value + \" puan\");",
                 "}"
             ]
         },
@@ -160,7 +160,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-015",
@@ -168,9 +168,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`Dictionary`", "`New`", "—"],
@@ -192,7 +192,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "To list every value, loop the keys from `Keys` and `Get` each one — or just use `ForEach`, which already hands you both the key and value for every pair."
+            "text": "Her değeri listelemek için `Keys`'ten gelen anahtarlarda dolaşın ve her birini `Get` ile alın — ya da her çift için size hem anahtarı hem değeri zaten veren `ForEach`'i kullanın."
         }
     ]
 }

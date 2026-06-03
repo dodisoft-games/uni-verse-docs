@@ -1,24 +1,24 @@
 {
     "id": "uniobjectutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "UniObjectUtil",
-    "description": "The most-used library: move, rotate, scale, show/hide, spawn, and destroy objects — and find other objects and scripts in your scene.",
-    "link": "/docs/uniscript/en-US/uniobjectutil",
+    "description": "En çok kullanılan kütüphane: nesneleri taşıyın, döndürün, ölçeklendirin, gösterin/gizleyin, oluşturun ve yok edin — ayrıca sahnenizdeki diğer nesneleri ve betikleri bulun.",
+    "link": "/docs/uniscript/tr-TR/uniobjectutil",
     "tags": [
         "uniscript",
         "uniobjectutil",
         "transform",
-        "position",
-        "spawn",
-        "scene"
+        "konum",
+        "oluşturma",
+        "sahne"
     ],
     "previous": {
         "name": "Utility",
-        "link": "/docs/uniscript/en-US/utility"
+        "link": "/docs/uniscript/tr-TR/utility"
     },
     "next": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/en-US/vectorutil"
+        "link": "/docs/uniscript/tr-TR/vectorutil"
     },
     "content": [
         {
@@ -33,28 +33,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "This is the library you'll reach for most often. Everything in your scene — a cube, a coin, a player, a camera — is an **object**. `UniObjectUtil` lets you move, rotate, scale, show, hide, spawn, and destroy those objects, and find other objects and their scripts."
+            "text": "Bu, en sık başvuracağınız kütüphanedir. Sahnenizdeki her şey — bir küp, bir altın, bir oyuncu, bir kamera — bir **nesnedir**. `UniObjectUtil`, bu nesneleri taşımanızı, döndürmenizi, ölçeklendirmenizi, göstermenizi, gizlemenizi, oluşturmanızı ve yok etmenizi, ayrıca diğer nesneleri ve onların betiklerini bulmanızı sağlar."
         },
         {
             "id": "block-003",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Most methods take `uniscript` as the first parameter, meaning **which object**. Pass `this` to act on the object your script is attached to."
+            "text": "Çoğu metot ilk parametre olarak `uniscript` alır; bu **hangi nesne** demektir. Betiğinizin bağlı olduğu nesne üzerinde işlem yapmak için `this` verin."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Moving, rotating, and scaling"
+            "text": "Taşıma, döndürme ve ölçeklendirme"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "An object's **transform** is its position (where it is), rotation (which way it faces), and scale (how big it is). These methods read and change all three:"
+            "text": "Bir nesnenin **transform**'u; konumu (nerede olduğu), dönüşü (hangi yöne baktığı) ve ölçeğidir (ne kadar büyük olduğu). Bu metotlar üçünü de okur ve değiştirir:"
         },
         {
             "id": "block-006",
@@ -62,15 +62,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`SetPosition(this, pos)` / `GetPosition(this)`", "Set or read the object's position (a `vector3`)."],
-                ["`SetScale(this, scale)` / `GetScale(this)`", "Set or read the object's size."],
-                ["`SetRotation(this, rot)` / `GetRotation(this)`", "Set or read the object's rotation (a `quaternion`)."],
-                ["`Translate(this, x, y, z)`", "Nudge the object by an amount, **relative to the way it faces** (forward, up, right)."],
-                ["`Rotate(this, x, y, z)`", "Spin the object by these degrees on each axis."]
+                ["`SetPosition(this, pos)` / `GetPosition(this)`", "Nesnenin konumunu (bir `vector3`) ayarlar veya okur."],
+                ["`SetScale(this, scale)` / `GetScale(this)`", "Nesnenin boyutunu ayarlar veya okur."],
+                ["`SetRotation(this, rot)` / `GetRotation(this)`", "Nesnenin dönüşünü (bir `quaternion`) ayarlar veya okur."],
+                ["`Translate(this, x, y, z)`", "Nesneyi, **baktığı yöne göre** (ileri, yukarı, sağ) bir miktar iter."],
+                ["`Rotate(this, x, y, z)`", "Nesneyi her eksende bu derecelerle döndürür."]
             ]
         },
         {
@@ -79,13 +79,13 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Place the object at a specific spot.",
+                "// Nesneyi belirli bir noktaya yerleştir.",
                 "UniObjectUtil.SetPosition(this, VectorUtil.New(0.0, 5.0, 0.0));",
                 "",
-                "// Slowly spin it every frame.",
+                "// Her karede yavaşça döndür.",
                 "UniObjectUtil.Rotate(this, 0.0, 90.0 * Time.DeltaTime(), 0.0);",
                 "",
-                "// Push it forward (the direction it's facing).",
+                "// İleri it (baktığı yön).",
                 "UniObjectUtil.Translate(this, 0.0, 0.0, 2.0 * Time.DeltaTime());"
             ]
         },
@@ -94,14 +94,14 @@
             "tag": "h3",
             "styles": null,
             "classes": null,
-            "text": "Local vs. world position"
+            "text": "Yerel ve dünya konumu"
         },
         {
             "id": "block-009",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "When an object sits *inside* another object (a wheel on a car), it has two positions: its **local** position (relative to its parent) and its **world** position (its true spot in the scene)."
+            "text": "Bir nesne başka bir nesnenin *içinde* olduğunda (arabadaki bir teker), iki konumu vardır: **yerel** konumu (ebeveynine göre) ve **dünya** konumu (sahnedeki gerçek noktası)."
         },
         {
             "id": "block-010",
@@ -109,13 +109,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "Use when"
+                "Metot",
+                "Ne zaman kullanılır"
             ],
             "rows": [
-                ["`SetPosition` / `GetPosition`", "You want the position **relative to the parent** (local)."],
-                ["`SetWorldPosition` / `GetWorldPosition`", "You want the true position **in the world**."],
-                ["`SetWorldRotation` / `GetWorldRotation`", "The true facing in the world (uses a `vector3` of angles)."]
+                ["`SetPosition` / `GetPosition`", "Konumu **ebeveyne göre** (yerel) istediğinizde."],
+                ["`SetWorldPosition` / `GetWorldPosition`", "Gerçek konumu **dünyada** istediğinizde."],
+                ["`SetWorldRotation` / `GetWorldRotation`", "Dünyadaki gerçek bakış yönü (bir `vector3` açı kullanır)."]
             ]
         },
         {
@@ -123,28 +123,28 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "If an object has no parent, its local and world positions are the same, so either pair works."
+            "text": "Bir nesnenin ebeveyni yoksa, yerel ve dünya konumları aynıdır, bu yüzden iki çift de işe yarar."
         },
         {
             "id": "block-012",
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Moving a camera?** Use `SetPosition` — `SetWorldPosition` silently does nothing on a camera object. See [CameraUtil](/docs/uniscript/en-US/camerautil) for camera-specific guidance."
+            "text": "**Bir kamerayı mı taşıyorsunuz?** `SetPosition` kullanın — `SetWorldPosition` bir kamera nesnesinde sessizce hiçbir şey yapmaz. Kameraya özel rehberlik için [CameraUtil](/docs/uniscript/tr-TR/camerautil) sayfasına bakın."
         },
         {
             "id": "block-013",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Facing a direction (aiming)"
+            "text": "Bir yöne bakma (nişan alma)"
         },
         {
             "id": "block-014",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "To make an object point toward something, build a rotation with [QuaternionUtil](/docs/uniscript/en-US/quaternionutil)'s `LookRotation` and apply it with `SetRotation`. `LookRotation` needs a direction to look along plus an \"up\" direction:"
+            "text": "Bir nesneyi bir şeye doğru çevirmek için [QuaternionUtil](/docs/uniscript/tr-TR/quaternionutil)'in `LookRotation`'ı ile bir dönüş oluşturun ve `SetRotation` ile uygulayın. `LookRotation`, bakılacak bir yön ile bir \"yukarı\" yön ister:"
         },
         {
             "id": "block-015",
@@ -152,7 +152,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Aim this object at a target's position.",
+                "// Bu nesneyi bir hedefin konumuna doğru çevir.",
                 "vector3 myPos     = UniObjectUtil.GetWorldPosition(this);",
                 "vector3 targetPos = UniObjectUtil.GetWorldPosition(target);",
                 "vector3 direction = VectorUtil.Normalized(targetPos - myPos);",
@@ -166,7 +166,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "You can also read an object's own direction vectors — handy for shooting forward or strafing sideways:"
+            "text": "Ayrıca bir nesnenin kendi yön vektörlerini de okuyabilirsiniz — ileri ateş etmek veya yana doğru kaymak için kullanışlıdır:"
         },
         {
             "id": "block-017",
@@ -174,13 +174,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "Returns"
+                "Metot",
+                "Döndürür"
             ],
             "rows": [
-                ["`Forward(this)`", "The direction the object is facing."],
-                ["`Right(this)`", "The direction to its right."],
-                ["`Up(this)`", "The direction above it."]
+                ["`Forward(this)`", "Nesnenin baktığı yön."],
+                ["`Right(this)`", "Sağına doğru olan yön."],
+                ["`Up(this)`", "Üstündeki yön."]
             ]
         },
         {
@@ -188,7 +188,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Showing, hiding, and removing"
+            "text": "Gösterme, gizleme ve kaldırma"
         },
         {
             "id": "block-019",
@@ -196,15 +196,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`SetUniObjectActivation(this, true/false)`", "Turns the object on (visible & active) or off (hidden & inactive)."],
-                ["`GetUniObjectActivation(this)`", "`true` if the object is currently active."],
-                ["`Destroy(this)`", "Permanently removes the object from the scene."],
-                ["`GetName(this)` / `SetName(this, name)`", "Read or change the object's name."],
-                ["`GetNumberOfComponents(this)`", "How many components the object has."]
+                ["`SetUniObjectActivation(this, true/false)`", "Nesneyi açar (görünür ve aktif) veya kapatır (gizli ve pasif)."],
+                ["`GetUniObjectActivation(this)`", "Nesne şu anda aktifse `true`."],
+                ["`Destroy(this)`", "Nesneyi sahneden kalıcı olarak kaldırır."],
+                ["`GetName(this)` / `SetName(this, name)`", "Nesnenin adını okur veya değiştirir."],
+                ["`GetNumberOfComponents(this)`", "Nesnenin kaç bileşeni olduğu."]
             ]
         },
         {
@@ -213,11 +213,11 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Temporarily hide a door, then show it again later.",
-                "UniObjectUtil.SetUniObjectActivation(doorScript, false);  // hide",
-                "UniObjectUtil.SetUniObjectActivation(doorScript, true);   // show",
+                "// Bir kapıyı geçici olarak gizle, sonra tekrar göster.",
+                "UniObjectUtil.SetUniObjectActivation(doorScript, false);  // gizle",
+                "UniObjectUtil.SetUniObjectActivation(doorScript, true);   // göster",
                 "",
-                "// Remove a collected coin.",
+                "// Toplanan bir altını kaldır.",
                 "UniObjectUtil.Destroy(this);"
             ]
         },
@@ -226,21 +226,21 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Hiding an object with `SetUniObjectActivation(..., false)` keeps it in the scene so you can show it again. Use `Destroy` only when the object is gone for good."
+            "text": "Bir nesneyi `SetUniObjectActivation(..., false)` ile gizlemek onu sahnede tutar, böylece tekrar gösterebilirsiniz. `Destroy`'u yalnızca nesne tamamen gittiğinde kullanın."
         },
         {
             "id": "block-022",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Spawning new objects"
+            "text": "Yeni nesneler oluşturma"
         },
         {
             "id": "block-023",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "**Spawning** (instantiating) creates a fresh copy of a saved object — a bullet, a coin, an enemy — while the game is running. You wire the object to copy into an asset field, then spawn it by name."
+            "text": "**Oluşturma** (instantiate), kayıtlı bir nesnenin yeni bir kopyasını — bir mermi, bir altın, bir düşman — oyun çalışırken yaratır. Kopyalanacak nesneyi bir varlık alanına bağlar, sonra adıyla oluşturursunuz."
         },
         {
             "id": "block-024",
@@ -248,13 +248,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Instantiate(asset, name)`", "Spawns a copy of `asset`, giving the new object the chosen `name`."],
-                ["`InstantiateAndCallback(asset, name, script, method, data)`", "Spawns, then calls `method` on `script` once the new object is ready — so you can position it, set its speed, etc."],
-                ["`New(name)`", "Creates a brand-new empty object with the given name."]
+                ["`Instantiate(asset, name)`", "`asset`'in bir kopyasını oluşturur ve yeni nesneye seçilen `name`'i verir."],
+                ["`InstantiateAndCallback(asset, name, script, method, data)`", "Oluşturur, sonra yeni nesne hazır olduğunda `script` üzerinde `method`'u çağırır — böylece konumlandırabilir, hızını ayarlayabilirsiniz vb."],
+                ["`New(name)`", "Verilen ada sahip yepyeni boş bir nesne oluşturur."]
             ]
         },
         {
@@ -269,13 +269,13 @@
                 "",
                 "    void Fire()",
                 "    {",
-                "        // Spawn a bullet, then set it up in OnBulletReady.",
+                "        // Bir mermi oluştur, sonra OnBulletReady içinde ayarla.",
                 "        UniObjectUtil.InstantiateAndCallback(bulletAsset, \"Bullet\", this, \"OnBulletReady\", null);",
                 "    }",
                 "",
                 "    void OnBulletReady(object newBullet)",
                 "    {",
-                "        // Position and aim the new bullet here.",
+                "        // Yeni mermiyi burada konumlandır ve nişan al.",
                 "    }",
                 "}"
             ]
@@ -285,21 +285,21 @@
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "`Instantiate` runs in the background, so the new object isn't ready on the very next line. When you need to set up the spawned object immediately, use `InstantiateAndCallback` — its callback fires exactly when the object is ready."
+            "text": "`Instantiate` arka planda çalışır, bu yüzden yeni nesne bir sonraki satırda hazır olmaz. Oluşturulan nesneyi hemen ayarlamanız gerektiğinde `InstantiateAndCallback` kullanın — geri çağrısı, nesne hazır olduğu anda tetiklenir."
         },
         {
             "id": "block-027",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Parents and children"
+            "text": "Ebeveynler ve çocuklar"
         },
         {
             "id": "block-028",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Objects can be nested. A child object moves with its parent — perfect for attaching things together."
+            "text": "Nesneler iç içe olabilir. Bir çocuk nesne ebeveyniyle birlikte hareket eder — şeyleri birbirine bağlamak için mükemmeldir."
         },
         {
             "id": "block-029",
@@ -307,13 +307,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`SetParent(this, parent)`", "Makes this object a child of `parent`."],
-                ["`GetParent(this)`", "Returns this object's parent."],
-                ["`GetChilds(this)`", "Returns a list of this object's direct children."]
+                ["`SetParent(this, parent)`", "Bu nesneyi `parent`'ın bir çocuğu yapar."],
+                ["`GetParent(this)`", "Bu nesnenin ebeveynini döndürür."],
+                ["`GetChilds(this)`", "Bu nesnenin doğrudan çocuklarının listesini döndürür."]
             ]
         },
         {
@@ -321,14 +321,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Finding other objects and scripts"
+            "text": "Diğer nesneleri ve betikleri bulma"
         },
         {
             "id": "block-031",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "To make objects talk to each other, you first need a reference to the other object's script. These methods find them."
+            "text": "Nesnelerin birbiriyle konuşabilmesi için önce diğer nesnenin betiğine bir referansa ihtiyacınız vardır. Bu metotlar onları bulur."
         },
         {
             "id": "block-032",
@@ -336,16 +336,16 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it finds"
+                "Metot",
+                "Ne bulduğu"
             ],
             "rows": [
-                ["`FindUniObjectsByTag(tag)`", "A list of every object in the scene with that tag — the fastest way to find groups (all coins, all enemies)."],
-                ["`GetUniObject(this)`", "The object that owns this script (a handle you can pass around)."],
-                ["`GetScriptByName(this, name)`", "A script with that name on this same object."],
-                ["`GetScriptByIndex(this, index)`", "A script by its position in the object's component list."],
-                ["`GetScriptInChildren(this, name)` / `GetScriptInParents(this, name)`", "The first matching script among this object's children / parents."],
-                ["`GetScriptsByName` / `GetScriptsInChildren` / `GetScriptsInParents`", "Like above, but return a **list** of all matches."]
+                ["`FindUniObjectsByTag(tag)`", "Sahnedeki o etikete sahip her nesnenin listesi — grupları (tüm altınlar, tüm düşmanlar) bulmanın en hızlı yolu."],
+                ["`GetUniObject(this)`", "Bu betiğin sahibi olan nesne (etrafta dolaştırabileceğiniz bir tutamaç)."],
+                ["`GetScriptByName(this, name)`", "Aynı nesne üzerindeki o adlı bir betik."],
+                ["`GetScriptByIndex(this, index)`", "Nesnenin bileşen listesindeki konumuna göre bir betik."],
+                ["`GetScriptInChildren(this, name)` / `GetScriptInParents(this, name)`", "Bu nesnenin çocukları / ebeveynleri arasındaki ilk eşleşen betik."],
+                ["`GetScriptsByName` / `GetScriptsInChildren` / `GetScriptsInParents`", "Yukarıdaki gibi, ama tüm eşleşmelerin bir **listesini** döndürür."]
             ]
         },
         {
@@ -354,9 +354,9 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Tag your coins \"coin\" in the editor, then find them all.",
+                "// Altınlarınızı editörde \"coin\" diye etiketleyin, sonra hepsini bulun.",
                 "List coins = UniObjectUtil.FindUniObjectsByTag(\"coin\");",
-                "Debug.Log(\"There are \" + ListUtil.Count(coins) + \" coins left.\");"
+                "Debug.Log(\"Kalan altın sayısı: \" + ListUtil.Count(coins));"
             ]
         },
         {
@@ -364,14 +364,14 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Searching by **tag** is fast and reliable. Give related objects the same tag in the editor, then grab them all with `FindUniObjectsByTag`. See [ListUtil](/docs/uniscript/en-US/listutil) for working with the list you get back."
+            "text": "**Etikete** göre arama hızlı ve güvenilirdir. İlgili nesnelere editörde aynı etiketi verin, sonra hepsini `FindUniObjectsByTag` ile alın. Geri aldığınız listeyle çalışmak için [ListUtil](/docs/uniscript/tr-TR/listutil) sayfasına bakın."
         },
         {
             "id": "block-035",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Scripts and extras on an object"
+            "text": "Bir nesnedeki betikler ve eklentiler"
         },
         {
             "id": "block-036",
@@ -379,14 +379,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`AttachScript(this, name)`", "Adds a script (by class name) to the object while the game runs."],
-                ["`DetachScript(this)`", "Removes the script. Returns `false` if other components still need it."],
-                ["`GetScriptActivation(this)` / `SetScriptActivation(this, on)`", "Turn a single script on or off without removing it."],
-                ["`Add3DText(this)`", "Adds floating 3D text to the object."]
+                ["`AttachScript(this, name)`", "Oyun çalışırken nesneye bir betik (sınıf adıyla) ekler."],
+                ["`DetachScript(this)`", "Betiği kaldırır. Başka bileşenler hâlâ ona ihtiyaç duyuyorsa `false` döndürür."],
+                ["`GetScriptActivation(this)` / `SetScriptActivation(this, on)`", "Tek bir betiği kaldırmadan açar veya kapatır."],
+                ["`Add3DText(this)`", "Nesneye süzülen 3D metin ekler."]
             ]
         },
         {
@@ -394,7 +394,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-038",
@@ -402,9 +402,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`bool`", "`Instantiate`", "`object asset, string name`"],
@@ -456,7 +456,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "To make an object **face** a target, use `SetRotation` together with `QuaternionUtil.LookRotation` (shown in [Facing a direction](/docs/uniscript/en-US/uniobjectutil#block-013)). The `LookAt` style helpers are not currently available from UniScript."
+            "text": "Bir nesneyi bir hedefe **baktırmak** için `SetRotation`'ı `QuaternionUtil.LookRotation` ile birlikte kullanın ([Bir yöne bakma](/docs/uniscript/tr-TR/uniobjectutil#block-013) bölümünde gösterildi). `LookAt` tarzı yardımcılar şu anda UniScript'ten kullanılamaz."
         }
     ]
 }

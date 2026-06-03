@@ -1,23 +1,23 @@
 {
     "id": "listutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "ListUtil",
-    "description": "Work with lists — ordered collections of values. Add, remove, count, look up by position, loop through, search, and sort.",
-    "link": "/docs/uniscript/en-US/listutil",
+    "description": "Listelerle çalışın — sıralı değer koleksiyonları. Ekleyin, kaldırın, sayın, konuma göre arayın, içinde dolaşın, arayın ve sıralayın.",
+    "link": "/docs/uniscript/tr-TR/listutil",
     "tags": [
         "uniscript",
         "listutil",
         "list",
-        "collection",
-        "array"
+        "koleksiyon",
+        "dizi"
     ],
     "previous": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/en-US/quaternionutil"
+        "link": "/docs/uniscript/tr-TR/quaternionutil"
     },
     "next": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/en-US/dictionaryutil"
+        "link": "/docs/uniscript/tr-TR/dictionaryutil"
     },
     "content": [
         {
@@ -32,21 +32,21 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **list** is an ordered collection of values — like a shopping list. It can hold any number of items (enemies, scores, coin positions) and keeps them in order. `ListUtil` is how you add, remove, count, and look through those items."
+            "text": "Bir **liste**, sıralı bir değer koleksiyonudur — bir alışveriş listesi gibi. İstediğiniz sayıda öğe (düşmanlar, skorlar, altın konumları) tutabilir ve onları sırada saklar. `ListUtil`, bu öğeleri eklemenin, kaldırmanın, saymanın ve içlerine bakmanın yoludur."
         },
         {
             "id": "block-003",
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Positions in a list start at **0**, not 1. The first item is at index `0`, the second at `1`, and so on. A list with 3 items has valid positions `0`, `1`, and `2`."
+            "text": "Bir listede konumlar 1'den değil, **0**'dan başlar. İlk öğe `0` konumunda, ikincisi `1`'de vb. 3 öğeli bir listenin geçerli konumları `0`, `1` ve `2`'dir."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Creating a list and adding items"
+            "text": "Bir liste oluşturma ve öğe ekleme"
         },
         {
             "id": "block-005",
@@ -54,10 +54,10 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Make a new, empty list.",
+                "// Yeni, boş bir liste oluştur.",
                 "List names = ListUtil.New();",
                 "",
-                "// Add items to the end.",
+                "// Sona öğe ekle.",
                 "ListUtil.Add(names, \"Alice\");",
                 "ListUtil.Add(names, \"Bob\");",
                 "",
@@ -70,16 +70,16 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`New()`", "Creates a new empty list."],
-                ["`New(size)`", "Creates a list prepared to hold `size` items."],
-                ["`Add(list, item)`", "Adds an item to the end."],
-                ["`Insert(list, index, item)`", "Adds an item at a specific position, shifting the rest along."],
-                ["`Count(list)`", "How many items the list currently holds."],
-                ["`Clear(list)`", "Removes everything, leaving an empty list."]
+                ["`New()`", "Yeni boş bir liste oluşturur."],
+                ["`New(size)`", "`size` öğe tutmaya hazırlanmış bir liste oluşturur."],
+                ["`Add(list, item)`", "Sona bir öğe ekler."],
+                ["`Insert(list, index, item)`", "Belirli bir konuma bir öğe ekler, geri kalanı kaydırır."],
+                ["`Count(list)`", "Listenin şu anda kaç öğe tuttuğu."],
+                ["`Clear(list)`", "Her şeyi kaldırır, boş bir liste bırakır."]
             ]
         },
         {
@@ -87,7 +87,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Reading and changing items"
+            "text": "Öğeleri okuma ve değiştirme"
         },
         {
             "id": "block-008",
@@ -95,15 +95,15 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Get(list, index)`", "Reads the item at a position."],
-                ["`Set(list, index, item)`", "Replaces the item at a position."],
-                ["`First(list)` / `Last(list)`", "The first / last item — without needing to know the count."],
-                ["`IndexOf(list, item)`", "The position of an item (or `-1` if it isn't in the list)."],
-                ["`Contains(list, item)`", "`true` if the item is somewhere in the list."]
+                ["`Get(list, index)`", "Bir konumdaki öğeyi okur."],
+                ["`Set(list, index, item)`", "Bir konumdaki öğeyi değiştirir."],
+                ["`First(list)` / `Last(list)`", "İlk / son öğe — sayıyı bilmenize gerek kalmadan."],
+                ["`IndexOf(list, item)`", "Bir öğenin konumu (listede yoksa `-1`)."],
+                ["`Contains(list, item)`", "Öğe listede bir yerdeyse `true`."]
             ]
         },
         {
@@ -116,7 +116,7 @@
                 "",
                 "if (ListUtil.Contains(names, \"Bob\"))",
                 "{",
-                "    Debug.Log(\"Bob is on the list!\");",
+                "    Debug.Log(\"Bob listede!\");",
                 "}"
             ]
         },
@@ -125,7 +125,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Removing items"
+            "text": "Öğeleri kaldırma"
         },
         {
             "id": "block-011",
@@ -133,12 +133,12 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Remove(list, item)`", "Removes the first matching item. Returns `true` if something was removed."],
-                ["`RemoveAt(list, index)`", "Removes the item at a specific position."]
+                ["`Remove(list, item)`", "İlk eşleşen öğeyi kaldırır. Bir şey kaldırıldıysa `true` döndürür."],
+                ["`RemoveAt(list, index)`", "Belirli bir konumdaki öğeyi kaldırır."]
             ]
         },
         {
@@ -146,14 +146,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Looping through a list"
+            "text": "Bir listede dolaşma"
         },
         {
             "id": "block-013",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`ForEach` runs one of your methods once for every item in the list. You give it the list, `this`, the name of the method to run, and an extra value to pass along (use `null` if you don't need it). Your method receives each `item` and that extra `value`."
+            "text": "`ForEach`, listedeki her öğe için metotlarınızdan birini bir kez çalıştırır. Ona listeyi, `this`'i, çalıştırılacak metodun adını ve iletilecek ek bir değeri verirsiniz (gerekmiyorsa `null` kullanın). Metodunuz her `item`'ı ve o ek `value`'yu alır."
         },
         {
             "id": "block-014",
@@ -161,12 +161,12 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Print every name in the list.",
+                "// Listedeki her ismi yazdır.",
                 "ListUtil.ForEach(names, this, \"PrintName\", null);",
                 "",
                 "void PrintName(object item, object value)",
                 "{",
-                "    Debug.Log(\"Name: \" + item);",
+                "    Debug.Log(\"İsim: \" + item);",
                 "}"
             ]
         },
@@ -175,14 +175,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Searching and sorting"
+            "text": "Arama ve sıralama"
         },
         {
             "id": "block-016",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "These also call one of your methods to decide what matches. The **filter** method receives `(item, value)` and returns `true` or `false`; the **sort** method receives two items and returns a number saying which comes first."
+            "text": "Bunlar da neyin eşleştiğine karar vermek için metotlarınızdan birini çağırır. **Filtre** metodu `(item, value)` alır ve `true` ya da `false` döndürür; **sıralama** metodu iki öğe alır ve hangisinin önce geleceğini söyleyen bir sayı döndürür."
         },
         {
             "id": "block-017",
@@ -190,14 +190,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Find(list, this, method, value)`", "Returns the **first** item your filter approves."],
-                ["`FindLast(list, this, method, value)`", "Returns the **last** item your filter approves."],
-                ["`FindAll(list, this, method, value)`", "Returns a new list of **every** item your filter approves."],
-                ["`Sort(list, this, method, value)`", "Reorders the list using your compare method."]
+                ["`Find(list, this, method, value)`", "Filtrenizin onayladığı **ilk** öğeyi döndürür."],
+                ["`FindLast(list, this, method, value)`", "Filtrenizin onayladığı **son** öğeyi döndürür."],
+                ["`FindAll(list, this, method, value)`", "Filtrenizin onayladığı **her** öğenin yeni bir listesini döndürür."],
+                ["`Sort(list, this, method, value)`", "Karşılaştırma metodunuzu kullanarak listeyi yeniden sıralar."]
             ]
         },
         {
@@ -206,13 +206,13 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Keep only the scores above a threshold.",
+                "// Yalnızca bir eşiğin üzerindeki skorları tut.",
                 "List winners = ListUtil.FindAll(scores, this, \"IsHigh\", 50);",
                 "",
-                "// Returns true for items that pass — those are kept.",
+                "// Geçen öğeler için true döndürür — onlar tutulur.",
                 "bool IsHigh(object item, object value)",
                 "{",
-                "    return item > value;   // value is 50 here",
+                "    return item > value;   // burada value 50",
                 "}"
             ]
         },
@@ -221,7 +221,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-020",
@@ -229,9 +229,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`List`", "`New`", "—"],
@@ -260,7 +260,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Need to store values by a name or key instead of a position (like player → score)? Use a [DictionaryUtil](/docs/uniscript/en-US/dictionaryutil) instead."
+            "text": "Değerleri bir konum yerine bir adla veya anahtarla mı saklamanız gerekiyor (oyuncu → skor gibi)? Bunun yerine bir [DictionaryUtil](/docs/uniscript/tr-TR/dictionaryutil) kullanın."
         }
     ]
 }

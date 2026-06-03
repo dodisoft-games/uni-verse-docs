@@ -1,0 +1,150 @@
+{
+    "id": "debug",
+    "lang": "tr-TR",
+    "name": "Debug",
+    "description": "Test sırasında mesaj yazdırın, hızlı bir durum satırı gösterin ve çalışan oyunu betiğinizden durdurun veya duraklatın.",
+    "link": "/docs/uniscript/tr-TR/debug",
+    "tags": [
+        "uniscript",
+        "debug",
+        "log",
+        "test",
+        "konsol"
+    ],
+    "previous": {
+        "name": "TypeUtil",
+        "link": "/docs/uniscript/tr-TR/typeutil"
+    },
+    "next": {
+        "name": "Time",
+        "link": "/docs/uniscript/tr-TR/time"
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "Debug"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug`, oyununuzu geliştirirken aslında ne yaptığını gören pencerenizdir. Bir sayının beklediğiniz değer olduğunu, bir metodun çalıştığını veya bir koşulun sağlandığını doğrulamak için `Debug.Log` ile konsola değer yazdırın. Ayrıca çalışan oyunu koddan durdurmanıza veya duraklatmanıza izin verir."
+        },
+        {
+            "id": "block-003",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Mesaj yazdırma"
+        },
+        {
+            "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Log(message)`, konsola bir satır yazar. Metin, sayı veya herhangi bir değer yazdırabilirsiniz; metni ve bir değeri birleştirmek, neler olduğunu görmenin en yaygın yoludur:"
+        },
+        {
+            "id": "block-005",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "Debug.Log(\"Oyun başladı!\");",
+                "",
+                "// İncelemek için metin ve bir değeri birleştir.",
+                "Debug.Log(\"Oyuncu canı şu an: \" + health);",
+                "",
+                "// Bir dalın ulaşıldığını doğrula.",
+                "if (score > 100)",
+                "{",
+                "    Debug.Log(\"Yüksek skora ulaşıldı!\");",
+                "}"
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Status(message)` benzerdir ama kayan bir kayıt yerine, test sırasında hızlı ve tek bakışta geri bildirim için kısa bir durum satırı gösterir."
+        },
+        {
+            "id": "block-007",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Oyunu durdurma ve duraklatma"
+        },
+        {
+            "id": "block-008",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`Stop()`", "Çalışan oyunu tamamen durdurur (Durdur'a basmış gibi)."],
+                ["`Pause()`", "Mevcut durumu inceleyebilmeniz için oyunu duraklatır, sonra devam edebilirsiniz."]
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Beklenmedik bir şey olduğu anda oyunu dondur,",
+                "// böylece sahneye bakabilirsin.",
+                "if (somethingWentWrong)",
+                "{",
+                "    Debug.Pause();",
+                "}"
+            ]
+        },
+        {
+            "id": "block-010",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm metot referansı"
+        },
+        {
+            "id": "block-011",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`void`", "`Log`", "`object message`"],
+                ["`void`", "`Status`", "`object message`"],
+                ["`void`", "`Stop`", "—"],
+                ["`void`", "`Pause`", "—"]
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "**Her karede çalışan kodun içinde `Debug.Log` kullanmaktan kaçının** — `OnUpdate`, `OnPostUpdate` ve `OnAction` gibi metotlar sürekli çalışır; orada log almak, konsolu doldurmanın yanı sıra o metodun geri kalanını da kesebilir (yani logdan sonraki komutlar hiç çalışmaz). Her karede değil, bir şey *değiştiğinde* bir kez log alın."
+        },
+        {
+            "id": "block-013",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "`Debug.Log` **geliştirme ve test** içindir. Oyuncuların asla görmemesi ve oyunun hızlı kalması için yayınlamadan önce loglarınızı kaldırın veya devre dışı bırakın."
+        }
+    ]
+}

@@ -1,24 +1,24 @@
 {
     "id": "vectorutil",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "VectorUtil",
-    "description": "Build and work with vector3 values — the (x, y, z) used for positions and directions. Make them, measure distance, find directions, and blend between them.",
-    "link": "/docs/uniscript/en-US/vectorutil",
+    "description": "vector3 değerleriyle çalışın — konumlar ve yönler için kullanılan (x, y, z). Bunları oluşturun, mesafe ölçün, yön bulun ve aralarında geçiş yapın.",
+    "link": "/docs/uniscript/tr-TR/vectorutil",
     "tags": [
         "uniscript",
         "vectorutil",
         "vector3",
-        "position",
-        "direction",
-        "distance"
+        "konum",
+        "yön",
+        "mesafe"
     ],
     "previous": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/en-US/uniobjectutil"
+        "link": "/docs/uniscript/tr-TR/uniobjectutil"
     },
     "next": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/en-US/quaternionutil"
+        "link": "/docs/uniscript/tr-TR/quaternionutil"
     },
     "content": [
         {
@@ -33,28 +33,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "A **vector3** is three numbers bundled together — `(x, y, z)`. It's how the game describes a **position** (where something is) and a **direction** (which way it points or moves). `VectorUtil` is the toolbox for building and working with these values."
+            "text": "Bir **vector3**, birlikte paketlenmiş üç sayıdır — `(x, y, z)`. Oyun, bir **konumu** (bir şeyin nerede olduğu) ve bir **yönü** (neye işaret ettiği veya nereye hareket ettiği) böyle tanımlar. `VectorUtil`, bu değerleri oluşturmak ve onlarla çalışmak için araç kutusudur."
         },
         {
             "id": "block-003",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "In Universe, `x` is left/right, `y` is up/down, and `z` is forward/back."
+            "text": "Universe'de `x` sol/sağ, `y` yukarı/aşağı ve `z` ileri/geridir."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Making a vector"
+            "text": "Bir vektör oluşturma"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Use `New` to build your own, or grab one of the ready-made common directions:"
+            "text": "Kendinizinkini oluşturmak için `New` kullanın veya hazır yaygın yönlerden birini alın:"
         },
         {
             "id": "block-006",
@@ -62,10 +62,10 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Build a point 5 units up.",
+                "// 5 birim yukarıda bir nokta oluştur.",
                 "vector3 spot = VectorUtil.New(0.0, 5.0, 0.0);",
                 "",
-                "// Ready-made directions.",
+                "// Hazır yönler.",
                 "vector3 up      = VectorUtil.Up();       // (0, 1, 0)",
                 "vector3 forward = VectorUtil.Forward();  // (0, 0, 1)",
                 "vector3 origin  = VectorUtil.Zero();     // (0, 0, 0)"
@@ -77,13 +77,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "Gives you"
+                "Metot",
+                "Size verdiği"
             ],
             "rows": [
-                ["`New(x, y, z)`", "A custom vector from three numbers."],
-                ["`Zero()`", "`(0, 0, 0)` — the origin / no movement."],
-                ["`One()`", "`(1, 1, 1)` — handy as a default scale."],
+                ["`New(x, y, z)`", "Üç sayıdan özel bir vektör."],
+                ["`Zero()`", "`(0, 0, 0)` — başlangıç noktası / hareketsizlik."],
+                ["`One()`", "`(1, 1, 1)` — varsayılan ölçek olarak kullanışlı."],
                 ["`Up()` / `Down()`", "`(0, 1, 0)` / `(0, -1, 0)`."],
                 ["`Left()` / `Right()`", "`(-1, 0, 0)` / `(1, 0, 0)`."],
                 ["`Forward()` / `Back()`", "`(0, 0, 1)` / `(0, 0, -1)`."]
@@ -94,14 +94,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Reading the parts"
+            "text": "Parçaları okuma"
         },
         {
             "id": "block-009",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`X`, `Y`, and `Z` pull a single number back out of a vector — for example, to check how high something is."
+            "text": "`X`, `Y` ve `Z`, bir vektörden tek bir sayıyı geri çeker — örneğin bir şeyin ne kadar yüksekte olduğunu kontrol etmek için."
         },
         {
             "id": "block-010",
@@ -113,7 +113,7 @@
                 "float height = VectorUtil.Y(pos);",
                 "if (height < -10.0)",
                 "{",
-                "    Debug.Log(\"Fell off the map!\");",
+                "    Debug.Log(\"Haritadan düştü!\");",
                 "}"
             ]
         },
@@ -122,7 +122,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Distance and length"
+            "text": "Mesafe ve uzunluk"
         },
         {
             "id": "block-012",
@@ -130,13 +130,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Distance(a, b)`", "How far apart two points are — perfect for \"is the player close enough?\"."],
-                ["`Magnitude(v)`", "The length of a vector (e.g. how fast something is moving)."],
-                ["`Normalized(v)`", "Shrinks a vector to length 1, keeping its direction — a pure direction with no speed."]
+                ["`Distance(a, b)`", "İki noktanın ne kadar uzak olduğu — \"oyuncu yeterince yakın mı?\" için mükemmel."],
+                ["`Magnitude(v)`", "Bir vektörün uzunluğu (örneğin bir şeyin ne kadar hızlı hareket ettiği)."],
+                ["`Normalized(v)`", "Bir vektörü, yönünü koruyarak 1 uzunluğa küçültür — hızı olmayan saf bir yön."]
             ]
         },
         {
@@ -145,7 +145,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Open a door only when the player is within 3 units.",
+                "// Yalnızca oyuncu 3 birim içindeyken bir kapı aç.",
                 "float dist = VectorUtil.Distance(playerPos, doorPos);",
                 "if (dist < 3.0)",
                 "{",
@@ -158,21 +158,21 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Use `Normalized` whenever you want a **direction** without caring about length — like pushing something \"toward the target\" at your own chosen speed: `direction = VectorUtil.Normalized(targetPos - myPos)`."
+            "text": "Uzunluğunu önemsemeden bir **yön** istediğinizde `Normalized` kullanın — bir şeyi kendi seçtiğiniz hızda \"hedefe doğru\" itmek gibi: `direction = VectorUtil.Normalized(targetPos - myPos)`."
         },
         {
             "id": "block-015",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Blending between vectors"
+            "text": "Vektörler arasında geçiş"
         },
         {
             "id": "block-016",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Just like numbers, you can smoothly move from one point to another. This is how you glide objects instead of teleporting them."
+            "text": "Tıpkı sayılar gibi, bir noktadan diğerine yumuşakça geçebilirsiniz. Nesneleri ışınlamak yerine kaydırmanın yolu budur."
         },
         {
             "id": "block-017",
@@ -180,12 +180,12 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Lerp(from, to, t)`", "A point partway from `from` to `to`, where `t` is `0`–`1`."],
-                ["`SmoothLerp(from, to, speed)`", "An ease toward `to` at `speed`. It already accounts for frame time, so just pass a speed (e.g. `5.0`) — no need to multiply by delta time."]
+                ["`Lerp(from, to, t)`", "`from`'dan `to`'ya bir ara nokta; burada `t`, `0`–`1` arasıdır."],
+                ["`SmoothLerp(from, to, speed)`", "`to`'ya doğru `speed` ile bir yumuşatma. Kare süresini zaten hesaba katar, bu yüzden sadece bir hız verin (örn. `5.0`) — delta süreyle çarpmaya gerek yok."]
             ]
         },
         {
@@ -194,7 +194,7 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Glide an object toward a target spot each frame.",
+                "// Bir nesneyi her karede bir hedef noktaya doğru kaydır.",
                 "vector3 here = UniObjectUtil.GetPosition(this);",
                 "vector3 next = VectorUtil.SmoothLerp(here, targetPos, 5.0);",
                 "UniObjectUtil.SetPosition(this, next);"
@@ -205,7 +205,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Advanced direction math"
+            "text": "İleri düzey yön matematiği"
         },
         {
             "id": "block-020",
@@ -213,13 +213,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                ["`Dot(a, b)`", "Tells how much two directions point the same way: `1` = same, `0` = at a right angle, `-1` = opposite. Great for \"is the target in front of me?\"."],
-                ["`Cross(a, b)`", "Gives a direction at a right angle to both inputs."],
-                ["`Project(v, normal)`", "Flattens vector `v` onto a surface defined by `normal` — for example, keeping movement along the ground."]
+                ["`Dot(a, b)`", "İki yönün ne kadar aynı tarafa baktığını söyler: `1` = aynı, `0` = dik açı, `-1` = ters. \"Hedef önümde mi?\" için harika."],
+                ["`Cross(a, b)`", "Her iki girdiye de dik açıda bir yön verir."],
+                ["`Project(v, normal)`", "`v` vektörünü `normal` ile tanımlanan bir yüzeye yansıtır (düzleştirir) — örneğin hareketi zemin boyunca tutmak için."]
             ]
         },
         {
@@ -227,7 +227,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-022",
@@ -235,9 +235,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`vector3`", "`Zero`", "—"],
@@ -267,7 +267,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Vectors describe positions and directions; **rotations** are a different value called a quaternion. To turn a direction into a facing, see [QuaternionUtil](/docs/uniscript/en-US/quaternionutil)."
+            "text": "Vektörler konumları ve yönleri tanımlar; **dönüşler** ise quaternion adı verilen farklı bir değerdir. Bir yönü bir bakış yönüne çevirmek için [QuaternionUtil](/docs/uniscript/tr-TR/quaternionutil) sayfasına bakın."
         }
     ]
 }

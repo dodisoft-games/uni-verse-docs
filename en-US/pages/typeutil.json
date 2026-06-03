@@ -2,11 +2,14 @@
     "id": "typeutil",
     "lang": "en-US",
     "name": "TypeUtil",
-    "description": "Runtime type queries and conversions.",
+    "description": "Check what kind of value you're holding (number, text, true/false, vector...) and convert between them — for example turning typed text into a usable number.",
     "link": "/docs/uniscript/en-US/typeutil",
     "tags": [
         "uniscript",
-        "typeutil"
+        "typeutil",
+        "convert",
+        "type",
+        "cast"
     ],
     "previous": {
         "name": "Math",
@@ -29,17 +32,138 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Runtime type queries and conversions."
+            "text": "Every value in your game has a **type** — it might be a number, a piece of text, a true/false flag, a position, a color, and so on. `TypeUtil` lets you ask \"what kind of value is this?\" and **convert** one kind into another, like turning the text a player typed (`\"42\"`) into a real number you can do math with (`42`)."
         },
         {
             "id": "block-003",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "The type numbers"
         },
         {
             "id": "block-004",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Several methods use a **type number** to say which kind of value you mean. Here is the full list:"
+        },
+        {
+            "id": "block-005",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Number",
+                "Type",
+                "What it is"
+            ],
+            "rows": [
+                ["`0`", "Integer", "A whole number, like `7`."],
+                ["`1`", "Float", "A decimal number, like `3.5`."],
+                ["`2`", "Boolean", "A true/false flag."],
+                ["`3`", "String", "Text, like `\"hello\"`."],
+                ["`4`", "Object", "A generic value of any kind."],
+                ["`5`", "Vector3", "A 3D point or direction (x, y, z)."],
+                ["`6`", "Quaternion", "A rotation."],
+                ["`7`", "Color", "A color (red, green, blue, alpha)."],
+                ["`8`", "Instance", "A reference to a script or object."],
+                ["`9`", "List", "An ordered collection of values."],
+                ["`10`", "Dictionary", "A set of key → value pairs."],
+                ["`11`", "Asset", "A reference to a project asset."]
+            ]
+        },
+        {
+            "id": "block-006",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Checking a value's type"
+        },
+        {
+            "id": "block-007",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`GetType` returns the type **number** (from the table above), and `GetTypeName` returns a readable **name**. Use these when a value could be more than one kind and you need to handle each case."
+        },
+        {
+            "id": "block-008",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "int kind = TypeUtil.GetType(someValue);",
+                "if (kind == 0) { Debug.Log(\"It's a whole number!\"); }   // 0 = Integer",
+                "",
+                "string name = TypeUtil.GetTypeName(someValue);",
+                "Debug.Log(name);   // prints the type's name"
+            ]
+        },
+        {
+            "id": "block-009",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Converting between types"
+        },
+        {
+            "id": "block-010",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`Convert(value, newType)` changes a value into the type you ask for. The most common use is turning text from a player's input box into a number you can calculate with:"
+        },
+        {
+            "id": "block-011",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// The player typed \"42\" into a text box.",
+                "object typed = \"42\";",
+                "",
+                "// Convert that text into a real whole number (type 0 = Integer).",
+                "object asNumber = TypeUtil.Convert(typed, 0);",
+                "// asNumber is now 42 and can be used in math."
+            ]
+        },
+        {
+            "id": "block-012",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Many sensible conversions are supported, for example:"
+        },
+        {
+            "id": "block-013",
+            "tag": "ul",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {"t": "**Text → number** — `\"42\"` becomes `42` (or `3.5` for a Float)."},
+                {"t": "**Number → text** — any value can become a readable string."},
+                {"t": "**Number ↔ true/false** — `0` is `false`, anything else is `true`."},
+                {"t": "**Vector3 ↔ Quaternion ↔ Color** — convert between 3D-style values."},
+                {"t": "**Vector3 / Color → List** — split a value into its parts as a list."}
+            ]
+        },
+        {
+            "id": "block-014",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "Conversions only work when they make sense. Converting the text `\"hello\"` to a number can't produce a real value, so always sanity-check player input — for example confirm the text looks like a number before relying on the result."
+        },
+        {
+            "id": "block-015",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-016",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -65,6 +189,13 @@
                     "`object value, int newType`"
                 ]
             ]
+        },
+        {
+            "id": "block-017",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "The type numbers here are the same ones used across UniScript. See [ListUtil](/docs/uniscript/en-US/listutil) and [DictionaryUtil](/docs/uniscript/en-US/dictionaryutil) for working with the List (9) and Dictionary (10) types."
         }
     ]
 }

@@ -1,0 +1,770 @@
+{
+    "id": "characterutil",
+    "lang": "tr-TR",
+    "name": "CharacterUtil",
+    "description": "Bir karaktere hayat vermek için ihtiyacınız olan her şey: onu yürütün, animasyon oynatın, yüz ifadesi yaptırın, eşya taktırın ve oyuncunun girdisine tepki verdirin — adım adım anlatılmıştır.",
+    "link": "/docs/uniscript/tr-TR/characterutil",
+    "tags": [
+        "uniscript",
+        "characterutil",
+        "karakter",
+        "animasyon",
+        "hareket",
+        "oyuncu"
+    ],
+    "previous": {
+        "name": "SceneUtil",
+        "link": "/docs/uniscript/tr-TR/sceneutil"
+    },
+    "next": {
+        "name": "",
+        "link": ""
+    },
+    "content": [
+        {
+            "id": "block-001",
+            "tag": "h1",
+            "styles": null,
+            "classes": null,
+            "text": "CharacterUtil"
+        },
+        {
+            "id": "block-002",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bir **karakter**, dünyanızda dolaşan kişi, hayvan veya yaratıktır — bir oyuncunun kontrol ettiği şey ya da onları kovalayan bir düşman. `CharacterUtil`, o bedene hayat veren araç kutusudur: bir karakteri **hareket ettirmek**, **döndürmek**, **animasyon oynatmak**, **yüz ifadeleri yaptırmak**, **eşya tutturmak** ve **girdiye tepki verdirmek** için onu kullanırsınız."
+        },
+        {
+            "id": "block-003",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bunu karakteriniz için bir uzaktan kumanda gibi düşünün. Kumandadaki her düğme aşağıdaki bir metottur — `SetInput` joystick'tir, `PlayMotion` bir animasyon oynatır, `SetFacialExpression` yüzü değiştirir vb."
+        },
+        {
+            "id": "block-004",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Her metodun ihtiyaç duyduğu tek şey"
+        },
+        {
+            "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Aşağıdaki neredeyse her metodun `uniscript` adında bir parametreyle başladığına dikkat edin. Bu basitçe __hangi karaktere__ seslendiğinizdir. Ona iki şeyden birini verirsiniz:"
+        },
+        {
+            "id": "block-006",
+            "tag": "ul",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {"t": "`this` — yazdığınız betik **karakterin kendisine bağlı olduğunda**. `this`, \"bu karakter, üzerinde çalıştığım karakter\" demektir."},
+                {"t": "Bir **bağlanmış karakter alanı** — betiğiniz sahnenin başka bir yerindeki bir karakteri kontrol ettiğinde. Bir alan tanımlar, editörde karakteri üzerine sürükler, sonra o alanı verirsiniz."}
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Bu sayfada ilk parametre olarak `uniscript` gördüğünüzde, onu **\"karakter\"** diye okuyun. En sık verdiğiniz değer `this`'tir."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "1. Adım — Bir nesneyi karaktere çevirin"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Başka herhangi bir komut çalışmadan önce, nesneye \"sen bir karaktersin\" denmelidir. Bunu betik başladığında bir kez, `AddCharacter` ile yaparsınız. Bu satır çalıştıktan sonra nesne; yürüyebilen, animasyon oynatabilen ve dünyayla çarpışabilen bir beden kazanır."
+        },
+        {
+            "id": "block-010",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        // Bu nesneyi yaşayan bir karaktere çevir. Önce bunu yap.",
+                "        CharacterUtil.AddCharacter(this);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "`AddCharacter`'ı unutursanız, bu sayfadaki diğer her komut **sessizce hiçbir şey yapmaz** — hata yok, hareket yok. Karakteriniz hareket etmiyor veya animasyon oynatmıyorsa, kontrol edilecek ilk şey budur."
+        },
+        {
+            "id": "block-012",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "**Günlük oyunlar için `Character` sarmalayıcısını tercih edin.** Universe, editörde bir nesneye ekleyebileceğiniz hazır bir `Character` bileşeni içerir. Onu kullandığınızda nesne otomatik olarak karakter olur (elle `AddCharacter`'a gerek kalmaz) ve aynı eylemleri `myCharacter.SetInput(...)`, `myCharacter.AddVelocity(...)` vb. olarak çağırırsınız. Ham `CharacterUtil` çağrılarına; karakterin **üzerinde** yaşayan denetleyici betiği yazarken veya sarmalayıcının sunmadığı bir komuta ihtiyaç duyduğunuzda başvurun."
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "2. Adım — Onu hareket ettirin"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Hareket, `SetInput` ile yönetilir. Ona, tıpkı bir joystick gibi, `-1` ile `1` arasında iki sayı verirsiniz:"
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parametre",
+                "Anlamı",
+                "Örnek"
+            ],
+            "rows": [
+                ["`xAxis`", "Sol / sağ (yana kayma). `-1` = sol, `1` = sağ.", "`-1.0`, `0.0`, `1.0`"],
+                ["`yAxis`", "İleri / geri. `-1` = geri, `1` = ileri.", "`-1.0`, `0.0`, `1.0`"]
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Çoğu oyun bunu, `OnAxis` geri çağrısı aracılığıyla oyuncunun joystick'ine veya WASD tuşlarına bağlar. Burada karakter, oyuncu çubuğu nereye iterse oraya yürür:"
+        },
+        {
+            "id": "block-017",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        CharacterUtil.AddCharacter(this);",
+                "    }",
+                "",
+                "    // Joystick / WASD değeri her değiştiğinde çağrılır.",
+                "    void OnAxis(string panel, string sender, string axis, vector3 value)",
+                "    {",
+                "        if (axis == \"move\")",
+                "        {",
+                "            float strafe  = VectorUtil.X(value);  // sol / sağ",
+                "            float forward = VectorUtil.Y(value);  // ileri / geri",
+                "            CharacterUtil.SetInput(this, strafe, forward);",
+                "        }",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-018",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Tam hız için çubuğu sonuna kadar itin (`1.0`), yavaş yürümek için yarıya (`0.5`). Durdurmak için `0, 0` gönderin. Karakteri koşturmak için `SetRunningState` ile koşmayı açın (aşağıya bakın)."
+        },
+        {
+            "id": "block-019",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Yürüme, koşma, tırmanma, yüzme, uçma — hareket modları"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetMovement`, karakterin dünyada nasıl davrandığını değiştirir — örneğin suya girdiğinde yürümekten yüzmeye geçmek gibi. Modu seçen bir sayı verirsiniz:"
+        },
+        {
+            "id": "block-021",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Değer",
+                "Mod",
+                "Ne zaman kullanılır"
+            ],
+            "rows": [
+                ["`0`", "Walking", "Normal yere basan durum."],
+                ["`1`", "Climbing", "Merdivenlerde, duvarlarda veya sarmaşıklarda."],
+                ["`2`", "Swimming", "Suda."],
+                ["`3`", "Flying", "Serbest uçuş, yer çekimi çekmez."],
+                ["`4`", "Falling", "Bir düşüş veya zıplamadan sonra havada."],
+                ["`5`", "Custom", "Kendinizin yönettiği bir hareket stili (özel döngü animasyonlarına bakın)."]
+            ]
+        },
+        {
+            "id": "block-022",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Oyuncu suya yüzerek girdi — yüzme durumuna geç.",
+                "CharacterUtil.SetMovement(this, 2);  // 2 = Swimming"
+            ]
+        },
+        {
+            "id": "block-023",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Hareket modu değiştiğinde, betiğiniz tepki verebilmeniz için bir `MovementChangedEvent` de alır (su sesi çal, kamerayı değiştir vb.)."
+        },
+        {
+            "id": "block-024",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Koşma, dönme ve dürtme"
+        },
+        {
+            "id": "block-025",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`SetRunningState(this, true)`", "Koşmayı **açar**, böylece hareket koşma hızını kullanır. Tekrar yürümek için `false` verin."],
+                ["`SetRotation(this, rotation)`", "Karakteri anında bir yöne çevirir. `rotation`, derece cinsinden açıların bir `vector3`'üdür (Y değeri sol/sağ dönüştür)."],
+                ["`AddVelocity(this, velocity, local)`", "Karaktere bir itiş verir — zıplamalar, atılışlar ve geri tepme için harika. `local = true` karakterin baktığı yöne göre iter; `false` dünya yönlerinde iter."],
+                ["`GetVelocity(this)`", "Karakterin mevcut hızını ve yönünü bir `vector3` olarak döndürür. Düşüp düşmediğini veya ne kadar hızlı gittiğini kontrol etmek için kullanışlı."],
+                ["`ResetTransform(this, position, rotation)`", "Karakteri tam bir noktaya ve bakış yönüne ışınlar — yeniden doğuşlar ve kontrol noktaları için kullanılır."]
+            ]
+        },
+        {
+            "id": "block-026",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Basit bir zıplama: karakteri yukarı doğru it.",
+                "vector3 jump = VectorUtil.New(0.0, 12.0, 0.0);",
+                "CharacterUtil.AddVelocity(this, jump, false);",
+                "",
+                "// Oyuncuyu bir darbeden geri it, kendi bakış yönüne göre.",
+                "vector3 knockback = VectorUtil.New(0.0, 4.0, -8.0);",
+                "CharacterUtil.AddVelocity(this, knockback, true);",
+                "",
+                "// Kontrol noktasında yeniden doğ.",
+                "vector3 spawnPos = VectorUtil.New(0.0, 2.0, 0.0);",
+                "vector3 spawnRot = VectorUtil.New(0.0, 90.0, 0.0);",
+                "CharacterUtil.ResetTransform(this, spawnPos, spawnRot);"
+            ]
+        },
+        {
+            "id": "block-027",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "`ResetTransform`, yalnızca **Action** denetleyici türüne ayarlanmış bir karakterde çalışır. Oynanabilir karakteriniz yeniden doğuşu/ışınlanmayı görmezden geliyorsa (sonsuza kadar düşmeye devam ediyorsa), `Character` bileşenini açın ve **type**'ını **Action** olarak ayarlayın. Düz fizik karakterleri ışınlanamaz."
+        },
+        {
+            "id": "block-028",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "3. Adım — Animasyon oynatın (motions)"
+        },
+        {
+            "id": "block-029",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bir **animasyon** (*motion* denir), el sallama, yumruk atma, zıplama veya düşerek ölme gibi bir hareket klibidir. Bir tanesini kullanmak iki adımlı bir süreçtir:"
+        },
+        {
+            "id": "block-030",
+            "tag": "ol",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {"t": "Klibi `AddMotion` ile bir kez **kaydedin**, ona `\"wave\"` veya `\"jump\"` gibi kısa bir ad verin."},
+                {"t": "Onu istediğiniz zaman o adla `PlayMotion` ile **oynatın**."}
+            ]
+        },
+        {
+            "id": "block-031",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Asıl animasyon klibini editörde bağladığınız bir özellik aracılığıyla verir, sonra kaydedip oynatırsınız:"
+        },
+        {
+            "id": "block-032",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    // Editörde bu alana bir motion varlığı sürükleyin.",
+                "    object @waveClip;",
+                "",
+                "    void OnInit()",
+                "    {",
+                "        CharacterUtil.AddCharacter(this);",
+                "",
+                "        // Klibi \"wave\" adıyla kaydet.",
+                "        CharacterUtil.AddMotion(this, waveClip, \"wave\");",
+                "    }",
+                "",
+                "    void OnAction(string panel, string sender, string action, bool state, object data)",
+                "    {",
+                "        if (action == \"emote\" && state)",
+                "        {",
+                "            // motion adı, oynayanı durdur, bitince geri çağır, yer çekimini koru",
+                "            CharacterUtil.PlayMotion(this, \"wave\", true, \"OnWaveFinished\", true);",
+                "        }",
+                "    }",
+                "",
+                "    // El sallama animasyonu bittiğinde otomatik olarak çalışır.",
+                "    void OnWaveFinished(string motion)",
+                "    {",
+                "        Debug.Log(\"El sallama bitti!\");",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-033",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "PlayMotion'ın seçeneklerini anlamak"
+        },
+        {
+            "id": "block-034",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parametre",
+                "Neyi kontrol ettiği"
+            ],
+            "rows": [
+                ["`motion`", "`AddMotion` ile kaydettiğiniz ad, örn. `\"wave\"`."],
+                ["`stopPreviousAction`", "`true`, zaten oynayan herhangi bir animasyonu keser; `false`, biri oynuyorsa bekler ve yok sayılır."],
+                ["`callbackMethod`", "Animasyon bittiğinde betiğinizde çağrılacak metodun adı. Yoksa `\"\"` kullanın."],
+                ["`useGravity`", "`true`, animasyon sırasında karakteri yere basılı tutar; `false`, yer çekimini yok saymasına izin verir (süzülme veya havadaki hareketler için kullanışlı)."],
+                ["`avatarMaskType`", "*(İsteğe bağlı)* Animasyonun bedenin hangi kısmında oynayacağı — aşağıdaki tabloya bakın."]
+            ]
+        },
+        {
+            "id": "block-035",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "**Avatar maskesi**, bir animasyonu bedenin yalnızca bir kısmında oynatmanızı sağlar — böylece bir karakter, bacaklarıyla **koşmaya devam ederken** üst bedeniyle el sallayabilir:"
+        },
+        {
+            "id": "block-036",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Değer",
+                "Etkilediği",
+                "Ne için"
+            ],
+            "rows": [
+                ["`0`", "General (tüm beden)", "Zıplama veya ölme gibi tüm beden hareketleri."],
+                ["`1`", "Upper (üst beden)", "Hareket ederken el sallama, ateş etme veya bir şey fırlatma."],
+                ["`2`", "Lower (alt beden)", "Yalnızca bacak efektleri."]
+            ]
+        },
+        {
+            "id": "block-037",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Bacaklar yürümeye devam etsin diye yalnızca üst bedenle el salla.",
+                "CharacterUtil.PlayMotion(this, \"wave\", true, \"\", true, 1);  // 1 = Upper"
+            ]
+        },
+        {
+            "id": "block-038",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Döngüsel hareketler"
+        },
+        {
+            "id": "block-039",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`PlayMotion` bir klibi bir kez oynatır. **Sürekli tekrar etmesi** gereken bir animasyon için — özel bir süzülme, sürekli bir bekleme dansı veya özel bir hareket stili gibi — bunun yerine özel döngü hareketlerini kullanın:"
+        },
+        {
+            "id": "block-040",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`AddCustomLoopMotion(this, motion, speed)`", "Döngüsel bir klibi ve ne kadar hızlı oynayacağını kaydeder (`speed`, `1.0` normaldir)."],
+                ["`PlayCustomLoopMotion(this, motion, speed)`", "Adı verilen klibi döngüye sokar, ona yumuşakça geçiş yapar."],
+                ["`StopCustomLoopMotion(this)`", "Döngüyü durdurur ve karakteri normal yürümeye döndürür."]
+            ]
+        },
+        {
+            "id": "block-041",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "4. Adım — Yüz ifadeleri"
+        },
+        {
+            "id": "block-042",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetFacialExpression`, karakterin yüzünü ana uyacak şekilde değiştirir — kazandığında mutlu, darbe aldığında öfkeli. Duygu için bir sayı verirsiniz:"
+        },
+        {
+            "id": "block-043",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Değer",
+                "Duygu",
+                "Değer",
+                "Duygu"
+            ],
+            "rows": [
+                ["`0`", "Natural", "`6`", "Screaming"],
+                ["`1`", "Happy", "`7`", "Shocked"],
+                ["`2`", "Smiling", "`8`", "Pensive"],
+                ["`3`", "Sad", "`9`", "Confused"],
+                ["`4`", "Tearful", "`10`", "Wink"],
+                ["`5`", "Furious", "`11`", "Blink"]
+            ]
+        },
+        {
+            "id": "block-044",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Oyuncu az önce kazandı — gülümse!",
+                "CharacterUtil.SetFacialExpression(this, 1);  // 1 = Happy"
+            ]
+        },
+        {
+            "id": "block-045",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "İfadeler kısaca oynar ve sonra kendiliğinden `Natural`'a geri rahatlar, böylece bir göz kırpma veya şaşkın yüz, kalıcı donmuş bir görünüm yerine bir tepki gibi hissettirir."
+        },
+        {
+            "id": "block-046",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Bir karaktere eşya tutturma"
+        },
+        {
+            "id": "block-047",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`AttachAccessory`, bir nesneyi — bir kılıç, bir şapka, bir sırt çantası — karakterin belirli bir kemiğine sabitler, böylece beden ile birlikte hareket eder. Hangi kemiği, ayrıca eşyanın tam oturması için bir konum ve dönüş kaymasını seçersiniz."
+        },
+        {
+            "id": "block-048",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Tutturabileceğiniz kemikler (sayıyı verin):"
+        },
+        {
+            "id": "block-049",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Değer",
+                "Kemik",
+                "Değer",
+                "Kemik",
+                "Değer",
+                "Kemik"
+            ],
+            "rows": [
+                ["`0`", "Head", "`6`", "LeftLowerArm", "`12`", "LeftUpperLeg"],
+                ["`1`", "Chest", "`7`", "LeftHand", "`13`", "LeftLowerLeg"],
+                ["`2`", "Belly", "`8`", "RightShoulder", "`14`", "LeftFoot"],
+                ["`3`", "Hips", "`9`", "RightUpperArm", "`15`", "RightUpperLeg"],
+                ["`4`", "LeftShoulder", "`10`", "RightLowerArm", "`16`", "RightLowerLeg"],
+                ["`5`", "LeftUpperArm", "`11`", "RightHand", "`17`", "RightFoot"]
+            ]
+        },
+        {
+            "id": "block-050",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Karakterin sağ eline bir kılıç koy.",
+                "vector3 offsetPos = VectorUtil.New(0.0, 0.0, 0.1);",
+                "vector3 offsetRot = VectorUtil.New(0.0, 90.0, 0.0);",
+                "CharacterUtil.AttachAccessory(this, character, 11, offsetPos, offsetRot);  // 11 = RightHand"
+            ]
+        },
+        {
+            "id": "block-051",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Burada ilk parametre tutturulan **eşya**, ikincisi ise tutturulduğu **karakterdir**. Eşya elle hizalanana kadar konum ve dönüş kaymasını ince ayarlayın."
+        },
+        {
+            "id": "block-052",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Ters Kinematik — uzanma ve ayak yerleşimi (ileri düzey)"
+        },
+        {
+            "id": "block-053",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "**Ters Kinematik** (IK), karakterin uzuvlarını büker; böylece bir el kapı koluna uzanır veya ayaklar bir eğimde düz kalır. Bu ileri düzey bir özelliktir — çoğu oyunun buna ihtiyacı yoktur, ama ihtiyaç duyulduğunda çok fazla gerçekçilik katar."
+        },
+        {
+            "id": "block-054",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`SetIKState(this, enable)`", "Karakter için IK'yı açar veya kapatır."],
+                ["`SetIKGoal(this, goal, target)`", "Bir uzva (`goal`) başka bir nesneye (`target`) doğru uzanmasını söyler."],
+                ["`SetIKWeights(this, goal, positionWeight, rotationWeight)`", "Uzvun hedefi ne kadar güçlü takip ettiği, `0.0` (yok say) ile `1.0` (tam uzan) arası."]
+            ]
+        },
+        {
+            "id": "block-055",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Kontrol ettiğiniz uzuv (`goal`):"
+        },
+        {
+            "id": "block-056",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Değer",
+                "Uzuv"
+            ],
+            "rows": [
+                ["`0`", "Head"],
+                ["`1`", "LeftFoot"],
+                ["`2`", "RightFoot"],
+                ["`3`", "LeftHand"],
+                ["`4`", "RightHand"]
+            ]
+        },
+        {
+            "id": "block-057",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "CharacterUtil.SetIKState(this, true);",
+                "// Sağ elin bir hedef nesneye doğru tam olarak uzanmasını sağla.",
+                "CharacterUtil.SetIKGoal(this, 4, doorknob);     // 4 = RightHand",
+                "CharacterUtil.SetIKWeights(this, 4, 1.0, 1.0);"
+            ]
+        },
+        {
+            "id": "block-058",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Aksiyon karakterleri — düğmeyle tetiklenen hareketler (ileri düzey)"
+        },
+        {
+            "id": "block-059",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Bazı oyunlar bir **aksiyon karakteri** kullanır — yalnızca serbest hareket yerine ayrık, düğmeyle tetiklenen eylemler (saldırı, blok, yuvarlanma) etrafında kurulu bir karakter. Bir tanesini `AddCharacter` yerine `AddActionCharacter` ile kurar, sonra hareketlerini yönetirsiniz:"
+        },
+        {
+            "id": "block-060",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`AddActionCharacter(this)`", "Nesneyi bir aksiyon karakteri olarak kurar (`AddCharacter` yerine bunu kullanın)."],
+                ["`PlayAction(this, action)`", "`action` numaralı eylemi bir kez tetikler (örn. tek bir saldırı savurması)."],
+                ["`SetInputAction(this, action, state)`", "Bir eylemi açık veya kapalı tutar — bir düğme basılıyken `true`, bırakıldığında `false` (örn. blok tutma)."]
+            ]
+        },
+        {
+            "id": "block-061",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`PlayAction` ve `SetInputAction` yalnızca bir **aksiyon karakterinde** bir şey yapar. Normal bir karakterde (`AddCharacter` ile kurulan) hiçbir etkileri yoktur — orada bunun yerine `PlayMotion` kullanın."
+        },
+        {
+            "id": "block-062",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Kamera, isim etiketleri ve duraklatma"
+        },
+        {
+            "id": "block-063",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Metot",
+                "Ne işe yarar"
+            ],
+            "rows": [
+                ["`SetFollowerCamera(this, camera)`", "Bir kameranın bu karakteri takip etmesini sağlar — üçüncü şahıs görünümü kurmanın standart yolu."],
+                ["`AddPlayerTag(this)`", "Karakterin üzerine süzülen bir isim etiketi ekler (çok oyunculuda kimin kim olduğunu göstermek için kullanışlı)."],
+                ["`Stop(this)`", "Karakteri duraklatır — onu tekrar başlatana kadar hareket etmeyi ve animasyon oynatmayı durdurur."],
+                ["`Start(this)`", "`Stop` ile duraklatılmış bir karakteri devam ettirir."]
+            ]
+        },
+        {
+            "id": "block-064",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Tüm metot referansı"
+        },
+        {
+            "id": "block-065",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`CharacterUtil`'deki her metot. İlk `uniscript` parametresinin **karakter** olduğunu unutmayın — genellikle `this`."
+        },
+        {
+            "id": "block-066",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Döndürür",
+                "Metot",
+                "Parametreler"
+            ],
+            "rows": [
+                ["`void`", "`AddCharacter`", "`uniscript`"],
+                ["`void`", "`SetInput`", "`uniscript, float xAxis, float yAxis`"],
+                ["`void`", "`SetMovement`", "`uniscript, int movement`"],
+                ["`void`", "`SetFacialExpression`", "`uniscript, int expression`"],
+                ["`void`", "`PlayAction`", "`uniscript, int action`"],
+                ["`void`", "`AddMotion`", "`uniscript, object motionAsset`"],
+                ["`void`", "`AddMotion`", "`uniscript, object motionAsset, string name`"],
+                ["`void`", "`PlayMotion`", "`uniscript, string motion, bool stopPreviousAction, string callbackMethod, bool useGravity`"],
+                ["`void`", "`PlayMotion`", "`uniscript, string motion, bool stopPreviousAction, string callbackMethod, bool useGravity, int avatarMaskType`"],
+                ["`void`", "`SetRunningState`", "`uniscript, bool state`"],
+                ["`void`", "`AttachAccessory`", "`uniscript, uniscript, int bone, vector3 positon, vector3 rotation`"],
+                ["`void`", "`SetRotation`", "`uniscript, vector3 rotation`"],
+                ["`void`", "`Stop`", "`uniscript`"],
+                ["`void`", "`Start`", "`uniscript`"],
+                ["`void`", "`AddActionCharacter`", "`uniscript`"],
+                ["`void`", "`SetInputAction`", "`uniscript, int action, bool state`"],
+                ["`void`", "`SetFollowerCamera`", "`uniscript, uniscript`"],
+                ["`void`", "`ResetTransform`", "`uniscript, vector3 position, vector3 rotation`"],
+                ["`void`", "`SetIKState`", "`uniscript, bool enable`"],
+                ["`void`", "`SetIKWeights`", "`uniscript, int goal, float positionWeight, float rotationWeight`"],
+                ["`void`", "`SetIKGoal`", "`uniscript, int goal, uniscript`"],
+                ["`void`", "`AddVelocity`", "`uniscript, vector3 velocity, bool local`"],
+                ["`vector3`", "`GetVelocity`", "`uniscript`"],
+                ["`void`", "`AddPlayerTag`", "`uniscript`"],
+                ["`void`", "`AddCustomLoopMotion`", "`uniscript, object motion, float speed`"],
+                ["`void`", "`PlayCustomLoopMotion`", "`uniscript, string motion, float speed`"],
+                ["`void`", "`StopCustomLoopMotion`", "`uniscript`"]
+            ]
+        },
+        {
+            "id": "block-067",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Kaçınılması gereken yaygın hatalar"
+        },
+        {
+            "id": "block-068",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "**Bir metodu çağırdığımda hiçbir şey olmuyor.** Neredeyse kesinlikle `CharacterUtil.AddCharacter(this)`'i unuttunuz (veya `Character` bileşenini eklemediniz). Onu her şeyden önce `OnInit` içinde bir kez çalıştırın."
+        },
+        {
+            "id": "block-069",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "**Karakterim yeniden doğmuyor / ışınlanmıyor.** `ResetTransform`, karakterin **type**'ının **Action** olarak ayarlanmasına ihtiyaç duyar. Düz bir fizik karakteri yeniden konumlandırılamaz ve sonsuza kadar düşer."
+        },
+        {
+            "id": "block-070",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "**Motion'ları her karede değil, bir kez kaydedin.** `AddMotion`'ı `OnInit` içinde çağırın. Onu tekrar tekrar çağırmak (örneğin `OnUpdate` içinde) boşuna iştir — animasyonun oynamasını istediğinizde çağıracağınız `PlayMotion`'dır."
+        },
+        {
+            "id": "block-071",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "**Durdurmak için `SetInput(this, 0, 0)` gönderin.** Hareket, gönderdiğiniz son değeri kullanmaya devam eder; bu yüzden oyuncu çubuğu bıraktığında karakteri durdurmak için sıfırları gönderin."
+        }
+    ]
+}

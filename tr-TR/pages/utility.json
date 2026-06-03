@@ -1,23 +1,23 @@
 {
     "id": "utility",
-    "lang": "en-US",
+    "lang": "tr-TR",
     "name": "Utility",
-    "description": "A grab-bag of everyday helpers: call other scripts' methods (now or after a delay), add trails/outlines, read asset info, show or hide the mouse cursor, and make unique IDs.",
-    "link": "/docs/uniscript/en-US/utility",
+    "description": "Günlük yardımcılardan oluşan bir torba: başka betiklerin metotlarını çağırın (hemen ya da gecikmeli), iz/dış hat ekleyin, varlık bilgisini okuyun, fare imlecini gösterin/gizleyin ve benzersiz kimlikler oluşturun.",
+    "link": "/docs/uniscript/tr-TR/utility",
     "tags": [
         "uniscript",
         "utility",
-        "helpers",
+        "yardımcılar",
         "callmethod",
-        "cursor"
+        "imleç"
     ],
     "previous": {
         "name": "Time",
-        "link": "/docs/uniscript/en-US/time"
+        "link": "/docs/uniscript/tr-TR/time"
     },
     "next": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/en-US/uniobjectutil"
+        "link": "/docs/uniscript/tr-TR/uniobjectutil"
     },
     "content": [
         {
@@ -32,28 +32,28 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Utility` is a collection of handy, everyday helpers that don't belong to one specific topic. With it you can run another script's method (right away or after a delay), add visual extras like trails and outlines, look up information about an asset, control the mouse cursor, and generate unique IDs."
+            "text": "`Utility`, belirli bir konuya ait olmayan, kullanışlı ve günlük yardımcılardan oluşan bir koleksiyondur. Onunla başka bir betiğin metodunu çalıştırabilir (hemen ya da gecikmeli), iz ve dış hat gibi görsel eklentiler ekleyebilir, bir varlık hakkında bilgi arayabilir, fare imlecini kontrol edebilir ve benzersiz kimlikler üretebilirsiniz."
         },
         {
             "id": "block-003",
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Where you see `uniscript` in a method, it means **a script** — usually `this` (the script you're writing), or a reference to another object's script that you want to act on."
+            "text": "Bir metotta `uniscript` gördüğünüzde, bu **bir betik** demektir — genellikle `this` (yazdığınız betik) veya üzerinde işlem yapmak istediğiniz başka bir nesnenin betiğine referans."
         },
         {
             "id": "block-004",
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Running a method by its name"
+            "text": "Bir metodu adıyla çalıştırma"
         },
         {
             "id": "block-005",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Sometimes you want to trigger a method on another script — for example, telling an enemy to `TakeDamage`. These helpers let you do that by name."
+            "text": "Bazen başka bir betikteki bir metodu tetiklemek istersiniz — örneğin bir düşmana `TakeDamage` demek gibi. Bu yardımcılar bunu adıyla yapmanızı sağlar."
         },
         {
             "id": "block-006",
@@ -61,22 +61,13 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it does"
+                "Metot",
+                "Ne işe yarar"
             ],
             "rows": [
-                [
-                    "`CallMethod(script, methodName, data)`",
-                    "Runs the named method on `script` right now and gives back whatever it returns. `data` is an extra value to pass along (use `null` if none)."
-                ],
-                [
-                    "`CallMethodDelayed(script, methodName, data, delay)`",
-                    "Same, but waits `delay` seconds first — perfect for \"do this in 3 seconds\"."
-                ],
-                [
-                    "`HasMethod(script, methodName)`",
-                    "Returns `true` if that script actually has the method, so you can check before calling."
-                ]
+                ["`CallMethod(script, methodName, data)`", "Adı verilen metodu `script` üzerinde hemen çalıştırır ve döndürdüğü değeri geri verir. `data`, iletilecek ek bir değerdir (yoksa `null` kullanın)."],
+                ["`CallMethodDelayed(script, methodName, data, delay)`", "Aynısı, ama önce `delay` saniye bekler — \"bunu 3 saniye sonra yap\" için mükemmel."],
+                ["`HasMethod(script, methodName)`", "Betiğin gerçekten o metoda sahip olup olmadığını döndürür, böylece çağırmadan önce kontrol edebilirsiniz."]
             ]
         },
         {
@@ -85,13 +76,13 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Tell another object's script to take damage.",
+                "// Başka bir nesnenin betiğine hasar almasını söyle.",
                 "Utility.CallMethod(enemyScript, \"TakeDamage\", 10);",
                 "",
-                "// Despawn this object 3 seconds from now.",
+                "// Bu nesneyi 3 saniye sonra yok et.",
                 "Utility.CallMethodDelayed(this, \"Despawn\", null, 3.0);",
                 "",
-                "// Only call it if it exists.",
+                "// Yalnızca varsa çağır.",
                 "if (Utility.HasMethod(enemyScript, \"Heal\"))",
                 "{",
                 "    Utility.CallMethod(enemyScript, \"Heal\", 5);",
@@ -103,14 +94,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Adding visual extras"
+            "text": "Görsel eklentiler ekleme"
         },
         {
             "id": "block-009",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "These attach an extra visual feature to an object. Call them once (usually in setup), then configure the feature through its own component."
+            "text": "Bunlar bir nesneye ek bir görsel özellik bağlar. Bir kez (genellikle kurulumda) çağırın, sonra özelliği kendi bileşeni üzerinden ayarlayın."
         },
         {
             "id": "block-010",
@@ -118,26 +109,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it adds"
+                "Metot",
+                "Ne eklediği"
             ],
             "rows": [
-                [
-                    "`AddLineRenderer(this)`",
-                    "A line you can draw between points — for ropes, lasers, or connections."
-                ],
-                [
-                    "`AddTrailRenderer(this)`",
-                    "A trail that streaks behind the object as it moves."
-                ],
-                [
-                    "`AddOutline(this)`",
-                    "A glowing outline around the object — great for highlighting."
-                ],
-                [
-                    "`RefreshOutlineMesh(this)`",
-                    "Rebuilds the outline if the object's shape changed."
-                ]
+                ["`AddLineRenderer(this)`", "Noktalar arasında çizebileceğiniz bir çizgi — halatlar, lazerler veya bağlantılar için."],
+                ["`AddTrailRenderer(this)`", "Nesne hareket ederken arkasında çizgi çeken bir iz."],
+                ["`AddOutline(this)`", "Nesnenin etrafında parlayan bir dış hat — vurgulamak için harika."],
+                ["`RefreshOutlineMesh(this)`", "Nesnenin şekli değiştiyse dış hattı yeniden oluşturur."]
             ]
         },
         {
@@ -145,7 +124,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Asset information"
+            "text": "Varlık bilgisi"
         },
         {
             "id": "block-012",
@@ -153,26 +132,14 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Method",
-                "What it returns"
+                "Metot",
+                "Ne döndürdüğü"
             ],
             "rows": [
-                [
-                    "`GetAssetName(asset)`",
-                    "The asset's display name as text."
-                ],
-                [
-                    "`GetAssetType(asset)`",
-                    "What kind of asset it is, as text."
-                ],
-                [
-                    "`GetMotionDuration(asset)`",
-                    "How many seconds an animation clip lasts — useful for timing what happens after it."
-                ],
-                [
-                    "`LoadAssetAndCallback(asset, script, callbackMethod)`",
-                    "Loads an asset in the background and calls `callbackMethod` on `script` when it's ready."
-                ]
+                ["`GetAssetName(asset)`", "Varlığın görünen adı, metin olarak."],
+                ["`GetAssetType(asset)`", "Ne tür bir varlık olduğu, metin olarak."],
+                ["`GetMotionDuration(asset)`", "Bir animasyon klibinin kaç saniye sürdüğü — sonrasında olacakları zamanlamak için kullanışlı."],
+                ["`LoadAssetAndCallback(asset, script, callbackMethod)`", "Bir varlığı arka planda yükler ve hazır olduğunda `script` üzerinde `callbackMethod`'u çağırır."]
             ]
         },
         {
@@ -180,14 +147,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Mouse cursor"
+            "text": "Fare imleci"
         },
         {
             "id": "block-014",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Control whether the player's mouse pointer is shown. Hiding it (and locking it) is common during gameplay; showing it again is useful for menus."
+            "text": "Oyuncunun fare işaretçisinin gösterilip gösterilmeyeceğini kontrol edin. Onu gizlemek (ve kilitlemek) oyun sırasında yaygındır; tekrar göstermek menüler için kullanışlıdır."
         },
         {
             "id": "block-015",
@@ -195,10 +162,10 @@
             "styles": null,
             "classes": null,
             "lines": [
-                "// Hide and lock the cursor during play.",
+                "// Oyun sırasında imleci gizle ve kilitle.",
                 "Utility.SetCursorVisibility(false);",
                 "",
-                "// Show it again for a menu.",
+                "// Bir menü için tekrar göster.",
                 "Utility.SetCursorVisibility(true);",
                 "",
                 "bool shown = Utility.GetCursorVisibility();"
@@ -209,14 +176,14 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Unique IDs"
+            "text": "Benzersiz kimlikler"
         },
         {
             "id": "block-017",
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`GenerateUniqueID()` returns a brand-new, one-of-a-kind text ID every time it's called — handy for tagging spawned items, save slots, or anything that must never collide."
+            "text": "`GenerateUniqueID()`, her çağrıldığında yepyeni, eşi benzeri olmayan bir metin kimliği döndürür — oluşturulan öğeleri, kayıt yuvalarını veya asla çakışmaması gereken her şeyi etiketlemek için kullanışlıdır."
         },
         {
             "id": "block-018",
@@ -232,7 +199,7 @@
             "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Full method reference"
+            "text": "Tüm metot referansı"
         },
         {
             "id": "block-020",
@@ -240,9 +207,9 @@
             "styles": null,
             "classes": null,
             "headers": [
-                "Returns",
-                "Method",
-                "Parameters"
+                "Döndürür",
+                "Metot",
+                "Parametreler"
             ],
             "rows": [
                 ["`object`", "`CallMethod`", "`uniscript, string methodName, object refData`"],
@@ -266,7 +233,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "`CallMethodDelayed` is one of the easiest ways to schedule something for later without writing your own timer. For repeating or frame-based timing instead, see [Time](/docs/uniscript/en-US/time)."
+            "text": "`CallMethodDelayed`, kendi zamanlayıcınızı yazmadan bir şeyi sonraya planlamanın en kolay yollarından biridir. Tekrarlayan veya kareye dayalı zamanlama için ise [Time](/docs/uniscript/tr-TR/time) sayfasına bakın."
         }
     ]
 }

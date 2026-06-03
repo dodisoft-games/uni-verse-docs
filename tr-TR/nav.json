@@ -1,0 +1,164 @@
+{
+    "items": [
+        {
+            "id": "core",
+            "name": "Çekirdek",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "math",
+                    "name": "Math",
+                    "link": "/docs/uniscript/tr-TR/math",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "typeutil",
+                    "name": "TypeUtil",
+                    "link": "/docs/uniscript/tr-TR/typeutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "debug",
+                    "name": "Debug",
+                    "link": "/docs/uniscript/tr-TR/debug",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "time",
+                    "name": "Time",
+                    "link": "/docs/uniscript/tr-TR/time",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "utility",
+                    "name": "Utility",
+                    "link": "/docs/uniscript/tr-TR/utility",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "objects",
+            "name": "Nesneler",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "uniobjectutil",
+                    "name": "UniObjectUtil",
+                    "link": "/docs/uniscript/tr-TR/uniobjectutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "vectorutil",
+                    "name": "VectorUtil",
+                    "link": "/docs/uniscript/tr-TR/vectorutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "quaternionutil",
+                    "name": "QuaternionUtil",
+                    "link": "/docs/uniscript/tr-TR/quaternionutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "collections",
+            "name": "Koleksiyonlar",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "listutil",
+                    "name": "ListUtil",
+                    "link": "/docs/uniscript/tr-TR/listutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "dictionaryutil",
+                    "name": "DictionaryUtil",
+                    "link": "/docs/uniscript/tr-TR/dictionaryutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "physics",
+            "name": "Fizik",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "colliderutil",
+                    "name": "ColliderUtil",
+                    "link": "/docs/uniscript/tr-TR/colliderutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "physicsutil",
+                    "name": "PhysicsUtil",
+                    "link": "/docs/uniscript/tr-TR/physicsutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "world",
+            "name": "Dünya",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "camerautil",
+                    "name": "CameraUtil",
+                    "link": "/docs/uniscript/tr-TR/camerautil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "lightutil",
+                    "name": "LightUtil",
+                    "link": "/docs/uniscript/tr-TR/lightutil",
+                    "bold": false,
+                    "inner": null
+                },
+                {
+                    "id": "sceneutil",
+                    "name": "SceneUtil",
+                    "link": "/docs/uniscript/tr-TR/sceneutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        },
+        {
+            "id": "characters",
+            "name": "Karakterler",
+            "link": null,
+            "bold": true,
+            "inner": [
+                {
+                    "id": "characterutil",
+                    "name": "CharacterUtil",
+                    "link": "/docs/uniscript/tr-TR/characterutil",
+                    "bold": false,
+                    "inner": null
+                }
+            ]
+        }
+    ]
+}
