@@ -2,11 +2,15 @@
     "id": "characterutil",
     "lang": "en-US",
     "name": "CharacterUtil",
-    "description": "Find characters, set animation state, blend layers (see uni-character skill for full surface).",
+    "description": "Everything you need to bring a character to life: walk it around, play animations, make faces, attach items, and react to the player's input — explained step by step.",
     "link": "/docs/uniscript/en-US/characterutil",
     "tags": [
         "uniscript",
-        "characterutil"
+        "characterutil",
+        "character",
+        "animation",
+        "movement",
+        "player"
     ],
     "previous": {
         "name": "InputUtil",
@@ -29,24 +33,874 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Find characters, set animation state, blend layers (see uni-character skill for full surface)."
+            "text": "A **character** is the person, animal, or creature that walks around your world — the thing a player controls, or an enemy that chases them. `CharacterUtil` is the toolbox that brings that body to life: you use it to make a character **move**, **turn**, **play animations**, **make facial expressions**, **hold items**, and **respond to input**."
         },
         {
             "id": "block-003",
-            "tag": "h2",
+            "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Methods"
+            "text": "Think of it like a remote control for your character. Each button on the remote is one method below — `SetInput` is the joystick, `PlayMotion` plays an animation, `SetFacialExpression` changes the face, and so on."
         },
         {
             "id": "block-004",
-            "tag": "note",
+            "tag": "h2",
             "styles": null,
             "classes": null,
-            "text": "Methods marked with `uniscript` as their first parameter require the script instance that owns the target object."
+            "text": "The one thing every method needs"
         },
         {
             "id": "block-005",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Notice that almost every method below starts with a parameter called `uniscript`. This is simply __which character you are talking to__. You give it one of two things:"
+        },
+        {
+            "id": "block-006",
+            "tag": "ul",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {
+                    "t": "`this` — when the script you are writing is **attached to the character itself**. `this` means \"this character, the one I'm running on\"."
+                },
+                {
+                    "t": "A **wired character field** — when your script controls a character that lives somewhere else in the scene. You declare a field, drag the character onto it in the editor, then pass that field."
+                }
+            ]
+        },
+        {
+            "id": "block-007",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Whenever you see `uniscript` as the first parameter in this page, read it as **\"the character\"**. The most common value you pass is `this`."
+        },
+        {
+            "id": "block-008",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 1 — Turn an object into a character"
+        },
+        {
+            "id": "block-009",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Before any other command works, the object must be told \"you are a character\". You do this once, when the script starts, with `AddCharacter`. After this line runs, the object gains a body that can walk, animate, and collide with the world."
+        },
+        {
+            "id": "block-010",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        // Turn this object into a living character. Do this first.",
+                "        CharacterUtil.AddCharacter(this);",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-011",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "If you forget `AddCharacter`, every other command in this page **silently does nothing** — no error, no movement. If your character won't move or animate, this is the first thing to check."
+        },
+        {
+            "id": "block-012",
+            "tag": "important",
+            "styles": null,
+            "classes": null,
+            "text": "**Prefer the `Character` wrapper for everyday games.** Universe ships a ready-made `Character` component you can add to an object in the editor. When you use it, the object becomes a character automatically (no manual `AddCharacter` needed) and you call the same actions as `myCharacter.SetInput(...)`, `myCharacter.AddVelocity(...)`, etc. Reach for raw `CharacterUtil` calls when you are writing the controller script that lives **on** the character, or when you need a command the wrapper doesn't expose."
+        },
+        {
+            "id": "block-013",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 2 — Make it move"
+        },
+        {
+            "id": "block-014",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Movement is driven by `SetInput`. You feed it two numbers between `-1` and `1`, exactly like a joystick:"
+        },
+        {
+            "id": "block-015",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parameter",
+                "Meaning",
+                "Example"
+            ],
+            "rows": [
+                [
+                    "`xAxis`",
+                    "Left / right (strafe). `-1` = left, `1` = right.",
+                    "`-1.0`, `0.0`, `1.0`"
+                ],
+                [
+                    "`yAxis`",
+                    "Forward / backward. `-1` = back, `1` = forward.",
+                    "`-1.0`, `0.0`, `1.0`"
+                ]
+            ]
+        },
+        {
+            "id": "block-016",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Most games connect this to the player's joystick or WASD keys through the `OnAxis` callback. Here the character walks wherever the player pushes the stick:"
+        },
+        {
+            "id": "block-017",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    void OnInit()",
+                "    {",
+                "        CharacterUtil.AddCharacter(this);",
+                "    }",
+                "",
+                "    // Called whenever the joystick / WASD value changes.",
+                "    void OnAxis(string panel, string sender, string axis, vector3 value)",
+                "    {",
+                "        if (axis == \"move\")",
+                "        {",
+                "            float strafe  = VectorUtil.X(value);  // left / right",
+                "            float forward = VectorUtil.Y(value);  // forward / back",
+                "            CharacterUtil.SetInput(this, strafe, forward);",
+                "        }",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-018",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "Push the stick all the way (`1.0`) for full speed, halfway (`0.5`) to walk slowly. Send `0, 0` to stop. To make the character sprint, turn on running with `SetRunningState` (see below)."
+        },
+        {
+            "id": "block-019",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Walk, run, climb, swim, fly — movement modes"
+        },
+        {
+            "id": "block-020",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetMovement` switches how the character behaves in the world — for example, swapping from walking to swimming when it enters water. You pass a number that picks the mode:"
+        },
+        {
+            "id": "block-021",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Value",
+                "Mode",
+                "When to use it"
+            ],
+            "rows": [
+                [
+                    "`0`",
+                    "Walking",
+                    "The normal grounded state."
+                ],
+                [
+                    "`1`",
+                    "Climbing",
+                    "On ladders, walls, or vines."
+                ],
+                [
+                    "`2`",
+                    "Swimming",
+                    "In water."
+                ],
+                [
+                    "`3`",
+                    "Flying",
+                    "Free flight, no gravity pull."
+                ],
+                [
+                    "`4`",
+                    "Falling",
+                    "In the air after a drop or jump."
+                ],
+                [
+                    "`5`",
+                    "Custom",
+                    "A movement style you drive yourself (see custom loop motions)."
+                ]
+            ]
+        },
+        {
+            "id": "block-022",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Player swam into water — switch to the swimming state.",
+                "CharacterUtil.SetMovement(this, 2);  // 2 = Swimming"
+            ]
+        },
+        {
+            "id": "block-023",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "When the movement mode changes, your script also receives a `MovementChangedEvent` so you can react (play a splash sound, swap the camera, etc.)."
+        },
+        {
+            "id": "block-024",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Sprinting, turning, and nudging"
+        },
+        {
+            "id": "block-025",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`SetRunningState(this, true)`",
+                    "Turns running **on** so movement uses run speed. Pass `false` to walk again."
+                ],
+                [
+                    "`SetRotation(this, rotation)`",
+                    "Instantly faces the character in a direction. `rotation` is a `vector3` of angles in degrees (the Y value is the left/right turn)."
+                ],
+                [
+                    "`AddVelocity(this, velocity, local)`",
+                    "Gives the character a push — great for jumps, dashes, and knockback. `local = true` pushes relative to the way the character faces; `false` pushes in world directions."
+                ],
+                [
+                    "`GetVelocity(this)`",
+                    "Returns the character's current speed and direction as a `vector3`. Handy for checking if it is falling, or how fast it is going."
+                ],
+                [
+                    "`ResetTransform(this, position, rotation)`",
+                    "Teleports the character to an exact spot and facing — used for respawns and checkpoints."
+                ]
+            ]
+        },
+        {
+            "id": "block-026",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// A simple jump: shove the character upward.",
+                "vector3 jump = VectorUtil.New(0.0, 12.0, 0.0);",
+                "CharacterUtil.AddVelocity(this, jump, false);",
+                "",
+                "// Knock the player back from a hit, relative to its own facing.",
+                "vector3 knockback = VectorUtil.New(0.0, 4.0, -8.0);",
+                "CharacterUtil.AddVelocity(this, knockback, true);",
+                "",
+                "// Respawn at the checkpoint.",
+                "vector3 spawnPos = VectorUtil.New(0.0, 2.0, 0.0);",
+                "vector3 spawnRot = VectorUtil.New(0.0, 90.0, 0.0);",
+                "CharacterUtil.ResetTransform(this, spawnPos, spawnRot);"
+            ]
+        },
+        {
+            "id": "block-027",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "`ResetTransform` only works on a character set to the **Action** controller type. If your playable character ignores respawn/teleport (it keeps falling forever), open the `Character` component and set its **type** to **Action**. Plain physics characters cannot be teleported."
+        },
+        {
+            "id": "block-028",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 3 — Play animations (motions)"
+        },
+        {
+            "id": "block-029",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "An **animation** (called a *motion*) is a movement clip like a wave, a punch, a jump, or a death fall. Using one is a two-step process:"
+        },
+        {
+            "id": "block-030",
+            "tag": "ol",
+            "styles": null,
+            "classes": null,
+            "list": [
+                {
+                    "t": "**Register** the clip once with `AddMotion`, giving it a short name like `\"wave\"` or `\"jump\"`."
+                },
+                {
+                    "t": "**Play** it any time by that name with `PlayMotion`."
+                }
+            ]
+        },
+        {
+            "id": "block-031",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "You provide the actual animation clip through a property you wire in the editor, then register and play it:"
+        },
+        {
+            "id": "block-032",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "class PlayerController",
+                "{",
+                "    // Drag a motion asset onto this field in the editor.",
+                "    object @waveClip;",
+                "",
+                "    void OnInit()",
+                "    {",
+                "        CharacterUtil.AddCharacter(this);",
+                "",
+                "        // Register the clip under the name \"wave\".",
+                "        CharacterUtil.AddMotion(this, waveClip, \"wave\");",
+                "    }",
+                "",
+                "    void OnAction(string panel, string sender, string action, bool state, object data)",
+                "    {",
+                "        if (action == \"emote\" && state)",
+                "        {",
+                "            // motion name, stop whatever's playing, callback when done, keep gravity",
+                "            CharacterUtil.PlayMotion(this, \"wave\", true, \"OnWaveFinished\", true);",
+                "        }",
+                "    }",
+                "",
+                "    // Runs automatically when the wave animation ends.",
+                "    void OnWaveFinished(string motion)",
+                "    {",
+                "        Debug.Log(\"Done waving!\");",
+                "    }",
+                "}"
+            ]
+        },
+        {
+            "id": "block-033",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Understanding PlayMotion's options"
+        },
+        {
+            "id": "block-034",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Parameter",
+                "What it controls"
+            ],
+            "rows": [
+                [
+                    "`motion`",
+                    "The name you registered with `AddMotion`, e.g. `\"wave\"`."
+                ],
+                [
+                    "`stopPreviousAction`",
+                    "`true` interrupts any animation already playing; `false` waits and is ignored if one is running."
+                ],
+                [
+                    "`callbackMethod`",
+                    "The name of a method in your script to call when the animation finishes. Use `\"\"` for none."
+                ],
+                [
+                    "`useGravity`",
+                    "`true` keeps the character grounded during the animation; `false` lets it ignore gravity (useful for floating or aerial moves)."
+                ],
+                [
+                    "`avatarMaskType`",
+                    "*(Optional)* Which part of the body plays the animation — see the table below."
+                ]
+            ]
+        },
+        {
+            "id": "block-035",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The **avatar mask** lets you play an animation on only part of the body — so a character can wave with its upper body **while still running** with its legs:"
+        },
+        {
+            "id": "block-036",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Value",
+                "Affects",
+                "Use for"
+            ],
+            "rows": [
+                [
+                    "`0`",
+                    "General (whole body)",
+                    "Full-body moves like a jump or death."
+                ],
+                [
+                    "`1`",
+                    "Upper body",
+                    "Waving, shooting, or throwing while moving."
+                ],
+                [
+                    "`2`",
+                    "Lower body",
+                    "Leg-only effects."
+                ]
+            ]
+        },
+        {
+            "id": "block-037",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Wave with the upper body only, so the legs keep walking.",
+                "CharacterUtil.PlayMotion(this, \"wave\", true, \"\", true, 1);  // 1 = Upper"
+            ]
+        },
+        {
+            "id": "block-038",
+            "tag": "h3",
+            "styles": null,
+            "classes": null,
+            "text": "Looping motions"
+        },
+        {
+            "id": "block-039",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`PlayMotion` plays a clip once. For an animation that should **repeat continuously** — like a custom hover, a constant idle dance, or a special movement style — use the custom loop motions instead:"
+        },
+        {
+            "id": "block-040",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`AddCustomLoopMotion(this, motion, speed)`",
+                    "Registers a looping clip and how fast it plays (`speed`, where `1.0` is normal)."
+                ],
+                [
+                    "`PlayCustomLoopMotion(this, motion, speed)`",
+                    "Starts looping the named clip, blending smoothly into it."
+                ],
+                [
+                    "`StopCustomLoopMotion(this)`",
+                    "Stops the loop and returns the character to normal walking."
+                ]
+            ]
+        },
+        {
+            "id": "block-041",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Step 4 — Facial expressions"
+        },
+        {
+            "id": "block-042",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`SetFacialExpression` changes the character's face to match the moment — happy when they win, furious when they take a hit. You pass a number for the emotion:"
+        },
+        {
+            "id": "block-043",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Value",
+                "Emotion",
+                "Value",
+                "Emotion"
+            ],
+            "rows": [
+                [
+                    "`0`",
+                    "Natural",
+                    "`6`",
+                    "Screaming"
+                ],
+                [
+                    "`1`",
+                    "Happy",
+                    "`7`",
+                    "Shocked"
+                ],
+                [
+                    "`2`",
+                    "Smiling",
+                    "`8`",
+                    "Pensive"
+                ],
+                [
+                    "`3`",
+                    "Sad",
+                    "`9`",
+                    "Confused"
+                ],
+                [
+                    "`4`",
+                    "Tearful",
+                    "`10`",
+                    "Wink"
+                ],
+                [
+                    "`5`",
+                    "Furious",
+                    "`11`",
+                    "Blink"
+                ]
+            ]
+        },
+        {
+            "id": "block-044",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// The player just won — smile!",
+                "CharacterUtil.SetFacialExpression(this, 1);  // 1 = Happy"
+            ]
+        },
+        {
+            "id": "block-045",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Expressions briefly play and then naturally relax back to `Natural` on their own, so a wink or a shocked face feels like a reaction rather than a permanent frozen look."
+        },
+        {
+            "id": "block-046",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Attaching items to a character"
+        },
+        {
+            "id": "block-047",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "`AttachAccessory` pins an object — a sword, a hat, a backpack — to a specific bone of the character so it moves with the body. You choose which bone, plus an offset position and rotation so the item sits just right."
+        },
+        {
+            "id": "block-048",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The bones you can attach to (pass the number):"
+        },
+        {
+            "id": "block-049",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Value",
+                "Bone",
+                "Value",
+                "Bone",
+                "Value",
+                "Bone"
+            ],
+            "rows": [
+                [
+                    "`0`",
+                    "Head",
+                    "`6`",
+                    "LeftLowerArm",
+                    "`12`",
+                    "LeftUpperLeg"
+                ],
+                [
+                    "`1`",
+                    "Chest",
+                    "`7`",
+                    "LeftHand",
+                    "`13`",
+                    "LeftLowerLeg"
+                ],
+                [
+                    "`2`",
+                    "Belly",
+                    "`8`",
+                    "RightShoulder",
+                    "`14`",
+                    "LeftFoot"
+                ],
+                [
+                    "`3`",
+                    "Hips",
+                    "`9`",
+                    "RightUpperArm",
+                    "`15`",
+                    "RightUpperLeg"
+                ],
+                [
+                    "`4`",
+                    "LeftShoulder",
+                    "`10`",
+                    "RightLowerArm",
+                    "`16`",
+                    "RightLowerLeg"
+                ],
+                [
+                    "`5`",
+                    "LeftUpperArm",
+                    "`11`",
+                    "RightHand",
+                    "`17`",
+                    "RightFoot"
+                ]
+            ]
+        },
+        {
+            "id": "block-050",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "// Put a sword in the character's right hand.",
+                "vector3 offsetPos = VectorUtil.New(0.0, 0.0, 0.1);",
+                "vector3 offsetRot = VectorUtil.New(0.0, 90.0, 0.0);",
+                "CharacterUtil.AttachAccessory(this, character, 11, offsetPos, offsetRot);  // 11 = RightHand"
+            ]
+        },
+        {
+            "id": "block-051",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "Here the first parameter is the **item** being attached and the second is the **character** it attaches to. Tweak the offset position and rotation until the item lines up with the hand."
+        },
+        {
+            "id": "block-052",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Inverse Kinematics — reaching and foot placement (advanced)"
+        },
+        {
+            "id": "block-053",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "**Inverse Kinematics** (IK) bends the character's limbs so a hand reaches a doorknob, or feet stay flat on a slope. This is an advanced feature — most games don't need it, but it adds a lot of realism when they do."
+        },
+        {
+            "id": "block-054",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`SetIKState(this, enable)`",
+                    "Turns IK on or off for the character."
+                ],
+                [
+                    "`SetIKGoal(this, goal, target)`",
+                    "Tells a limb (`goal`) to reach toward another object (`target`)."
+                ],
+                [
+                    "`SetIKWeights(this, goal, positionWeight, rotationWeight)`",
+                    "How strongly the limb follows the target, from `0.0` (ignore) to `1.0` (fully reach)."
+                ]
+            ]
+        },
+        {
+            "id": "block-055",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "The limb you control (the `goal`):"
+        },
+        {
+            "id": "block-056",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Value",
+                "Limb"
+            ],
+            "rows": [
+                [
+                    "`0`",
+                    "Head"
+                ],
+                [
+                    "`1`",
+                    "LeftFoot"
+                ],
+                [
+                    "`2`",
+                    "RightFoot"
+                ],
+                [
+                    "`3`",
+                    "LeftHand"
+                ],
+                [
+                    "`4`",
+                    "RightHand"
+                ]
+            ]
+        },
+        {
+            "id": "block-057",
+            "tag": "code",
+            "styles": null,
+            "classes": null,
+            "lines": [
+                "CharacterUtil.SetIKState(this, true);",
+                "// Make the right hand reach toward a target object, fully.",
+                "CharacterUtil.SetIKGoal(this, 4, doorknob);     // 4 = RightHand",
+                "CharacterUtil.SetIKWeights(this, 4, 1.0, 1.0);"
+            ]
+        },
+        {
+            "id": "block-058",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Action characters — button-driven moves (advanced)"
+        },
+        {
+            "id": "block-059",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Some games use an **action character** — a character built around discrete, button-triggered actions (attack, block, roll) rather than just free movement. You set one up with `AddActionCharacter` instead of `AddCharacter`, then drive its moves:"
+        },
+        {
+            "id": "block-060",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`AddActionCharacter(this)`",
+                    "Sets the object up as an action character (use this instead of `AddCharacter`)."
+                ],
+                [
+                    "`PlayAction(this, action)`",
+                    "Triggers action number `action` once (e.g. a single attack swing)."
+                ],
+                [
+                    "`SetInputAction(this, action, state)`",
+                    "Holds an action on or off — `true` while a button is held, `false` when released (e.g. holding block)."
+                ]
+            ]
+        },
+        {
+            "id": "block-061",
+            "tag": "note",
+            "styles": null,
+            "classes": null,
+            "text": "`PlayAction` and `SetInputAction` only do something on an **action character**. On a regular character (set up with `AddCharacter`) they have no effect — use `PlayMotion` there instead."
+        },
+        {
+            "id": "block-062",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Camera, name tags, and pausing"
+        },
+        {
+            "id": "block-063",
+            "tag": "table",
+            "styles": null,
+            "classes": null,
+            "headers": [
+                "Method",
+                "What it does"
+            ],
+            "rows": [
+                [
+                    "`SetFollowerCamera(this, camera)`",
+                    "Makes a camera follow this character — the standard way to set up a third-person view."
+                ],
+                [
+                    "`AddPlayerTag(this)`",
+                    "Adds a floating name tag above the character (handy in multiplayer to show who's who)."
+                ],
+                [
+                    "`Stop(this)`",
+                    "Pauses the character — it stops moving and animating until you start it again."
+                ],
+                [
+                    "`Start(this)`",
+                    "Resumes a character that was paused with `Stop`."
+                ]
+            ]
+        },
+        {
+            "id": "block-064",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Full method reference"
+        },
+        {
+            "id": "block-065",
+            "tag": "p",
+            "styles": null,
+            "classes": null,
+            "text": "Every method in `CharacterUtil`. Remember that the first `uniscript` parameter is **the character** — usually `this`."
+        },
+        {
+            "id": "block-066",
             "tag": "table",
             "styles": null,
             "classes": null,
@@ -192,6 +1046,41 @@
                     "`uniscript`"
                 ]
             ]
+        },
+        {
+            "id": "block-067",
+            "tag": "h2",
+            "styles": null,
+            "classes": null,
+            "text": "Common mistakes to avoid"
+        },
+        {
+            "id": "block-068",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "**Nothing happens when I call a method.** You almost certainly forgot `CharacterUtil.AddCharacter(this)` (or didn't add the `Character` component). Run it once in `OnInit` before anything else."
+        },
+        {
+            "id": "block-069",
+            "tag": "warning",
+            "styles": null,
+            "classes": null,
+            "text": "**My character won't respawn / teleport.** `ResetTransform` needs the character's **type** set to **Action**. A plain physics character cannot be repositioned and will fall forever."
+        },
+        {
+            "id": "block-070",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "**Register motions once, not every frame.** Call `AddMotion` in `OnInit`. Calling it repeatedly (for example inside `OnUpdate`) wastes work — `PlayMotion` is the one you call whenever you want the animation to play."
+        },
+        {
+            "id": "block-071",
+            "tag": "tip",
+            "styles": null,
+            "classes": null,
+            "text": "**Send `SetInput(this, 0, 0)` to stop.** Movement keeps using the last value you sent, so when the player lets go of the stick, push zeros to bring the character to a halt."
         }
     ]
 }
