@@ -1,9 +1,9 @@
 {
     "id": "camerautil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "CameraUtil",
     "description": "Bir nesneyi oyunun kamerası yapın, aktif kameranın nerede olduğunu okuyun ve kameralar arasında geçiş yaparken görüntünün ne kadar yumuşak harmanlanacağını kontrol edin.",
-    "link": "/docs/uniscript/tr-TR/camerautil",
+    "link": "/docs/uniscript/tr/camerautil",
     "tags": [
         "uniscript",
         "camerautil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "PhysicsUtil",
-        "link": "/docs/uniscript/tr-TR/physicsutil"
+        "link": "/docs/uniscript/tr/physicsutil"
     },
     "next": {
         "name": "LightUtil",
-        "link": "/docs/uniscript/tr-TR/lightutil"
+        "link": "/docs/uniscript/tr/lightutil"
     },
     "content": [
         {
@@ -75,7 +75,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Bir kamerayı, herhangi bir nesneyi taşıdığınız gibi taşır ve nişanlarsınız — [UniObjectUtil](/docs/uniscript/tr-TR/uniobjectutil) ile. Yaygın bir desen, `OnUpdate` içinde her karede oyuncuyu takip etmektir:"
+            "text": "Bir kamerayı, herhangi bir nesneyi taşıdığınız gibi taşır ve nişanlarsınız — [UniObjectUtil](/docs/uniscript/tr/uniobjectutil) ile. Yaygın bir desen, `OnUpdate` içinde her karede oyuncuyu takip etmektir:"
         },
         {
             "id": "block-008",
@@ -97,7 +97,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "Bir kamerayı taşımak için `UniObjectUtil.SetPosition` kullanın — bir kamerada sessizce hiçbir şey yapmayan `SetWorldPosition`'ı **değil**. Onu nişanlamak için `SetRotation`'ı `QuaternionUtil.LookRotation` ile kullanın ([UniObjectUtil](/docs/uniscript/tr-TR/uniobjectutil#block-013) sayfasına bakın)."
+            "text": "Bir kamerayı taşımak için `UniObjectUtil.SetPosition` kullanın — bir kamerada sessizce hiçbir şey yapmayan `SetWorldPosition`'ı **değil**. Onu nişanlamak için `SetRotation`'ı `QuaternionUtil.LookRotation` ile kullanın ([UniObjectUtil](/docs/uniscript/tr/uniobjectutil#block-013) sayfasına bakın)."
         },
         {
             "id": "block-010",

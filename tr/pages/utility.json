@@ -1,9 +1,9 @@
 {
     "id": "utility",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "Utility",
     "description": "Günlük yardımcılardan oluşan bir torba: başka betiklerin metotlarını çağırın (hemen ya da gecikmeli), iz/dış hat ekleyin, varlık bilgisini okuyun, fare imlecini gösterin/gizleyin ve benzersiz kimlikler oluşturun.",
-    "link": "/docs/uniscript/tr-TR/utility",
+    "link": "/docs/uniscript/tr/utility",
     "tags": [
         "uniscript",
         "utility",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Time",
-        "link": "/docs/uniscript/tr-TR/time"
+        "link": "/docs/uniscript/tr/time"
     },
     "next": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/tr-TR/uniobjectutil"
+        "link": "/docs/uniscript/tr/uniobjectutil"
     },
     "content": [
         {
@@ -233,7 +233,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "`CallMethodDelayed`, kendi zamanlayıcınızı yazmadan bir şeyi sonraya planlamanın en kolay yollarından biridir. Tekrarlayan veya kareye dayalı zamanlama için ise [Time](/docs/uniscript/tr-TR/time) sayfasına bakın."
+            "text": "`CallMethodDelayed`, kendi zamanlayıcınızı yazmadan bir şeyi sonraya planlamanın en kolay yollarından biridir. Tekrarlayan veya kareye dayalı zamanlama için ise [Time](/docs/uniscript/tr/time) sayfasına bakın."
         }
     ]
 }

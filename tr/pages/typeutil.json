@@ -1,9 +1,9 @@
 {
     "id": "typeutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "TypeUtil",
     "description": "Elinizdeki değerin türünü öğrenin (sayı, metin, doğru/yanlış, vektör...) ve aralarında dönüştürün — örneğin yazılan metni kullanılabilir bir sayıya çevirin.",
-    "link": "/docs/uniscript/tr-TR/typeutil",
+    "link": "/docs/uniscript/tr/typeutil",
     "tags": [
         "uniscript",
         "typeutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Math",
-        "link": "/docs/uniscript/tr-TR/math"
+        "link": "/docs/uniscript/tr/math"
     },
     "next": {
         "name": "Debug",
-        "link": "/docs/uniscript/tr-TR/debug"
+        "link": "/docs/uniscript/tr/debug"
     },
     "content": [
         {
@@ -183,7 +183,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Buradaki tür numaraları UniScript genelinde kullanılan numaralarla aynıdır. List (9) ve Dictionary (10) türleriyle çalışmak için [ListUtil](/docs/uniscript/tr-TR/listutil) ve [DictionaryUtil](/docs/uniscript/tr-TR/dictionaryutil) sayfalarına bakın."
+            "text": "Buradaki tür numaraları UniScript genelinde kullanılan numaralarla aynıdır. List (9) ve Dictionary (10) türleriyle çalışmak için [ListUtil](/docs/uniscript/tr/listutil) ve [DictionaryUtil](/docs/uniscript/tr/dictionaryutil) sayfalarına bakın."
         }
     ]
 }

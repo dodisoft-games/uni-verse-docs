@@ -1,20 +1,20 @@
 {
     "id": "taskutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "TaskUtil",
     "description": "Async task primitives - start, await, cancel.",
-    "link": "/docs/uniscript/en-US/taskutil",
+    "link": "/docs/uniscript/en-us/taskutil",
     "tags": [
         "uniscript",
         "taskutil"
     ],
     "previous": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-US/stringutil"
+        "link": "/docs/uniscript/en-us/stringutil"
     },
     "next": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-US/aiutil"
+        "link": "/docs/uniscript/en-us/aiutil"
     },
     "content": [
         {

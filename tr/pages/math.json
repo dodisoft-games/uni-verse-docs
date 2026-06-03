@@ -1,9 +1,9 @@
 {
     "id": "math",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "Math",
     "description": "Sayı araç kutunuz: yuvarlama, sınırlama, değerler arasında yumuşak geçiş, rastgele sayı seçme, açılarla çalışma ve daha fazlası — her biri için sade örneklerle.",
-    "link": "/docs/uniscript/tr-TR/math",
+    "link": "/docs/uniscript/tr/math",
     "tags": [
         "uniscript",
         "math",
@@ -18,7 +18,7 @@
     },
     "next": {
         "name": "TypeUtil",
-        "link": "/docs/uniscript/tr-TR/typeutil"
+        "link": "/docs/uniscript/tr/typeutil"
     },
     "content": [
         {
@@ -173,7 +173,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Bir geçişin her cihazda aynı hissettirmesi için adımınızı kare süresiyle ölçeklendirin: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. Nedeni için [Time](/docs/uniscript/tr-TR/time) sayfasına bakın."
+            "text": "Bir geçişin her cihazda aynı hissettirmesi için adımınızı kare süresiyle ölçeklendirin: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. Nedeni için [Time](/docs/uniscript/tr/time) sayfasına bakın."
         },
         {
             "id": "block-017",
@@ -418,7 +418,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Tek sayılar yerine konumlar ve yönlerle mi çalışıyorsunuz? Bu araçların 3 boyutlu sürümü için [VectorUtil](/docs/uniscript/tr-TR/vectorutil) sayfasına bakın."
+            "text": "Tek sayılar yerine konumlar ve yönlerle mi çalışıyorsunuz? Bu araçların 3 boyutlu sürümü için [VectorUtil](/docs/uniscript/tr/vectorutil) sayfasına bakın."
         }
     ]
 }

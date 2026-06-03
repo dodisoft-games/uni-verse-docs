@@ -1,9 +1,9 @@
 {
     "id": "physicsutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "PhysicsUtil",
     "description": "Nesneleri gerçek fizikle hareket ettirin: kuvvetlerle itin, hızlarını ayarlayın, döndürün ve önlerinde ne olduğunu algılamak için ışınlar gönderin.",
-    "link": "/docs/uniscript/tr-TR/physicsutil",
+    "link": "/docs/uniscript/tr/physicsutil",
     "tags": [
         "uniscript",
         "physicsutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/tr-TR/colliderutil"
+        "link": "/docs/uniscript/tr/colliderutil"
     },
     "next": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/tr-TR/camerautil"
+        "link": "/docs/uniscript/tr/camerautil"
     },
     "content": [
         {
@@ -210,7 +210,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Raycast`, çarpışmayı tanımlayan bir [Dictionary](/docs/uniscript/tr-TR/dictionaryutil) döndürür ya da ışın boşluğa çarptıysa hiçbir şey döndürmez. Dictionary şu anahtarları tutar:"
+            "text": "`Raycast`, çarpışmayı tanımlayan bir [Dictionary](/docs/uniscript/tr/dictionaryutil) döndürür ya da ışın boşluğa çarptıysa hiçbir şey döndürmez. Dictionary şu anahtarları tutar:"
         },
         {
             "id": "block-022",
@@ -309,14 +309,14 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Oynanabilir bir karaktere fizik eklemeyin.** Bir Character zaten kendi fizik gövdesine sahiptir; bir tane daha eklemek ikisinin çatışmasına ve hareketin bozulmasına neden olur. Bir karakteri hareket ettirmek için bunun yerine [CharacterUtil](/docs/uniscript/tr-TR/characterutil)'deki hareket araçlarını kullanın."
+            "text": "**Oynanabilir bir karaktere fizik eklemeyin.** Bir Character zaten kendi fizik gövdesine sahiptir; bir tane daha eklemek ikisinin çatışmasına ve hareketin bozulmasına neden olur. Bir karakteri hareket ettirmek için bunun yerine [CharacterUtil](/docs/uniscript/tr/characterutil)'deki hareket araçlarını kullanın."
         },
         {
             "id": "block-029",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Fizik bir nesneyi hareket ettirir, ama bir şeylere çarpması için bir şekle ihtiyacı vardır. `PhysicsUtil`'i [ColliderUtil](/docs/uniscript/tr-TR/colliderutil)'den bir collider ile eşleştirin."
+            "text": "Fizik bir nesneyi hareket ettirir, ama bir şeylere çarpması için bir şekle ihtiyacı vardır. `PhysicsUtil`'i [ColliderUtil](/docs/uniscript/tr/colliderutil)'den bir collider ile eşleştirin."
         }
     ]
 }

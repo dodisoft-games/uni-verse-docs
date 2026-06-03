@@ -1,9 +1,9 @@
 {
     "id": "vectorutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "VectorUtil",
     "description": "vector3 değerleriyle çalışın — konumlar ve yönler için kullanılan (x, y, z). Bunları oluşturun, mesafe ölçün, yön bulun ve aralarında geçiş yapın.",
-    "link": "/docs/uniscript/tr-TR/vectorutil",
+    "link": "/docs/uniscript/tr/vectorutil",
     "tags": [
         "uniscript",
         "vectorutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/tr-TR/uniobjectutil"
+        "link": "/docs/uniscript/tr/uniobjectutil"
     },
     "next": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/tr-TR/quaternionutil"
+        "link": "/docs/uniscript/tr/quaternionutil"
     },
     "content": [
         {
@@ -267,7 +267,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Vektörler konumları ve yönleri tanımlar; **dönüşler** ise quaternion adı verilen farklı bir değerdir. Bir yönü bir bakış yönüne çevirmek için [QuaternionUtil](/docs/uniscript/tr-TR/quaternionutil) sayfasına bakın."
+            "text": "Vektörler konumları ve yönleri tanımlar; **dönüşler** ise quaternion adı verilen farklı bir değerdir. Bir yönü bir bakış yönüne çevirmek için [QuaternionUtil](/docs/uniscript/tr/quaternionutil) sayfasına bakın."
         }
     ]
 }

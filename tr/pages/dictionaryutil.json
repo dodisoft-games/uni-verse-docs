@@ -1,9 +1,9 @@
 {
     "id": "dictionaryutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "DictionaryUtil",
     "description": "Değerleri bir konum yerine bir anahtarla saklayın — oyuncu adı → skor gibi. Anahtar/değer çiftlerini ekleyin, arayın, kontrol edin, kaldırın ve içlerinde dolaşın.",
-    "link": "/docs/uniscript/tr-TR/dictionaryutil",
+    "link": "/docs/uniscript/tr/dictionaryutil",
     "tags": [
         "uniscript",
         "dictionaryutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/tr-TR/listutil"
+        "link": "/docs/uniscript/tr/listutil"
     },
     "next": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/tr-TR/colliderutil"
+        "link": "/docs/uniscript/tr/colliderutil"
     },
     "content": [
         {
@@ -40,7 +40,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Her değerin onu bulmak için doğal bir adı olduğunda ve sıra önemli olmadığında ([liste](/docs/uniscript/tr-TR/listutil) yerine) bir dictionary kullanın."
+            "text": "Her değerin onu bulmak için doğal bir adı olduğunda ve sıra önemli olmadığında ([liste](/docs/uniscript/tr/listutil) yerine) bir dictionary kullanın."
         },
         {
             "id": "block-004",
@@ -138,7 +138,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Keys`, size her anahtarın bir [listesini](/docs/uniscript/tr-TR/listutil) verir; bu listede dolaşabilirsiniz. `ForEach`, her çifti ziyaret etmenin en hızlı yoludur — metodunuzu çift başına bir kez çalıştırır ve ona `key` ile `value`'yu verir."
+            "text": "`Keys`, size her anahtarın bir [listesini](/docs/uniscript/tr/listutil) verir; bu listede dolaşabilirsiniz. `ForEach`, her çifti ziyaret etmenin en hızlı yoludur — metodunuzu çift başına bir kez çalıştırır ve ona `key` ile `value`'yu verir."
         },
         {
             "id": "block-013",

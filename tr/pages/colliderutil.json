@@ -1,9 +1,9 @@
 {
     "id": "colliderutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "ColliderUtil",
     "description": "Bir nesneye fiziksel bir şekil verin; böylece başka nesnelere çarpabilir, üzerlerinde durabilir veya onları algılayabilir — kutular, kapsüller, küreler, mesh'ler ve tekerlekler.",
-    "link": "/docs/uniscript/tr-TR/colliderutil",
+    "link": "/docs/uniscript/tr/colliderutil",
     "tags": [
         "uniscript",
         "colliderutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/tr-TR/dictionaryutil"
+        "link": "/docs/uniscript/tr/dictionaryutil"
     },
     "next": {
         "name": "PhysicsUtil",
-        "link": "/docs/uniscript/tr-TR/physicsutil"
+        "link": "/docs/uniscript/tr/physicsutil"
     },
     "content": [
         {
@@ -124,7 +124,7 @@
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "Oynanabilir bir **karakter** kendi şeklini zaten yönetir. Bir Character nesnesine ayrı bir collider eklemeyin — karakterin zaten sahip olduğuyla çatışabilir. [CharacterUtil](/docs/uniscript/tr-TR/characterutil) sayfasına bakın."
+            "text": "Oynanabilir bir **karakter** kendi şeklini zaten yönetir. Bir Character nesnesine ayrı bir collider eklemeyin — karakterin zaten sahip olduğuyla çatışabilir. [CharacterUtil](/docs/uniscript/tr/characterutil) sayfasına bakın."
         },
         {
             "id": "block-012",
@@ -157,7 +157,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Bir collider, nesneye bir şekil verir; ama gerçekten hareket etmesi, sekmesi veya düşmesi için fiziğe de ihtiyacı vardır. [PhysicsUtil](/docs/uniscript/tr-TR/physicsutil) sayfasına bakın."
+            "text": "Bir collider, nesneye bir şekil verir; ama gerçekten hareket etmesi, sekmesi veya düşmesi için fiziğe de ihtiyacı vardır. [PhysicsUtil](/docs/uniscript/tr/physicsutil) sayfasına bakın."
         }
     ]
 }

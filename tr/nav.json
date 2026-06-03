@@ -9,35 +9,35 @@
                 {
                     "id": "math",
                     "name": "Math",
-                    "link": "/docs/uniscript/tr-TR/math",
+                    "link": "/docs/uniscript/tr/math",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "typeutil",
                     "name": "TypeUtil",
-                    "link": "/docs/uniscript/tr-TR/typeutil",
+                    "link": "/docs/uniscript/tr/typeutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "debug",
                     "name": "Debug",
-                    "link": "/docs/uniscript/tr-TR/debug",
+                    "link": "/docs/uniscript/tr/debug",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "time",
                     "name": "Time",
-                    "link": "/docs/uniscript/tr-TR/time",
+                    "link": "/docs/uniscript/tr/time",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "utility",
                     "name": "Utility",
-                    "link": "/docs/uniscript/tr-TR/utility",
+                    "link": "/docs/uniscript/tr/utility",
                     "bold": false,
                     "inner": null
                 }
@@ -52,21 +52,21 @@
                 {
                     "id": "uniobjectutil",
                     "name": "UniObjectUtil",
-                    "link": "/docs/uniscript/tr-TR/uniobjectutil",
+                    "link": "/docs/uniscript/tr/uniobjectutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "vectorutil",
                     "name": "VectorUtil",
-                    "link": "/docs/uniscript/tr-TR/vectorutil",
+                    "link": "/docs/uniscript/tr/vectorutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "quaternionutil",
                     "name": "QuaternionUtil",
-                    "link": "/docs/uniscript/tr-TR/quaternionutil",
+                    "link": "/docs/uniscript/tr/quaternionutil",
                     "bold": false,
                     "inner": null
                 }
@@ -81,14 +81,14 @@
                 {
                     "id": "listutil",
                     "name": "ListUtil",
-                    "link": "/docs/uniscript/tr-TR/listutil",
+                    "link": "/docs/uniscript/tr/listutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "dictionaryutil",
                     "name": "DictionaryUtil",
-                    "link": "/docs/uniscript/tr-TR/dictionaryutil",
+                    "link": "/docs/uniscript/tr/dictionaryutil",
                     "bold": false,
                     "inner": null
                 }
@@ -103,14 +103,14 @@
                 {
                     "id": "colliderutil",
                     "name": "ColliderUtil",
-                    "link": "/docs/uniscript/tr-TR/colliderutil",
+                    "link": "/docs/uniscript/tr/colliderutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "physicsutil",
                     "name": "PhysicsUtil",
-                    "link": "/docs/uniscript/tr-TR/physicsutil",
+                    "link": "/docs/uniscript/tr/physicsutil",
                     "bold": false,
                     "inner": null
                 }
@@ -125,21 +125,21 @@
                 {
                     "id": "camerautil",
                     "name": "CameraUtil",
-                    "link": "/docs/uniscript/tr-TR/camerautil",
+                    "link": "/docs/uniscript/tr/camerautil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "lightutil",
                     "name": "LightUtil",
-                    "link": "/docs/uniscript/tr-TR/lightutil",
+                    "link": "/docs/uniscript/tr/lightutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "sceneutil",
                     "name": "SceneUtil",
-                    "link": "/docs/uniscript/tr-TR/sceneutil",
+                    "link": "/docs/uniscript/tr/sceneutil",
                     "bold": false,
                     "inner": null
                 }
@@ -154,7 +154,7 @@
                 {
                     "id": "characterutil",
                     "name": "CharacterUtil",
-                    "link": "/docs/uniscript/tr-TR/characterutil",
+                    "link": "/docs/uniscript/tr/characterutil",
                     "bold": false,
                     "inner": null
                 }

@@ -1,20 +1,20 @@
 {
     "id": "stringutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "StringUtil",
     "description": "Format, split, contains - operations the parser can't express on string.",
-    "link": "/docs/uniscript/en-US/stringutil",
+    "link": "/docs/uniscript/en-us/stringutil",
     "tags": [
         "uniscript",
         "stringutil"
     ],
     "previous": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-US/storageutil"
+        "link": "/docs/uniscript/en-us/storageutil"
     },
     "next": {
         "name": "TaskUtil",
-        "link": "/docs/uniscript/en-US/taskutil"
+        "link": "/docs/uniscript/en-us/taskutil"
     },
     "content": [
         {

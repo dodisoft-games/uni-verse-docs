@@ -1,9 +1,9 @@
 {
     "id": "uniobjectutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "UniObjectUtil",
     "description": "The most-used library: move, rotate, scale, show/hide, spawn, and destroy objects — and find other objects and scripts in your scene.",
-    "link": "/docs/uniscript/en-US/uniobjectutil",
+    "link": "/docs/uniscript/en-us/uniobjectutil",
     "tags": [
         "uniscript",
         "uniobjectutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "Utility",
-        "link": "/docs/uniscript/en-US/utility"
+        "link": "/docs/uniscript/en-us/utility"
     },
     "next": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/en-US/vectorutil"
+        "link": "/docs/uniscript/en-us/vectorutil"
     },
     "content": [
         {
@@ -130,7 +130,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Moving a camera?** Use `SetPosition` — `SetWorldPosition` silently does nothing on a camera object. See [CameraUtil](/docs/uniscript/en-US/camerautil) for camera-specific guidance."
+            "text": "**Moving a camera?** Use `SetPosition` — `SetWorldPosition` silently does nothing on a camera object. See [CameraUtil](/docs/uniscript/en-us/camerautil) for camera-specific guidance."
         },
         {
             "id": "block-013",
@@ -144,7 +144,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "To make an object point toward something, build a rotation with [QuaternionUtil](/docs/uniscript/en-US/quaternionutil)'s `LookRotation` and apply it with `SetRotation`. `LookRotation` needs a direction to look along plus an \"up\" direction:"
+            "text": "To make an object point toward something, build a rotation with [QuaternionUtil](/docs/uniscript/en-us/quaternionutil)'s `LookRotation` and apply it with `SetRotation`. `LookRotation` needs a direction to look along plus an \"up\" direction:"
         },
         {
             "id": "block-015",
@@ -364,7 +364,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Searching by **tag** is fast and reliable. Give related objects the same tag in the editor, then grab them all with `FindUniObjectsByTag`. See [ListUtil](/docs/uniscript/en-US/listutil) for working with the list you get back."
+            "text": "Searching by **tag** is fast and reliable. Give related objects the same tag in the editor, then grab them all with `FindUniObjectsByTag`. See [ListUtil](/docs/uniscript/en-us/listutil) for working with the list you get back."
         },
         {
             "id": "block-035",
@@ -456,7 +456,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "To make an object **face** a target, use `SetRotation` together with `QuaternionUtil.LookRotation` (shown in [Facing a direction](/docs/uniscript/en-US/uniobjectutil#block-013)). The `LookAt` style helpers are not currently available from UniScript."
+            "text": "To make an object **face** a target, use `SetRotation` together with `QuaternionUtil.LookRotation` (shown in [Facing a direction](/docs/uniscript/en-us/uniobjectutil#block-013)). The `LookAt` style helpers are not currently available from UniScript."
         }
     ]
 }

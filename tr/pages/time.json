@@ -1,9 +1,9 @@
 {
     "id": "time",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "Time",
     "description": "Oyun saatini okuyun ve en önemlisi, hareketin ve zamanlayıcıların her cihazda (hızlı ya da yavaş) aynı hissettirmesi için DeltaTime kullanın.",
-    "link": "/docs/uniscript/tr-TR/time",
+    "link": "/docs/uniscript/tr/time",
     "tags": [
         "uniscript",
         "time",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Debug",
-        "link": "/docs/uniscript/tr-TR/debug"
+        "link": "/docs/uniscript/tr/debug"
     },
     "next": {
         "name": "Utility",
-        "link": "/docs/uniscript/tr-TR/utility"
+        "link": "/docs/uniscript/tr/utility"
     },
     "content": [
         {

@@ -9,35 +9,35 @@
                 {
                     "id": "math",
                     "name": "Math",
-                    "link": "/docs/uniscript/en-US/math",
+                    "link": "/docs/uniscript/en-us/math",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "typeutil",
                     "name": "TypeUtil",
-                    "link": "/docs/uniscript/en-US/typeutil",
+                    "link": "/docs/uniscript/en-us/typeutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "debug",
                     "name": "Debug",
-                    "link": "/docs/uniscript/en-US/debug",
+                    "link": "/docs/uniscript/en-us/debug",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "time",
                     "name": "Time",
-                    "link": "/docs/uniscript/en-US/time",
+                    "link": "/docs/uniscript/en-us/time",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "utility",
                     "name": "Utility",
-                    "link": "/docs/uniscript/en-US/utility",
+                    "link": "/docs/uniscript/en-us/utility",
                     "bold": false,
                     "inner": null
                 }
@@ -52,21 +52,21 @@
                 {
                     "id": "uniobjectutil",
                     "name": "UniObjectUtil",
-                    "link": "/docs/uniscript/en-US/uniobjectutil",
+                    "link": "/docs/uniscript/en-us/uniobjectutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "vectorutil",
                     "name": "VectorUtil",
-                    "link": "/docs/uniscript/en-US/vectorutil",
+                    "link": "/docs/uniscript/en-us/vectorutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "quaternionutil",
                     "name": "QuaternionUtil",
-                    "link": "/docs/uniscript/en-US/quaternionutil",
+                    "link": "/docs/uniscript/en-us/quaternionutil",
                     "bold": false,
                     "inner": null
                 }
@@ -81,14 +81,14 @@
                 {
                     "id": "listutil",
                     "name": "ListUtil",
-                    "link": "/docs/uniscript/en-US/listutil",
+                    "link": "/docs/uniscript/en-us/listutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "dictionaryutil",
                     "name": "DictionaryUtil",
-                    "link": "/docs/uniscript/en-US/dictionaryutil",
+                    "link": "/docs/uniscript/en-us/dictionaryutil",
                     "bold": false,
                     "inner": null
                 }
@@ -103,14 +103,14 @@
                 {
                     "id": "colliderutil",
                     "name": "ColliderUtil",
-                    "link": "/docs/uniscript/en-US/colliderutil",
+                    "link": "/docs/uniscript/en-us/colliderutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "physicsutil",
                     "name": "PhysicsUtil",
-                    "link": "/docs/uniscript/en-US/physicsutil",
+                    "link": "/docs/uniscript/en-us/physicsutil",
                     "bold": false,
                     "inner": null
                 }
@@ -125,21 +125,21 @@
                 {
                     "id": "camerautil",
                     "name": "CameraUtil",
-                    "link": "/docs/uniscript/en-US/camerautil",
+                    "link": "/docs/uniscript/en-us/camerautil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "lightutil",
                     "name": "LightUtil",
-                    "link": "/docs/uniscript/en-US/lightutil",
+                    "link": "/docs/uniscript/en-us/lightutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "sceneutil",
                     "name": "SceneUtil",
-                    "link": "/docs/uniscript/en-US/sceneutil",
+                    "link": "/docs/uniscript/en-us/sceneutil",
                     "bold": false,
                     "inner": null
                 }
@@ -154,7 +154,7 @@
                 {
                     "id": "inpututil",
                     "name": "InputUtil",
-                    "link": "/docs/uniscript/en-US/inpututil",
+                    "link": "/docs/uniscript/en-us/inpututil",
                     "bold": false,
                     "inner": null
                 }
@@ -169,14 +169,14 @@
                 {
                     "id": "characterutil",
                     "name": "CharacterUtil",
-                    "link": "/docs/uniscript/en-US/characterutil",
+                    "link": "/docs/uniscript/en-us/characterutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "playerutil",
                     "name": "PlayerUtil",
-                    "link": "/docs/uniscript/en-US/playerutil",
+                    "link": "/docs/uniscript/en-us/playerutil",
                     "bold": false,
                     "inner": null
                 }
@@ -191,14 +191,14 @@
                 {
                     "id": "audioutil",
                     "name": "AudioUtil",
-                    "link": "/docs/uniscript/en-US/audioutil",
+                    "link": "/docs/uniscript/en-us/audioutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "uiutil",
                     "name": "UIUtil",
-                    "link": "/docs/uniscript/en-US/uiutil",
+                    "link": "/docs/uniscript/en-us/uiutil",
                     "bold": false,
                     "inner": null
                 }
@@ -213,21 +213,21 @@
                 {
                     "id": "renderutil",
                     "name": "RenderUtil",
-                    "link": "/docs/uniscript/en-US/renderutil",
+                    "link": "/docs/uniscript/en-us/renderutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "colorutil",
                     "name": "ColorUtil",
-                    "link": "/docs/uniscript/en-US/colorutil",
+                    "link": "/docs/uniscript/en-us/colorutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "particleutil",
                     "name": "ParticleUtil",
-                    "link": "/docs/uniscript/en-US/particleutil",
+                    "link": "/docs/uniscript/en-us/particleutil",
                     "bold": false,
                     "inner": null
                 }
@@ -242,7 +242,7 @@
                 {
                     "id": "networkutil",
                     "name": "NetworkUtil",
-                    "link": "/docs/uniscript/en-US/networkutil",
+                    "link": "/docs/uniscript/en-us/networkutil",
                     "bold": false,
                     "inner": null
                 }
@@ -257,14 +257,14 @@
                 {
                     "id": "storageutil",
                     "name": "StorageUtil",
-                    "link": "/docs/uniscript/en-US/storageutil",
+                    "link": "/docs/uniscript/en-us/storageutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "stringutil",
                     "name": "StringUtil",
-                    "link": "/docs/uniscript/en-US/stringutil",
+                    "link": "/docs/uniscript/en-us/stringutil",
                     "bold": false,
                     "inner": null
                 }
@@ -279,14 +279,14 @@
                 {
                     "id": "taskutil",
                     "name": "TaskUtil",
-                    "link": "/docs/uniscript/en-US/taskutil",
+                    "link": "/docs/uniscript/en-us/taskutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "aiutil",
                     "name": "AIUtil",
-                    "link": "/docs/uniscript/en-US/aiutil",
+                    "link": "/docs/uniscript/en-us/aiutil",
                     "bold": false,
                     "inner": null
                 }
@@ -301,14 +301,14 @@
                 {
                     "id": "gameutil",
                     "name": "GameUtil",
-                    "link": "/docs/uniscript/en-US/gameutil",
+                    "link": "/docs/uniscript/en-us/gameutil",
                     "bold": false,
                     "inner": null
                 },
                 {
                     "id": "marketutil",
                     "name": "MarketUtil",
-                    "link": "/docs/uniscript/en-US/marketutil",
+                    "link": "/docs/uniscript/en-us/marketutil",
                     "bold": false,
                     "inner": null
                 }
@@ -323,7 +323,7 @@
                 {
                     "id": "assert",
                     "name": "Assert",
-                    "link": "/docs/uniscript/en-US/assert",
+                    "link": "/docs/uniscript/en-us/assert",
                     "bold": false,
                     "inner": null
                 }

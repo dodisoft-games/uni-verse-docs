@@ -1,9 +1,9 @@
 {
     "id": "typeutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "TypeUtil",
     "description": "Check what kind of value you're holding (number, text, true/false, vector...) and convert between them — for example turning typed text into a usable number.",
-    "link": "/docs/uniscript/en-US/typeutil",
+    "link": "/docs/uniscript/en-us/typeutil",
     "tags": [
         "uniscript",
         "typeutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Math",
-        "link": "/docs/uniscript/en-US/math"
+        "link": "/docs/uniscript/en-us/math"
     },
     "next": {
         "name": "Debug",
-        "link": "/docs/uniscript/en-US/debug"
+        "link": "/docs/uniscript/en-us/debug"
     },
     "content": [
         {
@@ -195,7 +195,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "The type numbers here are the same ones used across UniScript. See [ListUtil](/docs/uniscript/en-US/listutil) and [DictionaryUtil](/docs/uniscript/en-US/dictionaryutil) for working with the List (9) and Dictionary (10) types."
+            "text": "The type numbers here are the same ones used across UniScript. See [ListUtil](/docs/uniscript/en-us/listutil) and [DictionaryUtil](/docs/uniscript/en-us/dictionaryutil) for working with the List (9) and Dictionary (10) types."
         }
     ]
 }

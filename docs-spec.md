@@ -2,11 +2,11 @@
 
 Dosya yapısı:
 - `docs` adındaki klasörün içerisinde her bir dökümantasyon için bir klasör bulunur ve klasör ismi dökümantasyon'un id değeri olmalıdır.
-- Her bir dökümantasyon klasörünün içerisinde dil seçenekleri için klasörler bulunur. (`en-US`, `tr-TR`, ...)
+- Her bir dökümantasyon klasörünün içerisinde dil seçenekleri için klasörler bulunur. (`en-us`, `tr`, ...)
 - Her bir dil seçeneği içerisinde navigasyonu belirtmek için bir adet `nav.json` dosyası ve sayfaları belirtmek için `pages` adında bir klasör bulunur.
 - `pages` klasörü içerisinde ise her dökümantasyon sayfası için bir adet json dosyası bulunur. json dosyalarının ismi ilgili sayfanın id'si olmalıdır. (`uniscript-info.json`)
 
-Örnek bir sayfanın yolu: `docs/uniscript/en-US/pages/uniscript-info.json`
+Örnek bir sayfanın yolu: `docs/uniscript/en-us/pages/uniscript-info.json`
 
 ## Bir sayfanın json yapısı ve hiyerarşisi
 
@@ -41,10 +41,10 @@ Dosya yapısı:
 | Alan | Açıklama |
 |---|---|
 | `id` | Sayfanın id'sini belirtir. (`usc-arrays`, `usc-variables`, ...) |
-| `lang` | Sayfanın dilini belirtir. (`en-US`) |
+| `lang` | Sayfanın dilini belirtir. (`en-us`) |
 | `name` | Sayfanın ismini belirtir. (`UniScript Arrays`, `UniScript Variables`, ...) |
 | `description` | Sayfanın açıklamasını belirtir. |
-| `link` | Sayfanın yayınlandığı linki belirtir. İlgili dosyanın yolu ile aynıdır. Ancak `pages` ve uzantı belirtilmez: (`/docs/uniscript/en-US/uniscript-info`) |
+| `link` | Sayfanın yayınlandığı linki belirtir. İlgili dosyanın yolu ile aynıdır. Ancak `pages` ve uzantı belirtilmez: (`/docs/uniscript/en-us/uniscript-info`) |
 | `tags` | Sayfa içeriği ile ilgili tag'leri belirtir. `["uniscript", "intro", "overview", "web", "scripting"]` |
 | `previous` | Mevcut sayfadan bir önceki sayfayı belirtir. Gerekirse kullanılır. |
 | `next` | Mevcut sayfadan bir sonraki sayfayı belirtir. Gerekirse kullanılır. |
@@ -269,10 +269,10 @@ Dosya yapısı:
 ```json
 {
     "id": "uniscript-info",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "UniScript Overview",
     "description": "A high-level introduction to UniScript, its history, and its role in modern web development.",
-    "link": "/docs/uniscript/en-US/uniscript-info",
+    "link": "/docs/uniscript/en-us/uniscript-info",
     "tags": ["UniScript", "intro", "overview", "web", "scripting"],
     "previous": {
         "name": "",
@@ -280,7 +280,7 @@ Dosya yapısı:
     },
     "next": {
         "name": "Variables",
-        "link": "/docs/uniscript/en-US/js-variables"
+        "link": "/docs/uniscript/en-us/js-variables"
     },
     "content": [
         {
@@ -398,7 +398,7 @@ Oluşturulan her dosyanın hiyerarşisi `nav.json` dosyasında tutulur.
         {
             "id": "uniscript-info",
             "name": "UniScript Overview",
-            "link": "/docs/uniscript/en-US/uniscript-info",
+            "link": "/docs/uniscript/en-us/uniscript-info",
             "bold": true,
             "inner": null
         },

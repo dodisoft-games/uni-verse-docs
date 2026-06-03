@@ -1,9 +1,9 @@
 {
     "id": "math",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Math",
     "description": "Your number toolbox: round, clamp, smoothly blend between values, pick random numbers, work with angles, and more — with plain examples for each.",
-    "link": "/docs/uniscript/en-US/math",
+    "link": "/docs/uniscript/en-us/math",
     "tags": [
         "uniscript",
         "math",
@@ -18,7 +18,7 @@
     },
     "next": {
         "name": "TypeUtil",
-        "link": "/docs/uniscript/en-US/typeutil"
+        "link": "/docs/uniscript/en-us/typeutil"
     },
     "content": [
         {
@@ -227,7 +227,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "To make a blend feel the same on every device, scale your step by frame time: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. See [Time](/docs/uniscript/en-US/time) for why."
+            "text": "To make a blend feel the same on every device, scale your step by frame time: `Math.Lerp(current, target, Time.DeltaTime() * 5.0)`. See [Time](/docs/uniscript/en-us/time) for why."
         },
         {
             "id": "block-017",
@@ -525,7 +525,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Working with positions and directions instead of single numbers? See [VectorUtil](/docs/uniscript/en-US/vectorutil) for the 3D version of these tools."
+            "text": "Working with positions and directions instead of single numbers? See [VectorUtil](/docs/uniscript/en-us/vectorutil) for the 3D version of these tools."
         }
     ]
 }

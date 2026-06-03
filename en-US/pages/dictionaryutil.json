@@ -1,9 +1,9 @@
 {
     "id": "dictionaryutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "DictionaryUtil",
     "description": "Store values by a key instead of a position — like player name → score. Add, look up, check, remove, and loop through key/value pairs.",
-    "link": "/docs/uniscript/en-US/dictionaryutil",
+    "link": "/docs/uniscript/en-us/dictionaryutil",
     "tags": [
         "uniscript",
         "dictionaryutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/en-US/listutil"
+        "link": "/docs/uniscript/en-us/listutil"
     },
     "next": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/en-US/colliderutil"
+        "link": "/docs/uniscript/en-us/colliderutil"
     },
     "content": [
         {
@@ -40,7 +40,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Use a dictionary (instead of a [list](/docs/uniscript/en-US/listutil)) when each value has a natural name to find it by, and order doesn't matter."
+            "text": "Use a dictionary (instead of a [list](/docs/uniscript/en-us/listutil)) when each value has a natural name to find it by, and order doesn't matter."
         },
         {
             "id": "block-004",
@@ -138,7 +138,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Keys` gives you a [list](/docs/uniscript/en-US/listutil) of every key, which you can loop through. `ForEach` is the quickest way to visit every pair — it runs your method once per pair, handing it the `key` and the `value`."
+            "text": "`Keys` gives you a [list](/docs/uniscript/en-us/listutil) of every key, which you can loop through. `ForEach` is the quickest way to visit every pair — it runs your method once per pair, handing it the `key` and the `value`."
         },
         {
             "id": "block-013",

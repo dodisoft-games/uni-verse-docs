@@ -1,9 +1,9 @@
 {
     "id": "sceneutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "SceneUtil",
     "description": "Move between scenes (levels, menus, maps): replace the current scene with another, or layer a second scene on top.",
-    "link": "/docs/uniscript/en-US/sceneutil",
+    "link": "/docs/uniscript/en-us/sceneutil",
     "tags": [
         "uniscript",
         "sceneutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "LightUtil",
-        "link": "/docs/uniscript/en-US/lightutil"
+        "link": "/docs/uniscript/en-us/lightutil"
     },
     "next": {
         "name": "InputUtil",
-        "link": "/docs/uniscript/en-US/inpututil"
+        "link": "/docs/uniscript/en-us/inpututil"
     },
     "content": [
         {
@@ -136,7 +136,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Looking for objects **inside** the current scene (all coins, all enemies)? That lives on [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-030) — for example `FindUniObjectsByTag`."
+            "text": "Looking for objects **inside** the current scene (all coins, all enemies)? That lives on [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil#block-030) — for example `FindUniObjectsByTag`."
         }
     ]
 }

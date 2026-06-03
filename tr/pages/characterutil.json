@@ -1,9 +1,9 @@
 {
     "id": "characterutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "CharacterUtil",
     "description": "Bir karaktere hayat vermek için ihtiyacınız olan her şey: onu yürütün, animasyon oynatın, yüz ifadesi yaptırın, eşya taktırın ve oyuncunun girdisine tepki verdirin — adım adım anlatılmıştır.",
-    "link": "/docs/uniscript/tr-TR/characterutil",
+    "link": "/docs/uniscript/tr/characterutil",
     "tags": [
         "uniscript",
         "characterutil",
@@ -14,7 +14,7 @@
     ],
     "previous": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/tr-TR/sceneutil"
+        "link": "/docs/uniscript/tr/sceneutil"
     },
     "next": {
         "name": "",

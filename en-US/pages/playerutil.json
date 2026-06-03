@@ -1,20 +1,20 @@
 {
     "id": "playerutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "PlayerUtil",
     "description": "Local-player accessors (camera, character, UI).",
-    "link": "/docs/uniscript/en-US/playerutil",
+    "link": "/docs/uniscript/en-us/playerutil",
     "tags": [
         "uniscript",
         "playerutil"
     ],
     "previous": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-US/characterutil"
+        "link": "/docs/uniscript/en-us/characterutil"
     },
     "next": {
         "name": "AudioUtil",
-        "link": "/docs/uniscript/en-US/audioutil"
+        "link": "/docs/uniscript/en-us/audioutil"
     },
     "content": [
         {

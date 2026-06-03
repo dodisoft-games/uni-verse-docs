@@ -1,9 +1,9 @@
 {
     "id": "physicsutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "PhysicsUtil",
     "description": "Make objects move with real physics: push them with forces, set their speed, spin them, and shoot rays to detect what's in front of them.",
-    "link": "/docs/uniscript/en-US/physicsutil",
+    "link": "/docs/uniscript/en-us/physicsutil",
     "tags": [
         "uniscript",
         "physicsutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "ColliderUtil",
-        "link": "/docs/uniscript/en-US/colliderutil"
+        "link": "/docs/uniscript/en-us/colliderutil"
     },
     "next": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/en-US/camerautil"
+        "link": "/docs/uniscript/en-us/camerautil"
     },
     "content": [
         {
@@ -210,7 +210,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Raycast` returns a [Dictionary](/docs/uniscript/en-US/dictionaryutil) describing the hit, or nothing if the ray hit empty space. The dictionary holds these keys:"
+            "text": "`Raycast` returns a [Dictionary](/docs/uniscript/en-us/dictionaryutil) describing the hit, or nothing if the ray hit empty space. The dictionary holds these keys:"
         },
         {
             "id": "block-022",
@@ -309,14 +309,14 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Don't add physics to a playable character.** A Character already has its own physics body; adding another makes the two fight and causes janky movement. To move a character, use the movement tools in [CharacterUtil](/docs/uniscript/en-US/characterutil) instead."
+            "text": "**Don't add physics to a playable character.** A Character already has its own physics body; adding another makes the two fight and causes janky movement. To move a character, use the movement tools in [CharacterUtil](/docs/uniscript/en-us/characterutil) instead."
         },
         {
             "id": "block-029",
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Physics moves an object, but it needs a shape to bump into things. Pair `PhysicsUtil` with a collider from [ColliderUtil](/docs/uniscript/en-US/colliderutil)."
+            "text": "Physics moves an object, but it needs a shape to bump into things. Pair `PhysicsUtil` with a collider from [ColliderUtil](/docs/uniscript/en-us/colliderutil)."
         }
     ]
 }

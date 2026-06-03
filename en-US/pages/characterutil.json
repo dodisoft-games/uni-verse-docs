@@ -1,9 +1,9 @@
 {
     "id": "characterutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "CharacterUtil",
     "description": "Everything you need to bring a character to life: walk it around, play animations, make faces, attach items, and react to the player's input — explained step by step.",
-    "link": "/docs/uniscript/en-US/characterutil",
+    "link": "/docs/uniscript/en-us/characterutil",
     "tags": [
         "uniscript",
         "characterutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "InputUtil",
-        "link": "/docs/uniscript/en-US/inpututil"
+        "link": "/docs/uniscript/en-us/inpututil"
     },
     "next": {
         "name": "PlayerUtil",
-        "link": "/docs/uniscript/en-US/playerutil"
+        "link": "/docs/uniscript/en-us/playerutil"
     },
     "content": [
         {

@@ -1,20 +1,20 @@
 {
     "id": "renderutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "RenderUtil",
     "description": "Per-renderer material ops on the calling script's host UniObject. First arg is ALWAYS this.",
-    "link": "/docs/uniscript/en-US/renderutil",
+    "link": "/docs/uniscript/en-us/renderutil",
     "tags": [
         "uniscript",
         "renderutil"
     ],
     "previous": {
         "name": "UIUtil",
-        "link": "/docs/uniscript/en-US/uiutil"
+        "link": "/docs/uniscript/en-us/uiutil"
     },
     "next": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-US/colorutil"
+        "link": "/docs/uniscript/en-us/colorutil"
     },
     "content": [
         {

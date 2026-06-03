@@ -1,9 +1,9 @@
 {
     "id": "debug",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "Debug",
     "description": "Test sırasında mesaj yazdırın, hızlı bir durum satırı gösterin ve çalışan oyunu betiğinizden durdurun veya duraklatın.",
-    "link": "/docs/uniscript/tr-TR/debug",
+    "link": "/docs/uniscript/tr/debug",
     "tags": [
         "uniscript",
         "debug",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "TypeUtil",
-        "link": "/docs/uniscript/tr-TR/typeutil"
+        "link": "/docs/uniscript/tr/typeutil"
     },
     "next": {
         "name": "Time",
-        "link": "/docs/uniscript/tr-TR/time"
+        "link": "/docs/uniscript/tr/time"
     },
     "content": [
         {

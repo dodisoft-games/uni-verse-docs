@@ -1,16 +1,16 @@
 {
     "id": "assert",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Assert",
     "description": "Test-harness assertions (Assert.Equal etc.) - used inside Test_* UniScripts.",
-    "link": "/docs/uniscript/en-US/assert",
+    "link": "/docs/uniscript/en-us/assert",
     "tags": [
         "uniscript",
         "assert"
     ],
     "previous": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-US/marketutil"
+        "link": "/docs/uniscript/en-us/marketutil"
     },
     "next": {
         "name": "",

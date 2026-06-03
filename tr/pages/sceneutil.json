@@ -1,9 +1,9 @@
 {
     "id": "sceneutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "SceneUtil",
     "description": "Sahneler (seviyeler, menüler, haritalar) arasında geçiş yapın: mevcut sahneyi başka biriyle değiştirin ya da üzerine ikinci bir sahne ekleyin.",
-    "link": "/docs/uniscript/tr-TR/sceneutil",
+    "link": "/docs/uniscript/tr/sceneutil",
     "tags": [
         "uniscript",
         "sceneutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "LightUtil",
-        "link": "/docs/uniscript/tr-TR/lightutil"
+        "link": "/docs/uniscript/tr/lightutil"
     },
     "next": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/tr-TR/characterutil"
+        "link": "/docs/uniscript/tr/characterutil"
     },
     "content": [
         {
@@ -136,7 +136,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Mevcut sahnenin **içindeki** nesneleri mi arıyorsunuz (tüm altınlar, tüm düşmanlar)? Bu, [UniObjectUtil](/docs/uniscript/tr-TR/uniobjectutil#block-030) üzerinde bulunur — örneğin `FindUniObjectsByTag`."
+            "text": "Mevcut sahnenin **içindeki** nesneleri mi arıyorsunuz (tüm altınlar, tüm düşmanlar)? Bu, [UniObjectUtil](/docs/uniscript/tr/uniobjectutil#block-030) üzerinde bulunur — örneğin `FindUniObjectsByTag`."
         }
     ]
 }

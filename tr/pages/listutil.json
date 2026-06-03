@@ -1,9 +1,9 @@
 {
     "id": "listutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "ListUtil",
     "description": "Listelerle çalışın — sıralı değer koleksiyonları. Ekleyin, kaldırın, sayın, konuma göre arayın, içinde dolaşın, arayın ve sıralayın.",
-    "link": "/docs/uniscript/tr-TR/listutil",
+    "link": "/docs/uniscript/tr/listutil",
     "tags": [
         "uniscript",
         "listutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/tr-TR/quaternionutil"
+        "link": "/docs/uniscript/tr/quaternionutil"
     },
     "next": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/tr-TR/dictionaryutil"
+        "link": "/docs/uniscript/tr/dictionaryutil"
     },
     "content": [
         {
@@ -260,7 +260,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Değerleri bir konum yerine bir adla veya anahtarla mı saklamanız gerekiyor (oyuncu → skor gibi)? Bunun yerine bir [DictionaryUtil](/docs/uniscript/tr-TR/dictionaryutil) kullanın."
+            "text": "Değerleri bir konum yerine bir adla veya anahtarla mı saklamanız gerekiyor (oyuncu → skor gibi)? Bunun yerine bir [DictionaryUtil](/docs/uniscript/tr/dictionaryutil) kullanın."
         }
     ]
 }

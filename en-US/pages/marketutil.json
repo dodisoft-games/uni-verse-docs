@@ -1,20 +1,20 @@
 {
     "id": "marketutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "MarketUtil",
     "description": "In-app store queries, owned inventory checks.",
-    "link": "/docs/uniscript/en-US/marketutil",
+    "link": "/docs/uniscript/en-us/marketutil",
     "tags": [
         "uniscript",
         "marketutil"
     ],
     "previous": {
         "name": "GameUtil",
-        "link": "/docs/uniscript/en-US/gameutil"
+        "link": "/docs/uniscript/en-us/gameutil"
     },
     "next": {
         "name": "Assert",
-        "link": "/docs/uniscript/en-US/assert"
+        "link": "/docs/uniscript/en-us/assert"
     },
     "content": [
         {

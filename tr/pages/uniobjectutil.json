@@ -1,9 +1,9 @@
 {
     "id": "uniobjectutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "UniObjectUtil",
     "description": "En çok kullanılan kütüphane: nesneleri taşıyın, döndürün, ölçeklendirin, gösterin/gizleyin, oluşturun ve yok edin — ayrıca sahnenizdeki diğer nesneleri ve betikleri bulun.",
-    "link": "/docs/uniscript/tr-TR/uniobjectutil",
+    "link": "/docs/uniscript/tr/uniobjectutil",
     "tags": [
         "uniscript",
         "uniobjectutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "Utility",
-        "link": "/docs/uniscript/tr-TR/utility"
+        "link": "/docs/uniscript/tr/utility"
     },
     "next": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/tr-TR/vectorutil"
+        "link": "/docs/uniscript/tr/vectorutil"
     },
     "content": [
         {
@@ -130,7 +130,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "**Bir kamerayı mı taşıyorsunuz?** `SetPosition` kullanın — `SetWorldPosition` bir kamera nesnesinde sessizce hiçbir şey yapmaz. Kameraya özel rehberlik için [CameraUtil](/docs/uniscript/tr-TR/camerautil) sayfasına bakın."
+            "text": "**Bir kamerayı mı taşıyorsunuz?** `SetPosition` kullanın — `SetWorldPosition` bir kamera nesnesinde sessizce hiçbir şey yapmaz. Kameraya özel rehberlik için [CameraUtil](/docs/uniscript/tr/camerautil) sayfasına bakın."
         },
         {
             "id": "block-013",
@@ -144,7 +144,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Bir nesneyi bir şeye doğru çevirmek için [QuaternionUtil](/docs/uniscript/tr-TR/quaternionutil)'in `LookRotation`'ı ile bir dönüş oluşturun ve `SetRotation` ile uygulayın. `LookRotation`, bakılacak bir yön ile bir \"yukarı\" yön ister:"
+            "text": "Bir nesneyi bir şeye doğru çevirmek için [QuaternionUtil](/docs/uniscript/tr/quaternionutil)'in `LookRotation`'ı ile bir dönüş oluşturun ve `SetRotation` ile uygulayın. `LookRotation`, bakılacak bir yön ile bir \"yukarı\" yön ister:"
         },
         {
             "id": "block-015",
@@ -364,7 +364,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "**Etikete** göre arama hızlı ve güvenilirdir. İlgili nesnelere editörde aynı etiketi verin, sonra hepsini `FindUniObjectsByTag` ile alın. Geri aldığınız listeyle çalışmak için [ListUtil](/docs/uniscript/tr-TR/listutil) sayfasına bakın."
+            "text": "**Etikete** göre arama hızlı ve güvenilirdir. İlgili nesnelere editörde aynı etiketi verin, sonra hepsini `FindUniObjectsByTag` ile alın. Geri aldığınız listeyle çalışmak için [ListUtil](/docs/uniscript/tr/listutil) sayfasına bakın."
         },
         {
             "id": "block-035",
@@ -456,7 +456,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "Bir nesneyi bir hedefe **baktırmak** için `SetRotation`'ı `QuaternionUtil.LookRotation` ile birlikte kullanın ([Bir yöne bakma](/docs/uniscript/tr-TR/uniobjectutil#block-013) bölümünde gösterildi). `LookAt` tarzı yardımcılar şu anda UniScript'ten kullanılamaz."
+            "text": "Bir nesneyi bir hedefe **baktırmak** için `SetRotation`'ı `QuaternionUtil.LookRotation` ile birlikte kullanın ([Bir yöne bakma](/docs/uniscript/tr/uniobjectutil#block-013) bölümünde gösterildi). `LookAt` tarzı yardımcılar şu anda UniScript'ten kullanılamaz."
         }
     ]
 }

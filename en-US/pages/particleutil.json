@@ -1,20 +1,20 @@
 {
     "id": "particleutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ParticleUtil",
     "description": "Spawn particle effects from prefab references.",
-    "link": "/docs/uniscript/en-US/particleutil",
+    "link": "/docs/uniscript/en-us/particleutil",
     "tags": [
         "uniscript",
         "particleutil"
     ],
     "previous": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-US/colorutil"
+        "link": "/docs/uniscript/en-us/colorutil"
     },
     "next": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-US/networkutil"
+        "link": "/docs/uniscript/en-us/networkutil"
     },
     "content": [
         {

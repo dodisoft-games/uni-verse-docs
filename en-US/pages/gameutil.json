@@ -1,20 +1,20 @@
 {
     "id": "gameutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "GameUtil",
     "description": "AddMovingPlatform only -- registers the calling script as a moving platform.",
-    "link": "/docs/uniscript/en-US/gameutil",
+    "link": "/docs/uniscript/en-us/gameutil",
     "tags": [
         "uniscript",
         "gameutil"
     ],
     "previous": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-US/aiutil"
+        "link": "/docs/uniscript/en-us/aiutil"
     },
     "next": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-US/marketutil"
+        "link": "/docs/uniscript/en-us/marketutil"
     },
     "content": [
         {

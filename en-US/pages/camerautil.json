@@ -1,9 +1,9 @@
 {
     "id": "camerautil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "CameraUtil",
     "description": "Turn an object into the game's camera, read where the active camera is, and control how smoothly the view blends when switching cameras.",
-    "link": "/docs/uniscript/en-US/camerautil",
+    "link": "/docs/uniscript/en-us/camerautil",
     "tags": [
         "uniscript",
         "camerautil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "PhysicsUtil",
-        "link": "/docs/uniscript/en-US/physicsutil"
+        "link": "/docs/uniscript/en-us/physicsutil"
     },
     "next": {
         "name": "LightUtil",
-        "link": "/docs/uniscript/en-US/lightutil"
+        "link": "/docs/uniscript/en-us/lightutil"
     },
     "content": [
         {
@@ -75,7 +75,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "You move and aim a camera the same way you move any object — with [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil). A common pattern is to follow the player every frame in `OnUpdate`:"
+            "text": "You move and aim a camera the same way you move any object — with [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil). A common pattern is to follow the player every frame in `OnUpdate`:"
         },
         {
             "id": "block-008",
@@ -97,7 +97,7 @@
             "tag": "warning",
             "styles": null,
             "classes": null,
-            "text": "To move a camera, use `UniObjectUtil.SetPosition` — **not** `SetWorldPosition`, which silently does nothing on a camera. To aim it, use `SetRotation` with `QuaternionUtil.LookRotation` (see [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-013))."
+            "text": "To move a camera, use `UniObjectUtil.SetPosition` — **not** `SetWorldPosition`, which silently does nothing on a camera. To aim it, use `SetRotation` with `QuaternionUtil.LookRotation` (see [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil#block-013))."
         },
         {
             "id": "block-010",

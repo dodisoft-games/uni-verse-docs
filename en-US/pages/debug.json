@@ -1,9 +1,9 @@
 {
     "id": "debug",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Debug",
     "description": "Print messages while testing, show a quick status line, and stop or pause the running game from your script.",
-    "link": "/docs/uniscript/en-US/debug",
+    "link": "/docs/uniscript/en-us/debug",
     "tags": [
         "uniscript",
         "debug",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "TypeUtil",
-        "link": "/docs/uniscript/en-US/typeutil"
+        "link": "/docs/uniscript/en-us/typeutil"
     },
     "next": {
         "name": "Time",
-        "link": "/docs/uniscript/en-US/time"
+        "link": "/docs/uniscript/en-us/time"
     },
     "content": [
         {

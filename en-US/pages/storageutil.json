@@ -1,20 +1,20 @@
 {
     "id": "storageutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "StorageUtil",
     "description": "Persistent key/value storage (PlayerPrefs-style).",
-    "link": "/docs/uniscript/en-US/storageutil",
+    "link": "/docs/uniscript/en-us/storageutil",
     "tags": [
         "uniscript",
         "storageutil"
     ],
     "previous": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-US/networkutil"
+        "link": "/docs/uniscript/en-us/networkutil"
     },
     "next": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-US/stringutil"
+        "link": "/docs/uniscript/en-us/stringutil"
     },
     "content": [
         {

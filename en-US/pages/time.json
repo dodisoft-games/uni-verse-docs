@@ -1,9 +1,9 @@
 {
     "id": "time",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Time",
     "description": "Read the game clock and, most importantly, use DeltaTime so movement and timers feel the same on every device, fast or slow.",
-    "link": "/docs/uniscript/en-US/time",
+    "link": "/docs/uniscript/en-us/time",
     "tags": [
         "uniscript",
         "time",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Debug",
-        "link": "/docs/uniscript/en-US/debug"
+        "link": "/docs/uniscript/en-us/debug"
     },
     "next": {
         "name": "Utility",
-        "link": "/docs/uniscript/en-US/utility"
+        "link": "/docs/uniscript/en-us/utility"
     },
     "content": [
         {

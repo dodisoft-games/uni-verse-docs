@@ -1,20 +1,20 @@
 {
     "id": "colorutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ColorUtil",
     "description": "RGB to HSV, lerp, hex parsing.",
-    "link": "/docs/uniscript/en-US/colorutil",
+    "link": "/docs/uniscript/en-us/colorutil",
     "tags": [
         "uniscript",
         "colorutil"
     ],
     "previous": {
         "name": "RenderUtil",
-        "link": "/docs/uniscript/en-US/renderutil"
+        "link": "/docs/uniscript/en-us/renderutil"
     },
     "next": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-US/particleutil"
+        "link": "/docs/uniscript/en-us/particleutil"
     },
     "content": [
         {

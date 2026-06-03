@@ -1,20 +1,20 @@
 {
     "id": "networkutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "NetworkUtil",
     "description": "Local player, room state, send RPC, is-host.",
-    "link": "/docs/uniscript/en-US/networkutil",
+    "link": "/docs/uniscript/en-us/networkutil",
     "tags": [
         "uniscript",
         "networkutil"
     ],
     "previous": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-US/particleutil"
+        "link": "/docs/uniscript/en-us/particleutil"
     },
     "next": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-US/storageutil"
+        "link": "/docs/uniscript/en-us/storageutil"
     },
     "content": [
         {

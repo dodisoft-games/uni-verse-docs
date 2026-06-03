@@ -1,20 +1,20 @@
 {
     "id": "inpututil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "InputUtil",
     "description": "AddInputListener(this) only -- the rest of the input surface comes via OnAxis / OnAction magic methods on the script.",
-    "link": "/docs/uniscript/en-US/inpututil",
+    "link": "/docs/uniscript/en-us/inpututil",
     "tags": [
         "uniscript",
         "inpututil"
     ],
     "previous": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/en-US/sceneutil"
+        "link": "/docs/uniscript/en-us/sceneutil"
     },
     "next": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-US/characterutil"
+        "link": "/docs/uniscript/en-us/characterutil"
     },
     "content": [
         {

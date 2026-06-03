@@ -1,9 +1,9 @@
 {
     "id": "listutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ListUtil",
     "description": "Work with lists — ordered collections of values. Add, remove, count, look up by position, loop through, search, and sort.",
-    "link": "/docs/uniscript/en-US/listutil",
+    "link": "/docs/uniscript/en-us/listutil",
     "tags": [
         "uniscript",
         "listutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/en-US/quaternionutil"
+        "link": "/docs/uniscript/en-us/quaternionutil"
     },
     "next": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/en-US/dictionaryutil"
+        "link": "/docs/uniscript/en-us/dictionaryutil"
     },
     "content": [
         {
@@ -260,7 +260,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Need to store values by a name or key instead of a position (like player → score)? Use a [DictionaryUtil](/docs/uniscript/en-US/dictionaryutil) instead."
+            "text": "Need to store values by a name or key instead of a position (like player → score)? Use a [DictionaryUtil](/docs/uniscript/en-us/dictionaryutil) instead."
         }
     ]
 }

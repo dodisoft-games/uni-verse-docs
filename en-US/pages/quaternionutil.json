@@ -1,9 +1,9 @@
 {
     "id": "quaternionutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "QuaternionUtil",
     "description": "Create and blend rotations the safe way: build a facing from angles or a direction, smoothly turn toward a target, and convert rotations to readable angles.",
-    "link": "/docs/uniscript/en-US/quaternionutil",
+    "link": "/docs/uniscript/en-us/quaternionutil",
     "tags": [
         "uniscript",
         "quaternionutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/en-US/vectorutil"
+        "link": "/docs/uniscript/en-us/vectorutil"
     },
     "next": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/en-US/listutil"
+        "link": "/docs/uniscript/en-us/listutil"
     },
     "content": [
         {
@@ -195,7 +195,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Need positions and directions instead of rotations? See [VectorUtil](/docs/uniscript/en-US/vectorutil). To apply a rotation to an object, see [UniObjectUtil's SetRotation](/docs/uniscript/en-US/uniobjectutil#block-013)."
+            "text": "Need positions and directions instead of rotations? See [VectorUtil](/docs/uniscript/en-us/vectorutil). To apply a rotation to an object, see [UniObjectUtil's SetRotation](/docs/uniscript/en-us/uniobjectutil#block-013)."
         }
     ]
 }

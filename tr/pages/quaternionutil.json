@@ -1,9 +1,9 @@
 {
     "id": "quaternionutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "QuaternionUtil",
     "description": "Dönüşleri güvenli yoldan oluşturun ve harmanlayın: açılardan veya bir yönden bir bakış oluşturun, bir hedefe doğru yumuşakça dönün ve dönüşleri okunabilir açılara çevirin.",
-    "link": "/docs/uniscript/tr-TR/quaternionutil",
+    "link": "/docs/uniscript/tr/quaternionutil",
     "tags": [
         "uniscript",
         "quaternionutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "VectorUtil",
-        "link": "/docs/uniscript/tr-TR/vectorutil"
+        "link": "/docs/uniscript/tr/vectorutil"
     },
     "next": {
         "name": "ListUtil",
-        "link": "/docs/uniscript/tr-TR/listutil"
+        "link": "/docs/uniscript/tr/listutil"
     },
     "content": [
         {
@@ -195,7 +195,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Dönüşler yerine konumlar ve yönler mi gerekiyor? [VectorUtil](/docs/uniscript/tr-TR/vectorutil) sayfasına bakın. Bir dönüşü bir nesneye uygulamak için [UniObjectUtil'in SetRotation'ı](/docs/uniscript/tr-TR/uniobjectutil#block-013)'na bakın."
+            "text": "Dönüşler yerine konumlar ve yönler mi gerekiyor? [VectorUtil](/docs/uniscript/tr/vectorutil) sayfasına bakın. Bir dönüşü bir nesneye uygulamak için [UniObjectUtil'in SetRotation'ı](/docs/uniscript/tr/uniobjectutil#block-013)'na bakın."
         }
     ]
 }

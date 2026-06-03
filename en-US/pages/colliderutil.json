@@ -1,9 +1,9 @@
 {
     "id": "colliderutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ColliderUtil",
     "description": "Give an object a physical shape so it can bump into, stand on, or detect other objects — boxes, capsules, spheres, meshes, and wheels.",
-    "link": "/docs/uniscript/en-US/colliderutil",
+    "link": "/docs/uniscript/en-us/colliderutil",
     "tags": [
         "uniscript",
         "colliderutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "DictionaryUtil",
-        "link": "/docs/uniscript/en-US/dictionaryutil"
+        "link": "/docs/uniscript/en-us/dictionaryutil"
     },
     "next": {
         "name": "PhysicsUtil",
-        "link": "/docs/uniscript/en-US/physicsutil"
+        "link": "/docs/uniscript/en-us/physicsutil"
     },
     "content": [
         {
@@ -124,7 +124,7 @@
             "tag": "important",
             "styles": null,
             "classes": null,
-            "text": "A playable **character** already manages its own shape. Don't add a separate collider to a Character object — it can fight with the one the character already has. See [CharacterUtil](/docs/uniscript/en-US/characterutil)."
+            "text": "A playable **character** already manages its own shape. Don't add a separate collider to a Character object — it can fight with the one the character already has. See [CharacterUtil](/docs/uniscript/en-us/characterutil)."
         },
         {
             "id": "block-012",
@@ -157,7 +157,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "A collider gives an object a shape; to make it actually move, bounce, or fall you also need physics. See [PhysicsUtil](/docs/uniscript/en-US/physicsutil)."
+            "text": "A collider gives an object a shape; to make it actually move, bounce, or fall you also need physics. See [PhysicsUtil](/docs/uniscript/en-us/physicsutil)."
         }
     ]
 }

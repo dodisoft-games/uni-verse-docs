@@ -1,9 +1,9 @@
 {
     "id": "vectorutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "VectorUtil",
     "description": "Build and work with vector3 values — the (x, y, z) used for positions and directions. Make them, measure distance, find directions, and blend between them.",
-    "link": "/docs/uniscript/en-US/vectorutil",
+    "link": "/docs/uniscript/en-us/vectorutil",
     "tags": [
         "uniscript",
         "vectorutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/en-US/uniobjectutil"
+        "link": "/docs/uniscript/en-us/uniobjectutil"
     },
     "next": {
         "name": "QuaternionUtil",
-        "link": "/docs/uniscript/en-US/quaternionutil"
+        "link": "/docs/uniscript/en-us/quaternionutil"
     },
     "content": [
         {
@@ -267,7 +267,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Vectors describe positions and directions; **rotations** are a different value called a quaternion. To turn a direction into a facing, see [QuaternionUtil](/docs/uniscript/en-US/quaternionutil)."
+            "text": "Vectors describe positions and directions; **rotations** are a different value called a quaternion. To turn a direction into a facing, see [QuaternionUtil](/docs/uniscript/en-us/quaternionutil)."
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "id": "utility",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Utility",
     "description": "A grab-bag of everyday helpers: call other scripts' methods (now or after a delay), add trails/outlines, read asset info, show or hide the mouse cursor, and make unique IDs.",
-    "link": "/docs/uniscript/en-US/utility",
+    "link": "/docs/uniscript/en-us/utility",
     "tags": [
         "uniscript",
         "utility",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "Time",
-        "link": "/docs/uniscript/en-US/time"
+        "link": "/docs/uniscript/en-us/time"
     },
     "next": {
         "name": "UniObjectUtil",
-        "link": "/docs/uniscript/en-US/uniobjectutil"
+        "link": "/docs/uniscript/en-us/uniobjectutil"
     },
     "content": [
         {
@@ -266,7 +266,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "`CallMethodDelayed` is one of the easiest ways to schedule something for later without writing your own timer. For repeating or frame-based timing instead, see [Time](/docs/uniscript/en-US/time)."
+            "text": "`CallMethodDelayed` is one of the easiest ways to schedule something for later without writing your own timer. For repeating or frame-based timing instead, see [Time](/docs/uniscript/en-us/time)."
         }
     ]
 }
