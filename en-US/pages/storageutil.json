@@ -1,9 +1,9 @@
 {
     "id": "storageutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "StorageUtil",
     "description": "Remember things: short-lived temp data for the current session, saved data that survives between plays, and online scoreboards.",
-    "link": "/docs/uniscript/en-US/storageutil",
+    "link": "/docs/uniscript/en-us/storageutil",
     "tags": [
         "uniscript",
         "storageutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-US/networkutil"
+        "link": "/docs/uniscript/en-us/networkutil"
     },
     "next": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-US/stringutil"
+        "link": "/docs/uniscript/en-us/stringutil"
     },
     "content": [
         {
@@ -188,7 +188,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "When `GetScoreboard` finishes, your callback receives whether it succeeded and a [list](/docs/uniscript/en-US/listutil) of score rows. Each row is a [dictionary](/docs/uniscript/en-US/dictionaryutil) with keys `\"id\"`, `\"name\"`, `\"score\"`, `\"me\"` (true for the current player), and `\"data\"` (your custom info)."
+            "text": "When `GetScoreboard` finishes, your callback receives whether it succeeded and a [list](/docs/uniscript/en-us/listutil) of score rows. Each row is a [dictionary](/docs/uniscript/en-us/dictionaryutil) with keys `\"id\"`, `\"name\"`, `\"score\"`, `\"me\"` (true for the current player), and `\"data\"` (your custom info)."
         },
         {
             "id": "block-018",

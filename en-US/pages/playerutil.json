@@ -1,9 +1,9 @@
 {
     "id": "playerutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "PlayerUtil",
     "description": "Reach the real person playing: read their profile (name, avatar, outfit), dress a character in their look, manage inventory, and report quest and game events.",
-    "link": "/docs/uniscript/en-US/playerutil",
+    "link": "/docs/uniscript/en-us/playerutil",
     "tags": [
         "uniscript",
         "playerutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-US/characterutil"
+        "link": "/docs/uniscript/en-us/characterutil"
     },
     "next": {
         "name": "AudioUtil",
-        "link": "/docs/uniscript/en-US/audioutil"
+        "link": "/docs/uniscript/en-us/audioutil"
     },
     "content": [
         {
@@ -139,7 +139,7 @@
             ],
             "rows": [
                 ["`GetInventory(script, method)`", "Fetches the player's inventory and calls `method` on `script` with the result."],
-                ["`SetInventory(script, method, inventory)`", "Saves an updated inventory (a [Dictionary](/docs/uniscript/en-US/dictionaryutil)), with a callback when done."]
+                ["`SetInventory(script, method, inventory)`", "Saves an updated inventory (a [Dictionary](/docs/uniscript/en-us/dictionaryutil)), with a callback when done."]
             ]
         },
         {

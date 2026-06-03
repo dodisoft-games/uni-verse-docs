@@ -1,9 +1,9 @@
 {
     "id": "colorutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ColorUtil",
     "description": "Create and read colors: ready-made presets, build from red/green/blue/opacity, convert to and from hex codes, and pull out individual channels.",
-    "link": "/docs/uniscript/en-US/colorutil",
+    "link": "/docs/uniscript/en-us/colorutil",
     "tags": [
         "uniscript",
         "colorutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "RenderUtil",
-        "link": "/docs/uniscript/en-US/renderutil"
+        "link": "/docs/uniscript/en-us/renderutil"
     },
     "next": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-US/particleutil"
+        "link": "/docs/uniscript/en-us/particleutil"
     },
     "content": [
         {
@@ -191,7 +191,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Colors made here are exactly what [RenderUtil's SetColor](/docs/uniscript/en-US/renderutil#block-003) and [LightUtil](/docs/uniscript/en-US/lightutil) expect — mix a color once and reuse it everywhere."
+            "text": "Colors made here are exactly what [RenderUtil's SetColor](/docs/uniscript/en-us/renderutil#block-003) and [LightUtil](/docs/uniscript/en-us/lightutil) expect — mix a color once and reuse it everywhere."
         }
     ]
 }

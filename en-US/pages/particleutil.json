@@ -1,9 +1,9 @@
 {
     "id": "particleutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "ParticleUtil",
     "description": "Control particle effects — smoke, sparks, dust, magic. Add a particle system to an object, start and stop it, burst on demand, and set how fast it emits.",
-    "link": "/docs/uniscript/en-US/particleutil",
+    "link": "/docs/uniscript/en-us/particleutil",
     "tags": [
         "uniscript",
         "particleutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-US/colorutil"
+        "link": "/docs/uniscript/en-us/colorutil"
     },
     "next": {
         "name": "NetworkUtil",
-        "link": "/docs/uniscript/en-US/networkutil"
+        "link": "/docs/uniscript/en-us/networkutil"
     },
     "content": [
         {

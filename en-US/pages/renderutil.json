@@ -1,9 +1,9 @@
 {
     "id": "renderutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "RenderUtil",
     "description": "Change how an object looks: recolor it, swap its texture or material, tile and offset the texture, and show or hide it.",
-    "link": "/docs/uniscript/en-US/renderutil",
+    "link": "/docs/uniscript/en-us/renderutil",
     "tags": [
         "uniscript",
         "renderutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "UIUtil",
-        "link": "/docs/uniscript/en-US/uiutil"
+        "link": "/docs/uniscript/en-us/uiutil"
     },
     "next": {
         "name": "ColorUtil",
-        "link": "/docs/uniscript/en-US/colorutil"
+        "link": "/docs/uniscript/en-us/colorutil"
     },
     "content": [
         {
@@ -47,7 +47,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`SetColor` tints an object. You can give it four numbers (red, green, blue, and opacity, each `0`–`1`) or a ready-made color value from [ColorUtil](/docs/uniscript/en-US/colorutil)."
+            "text": "`SetColor` tints an object. You can give it four numbers (red, green, blue, and opacity, each `0`–`1`) or a ready-made color value from [ColorUtil](/docs/uniscript/en-us/colorutil)."
         },
         {
             "id": "block-005",
@@ -137,7 +137,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "`SetVisibility` only hides the look — the object still exists and reacts. To turn an object off entirely, use `SetUniObjectActivation` from [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-018)."
+            "text": "`SetVisibility` only hides the look — the object still exists and reacts. To turn an object off entirely, use `SetUniObjectActivation` from [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil#block-018)."
         },
         {
             "id": "block-014",
@@ -173,7 +173,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "For building and reading the color values used by `SetColor`, see [ColorUtil](/docs/uniscript/en-US/colorutil)."
+            "text": "For building and reading the color values used by `SetColor`, see [ColorUtil](/docs/uniscript/en-us/colorutil)."
         }
     ]
 }

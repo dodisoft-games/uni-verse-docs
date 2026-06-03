@@ -1,9 +1,9 @@
 {
     "id": "networkutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "NetworkUtil",
     "description": "Build multiplayer: connect players, create and join rooms and lobbies, keep objects in sync across players, and read who owns what.",
-    "link": "/docs/uniscript/en-US/networkutil",
+    "link": "/docs/uniscript/en-us/networkutil",
     "tags": [
         "uniscript",
         "networkutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "ParticleUtil",
-        "link": "/docs/uniscript/en-US/particleutil"
+        "link": "/docs/uniscript/en-us/particleutil"
     },
     "next": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-US/storageutil"
+        "link": "/docs/uniscript/en-us/storageutil"
     },
     "content": [
         {

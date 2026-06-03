@@ -1,9 +1,9 @@
 {
     "id": "aiutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "AIUtil",
     "description": "Give non-player characters a brain: build a walkable map, send NPCs to a spot, and make them chase targets with smart pathfinding.",
-    "link": "/docs/uniscript/en-US/aiutil",
+    "link": "/docs/uniscript/en-us/aiutil",
     "tags": [
         "uniscript",
         "aiutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "TaskUtil",
-        "link": "/docs/uniscript/en-US/taskutil"
+        "link": "/docs/uniscript/en-us/taskutil"
     },
     "next": {
         "name": "GameUtil",
-        "link": "/docs/uniscript/en-US/gameutil"
+        "link": "/docs/uniscript/en-us/gameutil"
     },
     "content": [
         {
@@ -226,7 +226,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Build the navigation map with `GenerateNavigation` once after the level is set up — not every frame. Tagging your targets (see [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-030)) makes `AssignTargetsAutomatically` the easiest way to wire up chasing."
+            "text": "Build the navigation map with `GenerateNavigation` once after the level is set up — not every frame. Tagging your targets (see [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil#block-030)) makes `AssignTargetsAutomatically` the easiest way to wire up chasing."
         }
     ]
 }

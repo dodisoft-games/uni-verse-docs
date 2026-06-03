@@ -1,9 +1,9 @@
 {
     "id": "assert",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "Assert",
     "description": "Write tests that check your game logic is correct: compare values, verify conditions, and pass or fail a test on purpose.",
-    "link": "/docs/uniscript/en-US/assert",
+    "link": "/docs/uniscript/en-us/assert",
     "tags": [
         "uniscript",
         "assert",
@@ -12,7 +12,7 @@
     ],
     "previous": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-US/marketutil"
+        "link": "/docs/uniscript/en-us/marketutil"
     },
     "next": {
         "name": "",

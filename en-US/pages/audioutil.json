@@ -1,9 +1,9 @@
 {
     "id": "audioutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "AudioUtil",
     "description": "Play sound effects and music: quick one-shot sounds (flat or positioned in 3D), control an attached audio player, change pitch, and mute everything.",
-    "link": "/docs/uniscript/en-US/audioutil",
+    "link": "/docs/uniscript/en-us/audioutil",
     "tags": [
         "uniscript",
         "audioutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "PlayerUtil",
-        "link": "/docs/uniscript/en-US/playerutil"
+        "link": "/docs/uniscript/en-us/playerutil"
     },
     "next": {
         "name": "UIUtil",
-        "link": "/docs/uniscript/en-US/uiutil"
+        "link": "/docs/uniscript/en-us/uiutil"
     },
     "content": [
         {

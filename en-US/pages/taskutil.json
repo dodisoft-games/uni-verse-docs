@@ -1,9 +1,9 @@
 {
     "id": "taskutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "TaskUtil",
     "description": "Controls for background tasks — start a task, and stop one or all of them.",
-    "link": "/docs/uniscript/en-US/taskutil",
+    "link": "/docs/uniscript/en-us/taskutil",
     "tags": [
         "uniscript",
         "taskutil",
@@ -12,11 +12,11 @@
     ],
     "previous": {
         "name": "StringUtil",
-        "link": "/docs/uniscript/en-US/stringutil"
+        "link": "/docs/uniscript/en-us/stringutil"
     },
     "next": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-US/aiutil"
+        "link": "/docs/uniscript/en-us/aiutil"
     },
     "content": [
         {
@@ -53,7 +53,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "For most everyday timing needs, you'll get further with the tools you already know: schedule a one-off action with [Utility's CallMethodDelayed](/docs/uniscript/en-US/utility#block-004), and handle per-frame or repeating timing with [Time](/docs/uniscript/en-US/time)."
+            "text": "For most everyday timing needs, you'll get further with the tools you already know: schedule a one-off action with [Utility's CallMethodDelayed](/docs/uniscript/en-us/utility#block-004), and handle per-frame or repeating timing with [Time](/docs/uniscript/en-us/time)."
         },
         {
             "id": "block-005",

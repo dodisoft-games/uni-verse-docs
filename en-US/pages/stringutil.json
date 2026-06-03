@@ -1,9 +1,9 @@
 {
     "id": "stringutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "StringUtil",
     "description": "Work with text: measure and search it, change case, trim spaces, join and replace, cut out parts, and split it into a list.",
-    "link": "/docs/uniscript/en-US/stringutil",
+    "link": "/docs/uniscript/en-us/stringutil",
     "tags": [
         "uniscript",
         "stringutil",
@@ -13,11 +13,11 @@
     ],
     "previous": {
         "name": "StorageUtil",
-        "link": "/docs/uniscript/en-US/storageutil"
+        "link": "/docs/uniscript/en-us/storageutil"
     },
     "next": {
         "name": "TaskUtil",
-        "link": "/docs/uniscript/en-US/taskutil"
+        "link": "/docs/uniscript/en-us/taskutil"
     },
     "content": [
         {
@@ -175,7 +175,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "`Split` breaks text into a [list](/docs/uniscript/en-US/listutil) wherever it finds a divider — perfect for reading comma-separated values."
+            "text": "`Split` breaks text into a [list](/docs/uniscript/en-us/listutil) wherever it finds a divider — perfect for reading comma-separated values."
         },
         {
             "id": "block-017",
@@ -244,7 +244,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "To turn typed text into a real number for math, hand the cleaned-up string to [TypeUtil's Convert](/docs/uniscript/en-US/typeutil#block-009) — trim it first with `Trim` to remove stray spaces."
+            "text": "To turn typed text into a real number for math, hand the cleaned-up string to [TypeUtil's Convert](/docs/uniscript/en-us/typeutil#block-009) — trim it first with `Trim` to remove stray spaces."
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "id": "gameutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "GameUtil",
     "description": "Turn an object into a moving platform that carries the player along as it moves.",
-    "link": "/docs/uniscript/en-US/gameutil",
+    "link": "/docs/uniscript/en-us/gameutil",
     "tags": [
         "uniscript",
         "gameutil",
@@ -12,11 +12,11 @@
     ],
     "previous": {
         "name": "AIUtil",
-        "link": "/docs/uniscript/en-US/aiutil"
+        "link": "/docs/uniscript/en-us/aiutil"
     },
     "next": {
         "name": "MarketUtil",
-        "link": "/docs/uniscript/en-US/marketutil"
+        "link": "/docs/uniscript/en-us/marketutil"
     },
     "content": [
         {
@@ -95,7 +95,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Move the platform with [UniObjectUtil](/docs/uniscript/en-US/uniobjectutil#block-004) for simple back-and-forth motion, or drive it with physics from [PhysicsUtil](/docs/uniscript/en-US/physicsutil) — either way, `AddMovingPlatform` is what makes riders stick."
+            "text": "Move the platform with [UniObjectUtil](/docs/uniscript/en-us/uniobjectutil#block-004) for simple back-and-forth motion, or drive it with physics from [PhysicsUtil](/docs/uniscript/en-us/physicsutil) — either way, `AddMovingPlatform` is what makes riders stick."
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "id": "uiutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "UIUtil",
     "description": "Control your on-screen interface from code: open and close panels, update labels, icons, colors and values, build scoreboards, and move UI around.",
-    "link": "/docs/uniscript/en-US/uiutil",
+    "link": "/docs/uniscript/en-us/uiutil",
     "tags": [
         "uniscript",
         "uiutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "AudioUtil",
-        "link": "/docs/uniscript/en-US/audioutil"
+        "link": "/docs/uniscript/en-us/audioutil"
     },
     "next": {
         "name": "RenderUtil",
-        "link": "/docs/uniscript/en-US/renderutil"
+        "link": "/docs/uniscript/en-us/renderutil"
     },
     "content": [
         {
@@ -124,7 +124,7 @@
                 ["`SetElementColor(panelId, elementName, r, g, b, a)`", "Tints an element. Each value is `0`–`1`; `a` is opacity."],
                 ["`SetElementVisibility(panelId, elementName, visible)`", "Hides or shows one element."],
                 ["`SetElementInteract(panelId, elementName, interactable)`", "Greys out / re-enables a button so it can't be clicked."],
-                ["`SetElementItems(panelId, elementName, items)`", "Fills a list element with a [list](/docs/uniscript/en-US/listutil) of items."],
+                ["`SetElementItems(panelId, elementName, items)`", "Fills a list element with a [list](/docs/uniscript/en-us/listutil) of items."],
                 ["`PlayElementAnimation(panelId, elementName, animation)`", "Plays a named animation on one element (a button bounce)."],
                 ["`SetElementEvents(panelId, elementName, enable)`", "Turns one element's input on or off."]
             ]
@@ -275,7 +275,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Save the panel ID from `OpenPanel` in a field so you can update its elements later. To react when the player clicks a button on a panel, see how input arrives in [InputUtil](/docs/uniscript/en-US/inpututil)."
+            "text": "Save the panel ID from `OpenPanel` in a field so you can update its elements later. To react when the player clicks a button on a panel, see how input arrives in [InputUtil](/docs/uniscript/en-us/inpututil)."
         }
     ]
 }

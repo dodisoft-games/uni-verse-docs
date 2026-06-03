@@ -1,9 +1,9 @@
 {
     "id": "lightutil",
-    "lang": "tr-TR",
+    "lang": "tr",
     "name": "LightUtil",
     "description": "Dünyanızın havasını ayarlayın: bir nesneyi ışığa çevirin, ortam gökyüzü/zemin renklerini tonlayın ve seçtiğiniz bir renk ve yoğunlukla sisi açın.",
-    "link": "/docs/uniscript/tr-TR/lightutil",
+    "link": "/docs/uniscript/tr/lightutil",
     "tags": [
         "uniscript",
         "lightutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "CameraUtil",
-        "link": "/docs/uniscript/tr-TR/camerautil"
+        "link": "/docs/uniscript/tr/camerautil"
     },
     "next": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/tr-TR/sceneutil"
+        "link": "/docs/uniscript/tr/sceneutil"
     },
     "content": [
         {
@@ -40,7 +40,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Buradaki renk metotları bir **color** değeri alır. Birini [ColorUtil](/docs/uniscript/tr-TR/colorutil) ile oluşturun, örneğin `ColorUtil.FromRGBA(...)`."
+            "text": "Buradaki renk metotları bir **color** değeri alır. Birini [ColorUtil](/docs/uniscript/tr/colorutil) ile oluşturun, örneğin `ColorUtil.FromRGBA(...)`."
         },
         {
             "id": "block-004",

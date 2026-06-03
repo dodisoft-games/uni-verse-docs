@@ -1,9 +1,9 @@
 {
     "id": "marketutil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "MarketUtil",
     "description": "Show an in-game store: open and close a product catalog and start a purchase, with results delivered back to your script.",
-    "link": "/docs/uniscript/en-US/marketutil",
+    "link": "/docs/uniscript/en-us/marketutil",
     "tags": [
         "uniscript",
         "marketutil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "GameUtil",
-        "link": "/docs/uniscript/en-US/gameutil"
+        "link": "/docs/uniscript/en-us/gameutil"
     },
     "next": {
         "name": "Assert",
-        "link": "/docs/uniscript/en-US/assert"
+        "link": "/docs/uniscript/en-us/assert"
     },
     "content": [
         {
@@ -129,7 +129,7 @@
             "tag": "tip",
             "styles": null,
             "classes": null,
-            "text": "Pair the store with saved data so purchases stick: when `MarketEventCall` tells you a purchase succeeded, record it with [StorageUtil](/docs/uniscript/en-US/storageutil)."
+            "text": "Pair the store with saved data so purchases stick: when `MarketEventCall` tells you a purchase succeeded, record it with [StorageUtil](/docs/uniscript/en-us/storageutil)."
         }
     ]
 }

@@ -1,9 +1,9 @@
 {
     "id": "inpututil",
-    "lang": "en-US",
+    "lang": "en-us",
     "name": "InputUtil",
     "description": "Let a script hear player input. Register once, then receive button presses through OnAction and joystick/WASD movement through OnAxis.",
-    "link": "/docs/uniscript/en-US/inpututil",
+    "link": "/docs/uniscript/en-us/inpututil",
     "tags": [
         "uniscript",
         "inpututil",
@@ -14,11 +14,11 @@
     ],
     "previous": {
         "name": "SceneUtil",
-        "link": "/docs/uniscript/en-US/sceneutil"
+        "link": "/docs/uniscript/en-us/sceneutil"
     },
     "next": {
         "name": "CharacterUtil",
-        "link": "/docs/uniscript/en-US/characterutil"
+        "link": "/docs/uniscript/en-us/characterutil"
     },
     "content": [
         {
@@ -130,7 +130,7 @@
             "tag": "p",
             "styles": null,
             "classes": null,
-            "text": "Joystick and WASD-style movement arrives through `OnAxis`. The `value` is a `vector3` describing the direction the player is pushing. Read the parts with [VectorUtil](/docs/uniscript/en-US/vectorutil)."
+            "text": "Joystick and WASD-style movement arrives through `OnAxis`. The `value` is a `vector3` describing the direction the player is pushing. Read the parts with [VectorUtil](/docs/uniscript/en-us/vectorutil)."
         },
         {
             "id": "block-013",
@@ -161,7 +161,7 @@
             "tag": "note",
             "styles": null,
             "classes": null,
-            "text": "Input only reaches your script through **actions** you set up on UI elements (buttons, joysticks). If a key seems to do nothing, make sure its action is wired to an element and your script registered with `AddInputListener`. See [UIUtil](/docs/uniscript/en-US/uiutil) for binding actions to buttons."
+            "text": "Input only reaches your script through **actions** you set up on UI elements (buttons, joysticks). If a key seems to do nothing, make sure its action is wired to an element and your script registered with `AddInputListener`. See [UIUtil](/docs/uniscript/en-us/uiutil) for binding actions to buttons."
         },
         {
             "id": "block-016",
